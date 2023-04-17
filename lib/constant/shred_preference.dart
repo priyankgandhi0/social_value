@@ -1,20 +1,12 @@
 // ignore_for_file: constant_identifier_names
 
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:device_info/device_info.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+
 import 'package:package_info/package_info.dart';
-import 'package:papyrus/utils/routes_manager.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../models/user_model.dart';
 
 final preferences = SharedPreference();
 
@@ -49,27 +41,27 @@ class SharedPreference {
   static const String IS_DARK_MODE = "skipLogin";
   static const String USER_TYPE = "userType";
 
-  saveUserItem(UserModel userItem) {
-    preferences.putBool(IS_LOGGED_IN, true);
-    preferences.putString(AUTH_TOKEN, userItem.data.authToken);
-    preferences.putString(USER_TOKEN, userItem.data.userToken);
-    preferences.putString(USER_EMAIL, userItem.data.email);
-    preferences.putString(USER_NAME, userItem.data.fullName);
-    preferences.putString(USER_PROFILE_IMAGE, userItem.data.profileImage);
-    _preferences!.setString(USER_INFO, jsonEncode(userItem.toJson()));
-  }
-
-  UserModel? getUserData() {
-    if (_preferences == null) {
-      return null;
-    } else {
-      String? userPref = _preferences!.getString(USER_INFO);
-      Map<String, dynamic> userMap =
-          jsonDecode(userPref!) as Map<String, dynamic>;
-      UserModel user = UserModel.fromJson(userMap);
-      return user;
-    }
-  }
+  // saveUserItem(UserModel userItem) {
+  //   preferences.putBool(IS_LOGGED_IN, true);
+  //   preferences.putString(AUTH_TOKEN, userItem.data.authToken);
+  //   preferences.putString(USER_TOKEN, userItem.data.userToken);
+  //   preferences.putString(USER_EMAIL, userItem.data.email);
+  //   preferences.putString(USER_NAME, userItem.data.fullName);
+  //   preferences.putString(USER_PROFILE_IMAGE, userItem.data.profileImage);
+  //   _preferences!.setString(USER_INFO, jsonEncode(userItem.toJson()));
+  // }
+  //
+  // UserModel? getUserData() {
+  //   if (_preferences == null) {
+  //     return null;
+  //   } else {
+  //     String? userPref = _preferences!.getString(USER_INFO);
+  //     Map<String, dynamic> userMap =
+  //         jsonDecode(userPref!) as Map<String, dynamic>;
+  //     UserModel user = UserModel.fromJson(userMap);
+  //     return user;
+  //   }
+  // }
 
   void clearUserItem() async {
     _preferences?.clear();
@@ -78,13 +70,13 @@ class SharedPreference {
     putAppDeviceInfo();
   }
 
-  logOutUser(BuildContext context) {
-    if (getBool(IS_GOOGLE_LOG_IN) ?? false) {
-      GoogleSignIn().signOut();
-    } else if (getBool(IS_APPLE_LOG_IN) ?? false) {}
-   Get.offAllNamed(Routes.signInScreen);
-    clearUserItem();
-  }
+  // logOutUser(BuildContext context) {
+  //   if (getBool(IS_GOOGLE_LOG_IN) ?? false) {
+  //     GoogleSignIn().signOut();
+  //   } else if (getBool(IS_APPLE_LOG_IN) ?? false) {}
+  //  Get.offAllNamed(Routes.signInScreen);
+  //   clearUserItem();
+  // }
 
   void updateUserItem() async {
     _preferences!.reload();

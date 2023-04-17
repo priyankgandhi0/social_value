@@ -1,0 +1,10 @@
+const logIn = 'Log In';
+const password = 'Password';
+const emailAddress = 'Email Address';
+const forgottenPassword = 'Forgotten Password?';
+const needAnAccount = 'Need an Account?';
+const myProfile = 'My Profile';
+const settings = 'Settings';
+const help = 'Help';
+const privacyCentre = 'Privacy Centre';
+const termsConditions = 'Terms & Conditions';

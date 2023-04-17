@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -128,7 +127,6 @@ class PickFile {
       final pickedFile = await ImagePicker().pickImage(
         source: ImageSource.camera,
         imageQuality: 50,
-
       );
       if (pickedFile != null) {
         // controller.addImage(File(pickedFile.path));
@@ -158,11 +156,11 @@ class PickFile {
             duration: const Duration(seconds: 3)),
       );
       return;
-    }  else if (status.isPermanentlyDenied) {
+    } else if (status.isPermanentlyDenied) {
       Get.showSnackbar(
         GetSnackBar(
           message:
-          "To access this feature please grant permission from settings.",
+              "To access this feature please grant permission from settings.",
           mainButton: SnackBarAction(
             label: "Settings",
             textColor: Colors.amber,
