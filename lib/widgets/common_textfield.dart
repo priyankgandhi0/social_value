@@ -200,11 +200,11 @@ class _StartUpTextFiledState extends State<StartUpTextFiled> {
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Colors.red, width: 1.0),
+              borderSide: const BorderSide(color: Colors.red, width: 1.0),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Colors.red, width: 1.0),
+              borderSide: const BorderSide(color: Colors.red, width: 1.0),
             ),
             border: InputBorder.none,
             enabledBorder: OutlineInputBorder(

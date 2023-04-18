@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/Routes_manager.dart';
@@ -28,7 +29,7 @@ class SplashScreen extends StatelessWidget {
   }
 
   _onInit() {
-    Future.delayed(Duration(seconds: 3)).then((value) async {
+    Future.delayed(const Duration(seconds: 3)).then((value) async {
       Get.offAllNamed(Routes.login);
     });
   }

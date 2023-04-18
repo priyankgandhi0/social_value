@@ -22,3 +22,4 @@ const Color lightBlack = Color(0XFFBEC1C2);
 const Color white = Color(0XFFFFFFFF);
 const Color lightWhite = Color(0XFFEFF3F4);
 const Color darkWhite = Color(0XFFD9DDDE);
+const Color textColor = Color(0XFF000000);

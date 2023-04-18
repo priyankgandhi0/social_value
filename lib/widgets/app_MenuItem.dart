@@ -1,12 +1,13 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 
 import 'package:social_value/utils/extension.dart';
 
-class AppDrawerItem extends StatelessWidget {
-  AppDrawerItem(
+class AppMenuItem extends StatelessWidget {
+  AppMenuItem(
       {Key? key,
       this.itemOnTap,
       required this.appImage,
@@ -26,13 +27,12 @@ class AppDrawerItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Image.asset(
+                  SvgPicture.asset(
                     appImage,
-                    color: Colors.black,
                     width: 25,
                     height: 25,
                   ),
-                  20.00.addWSpace(),
+                  25.00.addWSpace(),
                   appItemText.openSansTextStyle(
                       fontSize: 18,
                       fontColor: Colors.black,
@@ -44,7 +44,7 @@ class AppDrawerItem extends StatelessWidget {
         ),
         const Divider(
           color: Color(0xffE4E4E4),
-          thickness: 2,
+          thickness: 1,
         )
       ],
     );
