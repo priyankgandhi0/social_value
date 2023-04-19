@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/theme/app_color.dart';
-import 'package:social_value/ui/main/wellbeing/physical_Health_Home/physical_health_homeController.dart';
+
+import 'package:social_value/ui/main/wellbeing/physical_health/physical_health_homeController.dart';
 
 import 'package:social_value/utils/extension.dart';
 
@@ -62,7 +63,7 @@ class PhysicalHealthHomeScreen extends StatelessWidget {
             controller: controller.controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
-            onTap: (int) {},
+            onTap: (index) {},
             indicator: indicatorWidth(),
             indicatorSize: TabBarIndicatorSize.label,
             indicatorColor: Colors.white,

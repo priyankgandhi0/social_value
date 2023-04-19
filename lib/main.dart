@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:social_value/utils/Routes_manager.dart';
+import 'package:social_value/utils/routes_manager.dart';
 
 void main() {
   runApp(const MyApp());

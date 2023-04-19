@@ -4,7 +4,7 @@ import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
 import '../../../generated/asset.dart';
-import '../../../utils/Routes_manager.dart';
+import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/common_textfield.dart';
 
