@@ -25,46 +25,30 @@ class SuppliesOnGoTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          // width: Get.size.width * 0.52,
-          height: 30,
-          padding: const EdgeInsets.only(bottom: 5),
-          child: DefaultTabController(
-            length: 2,
-            child: TabBar(
-              isScrollable: true,
-              padding: EdgeInsets.zero,
-              indicatorPadding: EdgeInsets.zero,
-              controller: controller,
-              physics: const NeverScrollableScrollPhysics(),
-              indicatorWeight: 2,
-              onTap: onTabTap,
-              indicator: indicatorWidth(),
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorColor: white,
-              labelColor: Colors.black,
-              unselectedLabelColor: Colors.grey,
-              labelStyle: GoogleFonts.inter(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 10),
-              unselectedLabelStyle: GoogleFonts.inter(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 10),
-              tabs: [
-                Tab(
-                  child: Text(tabOne),
-                ),
-                Tab(child: Text(tabTwo)),
-                Tab(child: Text(tabThree)),
-                Tab(child: Text(tabFour)),
-              ],
-            ),
-          ),
+    return TabBar(
+      isScrollable: true,
+      padding: EdgeInsets.zero,
+      indicatorPadding: EdgeInsets.zero,
+      controller: controller,
+      physics: const NeverScrollableScrollPhysics(),
+      indicatorWeight: 2,
+      onTap: onTabTap,
+      indicator: indicatorWidth(),
+      indicatorSize: TabBarIndicatorSize.label,
+      indicatorColor: white,
+      labelColor: Colors.black,
+      // unselectedLabelColor: Colors.grey,
+      labelStyle: GoogleFonts.inter(
+          color: Colors.black, fontWeight: FontWeight.w700, fontSize: 10),
+      unselectedLabelStyle: GoogleFonts.inter(
+          color: Colors.black, fontWeight: FontWeight.w700, fontSize: 10),
+      tabs: [
+        Tab(
+          child: Text(tabOne),
         ),
+        Tab(child: Text(tabTwo)),
+        Tab(child: Text(tabThree)),
+        Tab(child: Text(tabFour)),
       ],
     );
   }

@@ -3,21 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/theme/app_color.dart';
-import 'package:social_value/ui/bottom_nav_bar/bottom_navigation_screen.dart';
+
 import 'package:social_value/utils/extension.dart';
 
-import '../../constant/app_string.dart';
-import '../../utils/Routes_manager.dart';
-import '../../widgets/app_MenuItem.dart';
+import '../../../constant/app_string.dart';
+import '../../../utils/Routes_manager.dart';
+import '../../../widgets/app_MenuItem.dart';
+import '../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNaviBarScreen(),
-      body: Center(
+    return BottomNaviBarScreen(
+      color: darkGreen,
+      child: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [

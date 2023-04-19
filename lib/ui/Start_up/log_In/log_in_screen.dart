@@ -17,7 +17,9 @@ class LogInScreen extends StatelessWidget {
       backgroundColor: darkGreen,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 68),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 50,
+          ),
           child: SingleChildScrollView(
             child: Column(
               children: [
