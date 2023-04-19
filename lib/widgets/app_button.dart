@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 
@@ -41,5 +42,56 @@ class AppFilledButton extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class BorderButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onTap;
+  final double value;
+  final Color? appButtonColor;
+  final Color? appFillColor;
+  final Color? appTextFillColor;
+  final Color? appBorderFillColor;
+  FontWeight? fontWeight;
+
+  BorderButton({
+    Key? key,
+    required this.text,
+    this.appButtonColor,
+    this.appFillColor,
+    this.appTextFillColor,
+    this.appBorderFillColor,
+    this.fontWeight,
+    required this.onTap,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        style: ButtonStyle(
+          elevation: MaterialStateProperty.all(0),
+          backgroundColor:
+              MaterialStateProperty.all(appFillColor ?? Colors.white),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(value),
+              side: BorderSide(color: appBorderFillColor ?? Colors.white))),
+        ),
+        onPressed: () {
+          onTap();
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(text,
+                style: GoogleFonts.workSans(
+                    color: appTextFillColor ?? Colors.white,
+                    fontSize: 15,
+                    fontWeight: fontWeight ?? FontWeight.w600)),
+            10.0.addWSpace(),
+            Icon(Icons.chevron_right),
+          ],
+        ));
   }
 }

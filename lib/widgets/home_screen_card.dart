@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
+
 import '../constant/app_string.dart';
 import '../generated/asset.dart';
 import '../theme/app_color.dart';

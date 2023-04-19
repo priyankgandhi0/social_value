@@ -13,6 +13,8 @@ class ImageAssets {
   static const memberShip = 'assets/images/memberShip.png';
   static const tree = 'assets/images/tree.png';
   static const charityImage = 'assets/images/Charity.png';
+  static const String imagesWellbeingCardImage =
+      'assets/images/wellbeing_card_image.png';
 }
 
 class IconsAssets {
