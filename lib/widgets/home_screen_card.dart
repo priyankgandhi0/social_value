@@ -4,6 +4,7 @@ import 'package:social_value/utils/extension.dart';
 import '../constant/app_string.dart';
 import '../generated/asset.dart';
 import '../theme/app_color.dart';
+import 'app_button.dart';
 
 class ExploreHubCard extends StatelessWidget {
   const ExploreHubCard(
@@ -156,30 +157,7 @@ class MemberShipCard extends StatelessWidget {
                       textAlign: TextAlign.center,
                       fontColor: textColor),
                   10.0.addHSpace(),
-                  GestureDetector(
-                    onTap: onTap,
-                    child: Container(
-                      height: 35,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: darkPurple),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          accessNow.interTextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 13,
-                              fontColor: const Color(0xff333333)),
-                          const Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            color: Color(0xff333333),
-                            size: 15,
-                          )
-                        ],
-                      ),
-                    ),
-                  )
+                  AppButton(text: accessNow, onTap: () {}),
                 ],
               ),
             ),

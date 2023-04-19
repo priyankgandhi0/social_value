@@ -3,21 +3,25 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:social_value/ui/main/wellbeing/wellbeing_home_screen/wellbeing_home_controller.dart';
-
+import 'package:social_value/constant/tab_bar_const.dart';
+import 'package:social_value/ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../constant/app_string.dart';
 import '../../../../theme/app_color.dart';
 
-import '../../../../utils/Routes_manager.dart';
+import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 
-class WellBeingHomeScreen extends StatelessWidget {
-  WellBeingHomeScreen({Key? key}) : super(key: key);
-  final ScrollController scrollController = ScrollController();
-  final WellbeingHomeController controller = WellbeingHomeController();
+class WellBeingMain extends StatefulWidget {
+  @override
+  State<WellBeingMain> createState() => _WellBeingMainState();
+}
 
+TabController? controller;
+
+class _WellBeingMainState extends State<WellBeingMain> {
+  final ScrollController scrollController = ScrollController();
+  final WellbeingHomeController controller = Get.put(WellbeingHomeController());
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -27,15 +31,16 @@ class WellBeingHomeScreen extends StatelessWidget {
           appbar: AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: darkDeepPurple,
-            title: Container(
-                height: 30,
-                width: 120,
-                decoration: BoxDecoration(
-                    color: white, borderRadius: BorderRadius.circular(16)),
-                child: Center(
-                  child: wellbeing.interTextStyle(
-                      fontWeight: FontWeight.w400, fontSize: 16),
-                )),
+            title: Row(
+              children: [
+                AppBarChip(
+                  onTap: () {},
+                  text: wellbeing,
+                  textColor: textColor,
+                  color: white,
+                ),
+              ],
+            ),
             bottom: TabBar(
               isScrollable: true,
               padding: EdgeInsets.zero,
@@ -44,8 +49,8 @@ class WellBeingHomeScreen extends StatelessWidget {
               // physics: const NeverScrollableScrollPhysics(),
               indicatorWeight: 0,
               onTap: (index) {
-                if (index == 1) {
-                  Get.toNamed(Routes.physicalHealthHomeScreen);
+                if (index != 0) {
+                  wellbeingTabs[controller.controller?.index ?? 0].onTap.call();
                 }
                 controller.controller?.animateTo(0);
               },
@@ -58,19 +63,14 @@ class WellBeingHomeScreen extends StatelessWidget {
                   color: white, fontWeight: FontWeight.w700, fontSize: 13),
               unselectedLabelStyle: GoogleFonts.inter(
                   color: white, fontWeight: FontWeight.w700, fontSize: 13),
-              tabs: const [
-                Tab(text: dashboard),
-                Tab(text: myPhysicalHealth),
-                Tab(text: myMentalHealth),
-                Tab(text: finances)
-              ],
+              tabs: wellbeingTabs
+                  .map(
+                    (e) => Tab(text: e.tabText),
+                  )
+                  .toList(),
             ),
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [],
-            ),
-          ),
+          child: wellbeingTabs[controller.controller?.index ?? 0].tabWidget,
         ));
   }
 }
