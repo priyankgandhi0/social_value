@@ -17,6 +17,8 @@ class Assets {
   static const String iconsTermsIcon = 'assets/icons/termsIcon.svg';
   static const String iconsTree = 'assets/icons/tree.svg';
   static const String iconsWellbing = 'assets/icons/wellbing.svg';
+  static const String imagesCenterCardImage =
+      'assets/images/center_card_image.png';
   static const String imagesCharity = 'assets/images/Charity.png';
   static const String imagesCreditCard = 'assets/images/creditCard.png';
   static const String imagesCreditcard = 'assets/images/creditcard.svg';

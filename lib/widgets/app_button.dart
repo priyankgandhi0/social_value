@@ -54,6 +54,7 @@ class BorderButton extends StatelessWidget {
   final Color? appTextFillColor;
   final Color? appBorderFillColor;
   FontWeight? fontWeight;
+  double? fontSize;
 
   BorderButton({
     Key? key,
@@ -63,6 +64,7 @@ class BorderButton extends StatelessWidget {
     this.appTextFillColor,
     this.appBorderFillColor,
     this.fontWeight,
+    this.fontSize,
     required this.onTap,
     required this.value,
   }) : super(key: key);
@@ -87,7 +89,7 @@ class BorderButton extends StatelessWidget {
             Text(text,
                 style: GoogleFonts.workSans(
                     color: appTextFillColor ?? Colors.white,
-                    fontSize: 15,
+                    fontSize: fontSize ?? 15,
                     fontWeight: fontWeight ?? FontWeight.w600)),
             10.0.addWSpace(),
             Icon(Icons.chevron_right),
