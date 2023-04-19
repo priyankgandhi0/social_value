@@ -4,9 +4,11 @@ import '../theme/app_color.dart';
 
 class BNBCustomPainter extends CustomPainter {
   @override
+  Color color;
+  BNBCustomPainter(this.color);
   void paint(Canvas canvas, Size size) {
     Paint paint = new Paint()
-      ..color = darkGreen
+      ..color = color
       ..style = PaintingStyle.fill;
 
     Path path = Path();
@@ -20,7 +22,6 @@ class BNBCustomPainter extends CustomPainter {
 
     path.arcToPoint(Offset(size.width, 20),
         radius: const Radius.elliptical(50, 15.0), clockwise: true);
-
     // path.quadraticBezierTo(size.width * 0.80, 0, size.width, 20);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);

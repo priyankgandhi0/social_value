@@ -193,7 +193,7 @@ class _StartUpTextFiledState extends State<StartUpTextFiled> {
                 width: 1,
                 color: widget.borderColor == null
                     ? _isFocus
-                        ? Colors.purple
+                        ? Colors.grey
                         : Colors.white
                     : widget.borderColor!,
               ),
@@ -213,7 +213,7 @@ class _StartUpTextFiledState extends State<StartUpTextFiled> {
                 width: 1,
                 color: widget.borderColor == null
                     ? _isFocus
-                        ? Colors.purple
+                        ? Colors.grey
                         : Colors.white
                     : widget.borderColor!,
               ),
@@ -224,7 +224,7 @@ class _StartUpTextFiledState extends State<StartUpTextFiled> {
                 width: 1,
                 color: widget.borderColor == null
                     ? _isFocus
-                        ? Colors.purple
+                        ? Colors.grey
                         : Colors.white
                     : widget.borderColor!,
               ),

@@ -83,8 +83,8 @@ extension AppText3 on String {
 
 Decoration indicatorWidth() {
   return UnderlineTabIndicator(
-    borderSide: BorderSide(color: darkGreen, width: 3),
-    insets: const EdgeInsets.only(bottom: 14),
+    borderSide: BorderSide(color: white, width: 2),
+    insets: const EdgeInsets.only(bottom: 0),
   );
 }
 
