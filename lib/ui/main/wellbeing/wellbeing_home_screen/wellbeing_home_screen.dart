@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,6 +10,7 @@ import 'package:social_value/utils/extension.dart';
 import '../../../../constant/app_string.dart';
 import '../../../../theme/app_color.dart';
 
+import '../../../../utils/Routes_manager.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class WellBeingHomeScreen extends StatelessWidget {
@@ -40,7 +43,12 @@ class WellBeingHomeScreen extends StatelessWidget {
               controller: controller.controller,
               // physics: const NeverScrollableScrollPhysics(),
               indicatorWeight: 0,
-              onTap: (int) {},
+              onTap: (index) {
+                if (index == 1) {
+                  Get.toNamed(Routes.physicalHealthHomeScreen);
+                }
+                controller.controller?.animateTo(0);
+              },
               indicator: indicatorWidth(),
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: white,

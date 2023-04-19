@@ -7,8 +7,8 @@ import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 
 import '../../../constant/app_string.dart';
-import '../../../utils/Routes_manager.dart';
-import '../../../widgets/app_MenuItem.dart';
+import '../../../utils/routes_manager.dart';
+import '../../../widgets/app_menuItem.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class MenuScreen extends StatelessWidget {

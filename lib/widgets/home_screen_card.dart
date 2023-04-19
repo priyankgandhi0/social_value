@@ -119,8 +119,10 @@ class LesmillsCard extends StatelessWidget {
 }
 
 class MemberShipCard extends StatelessWidget {
-  const MemberShipCard({Key? key, this.onTap}) : super(key: key);
+  const MemberShipCard({Key? key, this.onTap, required this.text})
+      : super(key: key);
   final VoidCallback? onTap;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -149,7 +151,7 @@ class MemberShipCard extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  memberShipDesc.interTextStyle(
+                  text.interTextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       textAlign: TextAlign.center,

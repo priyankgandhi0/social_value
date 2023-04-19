@@ -4,7 +4,8 @@ import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
 import '../ui/main/homescreen/Home_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
-import '../ui/main/wellbeing/physical_Health_Home/physical_Health_HomeScreen.dart';
+
+import '../ui/main/wellbeing/physical_health/physical_Health_HomeScreen.dart';
 import '../ui/main/wellbeing/wellbeing_home_screen/wellbeing_home_screen.dart';
 
 class Routes {
@@ -15,14 +16,26 @@ class Routes {
   static String wellBeingHomeScreen = "/WellBeing_Home_Screen";
   static String physicalHealthHomeScreen = "/Physical_Health_HomeScreen";
   static List<GetPage> pages = [
-    GetPage(name: Routes.splashScreen, page: () => const SplashScreen()),
-    GetPage(name: Routes.login, page: () => const LogInScreen()),
-    GetPage(name: Routes.menuScreen, page: () => const MenuScreen()),
-    GetPage(name: Routes.homeScreen, page: () => const HomeScreen()),
     GetPage(
-        name: Routes.wellBeingHomeScreen, page: () => WellBeingHomeScreen()),
+        name: Routes.splashScreen,
+        page: () => const SplashScreen(),
+        transition: Transition.noTransition),
+    GetPage(name: Routes.login, page: () => const LogInScreen()),
+    GetPage(
+        name: Routes.menuScreen,
+        page: () => const MenuScreen(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.homeScreen,
+        page: () => const HomeScreen(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.wellBeingHomeScreen,
+        page: () => WellBeingHomeScreen(),
+        transition: Transition.noTransition),
     GetPage(
         name: Routes.physicalHealthHomeScreen,
-        page: () => PhysicalHealthHomeScreen()),
+        page: () => PhysicalHealthHomeScreen(),
+        transition: Transition.noTransition),
   ];
 }

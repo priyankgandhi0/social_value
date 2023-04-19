@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
-import 'package:social_value/utils/Routes_manager.dart';
+import 'package:social_value/utils/routes_manager.dart';
 import 'generated/asset.dart';
 import 'dart:async';
 
