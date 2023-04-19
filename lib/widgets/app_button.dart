@@ -53,6 +53,7 @@ class BorderButton extends StatelessWidget {
   final Color? appFillColor;
   final Color? appTextFillColor;
   final Color? appBorderFillColor;
+  bool? rightIcon = false;
   FontWeight? fontWeight;
   double? fontSize;
 
@@ -65,6 +66,7 @@ class BorderButton extends StatelessWidget {
     this.appBorderFillColor,
     this.fontWeight,
     this.fontSize,
+    this.rightIcon,
     required this.onTap,
     required this.value,
   }) : super(key: key);
@@ -92,7 +94,7 @@ class BorderButton extends StatelessWidget {
                     fontSize: fontSize ?? 15,
                     fontWeight: fontWeight ?? FontWeight.w600)),
             10.0.addWSpace(),
-            Icon(Icons.chevron_right),
+            rightIcon == true ? Icon(Icons.chevron_right) : Container(),
           ],
         ));
   }

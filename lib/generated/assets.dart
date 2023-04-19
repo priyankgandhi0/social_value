@@ -22,16 +22,19 @@ class Assets {
   static const String imagesCharity = 'assets/images/Charity.png';
   static const String imagesCreditCard = 'assets/images/creditCard.png';
   static const String imagesCreditcard = 'assets/images/creditcard.svg';
+  static const String imagesDescBmi = 'assets/images/desc_bmi.png';
   static const String imagesLadyImage = 'assets/images/ladyImage.png';
   static const String imagesLadyImage2 = 'assets/images/ladyImage2.png';
   static const String imagesLesMills = 'assets/images/lesMills.png';
   static const String imagesLessmills = 'assets/images/lessmills.png';
   static const String imagesMemberLogo = 'assets/images/memberLogo.png';
   static const String imagesMemberShip = 'assets/images/memberShip.png';
+  static const String imagesPlayButton = 'assets/images/play_button.png';
   static const String imagesProfile = 'assets/images/profile.png';
   static const String imagesSpash = 'assets/images/spash.png';
   static const String imagesSplash = 'assets/images/splash.svg';
   static const String imagesTree = 'assets/images/tree.png';
   static const String imagesWellbeingCardImage =
       'assets/images/wellbeing_card_image.png';
+  static const String imagesWorkoutImg = 'assets/images/workout_img.png';
 }

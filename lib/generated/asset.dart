@@ -17,6 +17,9 @@ class ImageAssets {
       'assets/images/wellbeing_card_image.png';
   static const String imagesCenterCardImage =
       'assets/images/center_card_image.png';
+  static const String imagesPlayButton = 'assets/images/play_button.png';
+  static const String imagesWorkoutImg = 'assets/images/workout_img.png';
+  static const String imagesDescBmi = 'assets/images/desc_bmi.png';
 }
 
 class IconsAssets {

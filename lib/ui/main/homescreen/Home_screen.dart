@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import 'package:social_value/utils/extension.dart';
 
 import '../../../constant/app_string.dart';
@@ -346,6 +345,11 @@ class HomeScreen extends StatelessWidget {
                           itemCount: 4,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
+                            // return AppBodyPumptCard(
+                            //   desc: 'ABC',
+                            //   descColor: Colors.black,
+                            //   image: ImageAssets.imagesWorkoutImg,
+                            // );
                             return Container(
                               margin: const EdgeInsets.only(right: 10),
                               height: 111,
@@ -364,6 +368,11 @@ class HomeScreen extends StatelessWidget {
                           },
                         ),
                       ),
+                      // AppBodyPumptCard(
+                      //   title: 'Lower Bodypump Session 2',
+                      //   titleColor: Colors.black,
+                      //   image: ImageAssets.imagesWorkoutImg,
+                      // ),
                       10.0.addHSpace(),
                       // Row(
                       //   mainAxisAlignment: MainAxisAlignment.center,

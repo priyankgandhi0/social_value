@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -189,173 +187,66 @@ class CenterImageCard extends StatelessWidget {
   }
 }
 
-class AppSquareCard extends StatelessWidget {
-  AppSquareCard({
-    Key? key,
-    this.desc,
-    required this.image,
-    required this.descColor,
-    this.btnText,
-  }) : super(key: key);
-
-  String? desc;
-  String image;
-  Color? descColor;
-  String? btnText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(alignment: Alignment.center, children: [
-      ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Image.asset(
-          image,
-          fit: BoxFit.cover,
-          height: 165,
-          width: 165,
-        ),
-      ),
-      10.0.addHSpace(),
-      Expanded(
-        child: SizedBox(
-          height: 165,
-          width: 165,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              desc != null
-                  ? desc?.interTextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                      maxLines: 4,
-                      textOverflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      fontColor: descColor ?? Colors.black)
-                  : Container(),
-              btnText != null
-                  ? BorderButton(
-                      appBorderFillColor: Colors.white,
-                      appFillColor: Colors.transparent,
-                      onTap: () {},
-                      text: btnText!,
-                      fontSize: 12,
-                      value: 10,
-                    )
-                  : Container()
-            ],
-          ).paddingSymmetric(horizontal: 5),
-        ),
-      )
-    ]).paddingSymmetric(horizontal: 10);
-  }
-}
-
-class AppArticlesCard extends StatelessWidget {
-  AppArticlesCard({
-    Key? key,
-    required this.desc,
-    required this.image,
-    required this.descColor,
-    this.btnText,
-  }) : super(key: key);
-
-  String desc;
-  String image;
-  Color? descColor;
-  String? btnText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(image: AssetImage(image), fit: BoxFit.fill)),
-        height: 165,
-        width: 165,
-        child: Container(
-          alignment: Alignment.bottomCenter,
-          child: ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-              child: Container(
-                alignment: Alignment.center,
-                height: 50,
-                decoration: BoxDecoration(color: Colors.white.withOpacity(0.7)),
-                child: desc.interTextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 11,
-                    maxLines: 4,
-                    textOverflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                    fontColor: descColor ?? Colors.black),
-              ),
-            ),
-          ),
-        ));
-  }
-}
-
-class AppDiscountCard extends StatelessWidget {
-  AppDiscountCard({
-    Key? key,
-    this.desc,
-    required this.image,
-    required this.descColor,
-    this.btnText,
-  }) : super(key: key);
-
-  String? desc;
-  String image;
-  Color? descColor;
-  String? btnText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: Colors.white),
-      height: 300,
-      width: Get.size.width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          10.0.addHSpace(),
-          'Get Your Free XO Discount Card'.interTextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 15,
-              maxLines: 4,
-              textOverflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-              fontColor: descColor ?? Colors.black),
-          Image.asset(
-            image,
-            fit: BoxFit.cover,
-            height: 165,
-            width: 165,
-          ),
-          desc != null
-              ? desc?.interTextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14,
-                  maxLines: 4,
-                  textOverflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  fontColor: descColor ?? Colors.black)
-              : Container(),
-          btnText != null
-              ? BorderButton(
-                  appBorderFillColor: Colors.white,
-                  appFillColor: Colors.transparent,
-                  onTap: () {},
-                  text: btnText!,
-                  fontSize: 12,
-                  value: 10,
-                )
-              : Container()
-        ],
-      ).paddingSymmetric(horizontal: 5),
-    ).paddingSymmetric(horizontal: 10);
-  }
-}
+// class AppDiscountCard extends StatelessWidget {
+//   AppDiscountCard({
+//     Key? key,
+//     this.desc,
+//     required this.image,
+//     required this.descColor,
+//     this.btnText,
+//   }) : super(key: key);
+//
+//   String? desc;
+//   String image;
+//   Color? descColor;
+//   String? btnText;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(10), color: Colors.white),
+//       height: 300,
+//       width: Get.size.width,
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.center,
+//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//         children: [
+//           10.0.addHSpace(),
+//           'Get Your Free XO Discount Card'.interTextStyle(
+//               fontWeight: FontWeight.w700,
+//               fontSize: 15,
+//               maxLines: 4,
+//               textOverflow: TextOverflow.ellipsis,
+//               textAlign: TextAlign.center,
+//               fontColor: descColor ?? Colors.black),
+//           Image.asset(
+//             image,
+//             fit: BoxFit.cover,
+//             height: 165,
+//             width: 165,
+//           ),
+//           desc != null
+//               ? desc?.interTextStyle(
+//                   fontWeight: FontWeight.w700,
+//                   fontSize: 14,
+//                   maxLines: 4,
+//                   textOverflow: TextOverflow.ellipsis,
+//                   textAlign: TextAlign.center,
+//                   fontColor: descColor ?? Colors.black)
+//               : Container(),
+//           btnText != null
+//               ? BorderButton(
+//                   appBorderFillColor: Colors.white,
+//                   appFillColor: Colors.transparent,
+//                   onTap: () {},
+//                   text: btnText!,
+//                   fontSize: 12,
+//                   value: 10,
+//                 )
+//               : Container()
+//         ],
+//       ).paddingSymmetric(horizontal: 5),
+//     ).paddingSymmetric(horizontal: 10);
+//   }
+// }

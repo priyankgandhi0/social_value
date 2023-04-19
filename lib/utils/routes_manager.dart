@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
+import 'package:social_value/ui/main/bmi_calculator/bmi_calculator.dart';
+
 import '../splash_screen.dart';
-
 import '../ui/Start_up/log_In/log_in_screen.dart';
-import '../ui/main/homescreen/Home_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
-
 import '../ui/main/wellbeing/physical_health/physical_Health_HomeScreen.dart';
 import '../ui/main/wellbeing/wellbeing_home_screen/wellbeing_home_screen.dart';
 
@@ -27,7 +26,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.homeScreen,
-        page: () => const HomeScreen(),
+        page: () => const BmiCalculator(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.wellBeingHomeScreen,

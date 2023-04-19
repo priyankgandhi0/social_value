@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
-
-import '../theme/app_color.dart';
 
 class StartUpTextFiled extends StatefulWidget {
   const StartUpTextFiled({
@@ -37,6 +36,7 @@ class StartUpTextFiled extends StatefulWidget {
     this.suffixSubIcon,
     this.validationMessage,
     this.fillColor,
+    this.fontColor,
     this.onChange,
     this.enabled,
     this.onEditingComplete,
@@ -75,6 +75,7 @@ class StartUpTextFiled extends StatefulWidget {
   final Color? headingTextColor;
   final Color? hintTextColor;
   final Color? fillColor;
+  final Color? fontColor;
   final bool needValidation;
   final bool isShowBorder;
   final bool isCursorShow;
@@ -150,10 +151,10 @@ class _StartUpTextFiledState extends State<StartUpTextFiled> {
               // fontFamily: 'Prompt',
               fontSize: 16,
               fontWeight: FontWeight.w300,
-              color: white),
+              color: widget.fontColor ?? white),
           keyboardType: widget.textInputType ?? TextInputType.text,
           controller: widget.controller,
-          cursorColor: Colors.white,
+          cursorColor: widget.fontColor ?? Colors.white,
           validator: widget.validator,
 
           onEditingComplete: () {
