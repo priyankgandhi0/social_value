@@ -154,7 +154,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                             onTap: () {
-                              Get.toNamed(Routes.wellBeingHomeScreen);
+                              Get.toNamed(Routes.wellBeingDashBoardScreen);
                             },
                             child: SvgPicture.asset(
                               IconsAssets.wellbeingIcon,
@@ -171,9 +171,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                            onTap: () {
-                              Get.toNamed(Routes.physicalHealthHomeScreen);
-                            },
+                            onTap: () {},
                             child: SvgPicture.asset(IconsAssets.planetIcon)),
                         // 1.0.addHSpace(),
                         Planet.interTextStyle(

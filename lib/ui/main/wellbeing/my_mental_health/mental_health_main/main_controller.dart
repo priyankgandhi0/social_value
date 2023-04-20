@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MentalHealthDashboardController extends GetxController
+class MentalHealthMainController extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? controller;
   @override

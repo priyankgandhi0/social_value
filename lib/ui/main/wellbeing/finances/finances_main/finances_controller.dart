@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class FinanceDashboardController extends GetxController
+class FinanceMainController extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? controller;
   @override

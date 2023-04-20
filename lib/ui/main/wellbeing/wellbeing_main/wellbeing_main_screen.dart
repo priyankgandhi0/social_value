@@ -20,7 +20,6 @@ class WellBeingMain extends StatefulWidget {
 TabController? controller;
 
 class _WellBeingMainState extends State<WellBeingMain> {
-  final ScrollController scrollController = ScrollController();
   final WellbeingHomeController controller = Get.put(WellbeingHomeController());
   @override
   Widget build(BuildContext context) {
