@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -79,6 +80,46 @@ extension AppText3 on String {
       textAlign: textAlign,
     );
   }
+}
+
+Widget appCommonTextSpan({
+  Color color = Colors.black,
+  Color childColor = Colors.black,
+  double size = 20,
+  double? childsize,
+  TextAlign align = TextAlign.center,
+  FontWeight weight = FontWeight.w500,
+  FontWeight childweight = FontWeight.w300,
+  TextOverflow? overflow,
+  int? maxLines,
+  String? text,
+  String? childText,
+  TextDecoration? decoration,
+  TextDecoration? childDecoration,
+  Function()? onTapUp,
+}) {
+  return Text.rich(
+      maxLines: maxLines,
+      overflow: overflow,
+      TextSpan(
+          text: text ?? '',
+          style: GoogleFonts.inter(
+              fontSize: size,
+              color: color,
+              // color: isDarkMode ? Colors.white : color,
+              fontWeight: weight,
+              decoration: decoration),
+          children: <InlineSpan>[
+            TextSpan(
+                text: childText ?? '',
+                style: GoogleFonts.inter(
+                    fontSize: childsize ?? size,
+                    color: childColor,
+                    // color: isDarkMode ? Colors.white : color,
+                    fontWeight: childweight,
+                    decoration: childDecoration),
+                recognizer: TapGestureRecognizer()..onTap = onTapUp)
+          ]));
 }
 
 Decoration indicatorWidth() {
