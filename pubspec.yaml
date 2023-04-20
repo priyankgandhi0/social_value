@@ -45,8 +45,6 @@ dependencies:
   device_info: ^2.0.3
   flutter_svg: ^2.0.5
   percent_indicator: ^4.2.3
-
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

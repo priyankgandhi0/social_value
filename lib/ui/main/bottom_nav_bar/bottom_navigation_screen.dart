@@ -5,6 +5,8 @@ import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
 
+import '../../../generated/assets.dart';
+import '../../../theme/app_color.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../utils/custom_bottom_item.dart';
 
@@ -121,6 +123,7 @@ class BottomNaviBarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: backGroundColor,
       appBar: appbar,
       body: Stack(
         children: [
@@ -142,7 +145,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                             onTap: () {
                               Get.toNamed(Routes.dashboardScreen);
                             },
-                            child: SvgPicture.asset(IconsAssets.dashBoardIcon)),
+                            child: SvgPicture.asset(Assets.iconsDashBoardIcon)),
                         4.0.addHSpace(),
                         dashboard.interTextStyle(
                             fontSize: 12,
@@ -172,7 +175,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                             onTap: () {},
-                            child: SvgPicture.asset(IconsAssets.planetIcon)),
+                            child: SvgPicture.asset(Assets.iconsPlanet)),
                         // 1.0.addHSpace(),
                         Planet.interTextStyle(
                             fontSize: 12,
@@ -184,7 +187,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                             onTap: () {},
-                            child: SvgPicture.asset(IconsAssets.communityIcon)),
+                            child: SvgPicture.asset(Assets.iconsCommunity)),
                         4.0.addHSpace(),
                         community.interTextStyle(
                             fontSize: 12,
@@ -197,7 +200,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                         GestureDetector(
                           onTap: () {},
                           child: SvgPicture.asset(
-                            IconsAssets.moreIcon,
+                            Assets.iconsMore,
                           ),
                         ),
                         14.0.addHSpace(),

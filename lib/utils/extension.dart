@@ -46,7 +46,7 @@ extension AppText2 on String {
       maxLines: maxLines,
       style: GoogleFonts.inter(
         fontStyle: FontStyle.normal,
-        color: fontColor ?? black,
+        color: fontColor ?? textColor,
         fontSize: fontSize ?? 16,
         fontWeight: fontWeight,
         decoration: textDecoration ?? TextDecoration.none,
@@ -72,7 +72,7 @@ extension AppText3 on String {
       maxLines: maxLines,
       style: GoogleFonts.openSans(
         fontStyle: FontStyle.normal,
-        color: fontColor ?? black,
+        color: fontColor ?? textColor,
         fontSize: fontSize ?? 16,
         fontWeight: fontWeight,
         decoration: textDecoration ?? TextDecoration.none,
@@ -123,9 +123,9 @@ Widget appCommonTextSpan({
 }
 
 Decoration indicatorWidth() {
-  return UnderlineTabIndicator(
+  return const UnderlineTabIndicator(
     borderSide: BorderSide(color: white, width: 2),
-    insets: const EdgeInsets.only(bottom: 0),
+    insets: EdgeInsets.only(bottom: 0),
   );
 }
 

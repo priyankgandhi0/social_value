@@ -1,6 +1,6 @@
 import 'package:social_value/models/home_card_model.dart';
 
-import '../generated/asset.dart';
+import '../generated/assets.dart';
 import '../theme/app_color.dart';
 import 'app_string.dart';
 
@@ -9,24 +9,24 @@ List<HomeCardModel> homeCard = [
       onTap: () {},
       subText: wellbeingHub,
       text: wellbeingHubText,
-      image: ImageAssets.ladyImage,
+      image: Assets.imagesLadyImage,
       color: darkDeepPurple),
   HomeCardModel(
       onTap: () {},
       subText: wellbeingHub,
       text: wellbeingHubText,
-      image: ImageAssets.ladyImage,
+      image: Assets.imagesLadyImage,
       color: darkGreen),
   HomeCardModel(
       onTap: () {},
       subText: wellbeingHub,
       text: wellbeingHubText,
-      image: ImageAssets.ladyImage,
+      image: Assets.imagesLadyImage,
       color: lightGreen),
   HomeCardModel(
       onTap: () {},
       subText: wellbeingHub,
       text: wellbeingHubText,
-      image: ImageAssets.ladyImage,
+      image: Assets.imagesLadyImage,
       color: darkOrange),
 ];

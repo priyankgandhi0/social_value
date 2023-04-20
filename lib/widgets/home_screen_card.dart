@@ -4,6 +4,7 @@ import 'package:social_value/utils/extension.dart';
 
 import '../constant/app_string.dart';
 import '../generated/asset.dart';
+import '../generated/assets.dart';
 import '../theme/app_color.dart';
 import 'app_button.dart';
 
@@ -70,7 +71,7 @@ class LesmillsCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
-              ImageAssets.ladyImage1,
+              Assets.imagesLesMills,
               fit: BoxFit.cover,
             ),
           ),
@@ -80,7 +81,7 @@ class LesmillsCard extends StatelessWidget {
             100.0.addHSpace(),
             Center(
               child: Image.asset(
-                ImageAssets.lessmills,
+                Assets.imagesLessmills,
               ),
             ),
             15.0.addHSpace(),
@@ -141,7 +142,7 @@ class MemberShipCard extends StatelessWidget {
             decoration: const BoxDecoration(
                 color: white,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(8))),
-            child: Image.asset(ImageAssets.creditCard).paddingAll(10),
+            child: Image.asset(Assets.imagesCreditCard).paddingAll(10),
           ),
           Container(
             height: 116,

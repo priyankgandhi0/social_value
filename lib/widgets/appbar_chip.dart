@@ -5,7 +5,7 @@ import 'package:social_value/utils/extension.dart';
 import '../theme/app_color.dart';
 
 class AppBarChip extends StatelessWidget {
-  AppBarChip(
+  const AppBarChip(
       {Key? key,
       required this.text,
       required this.textColor,

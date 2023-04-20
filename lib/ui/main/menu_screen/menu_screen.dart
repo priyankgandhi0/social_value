@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:social_value/generated/asset.dart';
+
 import 'package:social_value/theme/app_color.dart';
 
 import 'package:social_value/utils/extension.dart';
 
 import '../../../constant/app_string.dart';
+import '../../../generated/assets.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_menuItem.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
@@ -47,7 +48,7 @@ class MenuScreen extends StatelessWidget {
                       // )
                       //     :
                       Image.asset(
-                    ImageAssets.profileImage,
+                    Assets.imagesProfile,
                     fit: BoxFit.cover,
                     // width: 200,
                     // height: 200,
@@ -63,25 +64,25 @@ class MenuScreen extends StatelessWidget {
                 thickness: 1,
               ),
               AppMenuItem(
-                  appImage: IconsAssets.myProfile,
+                  appImage: Assets.iconsMyProfile,
                   appItemText: myProfile,
                   itemOnTap: () {
                     Get.toNamed(Routes.dashboardScreen);
                   }),
               AppMenuItem(
-                  appImage: IconsAssets.settingIcon,
+                  appImage: Assets.iconsSettingIcon,
                   appItemText: settings,
                   itemOnTap: () {}),
               AppMenuItem(
-                  appImage: IconsAssets.helpIcon,
+                  appImage: Assets.iconsHelpIcon,
                   appItemText: help,
                   itemOnTap: () {}),
               AppMenuItem(
-                  appImage: IconsAssets.termsIcon,
+                  appImage: Assets.iconsTermsIcon,
                   appItemText: termsConditions,
                   itemOnTap: () {}),
               AppMenuItem(
-                  appImage: IconsAssets.privacyIcon,
+                  appImage: Assets.iconsPrivacyIcon,
                   appItemText: privacyCentre,
                   itemOnTap: () {}),
               40.0.addHSpace(),
@@ -106,7 +107,7 @@ class MenuScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                     27.0.addHSpace(),
-                    Image.asset(ImageAssets.memberLogo)
+                    Image.asset(Assets.imagesMemberLogo)
                   ],
                 ),
               ).paddingOnly(left: 16, right: 16, bottom: 40)

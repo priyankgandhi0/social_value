@@ -6,6 +6,8 @@ import 'package:social_value/utils/routes_manager.dart';
 import 'generated/asset.dart';
 import 'dart:async';
 
+import 'generated/assets.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -20,7 +22,7 @@ class SplashScreen extends StatelessWidget {
         alignment: Alignment.center,
         width: Get.size.width,
         child: Image.asset(
-          ImageAssets.splashLogo,
+          Assets.imagesSpash,
           height: Get.height / 1.4,
           width: Get.width / 1.4,
         ).paddingOnly(left: 30, right: 30),

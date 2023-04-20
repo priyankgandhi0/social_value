@@ -2,9 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:social_value/generated/asset.dart';
+
 import 'package:social_value/utils/extension.dart';
 
+import '../generated/assets.dart';
 import '../theme/app_color.dart';
 import 'app_button.dart';
 
@@ -174,7 +175,7 @@ class AppVideoCommonCard extends StatelessWidget {
             Center(
               child: Image.asset(
                 color: Colors.grey.shade300.withOpacity(0.9),
-                ImageAssets.imagesPlayButton,
+                Assets.imagesPlayButton,
                 fit: BoxFit.cover,
                 height: 50,
                 width: 50,
@@ -190,7 +191,7 @@ class AppWorkOutCard extends StatelessWidget {
     Key? key,
     required this.title,
     required this.image,
-    required this.titleColor,
+    this.titleColor,
   }) : super(key: key);
 
   String title;
@@ -214,18 +215,18 @@ class AppWorkOutCard extends StatelessWidget {
                 maxLines: 4,
                 textOverflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
-                fontColor: titleColor ?? Colors.black),
+                fontColor: titleColor ?? textColor),
           ),
         ));
   }
 }
 
-class AppBodyPumptCard extends StatelessWidget {
+/*class AppBodyPumptCard extends StatelessWidget {
   AppBodyPumptCard({
     Key? key,
     required this.title,
     required this.image,
-    required this.titleColor,
+    this.titleColor,
   }) : super(key: key);
 
   String title;
@@ -258,8 +259,119 @@ class AppBodyPumptCard extends StatelessWidget {
                     maxLines: 4,
                     textOverflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
-                    fontColor: titleColor ?? Colors.black),
+                    fontColor: titleColor ?? textColor),
               )),
+        ));
+  }
+}*/
+
+class AppBodyPumptCard extends StatelessWidget {
+  AppBodyPumptCard({
+    Key? key,
+    required this.title,
+    required this.image,
+    this.onTap,
+    this.titleColor,
+  }) : super(key: key);
+
+  String title;
+  String image;
+  Color? titleColor;
+  VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.shade400,
+                    blurRadius: 3,
+                    offset: Offset(2, 2))
+              ]),
+          height: 185,
+          width: 140,
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10)),
+                child: Container(
+                  height: 116,
+                  // width: 170,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(image), fit: BoxFit.cover)),
+                ),
+              ),
+              Container(
+                  alignment: Alignment.center,
+                  height: 65,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      color: Colors.white),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
+                    child: title.interTextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        maxLines: 4,
+                        textOverflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        fontColor: titleColor ?? textColor),
+                  )),
+            ],
+          )),
+    );
+  }
+}
+
+class WorkOutCard extends StatelessWidget {
+  WorkOutCard({
+    Key? key,
+    required this.title,
+    required this.image,
+    this.titleColor,
+  }) : super(key: key);
+
+  String title;
+  String image;
+  Color? titleColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 100,
+        width: 180,
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              top: 50,
+              child: title.interTextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  maxLines: 4,
+                  textOverflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  fontColor: titleColor ?? white),
+            )
+          ],
         ));
   }
 }

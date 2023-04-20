@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
-import '../../../generated/asset.dart';
+
+import '../../../generated/assets.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/common_textfield.dart';
@@ -23,7 +24,7 @@ class LogInScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Image.asset(IconsAssets.heart),
+                Image.asset(Assets.iconsHeart),
                 32.0.addHSpace(),
                 logIn.appEpilogueTextStyle(
                     fontColor: Colors.white,

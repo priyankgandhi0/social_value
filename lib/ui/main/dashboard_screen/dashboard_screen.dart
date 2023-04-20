@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:social_value/constant/home_card_const.dart';
 
 import 'package:social_value/utils/extension.dart';
 
 import '../../../constant/app_string.dart';
 import '../../../generated/asset.dart';
+import '../../../generated/assets.dart';
 import '../../../theme/app_color.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_button.dart';
@@ -66,7 +66,7 @@ class DashboardScreen extends StatelessWidget {
                                         // )
                                         //     :
                                         Image.asset(
-                                      ImageAssets.profileImage,
+                                      Assets.imagesProfile,
                                       fit: BoxFit.cover,
                                       // width: 200,
                                       // height: 200,
@@ -127,7 +127,7 @@ class DashboardScreen extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       SvgPicture.asset(
-                                        ImageAssets.roundIcon,
+                                        Assets.icons75Rounder,
                                         height: 45,
                                         width: 45,
                                       ),
@@ -154,7 +154,7 @@ class DashboardScreen extends StatelessWidget {
                                   child: Row(
                                     children: [
                                       SvgPicture.asset(
-                                        IconsAssets.treeIcon,
+                                        Assets.iconsTree,
                                         height: 50,
                                         width: 50,
                                       ),
@@ -219,7 +219,7 @@ class DashboardScreen extends StatelessWidget {
                                         : index == 3
                                             ? darkOrange
                                             : Colors.black,
-                            image: ImageAssets.ladyImage,
+                            image: Assets.imagesLadyImage,
                             hubDesc: wellbeingHubText,
                             hubName: wellbeingHub,
                           );
@@ -248,7 +248,7 @@ class DashboardScreen extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            ImageAssets.ladyImage1,
+                            Assets.imagesLesMills,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -349,7 +349,7 @@ class DashboardScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Image.asset(ImageAssets.tree),
+                            child: Image.asset(Assets.imagesTree),
                           );
                         },
                       ),
