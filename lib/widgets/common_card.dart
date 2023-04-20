@@ -13,14 +13,20 @@ class AppSquareCard extends StatelessWidget {
     Key? key,
     this.desc,
     required this.image,
-    required this.descColor,
+    this.descColor,
     this.btnText,
+    this.height,
+    this.width,
+    this.iconVisible,
   }) : super(key: key);
 
+  double? height;
+  double? width;
   String? desc;
   String image;
   Color? descColor;
   String? btnText;
+  bool? iconVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,37 +36,43 @@ class AppSquareCard extends StatelessWidget {
         child: Image.asset(
           image,
           fit: BoxFit.cover,
-          height: 165,
-          width: 165,
+          height: height ?? 165,
+          width: width ?? 165,
         ),
       ),
       10.0.addHSpace(),
       Expanded(
         child: SizedBox(
-          height: 165,
-          width: 165,
+          height: height ?? 165,
+          width: width ?? 165,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              25.0.addHSpace(),
               desc != null
                   ? desc?.interTextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                      maxLines: 4,
+                      fontSize: 15,
+                      maxLines: 2,
                       textOverflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       fontColor: descColor ?? Colors.black)
                   : Container(),
+              25.0.addHSpace(),
               btnText != null
-                  ? BorderButton(
-                      appBorderFillColor: Colors.white,
-                      appFillColor: Colors.transparent,
-                      onTap: () {},
-                      text: btnText!,
-                      fontSize: 12,
-                      value: 10,
-                      rightIcon: true,
+                  ? SizedBox(
+                      height: 30,
+                      width: 150,
+                      child: BorderButton(
+                        appBorderFillColor: Colors.white,
+                        appFillColor: Colors.transparent,
+                        onTap: () {},
+                        text: btnText!,
+                        fontSize: 12,
+                        value: 7,
+                        rightIcon: iconVisible ?? true,
+                      ).paddingSymmetric(horizontal: 5),
                     )
                   : Container()
             ],
@@ -89,23 +101,29 @@ class AppArticlesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.shade400,
+                  blurRadius: 2,
+                  // spreadRadius: 2,
+                  offset: const Offset(1, 0))
+            ],
+            borderRadius: BorderRadius.circular(11),
             image: DecorationImage(image: AssetImage(image), fit: BoxFit.fill)),
         height: 165,
         width: 165,
         child: Container(
           alignment: Alignment.bottomCenter,
-          child: ClipRect(
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10)),
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
               child: Container(
                 alignment: Alignment.center,
                 height: 50,
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(10),
-                        bottomRight: Radius.circular(10)),
-                    color: Colors.white.withOpacity(0.7)),
+                decoration: BoxDecoration(color: Colors.white.withOpacity(0.7)),
                 child: desc.interTextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 11,
@@ -116,7 +134,7 @@ class AppArticlesCard extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        )).paddingSymmetric(horizontal: 5);
   }
 }
 
@@ -155,7 +173,7 @@ class AppVideoCommonCard extends StatelessWidget {
             ),
             Center(
               child: Image.asset(
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.grey.shade300.withOpacity(0.9),
                 ImageAssets.imagesPlayButton,
                 fit: BoxFit.cover,
                 height: 50,

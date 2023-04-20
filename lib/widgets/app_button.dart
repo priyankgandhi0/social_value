@@ -86,15 +86,21 @@ class BorderButton extends StatelessWidget {
           onTap();
         },
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(text,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
                 style: GoogleFonts.workSans(
                     color: appTextFillColor ?? Colors.white,
-                    fontSize: fontSize ?? 15,
+                    fontSize: fontSize ?? 14,
                     fontWeight: fontWeight ?? FontWeight.w600)),
-            10.0.addWSpace(),
-            rightIcon == true ? Icon(Icons.chevron_right) : Container(),
+            rightIcon == true
+                ? const Icon(
+                    Icons.chevron_right,
+                    size: 18,
+                  )
+                : Container(),
           ],
         ));
   }
