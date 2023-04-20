@@ -125,10 +125,8 @@ class BottomNaviBarScreen extends StatelessWidget {
       body: Stack(
         children: [
           Padding(padding: const EdgeInsets.only(bottom: 65), child: child),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
+          Align(
+            alignment: Alignment.bottomCenter,
             child: SizedBox(
               height: 80,
               width: Get.size.width,
@@ -142,7 +140,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                             onTap: () {
-                              Get.toNamed(Routes.homeScreen);
+                              Get.toNamed(Routes.dashboardScreen);
                             },
                             child: SvgPicture.asset(IconsAssets.dashBoardIcon)),
                         4.0.addHSpace(),
@@ -156,9 +154,13 @@ class BottomNaviBarScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                             onTap: () {
-                              Get.toNamed(Routes.wellBeingHomeScreen);
+                              Get.toNamed(Routes.wellBeingDashBoardScreen);
                             },
-                            child: SvgPicture.asset(IconsAssets.wellbeingIcon)),
+                            child: SvgPicture.asset(
+                              IconsAssets.wellbeingIcon,
+                              height: 30,
+                              color: Colors.white,
+                            )),
                         4.0.addHSpace(),
                         wellbeing.interTextStyle(
                             fontSize: 12,
@@ -169,9 +171,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                            onTap: () {
-                              Get.toNamed(Routes.physicalHealthHomeScreen);
-                            },
+                            onTap: () {},
                             child: SvgPicture.asset(IconsAssets.planetIcon)),
                         // 1.0.addHSpace(),
                         Planet.interTextStyle(

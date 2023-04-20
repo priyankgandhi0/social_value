@@ -66,14 +66,14 @@ class MenuScreen extends StatelessWidget {
                   appImage: IconsAssets.myProfile,
                   appItemText: myProfile,
                   itemOnTap: () {
-                    Get.toNamed(Routes.homeScreen);
+                    Get.toNamed(Routes.dashboardScreen);
                   }),
               AppMenuItem(
                   appImage: IconsAssets.settingIcon,
                   appItemText: settings,
                   itemOnTap: () {}),
               AppMenuItem(
-                  appImage: IconsAssets.supportIcon,
+                  appImage: IconsAssets.helpIcon,
                   appItemText: help,
                   itemOnTap: () {}),
               AppMenuItem(

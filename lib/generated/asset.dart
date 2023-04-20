@@ -20,6 +20,8 @@ class ImageAssets {
   static const String imagesPlayButton = 'assets/images/play_button.png';
   static const String imagesWorkoutImg = 'assets/images/workout_img.png';
   static const String imagesDescBmi = 'assets/images/desc_bmi.png';
+  static const shelterImage = 'assets/images/shelter.png';
+  static const teensUnitsImage = 'assets/images/teensunite.png';
 }
 
 class IconsAssets {
@@ -31,7 +33,8 @@ class IconsAssets {
   static const privacyIcon = 'assets/icons/privacyIcon.svg';
   static const treeIcon = 'assets/icons/tree.svg';
   static const dashBoardIcon = 'assets/icons/dashBoardIcon.svg';
-  static const wellbeingIcon = 'assets/icons/wellbing.svg';
+  // static const wellbeingIcon = 'assets/icons/wellbing.svg';
+  static const wellbeingIcon = 'assets/icons/heart.svg';
   static const planetIcon = 'assets/icons/planet.svg';
   static const communityIcon = 'assets/icons/community.svg';
   static const moreIcon = 'assets/icons/more.svg';

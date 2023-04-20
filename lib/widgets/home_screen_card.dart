@@ -5,17 +5,20 @@ import 'package:social_value/utils/extension.dart';
 import '../constant/app_string.dart';
 import '../generated/asset.dart';
 import '../theme/app_color.dart';
+import 'app_button.dart';
 
 class ExploreHubCard extends StatelessWidget {
   const ExploreHubCard(
       {Key? key,
       required this.hubName,
       required this.hubDesc,
-      required this.image})
+      required this.image,
+      required this.color})
       : super(key: key);
   final String hubName;
   final String hubDesc;
   final String image;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class ExploreHubCard extends StatelessWidget {
       width: 170,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: darkPurple)),
+          border: Border.all(color: color)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children: [
@@ -157,30 +160,7 @@ class MemberShipCard extends StatelessWidget {
                       textAlign: TextAlign.center,
                       fontColor: textColor),
                   10.0.addHSpace(),
-                  GestureDetector(
-                    onTap: onTap,
-                    child: Container(
-                      height: 35,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: darkPurple),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          accessNow.interTextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 13,
-                              fontColor: const Color(0xff333333)),
-                          const Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            color: Color(0xff333333),
-                            size: 15,
-                          )
-                        ],
-                      ),
-                    ),
-                  )
+                  AppButton(text: accessNow, onTap: () {}),
                 ],
               ),
             ),

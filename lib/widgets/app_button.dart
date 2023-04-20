@@ -99,3 +99,37 @@ class BorderButton extends StatelessWidget {
         ));
   }
 }
+
+class AppButton extends StatelessWidget {
+  const AppButton({Key? key, required this.onTap, required this.text})
+      : super(key: key);
+  final VoidCallback onTap;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 35,
+        width: 150,
+        decoration: BoxDecoration(
+            border: Border.all(color: darkPurple),
+            borderRadius: BorderRadius.circular(8)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            text.interTextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 13,
+                fontColor: const Color(0xff333333)),
+            const Icon(
+              Icons.arrow_forward_ios_sharp,
+              color: Color(0xff333333),
+              size: 15,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

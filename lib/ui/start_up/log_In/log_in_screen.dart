@@ -42,7 +42,7 @@ class LogInScreen extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   fontColor: const Color(0xff000000),
                   onTap: () {
-                    Get.toNamed(Routes.homeScreen);
+                    Get.toNamed(Routes.dashboardScreen);
                   },
                 ),
                 50.0.addHSpace(),

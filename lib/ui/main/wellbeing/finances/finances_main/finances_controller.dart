@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_ticket_provider_mixin.dart';
 
-class PhysicalHealthHomeController extends GetxController
+class FinanceMainController extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? controller;
   @override
   void onInit() {
-    controller = TabController(vsync: this, length: 6);
+    controller = TabController(vsync: this, length: 5);
     super.onInit();
   }
 
