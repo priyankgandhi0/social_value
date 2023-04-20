@@ -11,11 +11,13 @@ class ExploreHubCard extends StatelessWidget {
       {Key? key,
       required this.hubName,
       required this.hubDesc,
-      required this.image})
+      required this.image,
+      required this.color})
       : super(key: key);
   final String hubName;
   final String hubDesc;
   final String image;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class ExploreHubCard extends StatelessWidget {
       width: 170,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: darkPurple)),
+          border: Border.all(color: color)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(children: [

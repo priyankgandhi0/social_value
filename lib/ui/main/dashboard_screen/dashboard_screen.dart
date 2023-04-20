@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:social_value/constant/home_card_const.dart';
 
 import 'package:social_value/utils/extension.dart';
 
@@ -134,6 +135,7 @@ class DashboardScreen extends StatelessWidget {
                                       Expanded(
                                           child: socialValueScoreText
                                               .interTextStyle(
+                                                  textAlign: TextAlign.center,
                                                   fontWeight: FontWeight.w400,
                                                   fontSize: 16))
                                     ],
@@ -207,7 +209,16 @@ class DashboardScreen extends StatelessWidget {
                         itemCount: 4,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          return const ExploreHubCard(
+                          return ExploreHubCard(
+                            color: index == 0
+                                ? darkDeepPurple
+                                : index == 1
+                                    ? darkGreen
+                                    : index == 2
+                                        ? darkSky
+                                        : index == 3
+                                            ? darkOrange
+                                            : Colors.black,
                             image: ImageAssets.ladyImage,
                             hubDesc: wellbeingHubText,
                             hubName: wellbeingHub,
@@ -358,12 +369,16 @@ class DashboardScreen extends StatelessWidget {
                                   fontSize: 16,
                                   maxLines: 2),
                             ).paddingOnly(left: 10, right: 10, top: 20),
-                            Row(
-                              children: [
-                                Image.asset(ImageAssets.shelterImage),
-                                Image.asset(ImageAssets.teensUnitsImage)
-                              ],
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  Image.asset(ImageAssets.shelterImage),
+                                  Image.asset(ImageAssets.teensUnitsImage)
+                                ],
+                              ),
                             ),
+                            15.0.addHSpace(),
                             AppButton(text: "Find out more", onTap: () {}),
                           ],
                         )),
