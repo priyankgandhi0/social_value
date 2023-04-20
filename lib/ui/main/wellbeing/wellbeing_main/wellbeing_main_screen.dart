@@ -13,6 +13,8 @@ import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class WellBeingMain extends StatefulWidget {
+  const WellBeingMain({super.key});
+
   @override
   State<WellBeingMain> createState() => _WellBeingMainState();
 }

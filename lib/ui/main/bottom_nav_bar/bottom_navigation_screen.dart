@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/generated/asset.dart';
+import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
 
@@ -111,12 +112,13 @@ import '../../../utils/custom_bottom_item.dart';
 //   }
 // }
 class BottomNaviBarScreen extends StatelessWidget {
-  const BottomNaviBarScreen(
-      {Key? key, required this.color, required this.child, this.appbar})
+  BottomNaviBarScreen(
+      {Key? key, required this.child, this.appbar, required this.color})
       : super(key: key);
   final Color color;
   final Widget child;
   final PreferredSizeWidget? appbar;
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -171,7 +173,9 @@ class BottomNaviBarScreen extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Get.toNamed(Routes.articleDetailScreen);
+                            },
                             child: SvgPicture.asset(IconsAssets.planetIcon)),
                         // 1.0.addHSpace(),
                         Planet.interTextStyle(
@@ -195,7 +199,9 @@ class BottomNaviBarScreen extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            index = 4;
+                          },
                           child: SvgPicture.asset(
                             IconsAssets.moreIcon,
                           ),

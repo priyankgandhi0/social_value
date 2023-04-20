@@ -15,6 +15,7 @@ class ImageAssets {
   static const charityImage = 'assets/images/Charity.png';
   static const shelterImage = 'assets/images/shelter.png';
   static const teensUnitsImage = 'assets/images/teensunite.png';
+  static const articleLadyImage = 'assets/images/detailLady.png';
 }
 
 class IconsAssets {

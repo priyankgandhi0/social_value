@@ -22,70 +22,72 @@ class FinanceMain extends StatelessWidget {
     return DefaultTabController(
       length: 5,
       child: BottomNaviBarScreen(
-        color: darkDeepPurple,
-        appbar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: darkDeepPurple,
-          title: Row(
-            children: [
-              AppBarChip(
-                onTap: () {
-                  Get.back();
-                },
-                text: wellbeing,
-                textColor: white,
-                color: deepPurple,
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: white,
-                size: 20,
-              ),
-              AppBarChip(
-                onTap: () {},
-                text: finances,
-                textColor: textColor,
-                color: white,
-              ),
-            ],
+          color: darkDeepPurple,
+          appbar: AppBar(
+            automaticallyImplyLeading: false,
+            backgroundColor: darkDeepPurple,
+            title: Row(
+              children: [
+                AppBarChip(
+                  onTap: () {
+                    Get.back();
+                  },
+                  text: wellbeing,
+                  textColor: white,
+                  color: deepPurple,
+                ),
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  color: white,
+                  size: 20,
+                ),
+                AppBarChip(
+                  onTap: () {},
+                  text: finances,
+                  textColor: textColor,
+                  color: white,
+                ),
+              ],
+            ),
+            bottom: TabBar(
+              isScrollable: true,
+              padding: EdgeInsets.zero,
+              indicatorPadding: EdgeInsets.zero,
+              controller: controller.controller,
+              // physics: const NeverScrollableScrollPhysics(),
+              indicatorWeight: 1,
+              onTap: (index) {
+                if (index != 0) {
+                  wellbeingFinanceTabs[controller.controller?.index ?? 0]
+                      .onTap
+                      .call();
+                }
+              },
+              indicator: indicatorWidth(),
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorColor: Colors.white,
+              automaticIndicatorColorAdjustment: true,
+              labelColor: white,
+              unselectedLabelColor: white,
+              labelStyle: GoogleFonts.inter(
+                  color: white, fontWeight: FontWeight.w700, fontSize: 13),
+              unselectedLabelStyle: GoogleFonts.inter(
+                  color: white, fontWeight: FontWeight.w700, fontSize: 13),
+              tabs: wellbeingFinanceTabs
+                  .map(
+                    (e) => Tab(text: e.tabText),
+                  )
+                  .toList(),
+            ),
           ),
-          bottom: TabBar(
-            isScrollable: true,
-            padding: EdgeInsets.zero,
-            indicatorPadding: EdgeInsets.zero,
-            controller: controller.controller,
-            // physics: const NeverScrollableScrollPhysics(),
-            indicatorWeight: 1,
-            onTap: (index) {
-              if (index != 0) {
-                wellbeingFinanceTabs[controller.controller?.index ?? 0]
-                    .onTap
-                    .call();
-              }
-            },
-            indicator: indicatorWidth(),
-            indicatorSize: TabBarIndicatorSize.label,
-            indicatorColor: Colors.white,
-            automaticIndicatorColorAdjustment: true,
-            labelColor: white,
-            unselectedLabelColor: white,
-            labelStyle: GoogleFonts.inter(
-                color: white, fontWeight: FontWeight.w700, fontSize: 13),
-            unselectedLabelStyle: GoogleFonts.inter(
-                color: white, fontWeight: FontWeight.w700, fontSize: 13),
-            tabs: wellbeingFinanceTabs
+          child: TabBarView(
+            controller: controller!.controller,
+            children: wellbeingFinanceTabs
                 .map(
-                  (e) => Tab(text: e.tabText),
+                  (e) => e.tabWidget,
                 )
                 .toList(),
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [],
-          ),
-        ),
-      ),
+          )),
     );
   }
 }

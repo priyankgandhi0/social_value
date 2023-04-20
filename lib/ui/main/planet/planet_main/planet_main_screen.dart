@@ -10,7 +10,7 @@ import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
 
 import '../../../../../widgets/appbar_chip.dart';
-import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
+import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class PhysicalHealthMainScreen extends StatelessWidget {
   PhysicalHealthMainScreen({Key? key}) : super(key: key);

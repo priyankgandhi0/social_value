@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
+import '../ui/main/common_screen/artical_detail/artical_detail_screen.dart';
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
 
 import '../ui/main/menu_screen/menu_screen.dart';
@@ -19,6 +20,7 @@ class Routes {
   static String physicalHealthMainScreen = "/Physical_Health_MainScreen";
   static String mentalHealthMain = "/Mental_Health_Main";
   static String financeMain = "/Finance_Main";
+  static String articleDetailScreen = "/Article_Detail_Screen";
 
   static List<GetPage> pages = [
     GetPage(
@@ -49,6 +51,10 @@ class Routes {
     GetPage(
         name: Routes.financeMain,
         page: () => FinanceMain(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.articleDetailScreen,
+        page: () => const ArticleDetailScreen(),
         transition: Transition.noTransition),
   ];
 }

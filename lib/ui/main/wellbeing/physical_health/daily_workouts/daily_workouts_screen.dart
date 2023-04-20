@@ -5,6 +5,10 @@ class PhysicalHealthDailyWorkOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Column(
+      children: const [
+        Center(child: Text("hello")),
+      ],
+    );
   }
 }
