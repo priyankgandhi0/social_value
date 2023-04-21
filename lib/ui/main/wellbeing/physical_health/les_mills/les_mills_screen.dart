@@ -54,10 +54,11 @@ class PhysicalHealthLesMills extends StatelessWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                // mainAxisSpacing: ,
-              ),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 9 / 7
+                  // mainAxisSpacing: 10,
+                  ),
               itemBuilder: (BuildContext context, int index) {
                 return WorkOutCard(
                   title: 'BODYPUMP',

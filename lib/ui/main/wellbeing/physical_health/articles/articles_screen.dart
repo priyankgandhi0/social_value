@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:social_value/utils/extension.dart';
 
 import '../../../../../constant/app_string.dart';
+import '../../../../../generated/asset.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../theme/app_color.dart';
 
@@ -20,10 +22,14 @@ class PhysicalHealthArticleScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            articleCategoryTitle.interTextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                fontColor: textColor),
+            Row(
+              children: [
+                articleCategoryTitle.interTextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontColor: textColor),
+              ],
+            ).paddingOnly(left: 10),
             18.0.addHSpace(),
             GridView.builder(
               itemCount: 7,
@@ -37,8 +43,12 @@ class PhysicalHealthArticleScreen extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return AppBodyPumptCard(
                   onTap: () {},
-                  title: 'Lower Bodypump Session 2 ',
-                  image: Assets.imagesWorkoutImg,
+                  title: index == 0
+                      ? 'Vegan 7 Day Plan'
+                      : 'Lower Bodypump Session 2',
+                  image: index == 0
+                      ? ImageAssets.foodImage
+                      : Assets.imagesWorkoutImg,
                 );
               },
             )

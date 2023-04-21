@@ -25,6 +25,7 @@ class AppSquareCard extends StatelessWidget {
   double? width;
   String? desc;
   String image;
+
   Color? descColor;
   String? btnText;
   bool? iconVisible = false;
@@ -55,7 +56,7 @@ class AppSquareCard extends StatelessWidget {
                   ? desc?.interTextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 15,
-                      maxLines: 2,
+                      maxLines: 7,
                       textOverflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       fontColor: descColor ?? Colors.black)
@@ -135,7 +136,7 @@ class AppArticlesCard extends StatelessWidget {
               ),
             ),
           ),
-        )).paddingSymmetric(horizontal: 5);
+        )).paddingSymmetric(horizontal: 10);
   }
 }
 
@@ -151,20 +152,19 @@ class AppVideoCommonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-        margin: const EdgeInsets.only(right: 10),
+        margin: const EdgeInsets.only(right: 10, left: 10),
         height: 111,
         width: 188,
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
               color: Colors.grey.shade400,
-              blurRadius: 2,
-              // spreadRadius: 2,
-              offset: const Offset(1, 0))
+              blurRadius: 3,
+              offset: const Offset(4, 4))
         ], color: white, borderRadius: BorderRadius.circular(8)),
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 image,
                 fit: BoxFit.cover,
@@ -203,8 +203,9 @@ class AppWorkOutCard extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(image: AssetImage(image), fit: BoxFit.fill)),
-        height: 165,
+            image:
+                DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+        height: 100,
         width: 165,
         child: Container(
           alignment: Alignment.center,
@@ -215,7 +216,7 @@ class AppWorkOutCard extends StatelessWidget {
                 maxLines: 4,
                 textOverflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
-                fontColor: titleColor ?? textColor),
+                fontColor: titleColor ?? white),
           ),
         ));
   }
@@ -284,16 +285,16 @@ class AppBodyPumptCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+          height: 185,
+          // width: 110,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
                     color: Colors.grey.shade400,
                     blurRadius: 3,
-                    offset: Offset(2, 2))
+                    offset: const Offset(2, 2))
               ]),
-          height: 185,
-          width: 140,
           child: Column(
             children: [
               ClipRRect(
@@ -329,7 +330,7 @@ class AppBodyPumptCard extends StatelessWidget {
                   )),
             ],
           )),
-    );
+    ).paddingOnly(left: 10);
   }
 }
 
@@ -347,9 +348,10 @@ class WorkOutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
         height: 100,
         width: 180,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
         child: Stack(
           children: [
             ClipRRect(

@@ -21,10 +21,14 @@ import '../ui/main/wellbeing/physical_health/les_mills/les_mills_screen.dart';
 import '../ui/main/wellbeing/physical_health/meal_plans/meal_plans_screen.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_dashboard/physical_health_dashboard.dart';
 
+import '../ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_screen.dart';
 import '../utils/routes_manager.dart';
 
 List<AppTabBarModel> wellbeingTabs = [
-  AppTabBarModel(tabText: dashboard, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(
+      tabText: dashboard,
+      tabWidget: const WellBeingDashBoardScreen(),
+      onTap: () {}),
   AppTabBarModel(
       tabText: myPhysicalHealth,
       tabWidget: Column(),

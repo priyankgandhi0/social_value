@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 
 import '../../../../../constant/app_string.dart';
 
+import '../../../../../generated/asset.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../widgets/common_card.dart';
@@ -19,10 +21,14 @@ class PhysicalHealthDailyWorkOut extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            dailyWorkouts.interTextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                fontColor: textColor),
+            Row(
+              children: [
+                dailyWorkouts.interTextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontColor: textColor),
+              ],
+            ).paddingOnly(left: 10),
             18.0.addHSpace(),
             GridView.builder(
               itemCount: 7,
@@ -35,8 +41,12 @@ class PhysicalHealthDailyWorkOut extends StatelessWidget {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return AppBodyPumptCard(
-                  title: 'Lower Bodypump Session 2 ',
-                  image: Assets.imagesWorkoutImg,
+                  title: index == 0
+                      ? 'Full Body resistance Training - Low Mod Level'
+                      : 'Lower Bodypump Session 2',
+                  image: index == 0
+                      ? ImageAssets.foodImage
+                      : Assets.imagesWorkoutImg,
                 );
               },
             )

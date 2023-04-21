@@ -78,20 +78,11 @@ class MentalHealthMain extends StatelessWidget {
                   (e) => Tab(text: e.tabText),
                 )
                 .toList(),
-            // const [
-            //   Tab(text: dashboard),
-            //   Tab(text: lesMills),
-            //   Tab(text: bmiCalculator),
-            //   Tab(text: mealPlans),
-            //   Tab(text: articles),
-            //   Tab(text: dailyWorkouts),
-            // ],
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [],
-          ),
+        child: TabBarView(
+          controller: controller.controller,
+          children: wellbeingMentalHealthTabs.map((e) => e.tabWidget).toList(),
         ),
       ),
     );

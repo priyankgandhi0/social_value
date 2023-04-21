@@ -22,6 +22,9 @@ const brainGames = 'Brain Games';
 const mentalhealthapp = 'Mental Health App';
 const wellbeing = 'Wellbeing';
 const Planet = 'Planet';
+const escapeWithMinuteMindFulNessVideos =
+    'Escape with 30  minute mindfulness videos';
+const trySomeYoga = 'Try Some Yoga';
 const yourDailyWorkoutVideos = 'Your Daily Workout Videos';
 const latestArticlesText = 'Latest Articles';
 const community = 'Community';
@@ -30,6 +33,13 @@ const myPhysicalHealth = 'My Physical Health';
 const myMentalHealth = 'My Mental Health';
 const more = 'More';
 const support = 'Support';
+const mentalHealthHome = 'Mental Health Home';
+const trySomeMindfulness = 'Try Some Mindfulness';
+const unwindWithSomeBrainGames = 'Unwind with some Brain Games';
+const mentalHealthSupportArticles = 'Mental Health Support Articles';
+const scoreTitle = 'Test Company s Employee Wellbeing Score';
+const scoreDesc =
+    'This score is based on the staff wellbeing score of your organisation. As the organisation evolves with the support of our platform the score will continually improve.';
 const chooseYourWorkout = 'Choose Your Workout';
 const articleCategoryTitle = 'Article Category Title';
 const discountCard = 'Discount Card';
