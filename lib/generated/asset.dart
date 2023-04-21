@@ -25,6 +25,7 @@ class ImageAssets {
   static const friendImage = 'assets/images/friend.png';
   static const relaxImage = 'assets/images/relex.png';
   static const treeImage = 'assets/images/bigtree.png';
+  static const cupImage = 'assets/images/cup.png';
 }
 
 class IconsAssets {

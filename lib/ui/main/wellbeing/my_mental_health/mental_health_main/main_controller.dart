@@ -6,7 +6,7 @@ class MentalHealthMainController extends GetxController
   TabController? controller;
   @override
   void onInit() {
-    controller = TabController(vsync: this, length: 6);
+    controller = TabController(vsync: this, length: 7);
     super.onInit();
   }
 

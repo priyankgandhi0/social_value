@@ -309,25 +309,27 @@ class AppBodyPumptCard extends StatelessWidget {
                           image: AssetImage(image), fit: BoxFit.cover)),
                 ),
               ),
-              Container(
-                  alignment: Alignment.center,
-                  height: 65,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10)),
-                      color: Colors.white),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: title.interTextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 12,
-                        maxLines: 4,
-                        textOverflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        fontColor: titleColor ?? textColor),
-                  )),
+              Expanded(
+                child: Container(
+                    alignment: Alignment.center,
+                    height: 65,
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10)),
+                        color: Colors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      child: title.interTextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                          maxLines: 4,
+                          textOverflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          fontColor: titleColor ?? textColor),
+                    )),
+              ),
             ],
           )),
     ).paddingOnly(left: 10);

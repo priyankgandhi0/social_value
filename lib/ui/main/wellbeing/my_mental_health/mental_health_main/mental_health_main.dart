@@ -20,7 +20,7 @@ class MentalHealthMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 6,
+      length: 7,
       child: BottomNaviBarScreen(
         color: darkDeepPurple,
         appbar: AppBar(

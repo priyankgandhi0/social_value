@@ -6,6 +6,9 @@ const needAnAccount = 'Need an Account?';
 const myProfile = 'My Profile';
 const settings = 'Settings';
 const help = 'Help';
+const submit = 'Submit';
+const firstName = 'First Name';
+const lastName = 'Last Name';
 const socialValueScoreText = 'Social Value Score';
 const privacyCentre = 'Privacy Centre';
 const termsConditions = 'Terms & Conditions';
@@ -29,10 +32,30 @@ const yourDailyWorkoutVideos = 'Your Daily Workout Videos';
 const latestArticlesText = 'Latest Articles';
 const community = 'Community';
 const finances = 'Finances';
+const completeTheFormToGetStarted = 'Complete the form to get started';
+const mentalHealthAppDesc =
+    'Insight Timer Workplace offers access to the worlds largest content library with 146,000 guided meditations, courses, playlists, and live events from leading mindfulness experts worldwide.\n\nYou can experience powerful practices from diverse cultures and backgrounds, including neuroscientists, clinical psychologists, monastic traditions practitioners, and professors from top universities.\n\nThe platform has over 600 live events every week, such as yoga, talks, music, and meditation, connecting you with like-minded people from around the world.\n\nInsight Timer Workplace also allows you to set up group meditations with colleagues using its Groups feature, providing an opportunity to find calm and relaxation any time and with as many people as you like.';
 const myPhysicalHealth = 'My Physical Health';
 const myMentalHealth = 'My Mental Health';
 const more = 'More';
 const support = 'Support';
+const servicesTitle = 'AA - 0800 9177 650 -';
+const servicesDesc = 'alcoholics-anonymous.org.uk';
+const addiction = 'Addiction';
+const name = 'Name';
+const ifYouNeedImmediate =
+    'If you need immediate assistance please dial 999 or 112';
+const step1 = 'step 1: ';
+const step2 = 'step 2: ';
+const step3 = 'step 3: ';
+const goToWebSide =
+    "If you're still struggling after downloading our app and using our resources please click for organisations that can help";
+const step1Desc = 'Fill in the form below Step';
+const step2Desc =
+    'Will then email instructions to download the Insight Timer app';
+const step3Desc =
+    'Create an account (with your personal or work email) and enjoy!';
+const howToGetStarted = 'How to get started';
 const mentalHealthHome = 'Mental Health Home';
 const trySomeMindfulness = 'Try Some Mindfulness';
 const unwindWithSomeBrainGames = 'Unwind with some Brain Games';
@@ -49,6 +72,7 @@ const insuranceQuotes = 'Insurance Quotes';
 const ukBased =
     'As an SVC member you have helped the following UK based Charities';
 const articles = 'Articles';
+const supportServices = 'Support Services';
 const dailyWorkouts = 'Daily Workouts';
 const mealPlans = 'Meal Plans';
 const bmiCalculator = 'BMI Calculator';

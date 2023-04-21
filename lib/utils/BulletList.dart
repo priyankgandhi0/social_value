@@ -6,13 +6,13 @@ class BulletList extends StatelessWidget {
   final List<String> strings;
   bool? isBulletText = false;
 
-  BulletList(this.strings, {this.isBulletText});
+  BulletList(this.strings, {super.key, this.isBulletText});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(left: 23.0, right: 10),
+      padding: const EdgeInsets.only(left: 23.0, right: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: strings.map((str) {

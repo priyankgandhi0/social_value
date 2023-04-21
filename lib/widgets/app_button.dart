@@ -10,6 +10,7 @@ class AppFilledButton extends StatelessWidget {
       this.fontSize,
       this.fontWeight,
       this.fontColor,
+      this.width,
       this.buttonColor,
       this.showWidget = false,
       required this.onTap})
@@ -17,6 +18,7 @@ class AppFilledButton extends StatelessWidget {
   final String text;
   final Function() onTap;
   double? fontSize;
+  double? width;
   FontWeight? fontWeight;
   final Color? fontColor;
   final Color? buttonColor;
@@ -28,10 +30,10 @@ class AppFilledButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        width: double.infinity,
+        width: width ?? double.infinity,
         height: 48,
         decoration: BoxDecoration(
-          color: lightGreen,
+          color: buttonColor ?? lightGreen,
           borderRadius: BorderRadius.circular(8),
         ),
         child: text.openSansTextStyle(

@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 
-import '../theme/app_color.dart';
-
 class AppBarChip extends StatelessWidget {
   const AppBarChip(
       {Key? key,

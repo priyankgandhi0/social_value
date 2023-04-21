@@ -80,10 +80,9 @@ class FinanceMain extends StatelessWidget {
                 .toList(),
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [],
-          ),
+        child: TabBarView(
+          controller: controller.controller,
+          children: wellbeingFinanceTabs.map((e) => e.tabWidget).toList(),
         ),
       ),
     );

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
+import '../constant/app_string.dart';
 import '../theme/app_color.dart';
 
 import 'app_button.dart';
+import 'common_textfield.dart';
 
 class WellBeingScore extends StatelessWidget {
   WellBeingScore({
@@ -257,6 +259,254 @@ class AppRactangleCard extends StatelessWidget {
     ]).paddingSymmetric(horizontal: 10);
   }
 }
+
+class HowToGetStartedCard extends StatelessWidget {
+  const HowToGetStartedCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(horizontal: 17),
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xffF4F4F4)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.shade400,
+                blurRadius: 3,
+                offset: const Offset(3, 3))
+          ],
+          borderRadius: BorderRadius.circular(8)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          howToGetStarted.interTextStyle(
+              fontSize: 16, fontWeight: FontWeight.w700),
+          16.0.addHSpace(),
+          RichText(
+            text: const TextSpan(
+              text: '',
+              style: TextStyle(
+                color: textColor,
+              ),
+              children: [
+                TextSpan(
+                  text: step1,
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                TextSpan(
+                  text: step1Desc,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
+          ),
+          20.0.addHSpace(),
+          RichText(
+            text: const TextSpan(
+              text: '',
+              style: TextStyle(
+                color: textColor,
+              ),
+              children: [
+                TextSpan(
+                  text: step2,
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                TextSpan(
+                  text: step2Desc,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
+          ),
+          20.0.addHSpace(),
+          RichText(
+            text: const TextSpan(
+              text: '',
+              style: TextStyle(
+                color: textColor,
+              ),
+              children: [
+                TextSpan(
+                  text: step3,
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                TextSpan(
+                  text: step3Desc,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
+          ),
+          20.0.addHSpace(),
+          Container(
+            padding:
+                const EdgeInsets.only(right: 10, left: 15, top: 10, bottom: 10),
+            height: 70,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: const Color(0xffEFC4C4)),
+            child: goToWebSide.interTextStyle(
+                fontColor: const Color(0xff131313),
+                fontWeight: FontWeight.w400,
+                fontSize: 13),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class CompleteFormCard extends StatelessWidget {
+  const CompleteFormCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(horizontal: 17),
+        decoration: BoxDecoration(
+            border: Border.all(color: const Color(0xffF4F4F4)),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.shade400,
+                  blurRadius: 3,
+                  offset: const Offset(3, 3))
+            ],
+            borderRadius: BorderRadius.circular(8)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            completeTheFormToGetStarted.interTextStyle(
+                fontSize: 16, fontWeight: FontWeight.w700),
+            10.0.addHSpace(),
+            name.interTextStyle(fontSize: 13, fontWeight: FontWeight.w400),
+            10.0.addHSpace(),
+            Row(
+              children: [
+                Flexible(
+                  child: Column(
+                    children: [
+                      StartUpTextFiled(
+                        fontColor: Colors.grey,
+                        headingText: "",
+                        headingTextColor: white,
+                        isCursorShow: true,
+                        borderColor: Colors.grey.shade300,
+                        fillColor: white,
+                      ),
+                      4.0.addHSpace(),
+                      Row(
+                        children: [
+                          firstName.interTextStyle(
+                              fontColor: const Color(0xff555555),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400)
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                20.0.addWSpace(),
+                Flexible(
+                  child: Column(
+                    children: [
+                      StartUpTextFiled(
+                        fontColor: Colors.grey,
+                        headingText: "",
+                        headingTextColor: white,
+                        isCursorShow: true,
+                        borderColor: Colors.grey.shade300,
+                        fillColor: white,
+                      ),
+                      4.0.addHSpace(),
+                      Row(
+                        children: [
+                          lastName.interTextStyle(
+                              fontColor: const Color(0xff555555),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400)
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            20.0.addHSpace(),
+            "Email".interTextStyle(fontSize: 13, fontWeight: FontWeight.w400),
+            10.0.addHSpace(),
+            Row(
+              children: [
+                Flexible(
+                  child: StartUpTextFiled(
+                    fontColor: Colors.grey,
+                    headingText: "",
+                    headingTextColor: white,
+                    isCursorShow: true,
+                    borderColor: Colors.grey.shade300,
+                    fillColor: white,
+                  ),
+                ),
+                20.0.addWSpace(),
+                const Flexible(child: SizedBox()),
+              ],
+            ),
+            20.0.addHSpace(),
+            AppFilledButton(
+              width: 110,
+              buttonColor: darkDeepPurple,
+              text: submit,
+              onTap: () {},
+            )
+          ],
+        ));
+  }
+}
+
+class AddictionCard extends StatelessWidget {
+  AddictionCard({
+    Key? key,
+    this.color,
+    required this.title,
+    required this.desc,
+  }) : super(key: key);
+  Color? color;
+  final String title;
+  final String desc;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      width: double.infinity,
+      color: color,
+      child: Row(
+        children: [
+          title.interTextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+          desc.interTextStyle(
+              fontColor: darkDeepPurple,
+              fontWeight: FontWeight.w400,
+              fontSize: 12),
+        ],
+      ),
+    );
+  }
+}
+
 // class AppDiscountCard extends StatelessWidget {
 //   AppDiscountCard({
 //     Key? key,

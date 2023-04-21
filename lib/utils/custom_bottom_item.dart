@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class BNBCustomPainter extends CustomPainter {
-  @override
   Color color;
   BNBCustomPainter(this.color);
+  @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = new Paint()
+    Paint paint = Paint()
       ..color = color
       ..style = PaintingStyle.fill;
 
