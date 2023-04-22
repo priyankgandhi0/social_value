@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
@@ -138,6 +139,33 @@ class AppButton extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class AppBorderButton extends StatelessWidget {
+  AppBorderButton(
+      {Key? key, this.onTap, required this.text, required this.borderColor})
+      : super(key: key);
+  final String text;
+  final Color borderColor;
+  VoidCallback? onTap;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+          height: 50,
+          width: double.infinity,
+          decoration: BoxDecoration(
+              border: Border.all(color: borderColor),
+              borderRadius: BorderRadius.circular(10)),
+          child: Center(
+            child: text.interTextStyle(
+                textAlign: TextAlign.center,
+                fontSize: 16,
+                fontWeight: FontWeight.w400),
+          )),
     );
   }
 }

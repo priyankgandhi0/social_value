@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 
 import 'package:social_value/utils/extension.dart';
 
+import '../constant/app_string.dart';
+import '../generated/asset.dart';
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
 import 'app_button.dart';
@@ -111,7 +113,8 @@ class AppArticlesCard extends StatelessWidget {
                   offset: const Offset(1, 0))
             ],
             borderRadius: BorderRadius.circular(11),
-            image: DecorationImage(image: AssetImage(image), fit: BoxFit.fill)),
+            image:
+                DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
         height: 165,
         width: 165,
         child: Container(
@@ -219,6 +222,38 @@ class AppWorkOutCard extends StatelessWidget {
                 fontColor: titleColor ?? white),
           ),
         ));
+  }
+}
+
+class InsuranceCard extends StatelessWidget {
+  const InsuranceCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 130,
+      width: 188,
+      decoration: BoxDecoration(
+          color: darkDeepPurple, borderRadius: BorderRadius.circular(10)),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            car.interTextStyle(
+                fontSize: 16, fontWeight: FontWeight.w700, fontColor: white),
+            5.0.addHSpace(),
+            insurance.interTextStyle(
+                fontSize: 12, fontWeight: FontWeight.w400, fontColor: white),
+            40.0.addHSpace(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [Image.asset(ImageAssets.car)],
+            )
+          ],
+        ),
+      ),
+    ).paddingOnly(bottom: 10);
   }
 }
 

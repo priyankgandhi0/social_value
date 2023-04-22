@@ -31,7 +31,7 @@ class SupportServices extends StatelessWidget {
             ),
             20.0.addHSpace(),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               // height: 20,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -76,7 +76,7 @@ class SupportServices extends StatelessWidget {
             ),
             20.0.addHSpace(),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               // height: 20,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -121,7 +121,7 @@ class SupportServices extends StatelessWidget {
             ),
             20.0.addHSpace(),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               // height: 20,
               width: double.infinity,
               decoration: BoxDecoration(

@@ -175,10 +175,12 @@ class BottomNaviBarScreen extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Get.toNamed(Routes.planetMain);
+                            },
                             child: SvgPicture.asset(Assets.iconsPlanet)),
                         // 1.0.addHSpace(),
-                        Planet.interTextStyle(
+                        planet.interTextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
                             fontColor: Colors.white)
@@ -187,7 +189,9 @@ class BottomNaviBarScreen extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Get.toNamed(Routes.communityMain);
+                            },
                             child: SvgPicture.asset(Assets.iconsCommunity)),
                         4.0.addHSpace(),
                         community.interTextStyle(

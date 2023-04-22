@@ -26,6 +26,9 @@ class ImageAssets {
   static const relaxImage = 'assets/images/relex.png';
   static const treeImage = 'assets/images/bigtree.png';
   static const cupImage = 'assets/images/cup.png';
+  static const financesCard = 'assets/images/financesCard.png';
+  static const car = 'assets/images/car.png';
+  static const discountCard = 'assets/images/discountCard.png';
 }
 
 class IconsAssets {

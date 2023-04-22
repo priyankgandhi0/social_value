@@ -8,7 +8,7 @@ import '../ui/main/wellbeing/finances/ articles/finances_artical_screen.dart';
 import '../ui/main/wellbeing/finances/discount_card/discount_card_screen.dart';
 import '../ui/main/wellbeing/finances/finances_dashboard/finances_dashboard.dart';
 import '../ui/main/wellbeing/finances/insurance_quotes/insurance_quotes_screen.dart';
-import '../ui/main/wellbeing/finances/support/support_screen.dart';
+
 import '../ui/main/wellbeing/my_mental_health/articles/articles_screen.dart';
 import '../ui/main/wellbeing/my_mental_health/brain_games /brain_games_screen.dart';
 import '../ui/main/wellbeing/my_mental_health/mental_health_dashboard/mental_health_dashboard.dart';
@@ -114,7 +114,22 @@ List<AppTabBarModel> wellbeingFinanceTabs = [
       tabWidget: const FinancesDiscountCard(),
       onTap: () {}),
   AppTabBarModel(
-      tabText: support, tabWidget: const FinancesSupport(), onTap: () {}),
+      tabText: support, tabWidget: const SupportServices(), onTap: () {}),
   AppTabBarModel(
       tabText: articles, tabWidget: const FinancesArticle(), onTap: () {}),
+];
+
+List<AppTabBarModel> planetTabs = [
+  AppTabBarModel(tabText: dashboard, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(
+      tabText: carbonFootprintCalculator, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(tabText: webinars, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(tabText: articles, tabWidget: Column(), onTap: () {})
+];
+List<AppTabBarModel> communityTabs = [
+  AppTabBarModel(tabText: dashboard, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(tabText: awarenessDays, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(tabText: volunteering, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(tabText: fundraising, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(tabText: discountCard, tabWidget: Column(), onTap: () {}),
 ];

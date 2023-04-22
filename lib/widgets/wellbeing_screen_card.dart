@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
 import '../constant/app_string.dart';
+
 import '../theme/app_color.dart';
 
 import 'app_button.dart';
@@ -501,6 +502,69 @@ class AddictionCard extends StatelessWidget {
               fontColor: darkDeepPurple,
               fontWeight: FontWeight.w400,
               fontSize: 12),
+        ],
+      ),
+    );
+  }
+}
+
+class XoDiscountCard extends StatelessWidget {
+  XoDiscountCard(
+      {Key? key,
+      required this.image,
+      this.appBorderFillColor,
+      required this.desc})
+      : super(key: key);
+
+  final String image;
+  final String desc;
+  Color? appBorderFillColor;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xffF4F4F4)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.shade400,
+                blurRadius: 3,
+                offset: const Offset(3, 3))
+          ],
+          borderRadius: BorderRadius.circular(8)),
+      child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          getYourFreeXODiscountCard.interTextStyle(
+              fontSize: 17, fontWeight: FontWeight.w700),
+          10.0.addHSpace(),
+          Image.asset(image),
+          10.0.addHSpace(),
+          Container(
+              // height: 60,
+              padding: const EdgeInsets.all(10),
+              // width: double.infinity,
+              decoration: BoxDecoration(
+                  color: lightDeepPurple,
+                  borderRadius: BorderRadius.circular(8)),
+              child: desc.interTextStyle(
+                  fontSize: 12,
+                  maxLines: 4,
+                  fontWeight: FontWeight.w400,
+                  textAlign: TextAlign.center,
+                  fontColor: textColor)),
+          10.0.addHSpace(),
+          BorderButton(
+                  text: startSavingNow,
+                  appTextFillColor: textColor,
+                  onTap: () {},
+                  fontWeight: FontWeight.w400,
+                  value: 8,
+                  appBorderFillColor: appBorderFillColor)
+              .paddingOnly(left: 60, right: 60)
         ],
       ),
     );

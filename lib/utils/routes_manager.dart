@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:social_value/ui/main/community/community_main/community_main.dart';
+import 'package:social_value/ui/main/planet/planet_main/planet_main.dart';
 import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
@@ -19,6 +21,8 @@ class Routes {
   static String physicalHealthMainScreen = "/Physical_Health_MainScreen";
   static String mentalHealthMain = "/Mental_Health_Main";
   static String financeMain = "/Finance_Main";
+  static String planetMain = "/Planet_Main";
+  static String communityMain = "/Community_Main";
 
   static List<GetPage> pages = [
     GetPage(
@@ -49,6 +53,14 @@ class Routes {
     GetPage(
         name: Routes.financeMain,
         page: () => FinanceMain(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.planetMain,
+        page: () => PlanetMain(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.communityMain,
+        page: () => CommunityMain(),
         transition: Transition.noTransition),
   ];
 }

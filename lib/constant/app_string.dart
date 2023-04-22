@@ -24,7 +24,7 @@ const yogaVideos = 'Yoga Videos';
 const brainGames = 'Brain Games';
 const mentalhealthapp = 'Mental Health App';
 const wellbeing = 'Wellbeing';
-const Planet = 'Planet';
+const planet = 'Planet';
 const escapeWithMinuteMindFulNessVideos =
     'Escape with 30  minute mindfulness videos';
 const trySomeYoga = 'Try Some Yoga';
@@ -38,11 +38,28 @@ const mentalHealthAppDesc =
 const myPhysicalHealth = 'My Physical Health';
 const myMentalHealth = 'My Mental Health';
 const more = 'More';
+const webinars = 'Webinars';
+const fundraising = 'Fundraising';
+const volunteering = 'Volunteering';
+const awarenessDays = 'Awareness Days';
+const carbonFootprintCalculator = 'Carbon Footprint Calculator';
 const support = 'Support';
 const servicesTitle = 'AA - 0800 9177 650 -';
 const servicesDesc = 'alcoholics-anonymous.org.uk';
 const addiction = 'Addiction';
 const name = 'Name';
+const car = 'Car';
+const insurance = 'Insurance';
+const selectTheTypeOfInsuranceYouRequire =
+    'Select the type of insurance you require';
+const getQuotesFromARangeOfProviders = 'Get quotes from a range of providers';
+const saveOnInsuranceQuotes = 'Save on Insurance Quotes';
+const startSavingNow = 'Start Saving Now';
+const getYourFreeXODiscountCard = 'Get Your Free XO Discount Card';
+const supportServicesToHelp =
+    'Use our directory of financial support services to help you in these difficult times';
+const lookingForFinancialSupport = 'Looking for Financial Support?';
+const financesHome = 'Finances Home';
 const ifYouNeedImmediate =
     'If you need immediate assistance please dial 999 or 112';
 const step1 = 'step 1: ';

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/constant/tab_bar_const.dart';
-import 'package:social_value/ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_controller.dart';
+import 'package:social_value/ui/main/wellbeing/wellbeing_main/wellbeing_dashboard_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../constant/app_string.dart';
 import '../../../../theme/app_color.dart';
@@ -12,6 +12,8 @@ import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class WellBeingMain extends StatefulWidget {
+  const WellBeingMain({super.key});
+
   @override
   State<WellBeingMain> createState() => _WellBeingMainState();
 }
@@ -19,7 +21,7 @@ class WellBeingMain extends StatefulWidget {
 TabController? controller;
 
 class _WellBeingMainState extends State<WellBeingMain> {
-  final WellbeingHomeController controller = Get.put(WellbeingHomeController());
+  final WellbeingMainController controller = Get.put(WellbeingMainController());
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

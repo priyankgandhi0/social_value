@@ -10,6 +10,7 @@ import '../../../generated/assets.dart';
 import '../../../theme/app_color.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_button.dart';
+import '../../../widgets/common_card.dart';
 import '../../../widgets/home_screen_card.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
 
@@ -307,24 +308,12 @@ class DashboardScreen extends StatelessWidget {
                         itemCount: 4,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          return Container(
-                            margin: const EdgeInsets.only(right: 10),
-                            height: 111,
-                            width: 188,
-                            decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.grey.shade400,
-                                      blurRadius: 2,
-                                      // spreadRadius: 2,
-                                      offset: const Offset(1, 0))
-                                ],
-                                color: white,
-                                borderRadius: BorderRadius.circular(8)),
-                          );
+                          return AppVideoCommonCard(
+                              image: Assets.imagesWorkoutImg);
                         },
                       ),
-                    ).paddingOnly(left: 16, right: 16),
+                    ).paddingOnly(left: 10, right: 10),
+
                     10.0.addHSpace(),
                     // Row(
                     //   mainAxisAlignment: MainAxisAlignment.center,
