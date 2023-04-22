@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import 'package:social_value/utils/extension.dart';
-
 import '../../../constant/app_string.dart';
 import '../../../generated/asset.dart';
 import '../../../generated/assets.dart';
@@ -345,19 +343,18 @@ class DashboardScreen extends StatelessWidget {
                     ).paddingOnly(left: 16, right: 16),
                     15.0.addHSpace(),
                     Container(
+                        padding: EdgeInsets.all(10),
                         height: 250,
                         width: double.infinity,
                         color: Colors.white,
                         child: Column(
                           children: [
-                            Expanded(
-                              child: ukBased.interTextStyle(
-                                  textAlign: TextAlign.center,
-                                  fontWeight: FontWeight.w700,
-                                  fontColor: textColor,
-                                  fontSize: 16,
-                                  maxLines: 2),
-                            ).paddingOnly(left: 10, right: 10, top: 20),
+                            ukBased.interTextStyle(
+                                textAlign: TextAlign.center,
+                                fontWeight: FontWeight.w700,
+                                fontColor: textColor,
+                                fontSize: 16,
+                                maxLines: 2),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(

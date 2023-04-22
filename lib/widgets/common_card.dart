@@ -45,43 +45,41 @@ class AppSquareCard extends StatelessWidget {
         ),
       ),
       10.0.addHSpace(),
-      Expanded(
-        child: SizedBox(
-          height: height ?? 165,
-          width: width ?? 165,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              25.0.addHSpace(),
-              desc != null
-                  ? desc?.interTextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 15,
-                      maxLines: 7,
-                      textOverflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      fontColor: descColor ?? Colors.black)
-                  : Container(),
-              25.0.addHSpace(),
-              btnText != null
-                  ? SizedBox(
-                      height: 30,
-                      width: 150,
-                      child: BorderButton(
-                        appBorderFillColor: Colors.white,
-                        appFillColor: Colors.transparent,
-                        onTap: () {},
-                        text: btnText!,
-                        fontSize: 12,
-                        value: 7,
-                        rightIcon: iconVisible ?? true,
-                      ).paddingSymmetric(horizontal: 5),
-                    )
-                  : Container()
-            ],
-          ).paddingSymmetric(horizontal: 5),
-        ),
+      SizedBox(
+        height: height ?? 165,
+        width: width ?? 165,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            25.0.addHSpace(),
+            desc != null
+                ? desc?.interTextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15,
+                    maxLines: 7,
+                    textOverflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    fontColor: descColor ?? Colors.black)
+                : Container(),
+            25.0.addHSpace(),
+            btnText != null
+                ? SizedBox(
+                    height: 30,
+                    width: 150,
+                    child: BorderButton(
+                      appBorderFillColor: Colors.white,
+                      appFillColor: Colors.transparent,
+                      onTap: () {},
+                      text: btnText!,
+                      fontSize: 12,
+                      value: 7,
+                      rightIcon: iconVisible ?? true,
+                    ).paddingSymmetric(horizontal: 5),
+                  )
+                : Container()
+          ],
+        ).paddingSymmetric(horizontal: 5),
       )
     ]).paddingSymmetric(horizontal: 10);
   }
