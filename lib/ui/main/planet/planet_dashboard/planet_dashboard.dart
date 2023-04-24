@@ -7,6 +7,7 @@ import '../../../../constant/app_string.dart';
 import '../../../../generated/asset.dart';
 import '../../../../generated/assets.dart';
 import '../../../../theme/app_color.dart';
+import '../../../../widgets/common_card.dart';
 import '../../../../widgets/wellbeing_screen_card.dart';
 
 class PlanetDashboard extends StatelessWidget {
@@ -18,6 +19,7 @@ class PlanetDashboard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: 40),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               padding: const EdgeInsets.all(20),
@@ -136,7 +138,54 @@ class PlanetDashboard extends StatelessWidget {
                 ],
               ),
             ),
-            20.0.addHSpace(),
+            30.0.addHSpace(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: latestEquality.interTextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontColor: textColor),
+            ),
+            10.0.addHSpace(),
+            SizedBox(
+              height: 165,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return AppArticlesCard(
+                      descColor: Colors.black,
+                      desc:
+                          'Diabetes - What you need to knowabout this condition',
+                      image: Assets.imagesWorkoutImg);
+                },
+              ),
+            ).paddingOnly(left: 10, right: 10),
+            40.0.addHSpace(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: latestArticlesText.interTextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontColor: textColor),
+            ),
+            10.0.addHSpace(),
+            SizedBox(
+              height: 165,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return AppArticlesCard(
+                      descColor: Colors.black,
+                      desc:
+                          'Diabetes - What you need to knowabout this condition',
+                      image: Assets.imagesWorkoutImg);
+                },
+              ),
+            ).paddingOnly(left: 10, right: 10),
           ],
         ),
       ),

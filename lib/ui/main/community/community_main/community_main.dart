@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/theme/app_color.dart';
-
 import '../../../../constant/app_string.dart';
 import '../../../../constant/tab_bar_const.dart';
 import '../../../../utils/extension.dart';
@@ -18,8 +15,9 @@ class CommunityMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 6,
       child: BottomNaviBarScreen(
+        backGround: white,
         color: darkPurple,
         appbar: AppBar(
           automaticallyImplyLeading: false,
@@ -46,7 +44,7 @@ class CommunityMain extends StatelessWidget {
                 communityTabs[controller.controller?.index ?? 0].onTap.call();
               }
             },
-            indicator: indicatorWidth(),
+            indicator: indicatorWidth(Colors.white),
             indicatorSize: TabBarIndicatorSize.label,
             indicatorColor: Colors.white,
             automaticIndicatorColorAdjustment: true,

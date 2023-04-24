@@ -31,10 +31,14 @@ class ImageAssets {
   static const discountCard = 'assets/images/discountCard.png';
   static const round = 'assets/images/round.png';
   static const journey = 'assets/images/joureny.png';
+  static const hand = 'assets/images/hand.png';
+  static const fundraising = 'assets/images/fundraising.png';
+  static const aImage = 'assets/images/aImage.png';
 }
 
 class IconsAssets {
   static const wellbeingIcon = 'assets/icons/heart.svg';
+  static const celenderIcon = 'assets/icons/celender.png';
   // static const heart = 'assets/icons/heart.png';
   // static const myProfile = 'assets/icons/myProfile.svg';
   // static const settingIcon = 'assets/icons/settingIcon.svg';

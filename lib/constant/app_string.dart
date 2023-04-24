@@ -35,7 +35,17 @@ const escapeWithMinuteMindFulNessVideos =
 const trySomeYoga = 'Try Some Yoga';
 const yourDailyWorkoutVideos = 'Your Daily Workout Videos';
 const latestArticlesText = 'Latest Articles';
+const latestEquality = 'Latest Equality, Diversity & Inclusion Webinars';
 const community = 'Community';
+const titleQuestion =
+    'The title of the question is here. Please select from below.';
+const staffSurvey = 'Staff Survey';
+const internationalMicrovolunteering =
+    'International Microvolunteering Day 2023';
+const nextAwarenessDay = 'Next Awareness Day';
+const communityHome = 'Community Home';
+const sustainabilityWebinars = 'Sustainability Webinars';
+const sustainabilityArticles = 'Sustainability Articles';
 const finances = 'Finances';
 const completeTheFormToGetStarted = 'Complete the form to get started';
 const mentalHealthAppDesc =
@@ -59,6 +69,23 @@ const servicesDesc = 'alcoholics-anonymous.org.uk';
 const addiction = 'Addiction';
 const name = 'Name';
 const car = 'Car';
+const shelter = 'Shelter';
+const shelterLink = 'www.shelter.org.uk';
+const shelterDesc =
+    'Shelter is a registered charity that campaigns for tenant rights in Great Britain.\n\nIt gives advice, information and advocacy to people and lobbies government and local authorities for new laws and policies.\n\nIt works in partnership with Shelter Cymru in Wales and the Housing Rights Service in Northern Ireland';
+
+const ourCharitablePledgeDesc =
+    "Here at The Social Value Company, we believe in giving back to the community. That’s why we donate 5% of our revenue to five different causes.\n\n1% of every sale goes to the Cystic Fibrosis Trust via Work for Good, 1% of every sale goes to The Trussell Trust via Work for Good, 1% also goes to Shelter via Work for Good , 1% of every sale directly to Teens Unit and 1% directly to MoreTrees.eco.\n\nWe’re proud to be able to support these important organisations!\n\nSit back, relax and let us take care of your charitable donations.\n\nSee our supported charities below and read about the awesome work that they carry out.";
+const helpingOurCharity = 'Helping Our Charity Partners Together';
+const ourCharitablePledge = 'Our Charitable Pledge';
+const auctionDesc =
+    'Buy, request, or get donations on items and then auction them off to the highest bidder, with all proceeds going to your chosen charity';
+const afternoonTeaDesc =
+    'Organise an afternoon tea with colleagues, friends, and family with all the proceeds going to charity';
+const alcoholDesc =
+    'Usually actioned in January after all the Xmas festivities, however, it can be actioned in any month, as it will help your body, and while doing so raise money for charity!';
+const fundraisingDesc =
+    'Choosing the best fundraising ideas for your non-profit, school, organisation, or chosen charity can sometimes be difficult.\n\nTo help reduce that burden of being creative we have come up with an A-Z of fundraising ideas, so you can feel inspired to fundraise.\n\nPlease have a look at these ideas, and if you have any creative ideas of your own which we have not mentioned below then please let us know by posting them to the community page.';
 const insurance = 'Insurance';
 const selectTheTypeOfInsuranceYouRequire =
     'Select the type of insurance you require';
@@ -93,6 +120,7 @@ const scoreDesc =
 const chooseYourWorkout = 'Choose Your Workout';
 const articleCategoryTitle = 'Article Category Title';
 const discountCard = 'Discount Card';
+const charityPage = 'Charity Page';
 const lessmillsDesc =
     'We’ve partnered with the world-leading LES MILLS which has over 140,000 instructors and 20,000 fitness clubs worldwide to give you 24/7 access to the world’s best workouts so you can become fitter, this doesn’t mean making you just work out. It means helping you fall in love with fitness, so you want to work out!\n  On this page, you will find over 100+ premium videos including equipment and non-equipment workouts, beginner, and pro workouts, along with technique videos to ensure they meet your goals.\n  This partnership is not solely about fitness, so we have along included their LesMills mindfulness series to improve your mental well-being too.';
 const insuranceQuotes = 'Insurance Quotes';
