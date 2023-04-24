@@ -24,7 +24,12 @@ const yogaVideos = 'Yoga Videos';
 const brainGames = 'Brain Games';
 const mentalhealthapp = 'Mental Health App';
 const wellbeing = 'Wellbeing';
+const treesPlantedAllTime = 'Trees Planted All Time';
 const planet = 'Planet';
+const helpedPlantTrees =
+    'As Part of Your Membership You Have Helped Plant Trees';
+const startSurvey = 'Start Survey';
+const next = 'Next';
 const escapeWithMinuteMindFulNessVideos =
     'Escape with 30  minute mindfulness videos';
 const trySomeYoga = 'Try Some Yoga';
@@ -38,7 +43,12 @@ const mentalHealthAppDesc =
 const myPhysicalHealth = 'My Physical Health';
 const myMentalHealth = 'My Mental Health';
 const more = 'More';
+const generalInformation = 'Step 1: General Information';
+const generalInformationDesc =
+    'Enter your background information. You need to perform a separate calculation using the Co2-calculator for each household/house you own.';
 const webinars = 'Webinars';
+const householdCarbonFootprintCalculator =
+    'Household Carbon Footprint Calculator';
 const fundraising = 'Fundraising';
 const volunteering = 'Volunteering';
 const awarenessDays = 'Awareness Days';

@@ -4,6 +4,10 @@ import 'package:social_value/constant/app_string.dart';
 import 'package:social_value/models/app_tab_bar_model.dart';
 import 'package:social_value/ui/main/wellbeing/physical_health/articles/articles_screen.dart';
 
+import '../ui/main/planet/articles/articles.dart';
+import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
+import '../ui/main/planet/planet_dashboard/planet_dashboard.dart';
+import '../ui/main/planet/webinars/webinars.dart';
 import '../ui/main/wellbeing/finances/ articles/finances_artical_screen.dart';
 import '../ui/main/wellbeing/finances/discount_card/discount_card_screen.dart';
 import '../ui/main/wellbeing/finances/finances_dashboard/finances_dashboard.dart';
@@ -120,11 +124,16 @@ List<AppTabBarModel> wellbeingFinanceTabs = [
 ];
 
 List<AppTabBarModel> planetTabs = [
-  AppTabBarModel(tabText: dashboard, tabWidget: Column(), onTap: () {}),
   AppTabBarModel(
-      tabText: carbonFootprintCalculator, tabWidget: Column(), onTap: () {}),
-  AppTabBarModel(tabText: webinars, tabWidget: Column(), onTap: () {}),
-  AppTabBarModel(tabText: articles, tabWidget: Column(), onTap: () {})
+      tabText: dashboard, tabWidget: const PlanetDashboard(), onTap: () {}),
+  AppTabBarModel(
+      tabText: carbonFootprintCalculator,
+      tabWidget: const CarbonFootPrintCalculator(),
+      onTap: () {}),
+  AppTabBarModel(
+      tabText: webinars, tabWidget: const WebinarsScreen(), onTap: () {}),
+  AppTabBarModel(
+      tabText: articles, tabWidget: const ArticlesScreen(), onTap: () {})
 ];
 List<AppTabBarModel> communityTabs = [
   AppTabBarModel(tabText: dashboard, tabWidget: Column(), onTap: () {}),

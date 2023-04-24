@@ -29,6 +29,8 @@ class ImageAssets {
   static const financesCard = 'assets/images/financesCard.png';
   static const car = 'assets/images/car.png';
   static const discountCard = 'assets/images/discountCard.png';
+  static const round = 'assets/images/round.png';
+  static const journey = 'assets/images/joureny.png';
 }
 
 class IconsAssets {

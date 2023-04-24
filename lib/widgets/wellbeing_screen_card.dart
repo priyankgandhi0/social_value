@@ -78,6 +78,64 @@ class WellBeingScore extends StatelessWidget {
   }
 }
 
+class PlanetScore extends StatelessWidget {
+  PlanetScore({
+    Key? key,
+    required this.scoreTitle,
+    required this.scoreDesc,
+    required this.score,
+    required this.percentage,
+    required this.bgColor,
+    required this.percentageColor,
+    this.scoreTitleColor,
+    this.scoreDescColor,
+  }) : super(key: key);
+
+  String scoreTitle;
+  String scoreDesc;
+  String score;
+  double percentage = 0.0;
+  Color bgColor;
+  Color percentageColor;
+  Color? scoreTitleColor;
+  Color? scoreDescColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: Get.size.width,
+      // color: bgColor,
+      child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircularPercentIndicator(
+              radius: 55.0,
+              lineWidth: 7.0,
+              percent: percentage,
+              center: score.appEpilogueTextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 40,
+                  fontColor: percentageColor),
+              progressColor: percentageColor,
+            ),
+            8.0.addHSpace(),
+            scoreTitle.interTextStyle(
+                textAlign: TextAlign.center,
+                fontWeight: FontWeight.w700,
+                fontSize: 14,
+                fontColor: scoreTitleColor ?? const Color(0xff333333)),
+            8.0.addHSpace(),
+            scoreDesc.interTextStyle(
+                textAlign: TextAlign.center,
+                fontWeight: FontWeight.w400,
+                fontSize: 13,
+                fontColor: scoreDescColor ?? const Color(0xff444444))
+          ]).paddingSymmetric(vertical: 15),
+    );
+  }
+}
+
 class WellBeingCard extends StatelessWidget {
   WellBeingCard({
     Key? key,
@@ -519,6 +577,7 @@ class XoDiscountCard extends StatelessWidget {
   final String image;
   final String desc;
   Color? appBorderFillColor;
+
   @override
   Widget build(BuildContext context) {
     return Container(

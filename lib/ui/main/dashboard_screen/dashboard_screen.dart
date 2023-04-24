@@ -80,6 +80,7 @@ class DashboardScreen extends StatelessWidget {
                                   fontColor: white)
                             ],
                           ).paddingOnly(bottom: 5),
+                          10.0.addHSpace(),
                           welComeText.appEpilogueTextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.w600,
