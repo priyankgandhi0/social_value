@@ -14,6 +14,7 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNaviBarScreen(
+      backGround: white,
       color: darkGreen,
       child: Center(
         child: SingleChildScrollView(
@@ -92,10 +93,10 @@ class MenuScreen extends StatelessWidget {
                 height: 229,
                 width: 398,
                 decoration: BoxDecoration(
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(1, 1),
+                          color: Colors.grey.shade400,
+                          offset: const Offset(1, 1),
                           // spreadRadius: 1,
                           blurRadius: 2)
                     ],

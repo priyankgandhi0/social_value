@@ -25,35 +25,36 @@ class PlanetDashboard extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               width: double.infinity,
               color: lightGreen,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: PlanetScore(
-                      scoreTitle: scoreTitle,
-                      scoreDesc: scoreDesc,
-                      percentage: 0.75,
-                      bgColor: darkGreen,
-                      percentageColor: darkGreen,
-                      score: '75',
+              child: IntrinsicHeight(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: PlanetScore(
+                        scoreTitle: scoreTitle,
+                        scoreDesc: scoreDesc,
+                        percentage: 0.75,
+                        bgColor: darkGreen,
+                        percentageColor: darkGreen,
+                        score: '75',
+                      ),
                     ),
-                  ),
-                  const VerticalDivider(
-                    // width: 6,
-                    color: darkGreen,
-                    thickness: 2,
-                  ),
-                  Flexible(
-                    child: PlanetScore(
-                      scoreTitle: "Test Company's EDI Score",
-                      scoreDesc: scoreDesc,
-                      percentage: 0.75,
-                      bgColor: darkGreen,
-                      percentageColor: darkGreen,
-                      score: '75',
+                    const VerticalDivider(
+                      color: darkGreen,
+                      thickness: 1,
                     ),
-                  ),
-                ],
+                    Flexible(
+                      child: PlanetScore(
+                        scoreTitle: "Test Company's EDI Score",
+                        scoreDesc: scoreDesc,
+                        percentage: 0.75,
+                        bgColor: darkGreen,
+                        percentageColor: darkGreen,
+                        score: '75',
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             20.0.addHSpace(),
@@ -104,9 +105,7 @@ class PlanetDashboard extends StatelessWidget {
                 children: [
                   Flexible(
                       child: helpedPlantTrees.interTextStyle(
-                          textAlign: TextAlign.center,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16)),
+                          fontWeight: FontWeight.w700, fontSize: 16)),
                   20.0.addWSpace(),
                   Container(
                     padding: const EdgeInsets.all(10),

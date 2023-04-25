@@ -22,6 +22,7 @@ class MentalHealthMain extends StatelessWidget {
     return DefaultTabController(
       length: 7,
       child: BottomNaviBarScreen(
+        backGround: white,
         color: darkDeepPurple,
         appbar: AppBar(
           automaticallyImplyLeading: false,

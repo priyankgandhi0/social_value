@@ -26,7 +26,7 @@ class FinancesDiscountCard extends StatelessWidget {
                     BoxShadow(
                         color: Colors.grey.shade400,
                         blurRadius: 3,
-                        offset: const Offset(3, 3))
+                        offset: const Offset(2, 2))
                   ],
                   borderRadius: BorderRadius.circular(8)),
               child: Column(

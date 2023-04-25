@@ -13,6 +13,7 @@ class StaffSurveyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNaviBarScreen(
+      bottomColor: darkSky,
       appbar: AppBar(
         automaticallyImplyLeading: false,
         title: Row(

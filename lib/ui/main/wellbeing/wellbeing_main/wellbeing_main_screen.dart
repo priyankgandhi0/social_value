@@ -27,6 +27,7 @@ class _WellBeingMainState extends State<WellBeingMain> {
     return DefaultTabController(
         length: 4,
         child: BottomNaviBarScreen(
+          bottomColor: darkDeepPurple,
           color: darkDeepPurple,
           appbar: AppBar(
             automaticallyImplyLeading: false,

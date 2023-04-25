@@ -23,7 +23,6 @@ class ArticleDetailScreen extends StatelessWidget {
                     image: DecorationImage(
                         image: AssetImage(ImageAssets.articleLadyImage),
                         fit: BoxFit.cover)),
-                // child: Image.asset(ImageAssets.articleLadyImage),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -60,7 +59,7 @@ class ArticleDetailScreen extends StatelessWidget {
                         )).paddingSymmetric(
                       horizontal: 20,
                     ),
-                    22.0.addHSpace(),
+                    50.0.addHSpace(),
                     ClipRRect(
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(16),
@@ -80,32 +79,25 @@ class ArticleDetailScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
+                padding: const EdgeInsets.only(
+                    left: 16, right: 16, top: 10, bottom: 20),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          introduction.interTextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                              fontColor: textColor),
-                        ],
-                      ),
+                      introduction.interTextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20,
+                          fontColor: textColor),
                       10.0.addHSpace(),
                       introductionDesc.interTextStyle(
                           fontColor: textColor,
                           fontWeight: FontWeight.w400,
                           fontSize: 15),
-                      10.0.addHSpace(),
-                      Row(
-                        children: [
-                          introduction.interTextStyle(
-                              fontColor: textColor,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20),
-                        ],
-                      ),
+                      20.0.addHSpace(),
+                      introduction.interTextStyle(
+                          fontColor: textColor,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20),
                       10.0.addHSpace(),
                       introductionDesc.interTextStyle(
                           fontColor: textColor,
@@ -115,7 +107,7 @@ class ArticleDetailScreen extends StatelessWidget {
               ),
             )
           ],
-        ),
+        ).paddingOnly(bottom: 30),
       ),
     );
   }

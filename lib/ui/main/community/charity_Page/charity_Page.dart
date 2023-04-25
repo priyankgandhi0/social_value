@@ -22,7 +22,7 @@ class CharityPage extends StatelessWidget {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                        color: Colors.grey.shade400,
+                        color: Colors.grey.shade300,
                         blurRadius: 3,
                         offset: const Offset(3, 3))
                   ],

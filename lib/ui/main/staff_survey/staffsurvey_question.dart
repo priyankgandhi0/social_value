@@ -179,24 +179,26 @@ class _State extends State<StaffSurveyQuestion> {
             border:
                 Border.all(color: _group[i].selected ? darkSky : Colors.grey),
             borderRadius: BorderRadius.circular(10)),
-        child: RadioListTile(
-          value: _group[i].index,
-          groupValue: _value,
-          selected: _group[i].selected,
-          toggleable: false,
-          onChanged: (val) {
-            setState(() {
-              for (int i = 0; i < _group.length; i++) {
-                _group[i].selected = false;
-              }
-              _value = val!;
-              _group[i].selected = true;
-            });
-          },
-          activeColor: darkSky,
-          title: _group[i]
-              .text
-              .interTextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+        child: Center(
+          child: RadioListTile(
+            value: _group[i].index,
+            groupValue: _value,
+            selected: _group[i].selected,
+            toggleable: false,
+            onChanged: (val) {
+              setState(() {
+                for (int i = 0; i < _group.length; i++) {
+                  _group[i].selected = false;
+                }
+                _value = val!;
+                _group[i].selected = true;
+              });
+            },
+            activeColor: darkSky,
+            title: _group[i]
+                .text
+                .interTextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+          ),
         ),
       ).paddingOnly(bottom: 15));
     }
@@ -210,6 +212,7 @@ class _State extends State<StaffSurveyQuestion> {
   @override
   Widget build(BuildContext context) {
     return BottomNaviBarScreen(
+      bottomColor: darkSky,
       appbar: AppBar(
         automaticallyImplyLeading: false,
         title: Row(
@@ -244,7 +247,6 @@ class _State extends State<StaffSurveyQuestion> {
                   fontWeight: FontWeight.w700, fontSize: 17),
               20.0.addHSpace(),
               makeRadioTiles(),
-
               /*  Container(
                 height: 50,
                 width: double.infinity,
@@ -330,8 +332,8 @@ class _State extends State<StaffSurveyQuestion> {
                     },
                   ),
                 ),
-              ),
-              40.0.addHSpace(),*/
+              ),*/
+              20.0.addHSpace(),
               const AppBorderButton(text: next, borderColor: darkSky)
                   .paddingOnly(right: 230)
             ],

@@ -28,7 +28,7 @@ class FundraisingScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              20.0.addHSpace(),
+              30.0.addHSpace(),
               Container(
                   // height: 60,
                   padding:

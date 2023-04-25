@@ -12,9 +12,9 @@ class FinancesDashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -29,9 +29,9 @@ class FinancesDashBoard extends StatelessWidget {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                        color: Colors.grey.shade400,
-                        blurRadius: 3,
-                        offset: const Offset(3, 3))
+                        color: Colors.grey.shade300,
+                        offset: const Offset(2, 2),
+                        blurRadius: 2)
                   ],
                   borderRadius: BorderRadius.circular(8)),
               child: Column(
@@ -49,6 +49,7 @@ class FinancesDashBoard extends StatelessWidget {
             ),
             20.0.addHSpace(),
             const XoDiscountCard(
+              fillColor: lightDeepPurple,
               image: Assets.imagesCreditCard,
               appBorderFillColor: darkDeepPurple,
               desc: memberShipDesc,

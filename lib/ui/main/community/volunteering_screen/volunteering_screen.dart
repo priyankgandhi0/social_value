@@ -54,17 +54,17 @@ class VolunteeringScreen extends StatelessWidget {
             text:
                 'Reach Volunteering is the leading skills-based volunteering charity and the UK’s single biggest source of trustees for the voluntary sector. Their vision is to create a world where people come together to create a thriving, fair and sustainable society. They inspire, support and connect civil society organisations and volunteers to work together, sharing skills and expertise to create a better society.',
           ),
-          10.0.addHSpace(),
+          20.0.addHSpace(),
           const VolunterringCard(
             text:
                 'Reach Volunteering is the leading skills-based volunteering charity and the UK’s single biggest source of trustees for the voluntary sector. Their vision is to create a world where people come together to create a thriving, fair and sustainable society. They inspire, support and connect civil society organisations and volunteers to work together, sharing skills and expertise to create a better society.',
           ),
-          10.0.addHSpace(),
+          20.0.addHSpace(),
           const VolunterringCard(
             text:
                 'Reach Volunteering is the leading skills-based volunteering charity and the UK’s single biggest source of trustees for the voluntary sector. Their vision is to create a world where people come together to create a thriving, fair and sustainable society. They inspire, support and connect civil society organisations and volunteers to work together, sharing skills and expertise to create a better society.',
           ),
-          10.0.addHSpace(),
+          40.0.addHSpace(),
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(Assets.images10reasonBg),
@@ -78,7 +78,7 @@ class VolunteeringScreen extends StatelessWidget {
               return const ReasonVolunterringCard(
                       text:
                           'Reach Volunteering is the leading skills-based volunteering charity and the UK’s single biggest source of trustees for the voluntary sector.')
-                  .paddingSymmetric(vertical: 5);
+                  .paddingSymmetric(vertical: 10);
             },
           ),
         ],

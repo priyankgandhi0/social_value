@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../generated/asset.dart';
 import '../../../../generated/assets.dart';
@@ -40,7 +42,7 @@ class _ArticlesScreenState extends State<ArticlesScreen>
           child: TabBar(
             isScrollable: true,
             padding: EdgeInsets.zero,
-            indicatorPadding: EdgeInsets.zero,
+            indicatorPadding: const EdgeInsets.only(bottom: 7),
             controller: controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
@@ -57,11 +59,20 @@ class _ArticlesScreenState extends State<ArticlesScreen>
                 color: white, fontWeight: FontWeight.w700, fontSize: 16),
             unselectedLabelStyle: GoogleFonts.inter(
                 color: white, fontWeight: FontWeight.w700, fontSize: 16),
-            tabs: const [
-              Tab(
-                child: Text("Sustainability Articles"),
+            tabs: [
+              SizedBox(
+                width: (Get.width / 2),
+                child: Tab(
+                  child: "Sustainability Articles".interTextStyle(
+                      fontSize: 17, fontWeight: FontWeight.w700),
+                ),
               ),
-              Tab(child: Text("EDI Articles")),
+              // 10.0.addWSpace(),
+              SizedBox(
+                  width: (Get.width / 3),
+                  child: Tab(
+                      child: "EDI Articles".interTextStyle(
+                          fontSize: 17, fontWeight: FontWeight.w700))),
             ],
           ),
         ),

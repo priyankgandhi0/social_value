@@ -84,8 +84,7 @@ class PhysicalHealthBmiCalculator extends StatelessWidget {
                 )
               ],
             ).paddingAll(10),
-          ).paddingSymmetric(horizontal: 10).paddingOnly(top: 15),
-          15.0.addHSpace(),
+          ).paddingSymmetric(horizontal: 15, vertical: 15).paddingOnly(top: 15),
           Container(
             decoration: BoxDecoration(boxShadow: [
               BoxShadow(
@@ -177,7 +176,8 @@ class PhysicalHealthBmiCalculator extends StatelessWidget {
                 15.0.addHSpace(),
               ],
             ),
-          ).paddingSymmetric(horizontal: 10)
+          ).paddingSymmetric(horizontal: 15, vertical: 10),
+          30.0.addHSpace(),
         ],
       ),
     );

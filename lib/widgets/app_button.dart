@@ -162,7 +162,7 @@ class AppBorderButton extends StatelessWidget {
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-              border: Border.all(color: borderColor),
+              border: Border.all(color: borderColor, width: 1.5),
               borderRadius: BorderRadius.circular(10)),
           child: Center(
             child: text.interTextStyle(

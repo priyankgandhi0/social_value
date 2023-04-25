@@ -52,7 +52,7 @@ class CommunityDashboard extends StatelessWidget {
             ),
             20.0.addHSpace(),
             Container(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(15),
               margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
                   color: darkPurple, borderRadius: BorderRadius.circular(8)),
@@ -69,13 +69,13 @@ class CommunityDashboard extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             fontSize: 12,
                             fontColor: white),
-                        10.0.addHSpace(),
+                        7.0.addHSpace(),
                         internationalMicrovolunteering.interTextStyle(
                             textAlign: TextAlign.center,
                             fontWeight: FontWeight.w700,
                             fontSize: 18,
                             fontColor: white),
-                        10.0.addHSpace(),
+                        7.0.addHSpace(),
                         "15th April 2023".interTextStyle(
                             textAlign: TextAlign.center,
                             fontWeight: FontWeight.w700,
@@ -89,6 +89,7 @@ class CommunityDashboard extends StatelessWidget {
             ),
             25.0.addHSpace(),
             const XoDiscountCard(
+              fillColor: lightPurple,
               image: Assets.imagesCreditCard,
               appBorderFillColor: darkPurple,
               desc: memberShipDesc,

@@ -15,6 +15,7 @@ class MyProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNaviBarScreen(
+      bottomColor: darkSky,
       backGround: white,
       appbar: AppBar(
         automaticallyImplyLeading: false,

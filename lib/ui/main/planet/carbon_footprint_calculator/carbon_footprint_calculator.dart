@@ -40,8 +40,6 @@ class CarbonFootPrintCalculator extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                name.interTextStyle(fontSize: 13, fontWeight: FontWeight.w400),
-                10.0.addHSpace(),
                 Row(
                   children: [
                     Flexible(
@@ -49,8 +47,8 @@ class CarbonFootPrintCalculator extends StatelessWidget {
                         children: [
                           StartUpTextFiled(
                             fontColor: Colors.grey,
-                            headingText: "",
-                            headingTextColor: white,
+                            headingText: "Name",
+                            headingTextColor: textColor,
                             isCursorShow: true,
                             borderColor: Colors.grey.shade300,
                             fillColor: backGroundColor,
@@ -73,8 +71,8 @@ class CarbonFootPrintCalculator extends StatelessWidget {
                         children: [
                           StartUpTextFiled(
                             fontColor: Colors.grey,
-                            headingText: "",
-                            headingTextColor: white,
+                            headingText: "dsew",
+                            headingTextColor: backGroundColor,
                             isCursorShow: true,
                             borderColor: Colors.grey.shade300,
                             fillColor: backGroundColor,
@@ -94,16 +92,13 @@ class CarbonFootPrintCalculator extends StatelessWidget {
                   ],
                 ),
                 20.0.addHSpace(),
-                "Email"
-                    .interTextStyle(fontSize: 13, fontWeight: FontWeight.w400),
-                10.0.addHSpace(),
                 Row(
                   children: [
                     Flexible(
                       child: StartUpTextFiled(
                         fontColor: Colors.grey,
-                        headingText: "",
-                        headingTextColor: white,
+                        headingText: "Email",
+                        headingTextColor: textColor,
                         isCursorShow: true,
                         borderColor: Colors.grey.shade300,
                         fillColor: backGroundColor,

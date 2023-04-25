@@ -4,6 +4,7 @@ import 'package:social_value/utils/extension.dart';
 import 'package:social_value/widgets/common_card.dart';
 
 import '../../../../../constant/app_string.dart';
+import '../../../../../generated/asset.dart';
 import '../../../../../theme/app_color.dart';
 
 class FinancesInsuranceQuotes extends StatelessWidget {
@@ -45,13 +46,12 @@ class FinancesInsuranceQuotes extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                // mainAxisSpacing: 20,
+                // crossAxisSpacing: 20,
               ),
               itemBuilder: (BuildContext context, int index) {
                 return const InsuranceCard();
               },
-            )
+            ),
           ],
         ),
       ),

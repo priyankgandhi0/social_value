@@ -578,12 +578,14 @@ class XoDiscountCard extends StatelessWidget {
       {Key? key,
       required this.image,
       this.appBorderFillColor,
-      required this.desc})
+      required this.desc,
+      this.fillColor})
       : super(key: key);
 
   final String image;
   final String desc;
   final Color? appBorderFillColor;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -595,9 +597,10 @@ class XoDiscountCard extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.shade400,
-                blurRadius: 3,
-                offset: const Offset(3, 3))
+                color: Colors.grey.shade300,
+                offset: const Offset(1, 1),
+                // spreadRadius: 1,
+                blurRadius: 2)
           ],
           borderRadius: BorderRadius.circular(8)),
       child: Column(
@@ -605,23 +608,24 @@ class XoDiscountCard extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           getYourFreeXODiscountCard.interTextStyle(
-              fontSize: 17, fontWeight: FontWeight.w700),
+              fontSize: 16, fontWeight: FontWeight.w700),
           10.0.addHSpace(),
           Image.asset(image),
           10.0.addHSpace(),
           Container(
-              // height: 60,
-              padding: const EdgeInsets.all(10),
-              // width: double.infinity,
-              decoration: BoxDecoration(
-                  color: lightDeepPurple,
-                  borderRadius: BorderRadius.circular(8)),
-              child: desc.interTextStyle(
-                  fontSize: 12,
-                  maxLines: 4,
-                  fontWeight: FontWeight.w400,
-                  textAlign: TextAlign.center,
-                  fontColor: textColor)),
+            // height: 60,
+            padding: const EdgeInsets.all(10),
+            // width: double.infinity,
+            decoration: BoxDecoration(
+                color: fillColor, borderRadius: BorderRadius.circular(8)),
+            child: Center(
+                child: desc.interTextStyle(
+                    fontSize: 12,
+                    maxLines: 4,
+                    fontWeight: FontWeight.w400,
+                    textAlign: TextAlign.center,
+                    fontColor: textColor)),
+          ),
           20.0.addHSpace(),
           AppBorderButton(
                   text: startSavingNow,

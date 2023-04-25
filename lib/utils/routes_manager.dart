@@ -6,7 +6,8 @@ import 'package:social_value/ui/main/soical_value_score_page/soical_value_score.
 import 'package:social_value/ui/main/terms_condition/terms_condition.dart';
 import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
-import '../ui/main/common_screen/article_screen/article_screen.dart';
+
+import '../ui/main/common_screen/article__detail_screen/article_detail_screen.dart';
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
 import '../ui/main/my_profile/my_profile.dart';

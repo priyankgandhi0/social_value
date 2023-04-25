@@ -17,6 +17,7 @@ class CommunityMain extends StatelessWidget {
     return DefaultTabController(
       length: 6,
       child: BottomNaviBarScreen(
+        bottomColor: darkPurple,
         backGround: white,
         color: darkPurple,
         appbar: AppBar(

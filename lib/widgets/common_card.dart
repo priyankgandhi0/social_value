@@ -52,15 +52,18 @@ class AppSquareCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            25.0.addHSpace(),
+            20.0.addHSpace(),
             desc != null
-                ? desc?.interTextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15,
-                    maxLines: 7,
-                    textOverflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                    fontColor: descColor ?? Colors.black)
+                ? SizedBox(
+                    height: 50,
+                    child: desc?.interTextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                        maxLines: 3,
+                        textOverflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        fontColor: descColor ?? Colors.black),
+                  )
                 : Container(),
             25.0.addHSpace(),
             btnText != null
@@ -229,29 +232,27 @@ class InsuranceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130,
-      width: 188,
+      // width: 190,
+      padding: const EdgeInsets.all(12),
+      margin: const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 15),
       decoration: BoxDecoration(
           color: darkDeepPurple, borderRadius: BorderRadius.circular(10)),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            car.interTextStyle(
-                fontSize: 16, fontWeight: FontWeight.w700, fontColor: white),
-            5.0.addHSpace(),
-            insurance.interTextStyle(
-                fontSize: 12, fontWeight: FontWeight.w400, fontColor: white),
-            40.0.addHSpace(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [Image.asset(ImageAssets.car)],
-            )
-          ],
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          car.interTextStyle(
+              fontSize: 16, fontWeight: FontWeight.w700, fontColor: white),
+          5.0.addHSpace(),
+          insurance.interTextStyle(
+              fontSize: 12, fontWeight: FontWeight.w400, fontColor: white),
+          40.0.addHSpace(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [Image.asset(ImageAssets.car)],
+          ),
+        ],
       ),
-    ).paddingOnly(bottom: 10);
+    );
   }
 }
 
@@ -444,21 +445,21 @@ class AwarenessDaysCard extends StatelessWidget {
                       fontColor: white),
                 )),
             25.0.addWSpace(),
-            day.interTextStyle(fontSize: 16, fontWeight: FontWeight.w400)
+            day.interTextStyle(fontSize: 14, fontWeight: FontWeight.w400)
           ],
         ),
         1.0.addHSpace(),
         Row(
           children: [
             70.0.addWSpace(),
-            day2.interTextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+            day2.interTextStyle(fontSize: 14, fontWeight: FontWeight.w400),
           ],
         ),
         15.0.addHSpace(),
         Row(
           children: [
             70.0.addWSpace(),
-            day3.interTextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+            day3.interTextStyle(fontSize: 14, fontWeight: FontWeight.w400),
           ],
         )
       ],
@@ -479,7 +480,7 @@ class AlcoholFreeCard extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.shade400,
+                color: Colors.grey.shade300,
                 blurRadius: 3,
                 offset: const Offset(3, 3))
           ],
@@ -505,7 +506,7 @@ class AlcoholFreeCard extends StatelessWidget {
           ),
           SizedBox(
             child: alcoholDesc.interTextStyle(
-                fontWeight: FontWeight.w400, fontSize: 13),
+                fontWeight: FontWeight.w400, fontSize: 14),
           ).paddingOnly(left: 81),
           20.0.addHSpace(),
           SizedBox(
@@ -515,7 +516,7 @@ class AlcoholFreeCard extends StatelessWidget {
           20.0.addHSpace(),
           SizedBox(
             child: afternoonTeaDesc.interTextStyle(
-                fontWeight: FontWeight.w400, fontSize: 13),
+                fontWeight: FontWeight.w400, fontSize: 14),
           ).paddingOnly(left: 81),
           20.0.addHSpace(),
           SizedBox(
@@ -525,7 +526,7 @@ class AlcoholFreeCard extends StatelessWidget {
           10.0.addHSpace(),
           SizedBox(
                   child: auctionDesc.interTextStyle(
-                      fontWeight: FontWeight.w400, fontSize: 13))
+                      fontWeight: FontWeight.w400, fontSize: 14))
               .paddingOnly(left: 81),
         ],
       ),
@@ -551,7 +552,7 @@ class ShelterCard extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.shade400,
+                color: Colors.grey.shade300,
                 blurRadius: 3,
                 offset: const Offset(3, 3))
           ],
