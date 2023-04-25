@@ -6,6 +6,7 @@ import 'package:social_value/ui/main/terms_condition/terms_condition.dart';
 
 import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
+import '../ui/main/common_screen/article_screen/article_screen.dart';
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
 import '../ui/main/my_profile/my_profile.dart';
@@ -32,6 +33,7 @@ class Routes {
   static String termsCondition = "/termsCondition";
   static String helpSupport = "/helpSupport";
   static String myProfileScreen = "/MyProfile_Screen";
+  static String articleDetailScreen = "/Article_Detail_Screen";
 
   static List<GetPage> pages = [
     GetPage(
@@ -90,6 +92,10 @@ class Routes {
     GetPage(
         name: Routes.myProfileScreen,
         page: () => const MyProfileScreen(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.articleDetailScreen,
+        page: () => const ArticleDetailScreen(),
         transition: Transition.noTransition),
   ];
 }

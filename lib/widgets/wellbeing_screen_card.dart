@@ -555,11 +555,18 @@ class AddictionCard extends StatelessWidget {
       color: color,
       child: Row(
         children: [
-          title.interTextStyle(fontWeight: FontWeight.w400, fontSize: 12),
-          desc.interTextStyle(
-              fontColor: darkDeepPurple,
-              fontWeight: FontWeight.w400,
-              fontSize: 12),
+          title.interTextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 12,
+            textOverflow: TextOverflow.ellipsis,
+          ),
+          Expanded(
+            child: desc.interTextStyle(
+                // textOverflow: TextOverflow.ellipsis,
+                fontColor: darkDeepPurple,
+                fontWeight: FontWeight.w400,
+                fontSize: 12),
+          )
         ],
       ),
     );

@@ -8,6 +8,7 @@ import '../../../../../generated/asset.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../theme/app_color.dart';
 
+import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/common_card.dart';
 
 class PhysicalHealthArticleScreen extends StatelessWidget {
@@ -42,7 +43,9 @@ class PhysicalHealthArticleScreen extends StatelessWidget {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return AppBodyPumptCard(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(Routes.articleDetailScreen);
+                  },
                   title: index == 0
                       ? 'Vegan 7 Day Plan'
                       : 'Lower Bodypump Session 2',

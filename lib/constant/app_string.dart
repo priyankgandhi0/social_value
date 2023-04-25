@@ -8,6 +8,9 @@ const settings = 'Settings';
 const helpCentre = 'Help Centre';
 const help = 'Help';
 const submit = 'Submit';
+const introduction = 'Introduction';
+const introductionDesc =
+    "Historically, society disregarded the notion that a child’s mental health could be disturbed (Aries, 1962).In the 1970s, depression was typically viewed as an adult disorder because children were seen as too developmentally immature to have this disorder. The Diagnostic and statistical manual of mental disorders (DSM) by the American Psychiatric Association did not represent children until its third edition in 1980.It’s normal for children to feel down, think negatively, or be cranky this is part of their healthy development and learning to manage emotions. But childhood depression is more than just feeling sad, blue, or low. It is a mental health problem that affects children’s thinking, mood, and behaviour. Children experiencing depression often feel negative about themselves, their situation, and their future.";
 const privacyPolicy = 'Privacy Policy';
 const memberSinceFebDesc =
     'You can earn more digital badges via participation and account longevity. Keep an eye out here for your digital badges and rewards.';
@@ -22,6 +25,7 @@ const welComeText = 'Welcome to your Social Value Hub';
 const companyNameText = '[Company Name]’s';
 const treeText = '65 Trees';
 const exploreText = 'Explore';
+const articleDesc = 'What You Should Know About Childhood Depression';
 const accessNow = 'Access Now ';
 const dashboard = 'Dashboard';
 const mindfulness = 'Mindfulness';
