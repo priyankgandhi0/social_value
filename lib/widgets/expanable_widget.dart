@@ -49,6 +49,6 @@ Widget expandedTile(String title, Function() onclick, {bool? isExpandable}) {
                     size: 15,
                   ).paddingOnly(right: 10),
           ],
-        )),
+        )).paddingSymmetric(vertical: 5),
   );
 }
