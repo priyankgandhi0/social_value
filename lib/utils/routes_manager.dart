@@ -70,7 +70,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.staffSurveyQuestion,
-        page: () => const StaffSurveyQuestion(),
+        page: () => StaffSurveyQuestion(),
         transition: Transition.noTransition),
   ];
 }
