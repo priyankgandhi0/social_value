@@ -4,7 +4,7 @@ import 'package:social_value/utils/extension.dart';
 
 import '../../../../generated/assets.dart';
 import '../../../../theme/app_color.dart';
-import '../../../../utils/BulletList.dart';
+import '../../../../utils/bulletlist.dart';
 import '../../../../widgets/common_card.dart';
 
 class VolunteeringScreen extends StatelessWidget {
@@ -50,17 +50,17 @@ class VolunteeringScreen extends StatelessWidget {
             ),
           ),
           15.0.addHSpace(),
-          VolunterringCard(
+          const VolunterringCard(
             text:
                 'Reach Volunteering is the leading skills-based volunteering charity and the UK’s single biggest source of trustees for the voluntary sector. Their vision is to create a world where people come together to create a thriving, fair and sustainable society. They inspire, support and connect civil society organisations and volunteers to work together, sharing skills and expertise to create a better society.',
           ),
           10.0.addHSpace(),
-          VolunterringCard(
+          const VolunterringCard(
             text:
                 'Reach Volunteering is the leading skills-based volunteering charity and the UK’s single biggest source of trustees for the voluntary sector. Their vision is to create a world where people come together to create a thriving, fair and sustainable society. They inspire, support and connect civil society organisations and volunteers to work together, sharing skills and expertise to create a better society.',
           ),
           10.0.addHSpace(),
-          VolunterringCard(
+          const VolunterringCard(
             text:
                 'Reach Volunteering is the leading skills-based volunteering charity and the UK’s single biggest source of trustees for the voluntary sector. Their vision is to create a world where people come together to create a thriving, fair and sustainable society. They inspire, support and connect civil society organisations and volunteers to work together, sharing skills and expertise to create a better society.',
           ),
@@ -75,7 +75,7 @@ class VolunteeringScreen extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              return ReasonVolunterringCard(
+              return const ReasonVolunterringCard(
                       text:
                           'Reach Volunteering is the leading skills-based volunteering charity and the UK’s single biggest source of trustees for the voluntary sector.')
                   .paddingSymmetric(vertical: 5);

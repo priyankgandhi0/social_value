@@ -88,7 +88,7 @@ class CommunityDashboard extends StatelessWidget {
               ),
             ),
             25.0.addHSpace(),
-            XoDiscountCard(
+            const XoDiscountCard(
               image: Assets.imagesCreditCard,
               appBorderFillColor: darkPurple,
               desc: memberShipDesc,

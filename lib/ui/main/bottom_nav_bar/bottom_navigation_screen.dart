@@ -114,7 +114,7 @@ import '../../../utils/custom_bottom_item.dart';
 //   }
 // }
 class BottomNaviBarScreen extends StatelessWidget {
-  BottomNaviBarScreen(
+  const BottomNaviBarScreen(
       {Key? key,
       required this.color,
       required this.child,
@@ -122,7 +122,7 @@ class BottomNaviBarScreen extends StatelessWidget {
       this.backGround})
       : super(key: key);
   final Color color;
-  Color? backGround;
+  final Color? backGround;
   final Widget child;
   final PreferredSizeWidget? appbar;
   @override

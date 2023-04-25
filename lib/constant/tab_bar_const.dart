@@ -148,7 +148,9 @@ List<AppTabBarModel> communityTabs = [
       tabWidget: const AwarenessDaysScreen(),
       onTap: () {}),
   AppTabBarModel(
-      tabText: volunteering, tabWidget: VolunteeringScreen(), onTap: () {}),
+      tabText: volunteering,
+      tabWidget: const VolunteeringScreen(),
+      onTap: () {}),
   AppTabBarModel(
       tabText: fundraising, tabWidget: const FundraisingScreen(), onTap: () {}),
   AppTabBarModel(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
-
 import '../../../constant/app_string.dart';
 import '../../../generated/assets.dart';
 import '../../../utils/routes_manager.dart';

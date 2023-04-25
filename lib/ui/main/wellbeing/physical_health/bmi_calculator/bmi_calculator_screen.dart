@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 
 import '../../../../../theme/app_color.dart';
-import '../../../../../utils/BulletList.dart';
+import '../../../../../utils/bulletlist.dart';
 import '../../../../../widgets/common_textfield.dart';
 
 class PhysicalHealthBmiCalculator extends StatelessWidget {

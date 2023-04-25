@@ -48,7 +48,7 @@ class FinancesDashBoard extends StatelessWidget {
               ),
             ),
             20.0.addHSpace(),
-            XoDiscountCard(
+            const XoDiscountCard(
               image: Assets.imagesCreditCard,
               appBorderFillColor: darkDeepPurple,
               desc: memberShipDesc,
@@ -66,7 +66,7 @@ class FinancesDashBoard extends StatelessWidget {
                 itemCount: 4,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return AppArticlesCard(
+                  return const AppArticlesCard(
                       descColor: Colors.black,
                       desc:
                           'Diabetes - What you need to knowabout this condition',

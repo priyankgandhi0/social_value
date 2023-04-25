@@ -332,7 +332,7 @@ class _State extends State<StaffSurveyQuestion> {
                 ),
               ),
               40.0.addHSpace(),*/
-              AppBorderButton(text: next, borderColor: darkSky)
+              const AppBorderButton(text: next, borderColor: darkSky)
                   .paddingOnly(right: 230)
             ],
           ),

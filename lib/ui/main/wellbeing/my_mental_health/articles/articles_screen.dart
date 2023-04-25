@@ -5,6 +5,7 @@ import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../theme/app_color.dart';
+import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/common_card.dart';
 
 class MentalHealthArticles extends StatelessWidget {
@@ -39,7 +40,9 @@ class MentalHealthArticles extends StatelessWidget {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return AppBodyPumptCard(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(Routes.articleDetailScreen);
+                  },
                   title: index == 0
                       ? 'Full Body resistance Training - Low Mod Level'
                       : 'Lower Bodypump Session 2',

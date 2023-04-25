@@ -49,7 +49,7 @@ class FinancesInsuranceQuotes extends StatelessWidget {
                 // mainAxisSpacing: 20,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return InsuranceCard();
+                return const InsuranceCard();
               },
             )
           ],

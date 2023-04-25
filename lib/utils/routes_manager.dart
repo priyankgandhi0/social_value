@@ -4,7 +4,6 @@ import 'package:social_value/ui/main/help_support/help_support.dart';
 import 'package:social_value/ui/main/planet/planet_main/planet_main.dart';
 import 'package:social_value/ui/main/soical_value_score_page/soical_value_score.dart';
 import 'package:social_value/ui/main/terms_condition/terms_condition.dart';
-
 import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
 import '../ui/main/common_screen/article_screen/article_screen.dart';
@@ -53,7 +52,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.wellBeingDashBoardScreen,
-        page: () => WellBeingMain(),
+        page: () => const WellBeingMain(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.physicalHealthMainScreen,
@@ -77,7 +76,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.termsCondition,
-        page: () => TermsCondition(),
+        page: () => const TermsCondition(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.helpSupport,
@@ -101,7 +100,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.socialValueScore,
-        page: () => SocialValueScore(),
+        page: () => const SocialValueScore(),
         transition: Transition.noTransition),
   ];
 }

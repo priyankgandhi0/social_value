@@ -37,21 +37,21 @@ class AwarenessDaysScreen extends StatelessWidget {
                   "April 2023".interTextStyle(
                       fontSize: 16, fontWeight: FontWeight.w700),
                   20.0.addHSpace(),
-                  AwarenessDaysCard(
+                  const AwarenessDaysCard(
                     date: "2nd",
                     day: "Purple Day",
                     day2: "Mothering Sunday",
                     day3: "World Autism Day",
                   ),
                   27.0.addHSpace(),
-                  AwarenessDaysCard(
+                  const AwarenessDaysCard(
                     date: "23nd",
                     day: "Purple Day",
                     day2: "Mothering Sunday",
                     day3: "World Autism Day",
                   ),
                   27.0.addHSpace(),
-                  AwarenessDaysCard(
+                  const AwarenessDaysCard(
                     date: "23nd",
                     day: "Purple Day",
                     day2: "",
@@ -84,21 +84,21 @@ class AwarenessDaysScreen extends StatelessWidget {
                   "April 2023".interTextStyle(
                       fontSize: 16, fontWeight: FontWeight.w700),
                   20.0.addHSpace(),
-                  AwarenessDaysCard(
+                  const AwarenessDaysCard(
                     date: "2nd",
                     day: "Purple Day",
                     day2: "Mothering Sunday",
                     day3: "World Autism Day",
                   ),
                   27.0.addHSpace(),
-                  AwarenessDaysCard(
+                  const AwarenessDaysCard(
                     date: "23nd",
                     day: "Purple Day",
                     day2: "Mothering Sunday",
                     day3: "World Autism Day",
                   ),
                   27.0.addHSpace(),
-                  AwarenessDaysCard(
+                  const AwarenessDaysCard(
                     date: "23nd",
                     day: "Purple Day",
                     day2: "",

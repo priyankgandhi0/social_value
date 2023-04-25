@@ -115,30 +115,35 @@ class DashboardScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                height: Get.height / 11.5,
-                                width: Get.width / 2.35,
-                                decoration: BoxDecoration(
-                                    color: lightGreen,
-                                    borderRadius: BorderRadius.circular(16)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 11, right: 11, top: 6, bottom: 6),
-                                  child: Row(
-                                    children: [
-                                      SvgPicture.asset(
-                                        Assets.icons75Rounder,
-                                        height: 45,
-                                        width: 45,
-                                      ),
-                                      2.0.addWSpace(),
-                                      Expanded(
-                                          child: socialValueScoreText
-                                              .interTextStyle(
-                                                  textAlign: TextAlign.center,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 16))
-                                    ],
+                              GestureDetector(
+                                onTap: () {
+                                  Get.toNamed(Routes.socialValueScore);
+                                },
+                                child: Container(
+                                  height: Get.height / 11.5,
+                                  width: Get.width / 2.35,
+                                  decoration: BoxDecoration(
+                                      color: lightGreen,
+                                      borderRadius: BorderRadius.circular(16)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 11, right: 11, top: 6, bottom: 6),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                          Assets.icons75Rounder,
+                                          height: 45,
+                                          width: 45,
+                                        ),
+                                        2.0.addWSpace(),
+                                        Expanded(
+                                            child: socialValueScoreText
+                                                .interTextStyle(
+                                                    textAlign: TextAlign.center,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 16))
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -307,7 +312,7 @@ class DashboardScreen extends StatelessWidget {
                         itemCount: 4,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          return AppVideoCommonCard(
+                          return const AppVideoCommonCard(
                               image: Assets.imagesWorkoutImg);
                         },
                       ),

@@ -5,7 +5,7 @@ import 'package:social_value/utils/extension.dart';
 class BulletList extends StatelessWidget {
   final List<String> strings;
   bool? isBulletText = false;
-  double? left, right, top, bottom;
+  final double? left, right, top, bottom;
 
   BulletList(this.strings,
       {super.key,

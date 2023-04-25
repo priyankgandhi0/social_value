@@ -46,27 +46,27 @@ class SupportServices extends StatelessWidget {
                       fontSize: 15,
                       textDecoration: TextDecoration.underline),
                   20.0.addHSpace(),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     // color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     // color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,
@@ -91,27 +91,27 @@ class SupportServices extends StatelessWidget {
                       fontSize: 15,
                       textDecoration: TextDecoration.underline),
                   20.0.addHSpace(),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     // color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     // color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,
@@ -136,27 +136,27 @@ class SupportServices extends StatelessWidget {
                       fontSize: 15,
                       textDecoration: TextDecoration.underline),
                   20.0.addHSpace(),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     // color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     // color: lightDeepPurple,
                   ),
-                  AddictionCard(
+                  const AddictionCard(
                     title: servicesTitle,
                     desc: servicesDesc,
                     color: lightDeepPurple,

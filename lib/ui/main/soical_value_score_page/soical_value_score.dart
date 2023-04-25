@@ -4,15 +4,17 @@ import 'package:social_value/utils/extension.dart';
 
 import '../../../theme/app_color.dart';
 import '../../../widgets/common_card.dart';
+import '../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class SocialValueScore extends StatelessWidget {
   const SocialValueScore({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: darkGreen,
-      body: SingleChildScrollView(
+    return BottomNaviBarScreen(
+      backGround: darkGreen,
+      color: darkGreen,
+      child: SingleChildScrollView(
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

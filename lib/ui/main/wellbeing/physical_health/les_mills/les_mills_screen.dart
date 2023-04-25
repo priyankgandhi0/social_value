@@ -60,7 +60,7 @@ class PhysicalHealthLesMills extends StatelessWidget {
                   // mainAxisSpacing: 10,
                   ),
               itemBuilder: (BuildContext context, int index) {
-                return WorkOutCard(
+                return const WorkOutCard(
                   title: 'BODYPUMP',
                   image: Assets.imagesWorkoutImg,
                 );

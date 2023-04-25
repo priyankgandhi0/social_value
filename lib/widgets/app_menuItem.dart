@@ -4,15 +4,15 @@ import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:social_value/utils/extension.dart';
 
 class AppMenuItem extends StatelessWidget {
-  AppMenuItem(
+  const AppMenuItem(
       {Key? key,
       this.itemOnTap,
       required this.appImage,
       required this.appItemText})
       : super(key: key);
-  String appImage;
-  String appItemText;
-  Function()? itemOnTap;
+  final String appImage;
+  final String appItemText;
+  final Function()? itemOnTap;
   @override
   Widget build(BuildContext context) {
     return Column(

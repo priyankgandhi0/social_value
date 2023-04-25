@@ -4,7 +4,7 @@ import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 
 class AppFilledButton extends StatelessWidget {
-  AppFilledButton(
+  const AppFilledButton(
       {Key? key,
       required this.text,
       this.fontSize,
@@ -17,9 +17,9 @@ class AppFilledButton extends StatelessWidget {
       : super(key: key);
   final String text;
   final Function() onTap;
-  double? fontSize;
-  double? width;
-  FontWeight? fontWeight;
+  final double? fontSize;
+  final double? width;
+  final FontWeight? fontWeight;
   final Color? fontColor;
   final Color? buttonColor;
   final bool showWidget;
@@ -56,8 +56,8 @@ class BorderButton extends StatelessWidget {
   final Color? appTextFillColor;
   final Color? appBorderFillColor;
   bool? rightIcon = false;
-  FontWeight? fontWeight;
-  double? fontSize;
+  final FontWeight? fontWeight;
+  final double? fontSize;
 
   BorderButton({
     Key? key,
@@ -143,7 +143,7 @@ class AppButton extends StatelessWidget {
 }
 
 class AppBorderButton extends StatelessWidget {
-  AppBorderButton(
+  const AppBorderButton(
       {Key? key,
       this.onTap,
       this.textSize,
@@ -151,9 +151,9 @@ class AppBorderButton extends StatelessWidget {
       required this.borderColor})
       : super(key: key);
   final String text;
-  double? textSize;
+  final double? textSize;
   final Color borderColor;
-  VoidCallback? onTap;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

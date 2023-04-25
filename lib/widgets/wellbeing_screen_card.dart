@@ -22,14 +22,14 @@ class WellBeingScore extends StatelessWidget {
     this.scoreDescColor,
   }) : super(key: key);
 
-  String scoreTitle;
-  String scoreDesc;
-  String score;
+  final String scoreTitle;
+  final String scoreDesc;
+  final String score;
   double percentage = 0.0;
-  Color bgColor;
-  Color percentageColor;
-  Color? scoreTitleColor;
-  Color? scoreDescColor;
+  final Color bgColor;
+  final Color percentageColor;
+  final Color? scoreTitleColor;
+  final Color? scoreDescColor;
 
   @override
   Widget build(BuildContext context) {
@@ -91,18 +91,18 @@ class PlanetScore extends StatelessWidget {
     this.scoreDescColor,
   }) : super(key: key);
 
-  String scoreTitle;
-  String scoreDesc;
-  String score;
+  final String scoreTitle;
+  final String scoreDesc;
+  final String score;
   double percentage = 0.0;
-  Color bgColor;
-  Color percentageColor;
-  Color? scoreTitleColor;
-  Color? scoreDescColor;
+  final Color bgColor;
+  final Color percentageColor;
+  final Color? scoreTitleColor;
+  final Color? scoreDescColor;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: Get.size.width,
       // color: bgColor,
       child: Column(
@@ -137,7 +137,7 @@ class PlanetScore extends StatelessWidget {
 }
 
 class WellBeingCard extends StatelessWidget {
-  WellBeingCard({
+  const WellBeingCard({
     Key? key,
     required this.title,
     required this.desc,
@@ -146,11 +146,11 @@ class WellBeingCard extends StatelessWidget {
     required this.descColor,
   }) : super(key: key);
 
-  String title;
-  String desc;
-  String image;
-  Color? titleColor;
-  Color? descColor;
+  final String title;
+  final String desc;
+  final String image;
+  final Color? titleColor;
+  final Color? descColor;
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +201,7 @@ class WellBeingCard extends StatelessWidget {
 }
 
 class CenterImageCard extends StatelessWidget {
-  CenterImageCard({
+  const CenterImageCard({
     Key? key,
     required this.title,
     required this.desc,
@@ -210,11 +210,11 @@ class CenterImageCard extends StatelessWidget {
     required this.descColor,
   }) : super(key: key);
 
-  String title;
-  String desc;
-  String image;
-  Color? titleColor;
-  Color? descColor;
+  final String title;
+  final String desc;
+  final String image;
+  final Color? titleColor;
+  final Color? descColor;
 
   @override
   Widget build(BuildContext context) {
@@ -269,16 +269,16 @@ class AppRactangleCard extends StatelessWidget {
     this.iconVisible,
   }) : super(key: key);
 
-  double? height;
-  double? width;
-  String? desc;
-  double? left;
-  double? right;
-  double? bottom;
-  double? top;
-  String image;
-  Color? descColor;
-  String? btnText;
+  final double? height;
+  final double? width;
+  final String? desc;
+  final double? left;
+  final double? right;
+  final double? bottom;
+  final double? top;
+  final String image;
+  final Color? descColor;
+  final String? btnText;
   bool? iconVisible = false;
 
   @override
@@ -537,13 +537,13 @@ class CompleteFormCard extends StatelessWidget {
 }
 
 class AddictionCard extends StatelessWidget {
-  AddictionCard({
+  const AddictionCard({
     Key? key,
     this.color,
     required this.title,
     required this.desc,
   }) : super(key: key);
-  Color? color;
+  final Color? color;
   final String title;
   final String desc;
 
@@ -574,7 +574,7 @@ class AddictionCard extends StatelessWidget {
 }
 
 class XoDiscountCard extends StatelessWidget {
-  XoDiscountCard(
+  const XoDiscountCard(
       {Key? key,
       required this.image,
       this.appBorderFillColor,
@@ -583,7 +583,7 @@ class XoDiscountCard extends StatelessWidget {
 
   final String image;
   final String desc;
-  Color? appBorderFillColor;
+  final Color? appBorderFillColor;
 
   @override
   Widget build(BuildContext context) {

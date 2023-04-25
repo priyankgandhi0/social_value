@@ -15,7 +15,7 @@ import '../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class HelpSupport extends StatelessWidget {
   HelpSupport({Key? key}) : super(key: key);
-  var controller = Get.put(HelpSupportController());
+  final controller = Get.put(HelpSupportController());
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +176,7 @@ class HelpSupport extends StatelessWidget {
                       itemCount: 4,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return AppArticlesCard(
+                        return const AppArticlesCard(
                             descColor: Colors.black,
                             desc:
                                 'Diabetes - What you need to knowabout this condition',

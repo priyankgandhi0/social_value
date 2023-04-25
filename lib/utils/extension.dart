@@ -125,7 +125,7 @@ Widget appCommonTextSpan({
 Decoration indicatorWidth(Color? color) {
   return UnderlineTabIndicator(
     borderSide: BorderSide(color: color ?? white, width: 2),
-    insets: EdgeInsets.only(bottom: 0),
+    insets: const EdgeInsets.only(bottom: 0),
   );
 }
 

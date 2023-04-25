@@ -69,7 +69,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
               itemCount: 4,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return AppVideoCommonCard(image: Assets.imagesWorkoutImg);
+                return const AppVideoCommonCard(image: Assets.imagesWorkoutImg);
               },
             ),
           ),
@@ -84,7 +84,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
               itemCount: 4,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return AppArticlesCard(
+                return const AppArticlesCard(
                     descColor: Colors.black,
                     desc:
                         'Diabetes - What you need to knowabout this condition',

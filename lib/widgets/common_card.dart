@@ -23,13 +23,13 @@ class AppSquareCard extends StatelessWidget {
     this.iconVisible,
   }) : super(key: key);
 
-  double? height;
-  double? width;
-  String? desc;
-  String image;
+  final double? height;
+  final double? width;
+  final String? desc;
+  final String image;
 
-  Color? descColor;
-  String? btnText;
+  final Color? descColor;
+  final String? btnText;
   bool? iconVisible = false;
 
   @override
@@ -86,7 +86,7 @@ class AppSquareCard extends StatelessWidget {
 }
 
 class AppArticlesCard extends StatelessWidget {
-  AppArticlesCard({
+  const AppArticlesCard({
     Key? key,
     required this.desc,
     required this.image,
@@ -94,10 +94,10 @@ class AppArticlesCard extends StatelessWidget {
     this.btnText,
   }) : super(key: key);
 
-  String desc;
-  String image;
-  Color? descColor;
-  String? btnText;
+  final String desc;
+  final String image;
+  final Color? descColor;
+  final String? btnText;
 
   @override
   Widget build(BuildContext context) {
@@ -142,12 +142,12 @@ class AppArticlesCard extends StatelessWidget {
 }
 
 class AppVideoCommonCard extends StatelessWidget {
-  AppVideoCommonCard({
+  const AppVideoCommonCard({
     Key? key,
     required this.image,
   }) : super(key: key);
 
-  String image;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -188,16 +188,16 @@ class AppVideoCommonCard extends StatelessWidget {
 }
 
 class AppWorkOutCard extends StatelessWidget {
-  AppWorkOutCard({
+  const AppWorkOutCard({
     Key? key,
     required this.title,
     required this.image,
     this.titleColor,
   }) : super(key: key);
 
-  String title;
-  String image;
-  Color? titleColor;
+  final String title;
+  final String image;
+  final Color? titleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -300,7 +300,7 @@ class InsuranceCard extends StatelessWidget {
 }*/
 
 class AppBodyPumptCard extends StatelessWidget {
-  AppBodyPumptCard({
+  const AppBodyPumptCard({
     Key? key,
     required this.title,
     required this.image,
@@ -308,10 +308,10 @@ class AppBodyPumptCard extends StatelessWidget {
     this.titleColor,
   }) : super(key: key);
 
-  String title;
-  String image;
-  Color? titleColor;
-  VoidCallback? onTap;
+  final String title;
+  final String image;
+  final Color? titleColor;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -370,16 +370,16 @@ class AppBodyPumptCard extends StatelessWidget {
 }
 
 class WorkOutCard extends StatelessWidget {
-  WorkOutCard({
+  const WorkOutCard({
     Key? key,
     required this.title,
     required this.image,
     this.titleColor,
   }) : super(key: key);
 
-  String title;
-  String image;
-  Color? titleColor;
+  final String title;
+  final String image;
+  final Color? titleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -414,7 +414,7 @@ class WorkOutCard extends StatelessWidget {
 }
 
 class AwarenessDaysCard extends StatelessWidget {
-  AwarenessDaysCard(
+  const AwarenessDaysCard(
       {Key? key,
       required this.date,
       required this.day,
@@ -422,9 +422,9 @@ class AwarenessDaysCard extends StatelessWidget {
       required this.day3})
       : super(key: key);
   final String date;
-  String day;
-  String day2;
-  String day3;
+  final String day;
+  final String day2;
+  final String day3;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -636,7 +636,7 @@ class QuestionsCard extends StatelessWidget {
 }
 
 class VolunterringCard extends StatelessWidget {
-  VolunterringCard({
+  const VolunterringCard({
     Key? key,
     this.height,
     this.width,
@@ -644,10 +644,10 @@ class VolunterringCard extends StatelessWidget {
     required this.text,
   }) : super(key: key);
 
-  double? height;
-  double? width;
-  String? image;
-  String text;
+  final double? height;
+  final double? width;
+  final String? image;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -689,7 +689,7 @@ class VolunterringCard extends StatelessWidget {
 }
 
 class ReasonVolunterringCard extends StatelessWidget {
-  ReasonVolunterringCard({
+  const ReasonVolunterringCard({
     Key? key,
     this.height,
     this.width,
@@ -697,10 +697,10 @@ class ReasonVolunterringCard extends StatelessWidget {
     required this.text,
   }) : super(key: key);
 
-  double? height;
-  double? width;
-  String? image;
-  String text;
+  final double? height;
+  final double? width;
+  final String? image;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -752,14 +752,14 @@ class ScorePageCard extends StatelessWidget {
     this.scoreDescColor,
   }) : super(key: key);
 
-  String scoreTitle;
-  String scoreDesc;
-  String score;
+  final String scoreTitle;
+  final String scoreDesc;
+  final String score;
   double percentage = 0.0;
-  Color bgColor;
-  Color percentageColor;
-  Color? scoreTitleColor;
-  Color? scoreDescColor;
+  final Color bgColor;
+  final Color percentageColor;
+  final Color? scoreTitleColor;
+  final Color? scoreDescColor;
 
   @override
   Widget build(BuildContext context) {
@@ -807,7 +807,7 @@ class ScorePageCard extends StatelessWidget {
           ),
           15.0.addHSpace(),
           Padding(
-            padding: EdgeInsets.only(left: 5),
+            padding: const EdgeInsets.only(left: 5),
             child:
                 'Develop an overarching green and sustainability policy that demonstrates your business commitment to managing its environmental impacts'
                     .interTextStyle(
@@ -817,7 +817,7 @@ class ScorePageCard extends StatelessWidget {
           ),
           15.0.addHSpace(),
           Padding(
-            padding: EdgeInsets.only(left: 5),
+            padding: const EdgeInsets.only(left: 5),
             child:
                 'See the link below for more information on writing a business sustainability policy'
                     .interTextStyle(
