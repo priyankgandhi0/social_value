@@ -1,12 +1,13 @@
 import 'package:get/get.dart';
 import 'package:social_value/ui/main/community/community_main/community_main.dart';
+import 'package:social_value/ui/main/help_support/help_support.dart';
 import 'package:social_value/ui/main/planet/planet_main/planet_main.dart';
+import 'package:social_value/ui/main/terms_condition/terms_condition.dart';
+
 import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
-
 import '../ui/main/menu_screen/menu_screen.dart';
-
 import '../ui/main/wellbeing/finances/finances_main/finances_main.dart';
 import '../ui/main/wellbeing/my_mental_health/mental_health_main/mental_health_main.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
@@ -23,6 +24,8 @@ class Routes {
   static String financeMain = "/Finance_Main";
   static String planetMain = "/Planet_Main";
   static String communityMain = "/Community_Main";
+  static String termsCondition = "/termsCondition";
+  static String helpSupport = "/helpSupport";
 
   static List<GetPage> pages = [
     GetPage(
@@ -61,6 +64,14 @@ class Routes {
     GetPage(
         name: Routes.communityMain,
         page: () => CommunityMain(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.termsCondition,
+        page: () => TermsCondition(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.helpSupport,
+        page: () => HelpSupport(),
         transition: Transition.noTransition),
   ];
 }

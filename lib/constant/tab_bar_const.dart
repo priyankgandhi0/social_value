@@ -4,6 +4,7 @@ import 'package:social_value/constant/app_string.dart';
 import 'package:social_value/models/app_tab_bar_model.dart';
 import 'package:social_value/ui/main/wellbeing/physical_health/articles/articles_screen.dart';
 
+import '../ui/main/community/volunteering_screen/volunteering_screen.dart';
 import '../ui/main/planet/articles/articles.dart';
 import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
 import '../ui/main/planet/planet_dashboard/planet_dashboard.dart';
@@ -12,7 +13,6 @@ import '../ui/main/wellbeing/finances/ articles/finances_artical_screen.dart';
 import '../ui/main/wellbeing/finances/discount_card/discount_card_screen.dart';
 import '../ui/main/wellbeing/finances/finances_dashboard/finances_dashboard.dart';
 import '../ui/main/wellbeing/finances/insurance_quotes/insurance_quotes_screen.dart';
-
 import '../ui/main/wellbeing/my_mental_health/articles/articles_screen.dart';
 import '../ui/main/wellbeing/my_mental_health/brain_games /brain_games_screen.dart';
 import '../ui/main/wellbeing/my_mental_health/mental_health_dashboard/mental_health_dashboard.dart';
@@ -138,7 +138,8 @@ List<AppTabBarModel> planetTabs = [
 List<AppTabBarModel> communityTabs = [
   AppTabBarModel(tabText: dashboard, tabWidget: Column(), onTap: () {}),
   AppTabBarModel(tabText: awarenessDays, tabWidget: Column(), onTap: () {}),
-  AppTabBarModel(tabText: volunteering, tabWidget: Column(), onTap: () {}),
+  AppTabBarModel(
+      tabText: volunteering, tabWidget: VolunteeringScreen(), onTap: () {}),
   AppTabBarModel(tabText: fundraising, tabWidget: Column(), onTap: () {}),
   AppTabBarModel(tabText: discountCard, tabWidget: Column(), onTap: () {}),
 ];

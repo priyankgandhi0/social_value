@@ -5,14 +5,25 @@ import 'package:social_value/utils/extension.dart';
 class BulletList extends StatelessWidget {
   final List<String> strings;
   bool? isBulletText = false;
+  double? left, right, top, bottom;
 
-  BulletList(this.strings, {super.key, this.isBulletText});
+  BulletList(this.strings,
+      {super.key,
+      this.isBulletText,
+      this.left,
+      this.right,
+      this.bottom,
+      this.top});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerLeft,
-      padding: const EdgeInsets.only(left: 23.0, right: 10),
+      padding: EdgeInsets.only(
+          left: left ?? 23.0,
+          right: right ?? 10,
+          bottom: bottom ?? 0.0,
+          top: top ?? 0.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: strings.map((str) {

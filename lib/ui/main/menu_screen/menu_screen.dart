@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:social_value/theme/app_color.dart';
-
 import 'package:social_value/utils/extension.dart';
 
 import '../../../constant/app_string.dart';
@@ -76,11 +73,15 @@ class MenuScreen extends StatelessWidget {
               AppMenuItem(
                   appImage: Assets.iconsHelpIcon,
                   appItemText: help,
-                  itemOnTap: () {}),
+                  itemOnTap: () {
+                    Get.toNamed(Routes.helpSupport);
+                  }),
               AppMenuItem(
                   appImage: Assets.iconsTermsIcon,
                   appItemText: termsConditions,
-                  itemOnTap: () {}),
+                  itemOnTap: () {
+                    Get.toNamed(Routes.termsCondition);
+                  }),
               AppMenuItem(
                   appImage: Assets.iconsPrivacyIcon,
                   appItemText: privacyCentre,

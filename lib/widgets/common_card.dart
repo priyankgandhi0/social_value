@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:social_value/utils/extension.dart';
 
 import '../constant/app_string.dart';
@@ -410,5 +409,109 @@ class WorkOutCard extends StatelessWidget {
             )
           ],
         ));
+  }
+}
+
+class VolunterringCard extends StatelessWidget {
+  VolunterringCard({
+    Key? key,
+    this.height,
+    this.width,
+    this.image,
+    required this.text,
+  }) : super(key: key);
+
+  double? height;
+  double? width;
+  String? image;
+  String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: Get.width,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey.shade400,
+              blurRadius: 2,
+              // spreadRadius: 2,
+              offset: const Offset(1, 0))
+        ],
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          20.0.addHSpace(),
+          Image.asset(
+            image ?? Assets.imagesVolunterringLogo,
+            height: height ?? 70,
+            width: width ?? Get.width,
+          ),
+          15.0.addHSpace(),
+          text.interTextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+          ),
+          15.0.addHSpace(),
+          'Visit the Reach Website.'.interTextStyle(
+              fontSize: 12, fontWeight: FontWeight.w700, fontColor: darkPurple),
+          20.0.addHSpace(),
+        ],
+      ).paddingSymmetric(horizontal: 15),
+    );
+  }
+}
+
+class ReasonVolunterringCard extends StatelessWidget {
+  ReasonVolunterringCard({
+    Key? key,
+    this.height,
+    this.width,
+    this.image,
+    required this.text,
+  }) : super(key: key);
+
+  double? height;
+  double? width;
+  String? image;
+  String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: Get.width,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey.shade400,
+              blurRadius: 2,
+              // spreadRadius: 2,
+              offset: const Offset(1, 0))
+        ],
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+      ),
+      child: Row(
+        children: [
+          20.0.addHSpace(),
+          Image.asset(
+            image ?? Assets.imagesReasonVolun,
+            height: height ?? 50,
+            width: width ?? 50,
+          ),
+          15.0.addWSpace(),
+          Expanded(
+              child: Center(
+            child: text.interTextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+            ),
+          ))
+        ],
+      ).paddingSymmetric(horizontal: 15, vertical: 10),
+    );
   }
 }
