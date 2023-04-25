@@ -4,12 +4,12 @@ import 'package:social_value/constant/app_string.dart';
 import 'package:social_value/models/app_tab_bar_model.dart';
 import 'package:social_value/ui/main/wellbeing/physical_health/articles/articles_screen.dart';
 
-import '../ui/main/community/volunteering_screen/volunteering_screen.dart';
 import '../ui/main/community/awareness_days/awareness_days.dart';
 import '../ui/main/community/charity_Page/charity_Page.dart';
 import '../ui/main/community/communitty_dashboard/community_dashboard.dart';
 import '../ui/main/community/discount_card/discount_card.dart';
 import '../ui/main/community/fundraising/fundraising.dart';
+import '../ui/main/community/volunteering_screen/volunteering_screen.dart';
 import '../ui/main/planet/articles/articles.dart';
 import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
 import '../ui/main/planet/planet_dashboard/planet_dashboard.dart';
@@ -147,7 +147,8 @@ List<AppTabBarModel> communityTabs = [
       tabText: awarenessDays,
       tabWidget: const AwarenessDaysScreen(),
       onTap: () {}),
-  AppTabBarModel(tabText: volunteering, tabWidget: VolunteeringScreen(), onTap: () {}),
+  AppTabBarModel(
+      tabText: volunteering, tabWidget: VolunteeringScreen(), onTap: () {}),
   AppTabBarModel(
       tabText: fundraising, tabWidget: const FundraisingScreen(), onTap: () {}),
   AppTabBarModel(
