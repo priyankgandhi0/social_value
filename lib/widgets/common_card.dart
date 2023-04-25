@@ -412,6 +412,228 @@ class WorkOutCard extends StatelessWidget {
   }
 }
 
+class AwarenessDaysCard extends StatelessWidget {
+  AwarenessDaysCard(
+      {Key? key,
+      required this.date,
+      required this.day,
+      required this.day2,
+      required this.day3})
+      : super(key: key);
+  final String date;
+  String day;
+  String day2;
+  String day3;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Container(
+                height: 45,
+                width: 45,
+                decoration: BoxDecoration(
+                    color: darkPurple, borderRadius: BorderRadius.circular(8)),
+                child: Center(
+                  child: date.interTextStyle(
+                      textAlign: TextAlign.center,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      fontColor: white),
+                )),
+            25.0.addWSpace(),
+            day.interTextStyle(fontSize: 16, fontWeight: FontWeight.w400)
+          ],
+        ),
+        1.0.addHSpace(),
+        Row(
+          children: [
+            70.0.addWSpace(),
+            day2.interTextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ],
+        ),
+        15.0.addHSpace(),
+        Row(
+          children: [
+            70.0.addWSpace(),
+            day3.interTextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class AlcoholFreeCard extends StatelessWidget {
+  const AlcoholFreeCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xffF4F4F4)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.shade400,
+                blurRadius: 3,
+                offset: const Offset(3, 3))
+          ],
+          borderRadius: BorderRadius.circular(8)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Image.asset(
+                ImageAssets.aImage,
+                alignment: Alignment.topLeft,
+              ),
+              22.0.addWSpace(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  "Alcohol-free month".interTextStyle(
+                      fontWeight: FontWeight.w700, fontSize: 16),
+                ],
+              )
+            ],
+          ),
+          SizedBox(
+            child: alcoholDesc.interTextStyle(
+                fontWeight: FontWeight.w400, fontSize: 13),
+          ).paddingOnly(left: 81),
+          20.0.addHSpace(),
+          SizedBox(
+            child: "Afternoon tea"
+                .interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+          ).paddingOnly(left: 81),
+          20.0.addHSpace(),
+          SizedBox(
+            child: afternoonTeaDesc.interTextStyle(
+                fontWeight: FontWeight.w400, fontSize: 13),
+          ).paddingOnly(left: 81),
+          20.0.addHSpace(),
+          SizedBox(
+            child: "Auction"
+                .interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+          ).paddingOnly(left: 81),
+          10.0.addHSpace(),
+          SizedBox(
+                  child: auctionDesc.interTextStyle(
+                      fontWeight: FontWeight.w400, fontSize: 13))
+              .paddingOnly(left: 81),
+        ],
+      ),
+    ).paddingOnly(bottom: 20);
+  }
+}
+
+class ShelterCard extends StatelessWidget {
+  const ShelterCard(
+      {Key? key, required this.image, required this.desc, required this.link})
+      : super(key: key);
+
+  final String image;
+  final String desc;
+  final String link;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xffF4F4F4)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.shade400,
+                blurRadius: 3,
+                offset: const Offset(3, 3))
+          ],
+          borderRadius: BorderRadius.circular(8)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              shelter.interTextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+              Image.asset(image)
+            ],
+          ),
+          10.0.addHSpace(),
+          desc.interTextStyle(fontWeight: FontWeight.w400, fontSize: 13),
+          link.interTextStyle(
+              textDecoration: TextDecoration.underline,
+              fontWeight: FontWeight.w400,
+              fontSize: 13),
+        ],
+      ),
+    ).paddingOnly(bottom: 15);
+  }
+}
+
+class QuestionsCard extends StatelessWidget {
+  const QuestionsCard(
+      {Key? key,
+      required this.question,
+      required this.date,
+      required this.onTap})
+      : super(key: key);
+  final String question;
+  final String date;
+  final VoidCallback? onTap;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xffF4F4F4)),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.shade300,
+                blurRadius: 3,
+                offset: const Offset(3, 3))
+          ],
+          borderRadius: BorderRadius.circular(8)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          question.interTextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+          15.0.addHSpace(),
+          Row(
+            children: [
+              "Complete by: "
+                  .interTextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+              date.interTextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+            ],
+          ),
+          25.0.addHSpace(),
+          GestureDetector(
+            onTap: onTap,
+            child: Container(
+                height: 45,
+                width: 130,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: darkSky)),
+                child: Center(
+                  child: "Start Now".interTextStyle(
+                      fontWeight: FontWeight.w400, fontSize: 15),
+                )).paddingOnly(bottom: 15),
+          )
+        ],
+      ),
+    ).paddingOnly(bottom: 15);
+  }
+}
+
 class VolunterringCard extends StatelessWidget {
   VolunterringCard({
     Key? key,

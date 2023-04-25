@@ -615,14 +615,10 @@ class XoDiscountCard extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   textAlign: TextAlign.center,
                   fontColor: textColor)),
-          10.0.addHSpace(),
-          BorderButton(
+          20.0.addHSpace(),
+          AppBorderButton(
                   text: startSavingNow,
-                  appTextFillColor: textColor,
-                  onTap: () {},
-                  fontWeight: FontWeight.w400,
-                  value: 8,
-                  appBorderFillColor: appBorderFillColor)
+                  borderColor: appBorderFillColor ?? darkDeepPurple)
               .paddingOnly(left: 60, right: 60)
         ],
       ),

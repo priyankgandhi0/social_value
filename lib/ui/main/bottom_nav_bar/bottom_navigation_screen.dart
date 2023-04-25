@@ -114,17 +114,22 @@ import '../../../utils/custom_bottom_item.dart';
 //   }
 // }
 class BottomNaviBarScreen extends StatelessWidget {
-  const BottomNaviBarScreen(
-      {Key? key, required this.color, required this.child, this.appbar})
+  BottomNaviBarScreen(
+      {Key? key,
+      required this.color,
+      required this.child,
+      this.appbar,
+      this.backGround})
       : super(key: key);
   final Color color;
+  Color? backGround;
   final Widget child;
   final PreferredSizeWidget? appbar;
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: backGround ?? backGroundColor,
       appBar: appbar,
       body: Stack(
         children: [
@@ -203,7 +208,9 @@ class BottomNaviBarScreen extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(Routes.menuScreen);
+                          },
                           child: SvgPicture.asset(
                             Assets.iconsMore,
                           ),

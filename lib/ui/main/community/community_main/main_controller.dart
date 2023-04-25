@@ -8,7 +8,7 @@ class CommunityMainController extends GetxController
   TabController? controller;
   @override
   void onInit() {
-    controller = TabController(vsync: this, length: 5);
+    controller = TabController(vsync: this, length: 6);
     super.onInit();
   }
 

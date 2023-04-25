@@ -8,6 +8,8 @@ import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
+import '../ui/main/staff_survey/staff_survey.dart';
+import '../ui/main/staff_survey/staffsurvey_question.dart';
 import '../ui/main/wellbeing/finances/finances_main/finances_main.dart';
 import '../ui/main/wellbeing/my_mental_health/mental_health_main/mental_health_main.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
@@ -24,6 +26,8 @@ class Routes {
   static String financeMain = "/Finance_Main";
   static String planetMain = "/Planet_Main";
   static String communityMain = "/Community_Main";
+  static String staffSurveyScreen = "/Staff_Survey_Screen";
+  static String staffSurveyQuestion = "/StaffSurvey_Question";
   static String termsCondition = "/termsCondition";
   static String helpSupport = "/helpSupport";
 
@@ -72,6 +76,14 @@ class Routes {
     GetPage(
         name: Routes.helpSupport,
         page: () => HelpSupport(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.staffSurveyScreen,
+        page: () => const StaffSurveyScreen(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.staffSurveyQuestion,
+        page: () => StaffSurveyQuestion(),
         transition: Transition.noTransition),
   ];
 }

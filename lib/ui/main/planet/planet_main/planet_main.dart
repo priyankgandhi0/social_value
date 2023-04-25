@@ -47,7 +47,7 @@ class PlanetMain extends StatelessWidget {
                 planetTabs[controller.controller?.index ?? 0].onTap.call();
               }
             },
-            indicator: indicatorWidth(),
+            indicator: indicatorWidth(white),
             indicatorSize: TabBarIndicatorSize.label,
             indicatorColor: Colors.white,
             automaticIndicatorColorAdjustment: true,

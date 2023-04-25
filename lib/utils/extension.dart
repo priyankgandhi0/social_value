@@ -122,9 +122,9 @@ Widget appCommonTextSpan({
           ]));
 }
 
-Decoration indicatorWidth() {
-  return const UnderlineTabIndicator(
-    borderSide: BorderSide(color: white, width: 2),
+Decoration indicatorWidth(Color? color) {
+  return UnderlineTabIndicator(
+    borderSide: BorderSide(color: color ?? white, width: 2),
     insets: EdgeInsets.only(bottom: 0),
   );
 }

@@ -69,7 +69,9 @@ class MenuScreen extends StatelessWidget {
               AppMenuItem(
                   appImage: Assets.iconsSettingIcon,
                   appItemText: settings,
-                  itemOnTap: () {}),
+                  itemOnTap: () {
+                    Get.toNamed(Routes.staffSurveyScreen);
+                  }),
               AppMenuItem(
                   appImage: Assets.iconsHelpIcon,
                   appItemText: help,

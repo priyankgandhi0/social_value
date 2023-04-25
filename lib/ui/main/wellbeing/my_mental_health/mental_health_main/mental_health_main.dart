@@ -63,7 +63,7 @@ class MentalHealthMain extends StatelessWidget {
                     .call();
               }
             },
-            indicator: indicatorWidth(),
+            indicator: indicatorWidth(white),
             indicatorSize: TabBarIndicatorSize.label,
             indicatorColor: Colors.white,
             automaticIndicatorColorAdjustment: true,

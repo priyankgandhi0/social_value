@@ -54,7 +54,7 @@ class _WellBeingMainState extends State<WellBeingMain> {
                 }
                 controller.controller?.animateTo(0);
               },
-              indicator: indicatorWidth(),
+              indicator: indicatorWidth(white),
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: white,
               labelColor: white,
