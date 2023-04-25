@@ -5,8 +5,13 @@ const forgottenPassword = 'Forgotten Password?';
 const needAnAccount = 'Need an Account?';
 const myProfile = 'My Profile';
 const settings = 'Settings';
+const helpCentre = 'Help Centre';
 const help = 'Help';
 const submit = 'Submit';
+const privacyPolicy = 'Privacy Policy';
+const memberSinceFebDesc =
+    'You can earn more digital badges via participation and account longevity. Keep an eye out here for your digital badges and rewards.';
+const memberSinceFeb = 'Hi, [First Name], you’ve been a member Since Feb 2022';
 const firstName = 'First Name';
 const lastName = 'Last Name';
 const socialValueScoreText = 'Social Value Score';
@@ -40,6 +45,7 @@ const community = 'Community';
 const titleQuestion =
     'The title of the question is here. Please select from below.';
 const staffSurvey = 'Staff Survey';
+
 const internationalMicrovolunteering =
     'International Microvolunteering Day 2023';
 const nextAwarenessDay = 'Next Awareness Day';

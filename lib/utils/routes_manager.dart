@@ -8,6 +8,7 @@ import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
+import '../ui/main/my_profile/my_profile.dart';
 import '../ui/main/staff_survey/staff_survey.dart';
 import '../ui/main/staff_survey/staffsurvey_question.dart';
 import '../ui/main/wellbeing/finances/finances_main/finances_main.dart';
@@ -30,6 +31,7 @@ class Routes {
   static String staffSurveyQuestion = "/StaffSurvey_Question";
   static String termsCondition = "/termsCondition";
   static String helpSupport = "/helpSupport";
+  static String myProfileScreen = "/MyProfile_Screen";
 
   static List<GetPage> pages = [
     GetPage(
@@ -83,7 +85,11 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.staffSurveyQuestion,
-        page: () => StaffSurveyQuestion(),
+        page: () => const StaffSurveyQuestion(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.myProfileScreen,
+        page: () => const MyProfileScreen(),
         transition: Transition.noTransition),
   ];
 }

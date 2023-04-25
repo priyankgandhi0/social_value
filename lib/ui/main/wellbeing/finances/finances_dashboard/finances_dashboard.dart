@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
-
 import '../../../../../constant/app_string.dart';
 import '../../../../../generated/assets.dart';
-
 import '../../../../../theme/app_color.dart';
-import '../../../../../widgets/app_button.dart';
 import '../../../../../widgets/common_card.dart';
 import '../../../../../widgets/wellbeing_screen_card.dart';
 

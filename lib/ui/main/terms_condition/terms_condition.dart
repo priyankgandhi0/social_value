@@ -2,17 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 
+import '../../../constant/app_string.dart';
+import '../../../theme/app_color.dart';
+import '../../../widgets/appbar_chip.dart';
+import '../bottom_nav_bar/bottom_navigation_screen.dart';
+
 class TermsCondition extends StatelessWidget {
   const TermsCondition({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
+    return BottomNaviBarScreen(
+      backGround: white,
+      appbar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            AppBarChip(
+              onTap: () {},
+              text: privacyPolicy,
+              textColor: white,
+              color: sky,
+            ),
+          ],
+        ),
+        backgroundColor: darkSky,
+      ),
+      color: darkSky,
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            100.0.addHSpace(),
             'Introduction'.interTextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 20,
@@ -47,7 +67,7 @@ class TermsCondition extends StatelessWidget {
               fontSize: 12,
             ),
           ],
-        ).paddingSymmetric(horizontal: 20),
+        ).paddingSymmetric(horizontal: 20, vertical: 40),
       ),
     );
   }

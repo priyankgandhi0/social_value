@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:social_value/widgets/common_card.dart';
-
 import '../../../../constant/app_string.dart';
 
 class CharityPage extends StatelessWidget {

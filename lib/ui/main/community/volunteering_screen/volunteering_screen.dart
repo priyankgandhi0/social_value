@@ -8,7 +8,7 @@ import '../../../../utils/BulletList.dart';
 import '../../../../widgets/common_card.dart';
 
 class VolunteeringScreen extends StatelessWidget {
-  VolunteeringScreen({Key? key}) : super(key: key);
+  const VolunteeringScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
