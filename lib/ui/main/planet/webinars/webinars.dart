@@ -68,6 +68,7 @@ class _WebinarsScreenState extends State<WebinarsScreen>
   TabController? controller;
   int currentIndex = 0;
 
+  @override
   void initState() {
     super.initState();
     controller = TabController(vsync: this, length: 2);

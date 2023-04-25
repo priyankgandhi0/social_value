@@ -18,6 +18,7 @@ class _ArticlesScreenState extends State<ArticlesScreen>
   TabController? controller;
   int currentIndex = 0;
 
+  @override
   void initState() {
     super.initState();
     controller = TabController(vsync: this, length: 2);

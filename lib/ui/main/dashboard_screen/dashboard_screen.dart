@@ -344,7 +344,7 @@ class DashboardScreen extends StatelessWidget {
                     ).paddingOnly(left: 16, right: 16),
                     15.0.addHSpace(),
                     Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         height: 250,
                         width: double.infinity,
                         color: Colors.white,

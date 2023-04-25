@@ -109,7 +109,7 @@ class PlanetDashboard extends StatelessWidget {
                           fontSize: 16)),
                   20.0.addWSpace(),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     // height: 100,
                     width: 150,
                     decoration: BoxDecoration(

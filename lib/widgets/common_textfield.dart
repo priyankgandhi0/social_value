@@ -187,7 +187,7 @@ class _StartUpTextFiledState extends State<StartUpTextFiled> {
             isDense: true,
             hintText: widget.hintText,
             hintStyle:
-                GoogleFonts.prompt(fontSize: 14, color: widget.hintTextColor),
+                GoogleFonts.prompt(fontSize: 12, color: widget.hintTextColor),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(
