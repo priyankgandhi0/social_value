@@ -146,31 +146,24 @@ class HelpSupport extends StatelessWidget {
                 fontSize: 16,
               ),
               10.0.addHSpace(),
-              SizedBox(
-                height: 350,
-                child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: 4,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return expandedTile('How do I add a user to my account?',
-                        () {
-                      ctrl.index.value = index;
-                      ctrl.update();
-                      if (ctrl.index.value == index) {
-                        if (ctrl.visibility.value == true) {
-                          ctrl.changed(false, "text");
-                        } else {
-                          ctrl.changed(true, "text");
-                        }
+              ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: 7,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return expandedTile('How do I add a user to my account?', () {
+                    ctrl.index.value = index;
+                    ctrl.update();
+                    if (ctrl.index.value == index) {
+                      if (ctrl.visibility.value == true) {
+                        ctrl.changed(false, "text");
+                      } else {
+                        ctrl.changed(true, "text");
                       }
-                    },
-                        isExpandable: ctrl.index.value == index
-                            ? ctrl.visibility.value
-                            : false);
-                  },
-                ),
+                    }
+                  }, isExpandable: ctrl.index.value == index);
+                },
               ),
 
               /*expandedTile('How do I add a user to my account?', () {
@@ -180,7 +173,7 @@ class HelpSupport extends StatelessWidget {
                   ctrl.changed(true, "text");
                 }
               }, isExpandable: ctrl.visibility.value),*/
-              10.0.addHSpace(),
+              20.0.addHSpace(),
             ],
           ).paddingSymmetric(horizontal: 10),
         ),

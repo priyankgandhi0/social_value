@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:social_value/ui/main/community/community_main/community_main.dart';
 import 'package:social_value/ui/main/help_support/help_support.dart';
 import 'package:social_value/ui/main/planet/planet_main/planet_main.dart';
+import 'package:social_value/ui/main/soical_value_score_page/soical_value_score.dart';
 import 'package:social_value/ui/main/terms_condition/terms_condition.dart';
 
 import '../splash_screen.dart';
@@ -30,6 +31,7 @@ class Routes {
   static String staffSurveyQuestion = "/StaffSurvey_Question";
   static String termsCondition = "/termsCondition";
   static String helpSupport = "/helpSupport";
+  static String socialValueScore = "/socialValueScore";
 
   static List<GetPage> pages = [
     GetPage(
@@ -84,6 +86,10 @@ class Routes {
     GetPage(
         name: Routes.staffSurveyQuestion,
         page: () => StaffSurveyQuestion(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.socialValueScore,
+        page: () => SocialValueScore(),
         transition: Transition.noTransition),
   ];
 }

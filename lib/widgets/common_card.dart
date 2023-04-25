@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
 
 import '../constant/app_string.dart';
@@ -734,6 +735,99 @@ class ReasonVolunterringCard extends StatelessWidget {
           ))
         ],
       ).paddingSymmetric(horizontal: 15, vertical: 10),
+    );
+  }
+}
+
+class ScorePageCard extends StatelessWidget {
+  ScorePageCard({
+    Key? key,
+    required this.scoreTitle,
+    required this.scoreDesc,
+    required this.score,
+    required this.percentage,
+    required this.bgColor,
+    required this.percentageColor,
+    this.scoreTitleColor,
+    this.scoreDescColor,
+  }) : super(key: key);
+
+  String scoreTitle;
+  String scoreDesc;
+  String score;
+  double percentage = 0.0;
+  Color bgColor;
+  Color percentageColor;
+  Color? scoreTitleColor;
+  Color? scoreDescColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: Get.size.width,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10), color: Colors.white),
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8), color: bgColor),
+            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              15.0.addWSpace(),
+              CircularPercentIndicator(
+                radius: 50.0,
+                lineWidth: 7.0,
+                percent: percentage,
+                center: score.appEpilogueTextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 40,
+                    fontColor: percentageColor),
+                progressColor: percentageColor,
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    13.0.addHSpace(),
+                    scoreTitle.interTextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                        textAlign: TextAlign.center,
+                        fontColor: scoreTitleColor ?? const Color(0xff333333)),
+                    10.0.addHSpace(),
+                    scoreDesc.interTextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 17,
+                        fontColor: scoreDescColor ?? const Color(0xff444444)),
+                  ],
+                ).paddingSymmetric(horizontal: 10),
+              ),
+            ]).paddingSymmetric(vertical: 15),
+          ),
+          15.0.addHSpace(),
+          Padding(
+            padding: EdgeInsets.only(left: 5),
+            child:
+                'Develop an overarching green and sustainability policy that demonstrates your business commitment to managing its environmental impacts'
+                    .interTextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
+            ),
+          ),
+          15.0.addHSpace(),
+          Padding(
+            padding: EdgeInsets.only(left: 5),
+            child:
+                'See the link below for more information on writing a business sustainability policy'
+                    .interTextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
+            ),
+          ),
+          5.0.addHSpace(),
+        ],
+      ).paddingSymmetric(vertical: 10, horizontal: 10),
     );
   }
 }
