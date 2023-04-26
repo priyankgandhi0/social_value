@@ -39,7 +39,7 @@ class ImageAssets {
 
 class IconsAssets {
   static const wellbeingIcon = 'assets/icons/heart.svg';
-  static const celenderIcon = 'assets/icons/celender.png';
+  static const celenderIcon = 'assets/images/calendar.png';
   // static const heart = 'assets/icons/heart.png';
   // static const myProfile = 'assets/icons/myProfile.svg';
   // static const settingIcon = 'assets/icons/settingIcon.svg';

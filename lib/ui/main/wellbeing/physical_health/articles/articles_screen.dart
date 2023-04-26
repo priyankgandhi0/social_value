@@ -44,7 +44,13 @@ class PhysicalHealthArticleScreen extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return AppBodyPumptCard(
                   onTap: () {
-                    Get.toNamed(Routes.articleDetailScreen);
+                    Get.toNamed(Routes.articleDetailScreen, arguments: [
+                      {
+                        "text": "physical health",
+                      },
+                      {"color": darkDeepPurple},
+                      {"color1": darkDeepPurple}
+                    ]);
                   },
                   title: index == 0
                       ? 'Vegan 7 Day Plan'

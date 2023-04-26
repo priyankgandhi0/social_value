@@ -58,7 +58,10 @@ class CommunityDashboard extends StatelessWidget {
                   color: darkPurple, borderRadius: BorderRadius.circular(8)),
               child: Row(
                 children: [
-                  Image.asset(IconsAssets.celenderIcon),
+                  Image.asset(
+                    IconsAssets.celenderIcon,
+                    color: white,
+                  ),
                   10.0.addWSpace(),
                   Flexible(
                     child: Column(

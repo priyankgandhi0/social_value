@@ -6,6 +6,7 @@ import '../../../../generated/asset.dart';
 import '../../../../generated/assets.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../utils/extension.dart';
+import '../../../../utils/routes_manager.dart';
 import '../../../../widgets/common_card.dart';
 
 class ArticlesScreen extends StatefulWidget {
@@ -110,7 +111,15 @@ class SustainabilityArticles extends StatelessWidget {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return AppBodyPumptCard(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(Routes.articleDetailScreen, arguments: [
+                      {
+                        "text": "EDI",
+                      },
+                      {"color": darkGreen},
+                      {"color1": darkSky}
+                    ]);
+                  },
                   title: index == 0
                       ? 'Full Body resistance Training - Low Mod Level'
                       : 'Lower Bodypump Session 2',

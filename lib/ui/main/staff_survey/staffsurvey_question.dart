@@ -173,32 +173,30 @@ class _State extends State<StaffSurveyQuestion> {
     List<Widget> list = <Widget>[];
     for (int i = 0; i < _group.length; i++) {
       list.add(Container(
-        height: 50,
+        height: 55,
         width: double.infinity,
         decoration: BoxDecoration(
             border:
                 Border.all(color: _group[i].selected ? darkSky : Colors.grey),
             borderRadius: BorderRadius.circular(10)),
-        child: Center(
-          child: RadioListTile(
-            value: _group[i].index,
-            groupValue: _value,
-            selected: _group[i].selected,
-            toggleable: false,
-            onChanged: (val) {
-              setState(() {
-                for (int i = 0; i < _group.length; i++) {
-                  _group[i].selected = false;
-                }
-                _value = val!;
-                _group[i].selected = true;
-              });
-            },
-            activeColor: darkSky,
-            title: _group[i]
-                .text
-                .interTextStyle(fontWeight: FontWeight.w400, fontSize: 16),
-          ),
+        child: RadioListTile(
+          value: _group[i].index,
+          groupValue: _value,
+          selected: _group[i].selected,
+          toggleable: false,
+          onChanged: (val) {
+            setState(() {
+              for (int i = 0; i < _group.length; i++) {
+                _group[i].selected = false;
+              }
+              _value = val!;
+              _group[i].selected = true;
+            });
+          },
+          activeColor: darkSky,
+          title: _group[i]
+              .text
+              .interTextStyle(fontWeight: FontWeight.w400, fontSize: 16),
         ),
       ).paddingOnly(bottom: 15));
     }

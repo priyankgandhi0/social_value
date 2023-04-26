@@ -99,7 +99,7 @@ class MyProfileScreen extends StatelessWidget {
                           child: StartUpTextFiled(
                             headingText: 'Name',
                             headingTextColor: Colors.black,
-                            hintText: 'Enter your name',
+                            hintText: '',
                             fillColor: Colors.transparent,
                             borderColor: Colors.grey,
                             fontColor: Colors.black,
@@ -110,7 +110,7 @@ class MyProfileScreen extends StatelessWidget {
                           child: StartUpTextFiled(
                             headingText: 'name',
                             headingTextColor: white,
-                            hintText: 'Enter your lastname',
+                            hintText: '',
                             fillColor: Colors.transparent,
                             borderColor: Colors.grey,
                             fontColor: Colors.black,
@@ -122,7 +122,7 @@ class MyProfileScreen extends StatelessWidget {
                     const StartUpTextFiled(
                       headingText: 'Email',
                       headingTextColor: Colors.black,
-                      hintText: 'Enter your email',
+                      hintText: '',
                       fillColor: Colors.transparent,
                       borderColor: Colors.grey,
                       fontColor: Colors.black,
@@ -220,7 +220,7 @@ class MyProfileScreen extends StatelessWidget {
                           child: StartUpTextFiled(
                             headingText: 'New Password',
                             // headingTextColor: Colors.black,
-                            hintText: 'Enter New Password',
+                            hintText: '',
                             fillColor: Colors.transparent,
                             borderColor: Colors.grey,
                             fontColor: Colors.black,
@@ -231,7 +231,7 @@ class MyProfileScreen extends StatelessWidget {
                           child: StartUpTextFiled(
                             headingText: 'Confirm New Password',
                             // headingTextColor: white,
-                            hintText: 'Enter Confirm Password',
+                            hintText: '',
                             fillColor: Colors.transparent,
                             borderColor: Colors.grey,
                             fontColor: Colors.black,
@@ -243,7 +243,7 @@ class MyProfileScreen extends StatelessWidget {
                     const StartUpTextFiled(
                       headingText: 'Current Password',
                       // headingTextColor: Colors.black,
-                      hintText: 'Enter Current Password',
+                      hintText: '',
                       fillColor: Colors.transparent,
                       borderColor: Colors.grey,
                       fontColor: Colors.black,

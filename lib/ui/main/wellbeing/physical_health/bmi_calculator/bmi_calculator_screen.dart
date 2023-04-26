@@ -39,7 +39,7 @@ class PhysicalHealthBmiCalculator extends StatelessWidget {
                 const StartUpTextFiled(
                   headingText: 'Enter your weight in kg',
                   headingTextColor: Colors.black,
-                  hintText: 'Enter your weight',
+                  hintText: '',
                   fillColor: Colors.transparent,
                   borderColor: Colors.grey,
                   fontColor: Colors.black,
@@ -48,7 +48,7 @@ class PhysicalHealthBmiCalculator extends StatelessWidget {
                 const StartUpTextFiled(
                   headingText: 'Height in cm',
                   headingTextColor: Colors.black,
-                  hintText: 'Enter your height',
+                  hintText: '',
                   fillColor: Colors.transparent,
                   borderColor: Colors.grey,
                   fontColor: Colors.black,

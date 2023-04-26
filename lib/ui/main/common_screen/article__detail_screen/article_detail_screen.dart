@@ -7,12 +7,17 @@ import '../../../../theme/app_color.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class ArticleDetailScreen extends StatelessWidget {
-  const ArticleDetailScreen({Key? key}) : super(key: key);
+  ArticleDetailScreen({
+    Key? key,
+    // this.text,
+  }) : super(key: key);
+  // final String? text;
+  dynamic data = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
     return BottomNaviBarScreen(
-      color: darkDeepPurple,
+      color: data[1]["color"],
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -48,10 +53,10 @@ class ArticleDetailScreen extends StatelessWidget {
                         height: 30,
                         width: 120,
                         decoration: BoxDecoration(
-                            color: darkDeepPurple,
+                            color: data[2]["color1"],
                             borderRadius: BorderRadius.circular(8)),
                         child: Center(
-                          child: "Mental Health".interTextStyle(
+                          child: data[0]["text"].toString().interTextStyle(
                               textAlign: TextAlign.center,
                               fontWeight: FontWeight.w400,
                               fontSize: 13,

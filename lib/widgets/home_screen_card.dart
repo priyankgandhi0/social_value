@@ -130,8 +130,13 @@ class MemberShipCard extends StatelessWidget {
     return Container(
       height: 232,
       width: double.infinity,
-      decoration: BoxDecoration(
-          color: Colors.grey, borderRadius: BorderRadius.circular(8)),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+            color: Colors.grey.shade400,
+            blurRadius: 2,
+            // spreadRadius: 2,
+            offset: const Offset(2, 2))
+      ], color: Colors.grey, borderRadius: BorderRadius.circular(8)),
       child: Column(
         children: [
           Container(

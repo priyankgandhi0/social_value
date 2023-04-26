@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 class PhysicalHealthHomeController extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? controller;
+
   @override
   void onInit() {
     controller = TabController(vsync: this, length: 6);

@@ -77,7 +77,7 @@ List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
       onTap: () {}),
   AppTabBarModel(
       tabText: articles,
-      tabWidget: const PhysicalHealthArticleScreen(),
+      tabWidget: PhysicalHealthArticleScreen(),
       onTap: () {}),
   AppTabBarModel(
       tabText: dailyWorkouts,

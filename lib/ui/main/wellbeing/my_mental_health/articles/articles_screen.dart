@@ -41,7 +41,13 @@ class MentalHealthArticles extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return AppBodyPumptCard(
                   onTap: () {
-                    Get.toNamed(Routes.articleDetailScreen);
+                    Get.toNamed(Routes.articleDetailScreen, arguments: [
+                      {
+                        "text": "mental health",
+                      },
+                      {"color": darkDeepPurple},
+                      {"color1": darkDeepPurple}
+                    ]);
                   },
                   title: index == 0
                       ? 'Full Body resistance Training - Low Mod Level'

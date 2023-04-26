@@ -97,7 +97,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.articleDetailScreen,
-        page: () => const ArticleDetailScreen(),
+        page: () => ArticleDetailScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.socialValueScore,

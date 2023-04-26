@@ -162,8 +162,9 @@ class AppVideoCommonCard extends StatelessWidget {
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
               color: Colors.grey.shade400,
-              blurRadius: 3,
-              offset: const Offset(4, 4))
+              blurRadius: 2,
+              // spreadRadius: 2,
+              offset: const Offset(2, 3))
         ], color: white, borderRadius: BorderRadius.circular(8)),
         child: Stack(
           children: [
@@ -426,6 +427,7 @@ class AwarenessDaysCard extends StatelessWidget {
   final String day;
   final String day2;
   final String day3;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -542,6 +544,7 @@ class ShelterCard extends StatelessWidget {
   final String image;
   final String desc;
   final String link;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -589,6 +592,7 @@ class QuestionsCard extends StatelessWidget {
   final String question;
   final String date;
   final VoidCallback? onTap;
+
   @override
   Widget build(BuildContext context) {
     return Container(

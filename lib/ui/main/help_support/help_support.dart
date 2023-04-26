@@ -72,7 +72,7 @@ class HelpSupport extends StatelessWidget {
                               child: StartUpTextFiled(
                                 headingText: 'Name',
                                 headingTextColor: Colors.black,
-                                hintText: 'Enter your name',
+                                hintText: '',
                                 fillColor: Colors.transparent,
                                 borderColor: Colors.grey,
                                 fontColor: Colors.black,
@@ -83,7 +83,7 @@ class HelpSupport extends StatelessWidget {
                               child: StartUpTextFiled(
                                 headingText: 'name',
                                 headingTextColor: white,
-                                hintText: 'Enter your lastname',
+                                hintText: '',
                                 fillColor: Colors.transparent,
                                 borderColor: Colors.grey,
                                 fontColor: Colors.black,
@@ -95,7 +95,7 @@ class HelpSupport extends StatelessWidget {
                         const StartUpTextFiled(
                           headingText: 'Email',
                           headingTextColor: Colors.black,
-                          hintText: 'Enter your email',
+                          hintText: '',
                           fillColor: Colors.transparent,
                           borderColor: Colors.grey,
                           fontColor: Colors.black,
