@@ -17,7 +17,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          15.0.addHSpace(),
+          25.0.addHSpace(),
           'Physical Health Home'.interTextStyle(
               fontSize: 16, fontWeight: FontWeight.w700, fontColor: textColor),
           20.0.addHSpace(),

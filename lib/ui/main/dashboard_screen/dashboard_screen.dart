@@ -177,7 +177,7 @@ class DashboardScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  8.0.addHSpace(),
+                  18.0.addHSpace(),
                   ClipRRect(
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(30),

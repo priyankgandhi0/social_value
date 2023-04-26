@@ -49,7 +49,7 @@ class IconsAssets {
   // static const treeIcon = 'assets/icons/tree.svg';
   // static const dashBoardIcon = 'assets/icons/dashBoardIcon.svg';
   // static const planetIcon = 'assets/icons/planet.svg';
-  // static const communityIcon = 'assets/icons/community.svg';
+  static const communityIcon = 'assets/icons/community.svg';
   // static const moreIcon = 'assets/icons/more.svg';
   // static const supportIcon = 'assets/icons/support.svg';
 }

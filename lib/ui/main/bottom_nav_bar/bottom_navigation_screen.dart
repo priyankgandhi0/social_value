@@ -53,35 +53,6 @@ class BottomNaviBarScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        /* TextButton(
-                          style: ButtonStyle(
-                              overlayColor: MaterialStateProperty.all(
-                                  Colors.transparent)),
-                          onPressed: () {
-                            Get.toNamed(Routes.dashboardScreen);
-                          },
-                          child: Container(
-                            height: 90,
-                            // width: 70,
-                            padding: const EdgeInsets.only(left: 10, right: 10),
-                            // color: Colors.red,
-                            child: Column(
-                              children: [
-                                GestureDetector(
-                                    onTap: () {
-                                      Get.toNamed(Routes.dashboardScreen);
-                                    },
-                                    child: SvgPicture.asset(
-                                        Assets.iconsDashBoardIcon)),
-                                4.0.addHSpace(),
-                                dashboard.interTextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    fontColor: Colors.white)
-                              ],
-                            ),
-                          ),
-                        ),*/
                         GestureDetector(
                           onTap: () {
                             Get.toNamed(Routes.dashboardScreen);
@@ -108,38 +79,6 @@ class BottomNaviBarScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        /* TextButton(
-                          style: ButtonStyle(
-                              overlayColor: MaterialStateProperty.all(
-                                  Colors.transparent)),
-                          onPressed: () {
-                            Get.toNamed(Routes.wellBeingDashBoardScreen);
-                          },
-                          child: Container(
-                            height: 90,
-                            padding: const EdgeInsets.only(left: 10, right: 10),
-                            // width: 70,
-                            child: Column(
-                              children: [
-                                GestureDetector(
-                                    onTap: () {
-                                      Get.toNamed(
-                                          Routes.wellBeingDashBoardScreen);
-                                    },
-                                    child: SvgPicture.asset(
-                                      IconsAssets.wellbeingIcon,
-                                      height: 30,
-                                      color: Colors.white,
-                                    )),
-                                4.0.addHSpace(),
-                                wellbeing.interTextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    fontColor: Colors.white)
-                              ],
-                            ),
-                          ),
-                        ),*/
                         GestureDetector(
                           onTap: () {
                             Get.toNamed(Routes.wellBeingDashBoardScreen);
@@ -169,35 +108,6 @@ class BottomNaviBarScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        /* TextButton(
-                          style: ButtonStyle(
-                              overlayColor: MaterialStateProperty.all(
-                                  Colors.transparent)),
-                          onPressed: () {
-                            Get.toNamed(Routes.planetMain);
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.only(left: 10, right: 10),
-                            height: 90,
-                            // width: 70,
-                            // color: Colors.red,
-                            child: Column(
-                              children: [
-                                GestureDetector(
-                                    onTap: () {
-                                      Get.toNamed(Routes.planetMain);
-                                    },
-                                    child:
-                                        SvgPicture.asset(Assets.iconsPlanet)),
-                                // 1.0.addHSpace(),
-                                planet.interTextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    fontColor: Colors.white)
-                              ],
-                            ),
-                          ),
-                        ),*/
                         GestureDetector(
                           onTap: () {
                             Get.toNamed(Routes.planetMain);
@@ -224,35 +134,6 @@ class BottomNaviBarScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        /* TextButton(
-                            style: ButtonStyle(
-                                overlayColor: MaterialStateProperty.all(
-                                    Colors.transparent)),
-                            onPressed: () {
-                              Get.toNamed(Routes.communityMain);
-                            },
-                            child: Container(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 10),
-                              height: 90,
-                              // width: 70,
-                              // color: Colors.grey,
-                              child: Column(
-                                children: [
-                                  GestureDetector(
-                                      onTap: () {
-                                        Get.toNamed(Routes.communityMain);
-                                      },
-                                      child: SvgPicture.asset(
-                                          Assets.iconsCommunity)),
-                                  4.0.addHSpace(),
-                                  community.interTextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      fontColor: Colors.white)
-                                ],
-                              ),
-                            )),*/
                         GestureDetector(
                           onTap: () {
                             Get.toNamed(Routes.communityMain);
@@ -269,7 +150,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                                       Get.toNamed(Routes.communityMain);
                                     },
                                     child: SvgPicture.asset(
-                                        Assets.iconsCommunity)),
+                                        IconsAssets.communityIcon)),
                                 4.0.addHSpace(),
                                 community.interTextStyle(
                                     fontSize: 12,
@@ -279,37 +160,6 @@ class BottomNaviBarScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        /*  TextButton(
-                          style: ButtonStyle(
-                              overlayColor: MaterialStateProperty.all(
-                                  Colors.transparent)),
-                          onPressed: () {
-                            Get.toNamed(Routes.menuScreen);
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.only(left: 10, right: 10),
-                            height: 90,
-                            // width: 70,
-                            // color: Colors.red,
-                            child: Column(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Get.toNamed(Routes.menuScreen);
-                                  },
-                                  child: SvgPicture.asset(
-                                    Assets.iconsMore,
-                                  ),
-                                ),
-                                14.0.addHSpace(),
-                                more.interTextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    fontColor: Colors.white)
-                              ],
-                            ).paddingOnly(top: 14),
-                          ),
-                        ),*/
                         GestureDetector(
                           onTap: () {
                             Get.toNamed(Routes.menuScreen);

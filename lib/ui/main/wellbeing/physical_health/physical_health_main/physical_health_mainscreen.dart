@@ -21,6 +21,7 @@ class PhysicalHealthMainScreen extends StatelessWidget {
     return DefaultTabController(
       length: 6,
       child: BottomNaviBarScreen(
+        bottomColor: darkDeepPurple,
         color: darkDeepPurple,
         appbar: AppBar(
           automaticallyImplyLeading: false,

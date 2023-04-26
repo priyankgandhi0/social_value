@@ -28,7 +28,7 @@ class MentalHealthApp extends StatelessWidget {
               ),
               10.0.addWSpace(),
               Container(
-                height: 134,
+                height: 114,
                 width: 170,
                 decoration: BoxDecoration(
                     color: darkDeepPurple,

@@ -22,6 +22,7 @@ class FinanceMain extends StatelessWidget {
     return DefaultTabController(
       length: 5,
       child: BottomNaviBarScreen(
+        bottomColor: darkDeepPurple,
         color: darkDeepPurple,
         appbar: AppBar(
           automaticallyImplyLeading: false,
