@@ -2,8 +2,9 @@
     package="com.example.social_value">
     <uses-permission android:name="android.permission.CAMERA" />
    <application
-        android:label="social_value"
+        android:label="social value"
         android:name="${applicationName}"
+        android:roundIcon="@mipmap/ic_launcher_rounded"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
