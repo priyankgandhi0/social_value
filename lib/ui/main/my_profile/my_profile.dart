@@ -8,10 +8,11 @@ import '../../../widgets/app_button.dart';
 import '../../../widgets/appbar_chip.dart';
 import '../../../widgets/common_textfield.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
+import 'my_profile_controller.dart';
 
 class MyProfileScreen extends StatelessWidget {
-  const MyProfileScreen({Key? key}) : super(key: key);
-
+  MyProfileScreen({Key? key}) : super(key: key);
+  final MyProfileController controller = Get.put(MyProfileController());
   @override
   Widget build(BuildContext context) {
     return BottomNaviBarScreen(
@@ -84,112 +85,143 @@ class MyProfileScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    'General Details'.interTextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20,
-                    ),
-                    20.0.addHSpace(),
-                    Row(
-                      children: [
-                        const Flexible(
-                          child: StartUpTextFiled(
-                            headingText: 'Name',
-                            headingTextColor: Colors.black,
-                            hintText: '',
-                            fillColor: Colors.transparent,
-                            borderColor: Colors.grey,
-                            fontColor: Colors.black,
+                child: Form(
+                  key: controller.formKey1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      'General Details'.interTextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
+                      20.0.addHSpace(),
+                      Row(
+                        children: [
+                          Flexible(
+                            child: StartUpTextFiled(
+                              headingText: 'Name',
+                              headingTextColor: Colors.black,
+                              hintText: '',
+                              fillColor: Colors.transparent,
+                              borderColor: Colors.grey,
+                              fontColor: Colors.black,
+                              controller: controller.nameCtr,
+                              validator: (_) {
+                                if (controller.nameCtr.text.isEmpty) {
+                                  return pleaseEnterName;
+                                }
+                                return null;
+                              },
+                            ),
                           ),
-                        ),
-                        20.0.addWSpace(),
-                        const Flexible(
-                          child: StartUpTextFiled(
-                            headingText: 'name',
-                            headingTextColor: white,
-                            hintText: '',
-                            fillColor: Colors.transparent,
-                            borderColor: Colors.grey,
-                            fontColor: Colors.black,
+                          20.0.addWSpace(),
+                          Flexible(
+                            child: StartUpTextFiled(
+                              headingText: 'name',
+                              headingTextColor: white,
+                              hintText: '',
+                              fillColor: Colors.transparent,
+                              borderColor: Colors.grey,
+                              fontColor: Colors.black,
+                              controller: controller.lastNameCtr,
+                              validator: (_) {
+                                if (controller.lastNameCtr.text.isEmpty) {
+                                  return pleaseEnterName;
+                                }
+                                return null;
+                              },
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    20.0.addHSpace(),
-                    const StartUpTextFiled(
-                      headingText: 'Email',
-                      headingTextColor: Colors.black,
-                      hintText: '',
-                      fillColor: Colors.transparent,
-                      borderColor: Colors.grey,
-                      fontColor: Colors.black,
-                    ),
-                    30.0.addHSpace(),
-                    'Replace Profile Image'.interTextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                    ),
-                    10.0.addHSpace(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: Colors.grey.shade300,
-                                borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(5),
-                                    bottomLeft: Radius.circular(5))),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 10, right: 10, top: 5, bottom: 5),
-                              child: Center(
-                                child: 'Choose file'.interTextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            )),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
+                        ],
+                      ),
+                      20.0.addHSpace(),
+                      StartUpTextFiled(
+                        headingText: 'Email',
+                        headingTextColor: Colors.black,
+                        hintText: '',
+                        fillColor: Colors.transparent,
+                        borderColor: Colors.grey,
+                        fontColor: Colors.black,
+                        controller: controller.emailCtr,
+                        validator: (_) {
+                          if (controller.emailCtr.text.isEmpty) {
+                            return pleaseEnterEmailAddress;
+                          } else if (!RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(_!)) {
+                            return enterValidEmail;
+                            // 'Enter Valid $message';
+                          }
+                          return null;
+                        },
+                      ),
+                      30.0.addHSpace(),
+                      'Replace Profile Image'.interTextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                      ),
+                      10.0.addHSpace(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
                               height: 30,
-                              width: Get.width,
                               decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.grey.shade300,
-                                  ),
+                                  color: Colors.grey.shade300,
                                   borderRadius: const BorderRadius.only(
-                                      topRight: Radius.circular(5),
-                                      bottomRight: Radius.circular(5))),
+                                      topLeft: Radius.circular(5),
+                                      bottomLeft: Radius.circular(5))),
                               child: Padding(
                                 padding: const EdgeInsets.only(
-                                    left: 5, right: 5, top: 4, bottom: 4),
-                                child: ''.interTextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                                    left: 10, right: 10, top: 5, bottom: 5),
+                                child: Center(
+                                  child: 'Choose file'.interTextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12,
+                                  ),
                                 ),
                               )),
-                        )
-                      ],
-                    ),
-                    30.0.addHSpace(),
-                    SizedBox(
-                      height: 37,
-                      width: 100,
-                      child: AppBorderButton(
-                        onTap: () {},
-                        textSize: 14,
-                        text: 'Update',
-                        borderColor: darkSky,
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                                height: 30,
+                                width: Get.width,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.grey.shade300,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                        topRight: Radius.circular(5),
+                                        bottomRight: Radius.circular(5))),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 5, right: 5, top: 4, bottom: 4),
+                                  child: ''.interTextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12,
+                                  ),
+                                )),
+                          )
+                        ],
                       ),
-                    )
-                  ],
-                ).paddingSymmetric(horizontal: 15, vertical: 15),
+                      30.0.addHSpace(),
+                      SizedBox(
+                        height: 37,
+                        width: 100,
+                        child: AppBorderButton(
+                          onTap: () {
+                            if (controller.formKey1.currentState!.validate()) {}
+                          },
+                          textSize: 14,
+                          text: 'Update',
+                          borderColor: darkSky,
+                        ),
+                      )
+                    ],
+                  ).paddingSymmetric(horizontal: 15, vertical: 15),
+                ),
               ),
               20.0.addHSpace(),
               Container(
@@ -205,63 +237,91 @@ class MyProfileScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    'Update Password'.interTextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20,
-                    ),
-                    20.0.addHSpace(),
-                    Row(
-                      children: [
-                        const Flexible(
-                          child: StartUpTextFiled(
-                            headingText: 'New Password',
-                            // headingTextColor: Colors.black,
-                            hintText: '',
-                            fillColor: Colors.transparent,
-                            borderColor: Colors.grey,
-                            fontColor: Colors.black,
-                          ),
-                        ),
-                        20.0.addWSpace(),
-                        const Flexible(
-                          child: StartUpTextFiled(
-                            headingText: 'Confirm New Password',
-                            // headingTextColor: white,
-                            hintText: '',
-                            fillColor: Colors.transparent,
-                            borderColor: Colors.grey,
-                            fontColor: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                    20.0.addHSpace(),
-                    const StartUpTextFiled(
-                      headingText: 'Current Password',
-                      // headingTextColor: Colors.black,
-                      hintText: '',
-                      fillColor: Colors.transparent,
-                      borderColor: Colors.grey,
-                      fontColor: Colors.black,
-                    ),
-                    30.0.addHSpace(),
-                    SizedBox(
-                      height: 37,
-                      width: 100,
-                      child: AppBorderButton(
-                        onTap: () {},
-                        textSize: 14,
-                        text: 'Update',
-                        borderColor: darkSky,
+                child: Form(
+                  key: controller.formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      'Update Password'.interTextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
                       ),
-                    ),
-                    10.0.addHSpace(),
-                  ],
-                ).paddingSymmetric(horizontal: 15, vertical: 15),
+                      20.0.addHSpace(),
+                      Row(
+                        children: [
+                          Flexible(
+                            child: StartUpTextFiled(
+                              headingText: 'New Password',
+                              validator: (_) {
+                                if (controller.newPassCtr.text.isEmpty) {
+                                  return pleaseEnterNewPass;
+                                }
+                                return null;
+                              },
+                              controller: controller.newPassCtr,
+                              hintText: '',
+                              fillColor: Colors.transparent,
+                              borderColor: Colors.grey,
+                              fontColor: Colors.black,
+                            ),
+                          ),
+                          20.0.addWSpace(),
+                          Flexible(
+                            child: StartUpTextFiled(
+                              headingText: 'Confirm New Password',
+                              // headingTextColor: white,
+                              hintText: '',
+                              fillColor: Colors.transparent,
+                              borderColor: Colors.grey,
+                              fontColor: Colors.black,
+                              controller: controller.confirmCtr,
+                              validator: (value) {
+                                if (controller.confirmCtr.text.isEmpty) {
+                                  return pleaseEnterConfirmPass;
+                                } else if (value !=
+                                    controller.newPassCtr.text) {
+                                  return "confirm password same as newPassword";
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      20.0.addHSpace(),
+                      StartUpTextFiled(
+                        headingText: 'Current Password',
+                        // headingTextColor: Colors.black,
+                        hintText: '',
+                        fillColor: Colors.transparent,
+                        borderColor: Colors.grey,
+                        fontColor: Colors.black,
+                        controller: controller.currentPassCtr,
+                        validator: (_) {
+                          if (controller.currentPassCtr.text.isEmpty) {
+                            return pleaseEnterOldPass;
+                          }
+                          return null;
+                        },
+                      ),
+                      30.0.addHSpace(),
+                      SizedBox(
+                        height: 37,
+                        width: 100,
+                        child: AppBorderButton(
+                          onTap: () {
+                            if (controller.formKey.currentState!.validate()) {}
+                          },
+                          textSize: 14,
+                          text: 'Update',
+                          borderColor: darkSky,
+                        ),
+                      ),
+                      10.0.addHSpace(),
+                    ],
+                  ).paddingSymmetric(horizontal: 15, vertical: 15),
+                ),
               ),
             ],
           ),

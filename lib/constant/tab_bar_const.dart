@@ -29,7 +29,7 @@ import '../ui/main/wellbeing/physical_health/daily_workouts/daily_workouts_scree
 import '../ui/main/wellbeing/physical_health/les_mills/les_mills_screen.dart';
 import '../ui/main/wellbeing/physical_health/meal_plans/meal_plans_screen.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_dashboard/physical_health_dashboard.dart';
-import '../ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
+
 import '../ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_screen.dart';
 import '../ui/support_services/support_services.dart';
 import '../utils/routes_manager.dart';
@@ -77,7 +77,7 @@ List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
       onTap: () {}),
   AppTabBarModel(
       tabText: articles,
-      tabWidget: PhysicalHealthArticleScreen(),
+      tabWidget: const PhysicalHealthArticleScreen(),
       onTap: () {}),
   AppTabBarModel(
       tabText: dailyWorkouts,
@@ -134,7 +134,7 @@ List<AppTabBarModel> planetTabs = [
       tabText: dashboard, tabWidget: const PlanetDashboard(), onTap: () {}),
   AppTabBarModel(
       tabText: carbonFootprintCalculator,
-      tabWidget: const CarbonFootPrintCalculator(),
+      tabWidget: CarbonFootPrintCalculator(),
       onTap: () {}),
   AppTabBarModel(
       tabText: webinars, tabWidget: const WebinarsScreen(), onTap: () {}),

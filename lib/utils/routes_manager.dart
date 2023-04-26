@@ -42,7 +42,7 @@ class Routes {
         name: Routes.splashScreen,
         page: () => const SplashScreen(),
         transition: Transition.noTransition),
-    GetPage(name: Routes.login, page: () => const LogInScreen()),
+    GetPage(name: Routes.login, page: () => LogInScreen()),
     GetPage(
         name: Routes.menuScreen,
         page: () => const MenuScreen(),
@@ -93,7 +93,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.myProfileScreen,
-        page: () => const MyProfileScreen(),
+        page: () => MyProfileScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.articleDetailScreen,

@@ -3,10 +3,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/constant/tab_bar_const.dart';
 import 'package:social_value/theme/app_color.dart';
-
 import 'package:social_value/ui/main/wellbeing/physical_health/physical_health_main/physical_health_controller.dart';
 import 'package:social_value/utils/extension.dart';
-
 import '../../../../../constant/app_string.dart';
 import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
