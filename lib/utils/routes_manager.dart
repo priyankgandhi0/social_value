@@ -49,7 +49,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.dashboardScreen,
-        page: () => const DashboardScreen(),
+        page: () => DashboardScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.wellBeingDashBoardScreen,

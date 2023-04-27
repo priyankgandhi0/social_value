@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
+import '../../../constant/shred_preference.dart';
 import '../../../generated/assets.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_menuItem.dart';
@@ -29,32 +30,43 @@ class MenuScreen extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
-                  child:
-                      // (preferences.getString(SharedPreference
-                      //     .USER_PROFILE_IMAGE) ??
-                      //     "")
-                      //     .isNotEmpty
-                      //     ? Image.network(
-                      //   AppUrls.profileImage +
-                      //       (preferences.getString(SharedPreference
-                      //           .USER_PROFILE_IMAGE) ??
-                      //           ""),
-                      //   fit: BoxFit.cover,
-                      //   // width: 200,
-                      //   // height: 200,
-                      // )
-                      //     :
-                      Image.asset(
-                    Assets.imagesProfile,
-                    fit: BoxFit.cover,
-                    // width: 200,
-                    // height: 200,
-                  ),
+                  child: (preferences.getString(
+                                  SharedPreference.USER_PROFILE_IMAGE) ??
+                              "")
+                          .isNotEmpty
+                      ? Image.network(
+                          (preferences.getString(
+                                  SharedPreference.USER_PROFILE_IMAGE) ??
+                              ""),
+                          fit: BoxFit.cover,
+                          // width: 200,
+                          // height: 200,
+                        )
+                      : Image.asset(
+                          Assets.imagesProfile,
+                          fit: BoxFit.cover,
+                          // width: 200,
+                          // height: 200,
+                        ),
                 ),
               ),
               20.0.addHSpace(),
-              "Debbie Dallas".appEpilogueTextStyle(
-                  fontSize: 20, fontWeight: FontWeight.w600, fontColor: black),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  (preferences.getString(SharedPreference.FIRST_NAME) ?? "")
+                      .appEpilogueTextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          fontColor: black),
+                  2.0.addWSpace(),
+                  (preferences.getString(SharedPreference.LAST_NAME) ?? "")
+                      .appEpilogueTextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          fontColor: black),
+                ],
+              ),
               47.0.addHSpace(),
               const Divider(
                 color: Color(0xffE4E4E4),

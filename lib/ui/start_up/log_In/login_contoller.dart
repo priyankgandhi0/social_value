@@ -1,6 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get.dart';
+import '../../../api/api_extension.dart';
+import '../../../constant/shred_preference.dart';
+import '../../../models/get_srticle_model.dart';
+import '../../../models/user_model.dart';
+import '../../../network/auth_repo.dart';
+import '../../../theme/app_helpers.dart';
+import '../../../utils/routes_manager.dart';
 
 class LogInScreenController extends GetxController {
   RxBool isObscureText = true.obs;
@@ -9,4 +17,54 @@ class LogInScreenController extends GetxController {
   final signInKey = GlobalKey<FormState>();
   TextEditingController emailCtr = TextEditingController();
   TextEditingController passwordCtr = TextEditingController();
+  GetArticle? get;
+  String name = preferences.getString(SharedPreference.FIRST_NAME) ?? "";
+  userLogin() async {
+    FocusManager.instance.primaryFocus?.unfocus();
+    isLoading.value = true;
+
+    dynamic result;
+    result = await UserStartupRepo.instance.userSignIn(
+      email: emailCtr.text,
+      password: passwordCtr.text,
+    );
+    try {
+      print("login data123${result}");
+      UserModel user = UserModel.fromJson(json.decode(result));
+      preferences.saveUserItem(user);
+      preferences.putString(SharedPreference.USER_EMAIL, user.email);
+      preferences.putString(SharedPreference.FIRST_NAME, user.firstname);
+      // preferences.putBool(SharedPreference.IS_LOGGED_IN, true);
+      if (user.status == "Success") {
+        Get.offAllNamed(Routes.dashboardScreen);
+      } else if (user.status == "Failed") {
+        showAppSnackBar("Account does not exist");
+      } else {
+        showAppSnackBar("Incorrect login details");
+      }
+    } catch (e) {
+      print(e);
+      showAppSnackBar(errorText);
+    }
+    isLoading.value = false;
+    update();
+  }
+
+  getArticleCategories() async {
+    FocusManager.instance.primaryFocus?.unfocus();
+    isLoading.value = true;
+    dynamic result;
+    result = await UserStartupRepo.instance.getArticleCategories();
+    try {
+      print("login data123${result}");
+      var data = GetArticle.fromJson(result);
+      get = data;
+      print("data----");
+    } catch (e) {
+      print(e);
+      showAppSnackBar(errorText);
+    }
+    isLoading.value = false;
+    update();
+  }
 }

@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/routes_manager.dart';
 
-void main() {
+import 'constant/shred_preference.dart';
+
+void main() async {
   runApp(const MyApp());
+  await preferences.init();
+  await preferences.putAppDeviceInfo();
 }
 
 class MyApp extends StatelessWidget {

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
+import '../../../constant/shred_preference.dart';
 import '../../../generated/asset.dart';
 import '../../../generated/assets.dart';
 import '../../../theme/app_color.dart';
@@ -13,7 +14,8 @@ import '../../../widgets/home_screen_card.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
+  DashboardScreen({Key? key}) : super(key: key);
+  String name = preferences.getString(SharedPreference.FIRST_NAME) ?? "";
 
   @override
   Widget build(BuildContext context) {
@@ -49,32 +51,31 @@ class DashboardScreen extends StatelessWidget {
                                   ),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(50),
-                                    child:
-                                        // (preferences.getString(SharedPreference
-                                        //     .USER_PROFILE_IMAGE) ??
-                                        //     "")
-                                        //     .isNotEmpty
-                                        //     ? Image.network(
-                                        //   AppUrls.profileImage +
-                                        //       (preferences.getString(SharedPreference
-                                        //           .USER_PROFILE_IMAGE) ??
-                                        //           ""),
-                                        //   fit: BoxFit.cover,
-                                        //   // width: 200,
-                                        //   // height: 200,
-                                        // )
-                                        //     :
-                                        Image.asset(
-                                      Assets.imagesProfile,
-                                      fit: BoxFit.cover,
-                                      // width: 200,
-                                      // height: 200,
-                                    ),
+                                    child: (preferences.getString(
+                                                    SharedPreference
+                                                        .USER_PROFILE_IMAGE) ??
+                                                "")
+                                            .isNotEmpty
+                                        ? Image.network(
+                                            (preferences.getString(
+                                                    SharedPreference
+                                                        .USER_PROFILE_IMAGE) ??
+                                                ""),
+                                            fit: BoxFit.cover,
+                                            // width: 200,
+                                            // height: 200,
+                                          )
+                                        : Image.asset(
+                                            Assets.imagesProfile,
+                                            fit: BoxFit.cover,
+                                            // width: 200,
+                                            // height: 200,
+                                          ),
                                   ),
                                 ),
                               ),
                               16.0.addWSpace(),
-                              "Hi Debbie".appEpilogueTextStyle(
+                              "Hi $name".appEpilogueTextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w600,
                                   fontColor: white)

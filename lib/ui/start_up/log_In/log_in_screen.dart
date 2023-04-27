@@ -72,7 +72,8 @@ class LogInScreen extends StatelessWidget {
                     fontColor: const Color(0xff000000),
                     onTap: () {
                       if (controller.signInKey.currentState!.validate()) {
-                        Get.toNamed(Routes.dashboardScreen);
+                        controller.userLogin();
+                        // controller.getArticleCategories();
                       }
                     },
                   ),
