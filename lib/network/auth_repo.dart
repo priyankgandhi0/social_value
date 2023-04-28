@@ -1,6 +1,5 @@
 import '../api/api_helpers.dart';
 import '../constant/requst_const.dart';
-import '../models/response_item.dart';
 
 class UserStartupRepo {
   static UserStartupRepo? _instance;

@@ -34,12 +34,16 @@ class LogInScreenController extends GetxController {
       preferences.saveUserItem(user);
       preferences.putString(SharedPreference.USER_EMAIL, user.email);
       preferences.putString(SharedPreference.FIRST_NAME, user.firstname);
-      // preferences.putBool(SharedPreference.IS_LOGGED_IN, true);
+      preferences.putBool(SharedPreference.IS_LOGGED_IN, true);
       if (user.status == "Success") {
+        isLoading.value = false;
+        preferences.putBool(SharedPreference.IS_LOGGED_IN, true);
         Get.offAllNamed(Routes.dashboardScreen);
       } else if (user.status == "Failed") {
+        isLoading.value = false;
         showAppSnackBar("Account does not exist");
       } else {
+        isLoading.value = false;
         showAppSnackBar("Incorrect login details");
       }
     } catch (e) {
@@ -57,9 +61,9 @@ class LogInScreenController extends GetxController {
     result = await UserStartupRepo.instance.getArticleCategories();
     try {
       print("login data123${result}");
-      var data = GetArticle.fromJson(result);
-      get = data;
-      print("data----");
+      var data = getArticleFromJson(result);
+      // get = data as GetArticle?;
+      print("data----${data[0].title}");
     } catch (e) {
       print(e);
       showAppSnackBar(errorText);

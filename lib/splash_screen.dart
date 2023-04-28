@@ -6,6 +6,7 @@ import 'package:social_value/utils/routes_manager.dart';
 
 import 'dart:async';
 
+import 'constant/shred_preference.dart';
 import 'generated/assets.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -32,7 +33,17 @@ class SplashScreen extends StatelessWidget {
 
   _onInit() {
     Future.delayed(const Duration(seconds: 3)).then((value) async {
-      Get.offAllNamed(Routes.login);
+      var isLogin = preferences.getBool(SharedPreference.IS_LOGGED_IN);
+      if (isLogin == true) {
+        Get.offAllNamed(Routes.dashboardScreen);
+      } else {
+        Get.offAllNamed(Routes.login);
+      }
     });
   }
+  // _onInit() {
+  //   Future.delayed(const Duration(seconds: 3)).then((value) async {
+  //     Get.offAllNamed(Routes.login);
+  //   });
+  // }
 }

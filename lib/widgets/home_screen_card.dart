@@ -35,7 +35,7 @@ class ExploreHubCard extends StatelessWidget {
             width: 160,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
+              child: Image.network(
                 image,
                 fit: BoxFit.cover,
               ),
@@ -45,6 +45,7 @@ class ExploreHubCard extends StatelessWidget {
           hubName.interTextStyle(fontWeight: FontWeight.w700, fontSize: 13),
           5.0.addHSpace(),
           hubDesc.interTextStyle(
+              textOverflow: TextOverflow.visible,
               fontWeight: FontWeight.w400,
               fontSize: 12,
               textAlign: TextAlign.center),

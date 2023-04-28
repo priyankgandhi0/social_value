@@ -117,7 +117,7 @@ List<AppTabBarModel> wellbeingFinanceTabs = [
       tabText: dashboard, tabWidget: const FinancesDashBoard(), onTap: () {}),
   AppTabBarModel(
       tabText: insuranceQuotes,
-      tabWidget: const FinancesInsuranceQuotes(),
+      tabWidget: FinancesInsuranceQuotes(),
       onTap: () {}),
   AppTabBarModel(
       tabText: discountCard,
@@ -153,7 +153,7 @@ List<AppTabBarModel> communityTabs = [
       tabWidget: const VolunteeringScreen(),
       onTap: () {}),
   AppTabBarModel(
-      tabText: fundraising, tabWidget: const FundraisingScreen(), onTap: () {}),
+      tabText: fundraising, tabWidget: FundraisingScreen(), onTap: () {}),
   AppTabBarModel(
       tabText: discountCard, tabWidget: const DiscountCard(), onTap: () {}),
   AppTabBarModel(

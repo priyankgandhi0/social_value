@@ -1,16 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
 class HomeCardModel {
-  String text;
-  String subText;
+  String desc;
+  String title;
   String image;
   Function onTap;
-  Color color;
 
   HomeCardModel(
-      {required this.subText,
+      {required this.title,
       required this.onTap,
       required this.image,
-      required this.color,
-      required this.text});
+      required this.desc});
 }

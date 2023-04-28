@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:social_value/constant/home_card_const.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
 import '../../../constant/shred_preference.dart';
+import '../../../constant/tab_bar_const.dart';
 import '../../../generated/asset.dart';
 import '../../../generated/assets.dart';
 import '../../../theme/app_color.dart';
@@ -12,6 +14,7 @@ import '../../../widgets/app_button.dart';
 import '../../../widgets/common_card.dart';
 import '../../../widgets/home_screen_card.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
+import '../wellbeing/wellbeing_main/wellbeing_main_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   DashboardScreen({Key? key}) : super(key: key);
@@ -209,26 +212,25 @@ class DashboardScreen extends StatelessWidget {
                     ).paddingOnly(left: 16, right: 16),
                     20.0.addHSpace(),
                     SizedBox(
-                      height: 210,
+                      height: 225,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: 4,
+                        itemCount: homeCard.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return ExploreHubCard(
-                            color: index == 0
-                                ? darkDeepPurple
-                                : index == 1
-                                    ? darkGreen
-                                    : index == 2
-                                        ? darkSky
-                                        : index == 3
-                                            ? darkOrange
-                                            : Colors.black,
-                            image: Assets.imagesLadyImage,
-                            hubDesc: wellbeingHubText,
-                            hubName: wellbeingHub,
-                          );
+                              color: index == 0
+                                  ? darkDeepPurple
+                                  : index == 1
+                                      ? darkGreen
+                                      : index == 2
+                                          ? darkSky
+                                          : index == 3
+                                              ? darkOrange
+                                              : Colors.black,
+                              image: homeCard[index].image,
+                              hubDesc: homeCard[index].desc,
+                              hubName: homeCard[index].title);
                         },
                       ),
                     ).paddingOnly(left: 16, right: 16),

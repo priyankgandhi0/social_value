@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
@@ -228,7 +229,10 @@ class AppWorkOutCard extends StatelessWidget {
 }
 
 class InsuranceCard extends StatelessWidget {
-  const InsuranceCard({Key? key}) : super(key: key);
+  const InsuranceCard({Key? key, required this.title, this.icon})
+      : super(key: key);
+  final String title;
+  final String? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -241,16 +245,16 @@ class InsuranceCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          car.interTextStyle(
+          title.interTextStyle(
               fontSize: 16, fontWeight: FontWeight.w700, fontColor: white),
           5.0.addHSpace(),
           insurance.interTextStyle(
               fontSize: 12, fontWeight: FontWeight.w400, fontColor: white),
           40.0.addHSpace(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [Image.asset(ImageAssets.car)],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.end,
+          //   children: [FaIcon()],
+          // ),
         ],
       ),
     );
@@ -470,8 +474,15 @@ class AwarenessDaysCard extends StatelessWidget {
 }
 
 class AlcoholFreeCard extends StatelessWidget {
-  const AlcoholFreeCard({Key? key}) : super(key: key);
-
+  const AlcoholFreeCard(
+      {Key? key,
+      required this.title,
+      required this.desc,
+      required this.firstLetter})
+      : super(key: key);
+  final String title;
+  final String desc;
+  final String firstLetter;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -492,44 +503,57 @@ class AlcoholFreeCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Image.asset(
-                ImageAssets.aImage,
-                alignment: Alignment.topLeft,
+              Transform(
+                transform: Matrix4.skewX(0.15),
+                child: Container(
+                    height: 50,
+                    width: 60,
+                    color: darkPurple,
+                    child: Center(
+                      child: firstLetter.interTextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          fontColor: Colors.white),
+                    )),
               ),
+              // Image.asset(
+              //   ImageAssets.aImage,
+              //   alignment: Alignment.topLeft,
+              // ),
               22.0.addWSpace(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  "Alcohol-free month".interTextStyle(
+                  title.interTextStyle(
                       fontWeight: FontWeight.w700, fontSize: 16),
                 ],
               )
             ],
           ),
           SizedBox(
-            child: alcoholDesc.interTextStyle(
-                fontWeight: FontWeight.w400, fontSize: 14),
+            child:
+                desc.interTextStyle(fontWeight: FontWeight.w400, fontSize: 14),
           ).paddingOnly(left: 81),
           20.0.addHSpace(),
-          SizedBox(
-            child: "Afternoon tea"
-                .interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-          ).paddingOnly(left: 81),
-          20.0.addHSpace(),
-          SizedBox(
-            child: afternoonTeaDesc.interTextStyle(
-                fontWeight: FontWeight.w400, fontSize: 14),
-          ).paddingOnly(left: 81),
-          20.0.addHSpace(),
-          SizedBox(
-            child: "Auction"
-                .interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-          ).paddingOnly(left: 81),
-          10.0.addHSpace(),
-          SizedBox(
-                  child: auctionDesc.interTextStyle(
-                      fontWeight: FontWeight.w400, fontSize: 14))
-              .paddingOnly(left: 81),
+          // SizedBox(
+          //   child: "Afternoon tea"
+          //       .interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+          // ).paddingOnly(left: 81),
+          // 20.0.addHSpace(),
+          // SizedBox(
+          //   child: afternoonTeaDesc.interTextStyle(
+          //       fontWeight: FontWeight.w400, fontSize: 14),
+          // ).paddingOnly(left: 81),
+          // 20.0.addHSpace(),
+          // SizedBox(
+          //   child: "Auction"
+          //       .interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+          // ).paddingOnly(left: 81),
+          // 10.0.addHSpace(),
+          // SizedBox(
+          //         child: auctionDesc.interTextStyle(
+          //             fontWeight: FontWeight.w400, fontSize: 14))
+          //     .paddingOnly(left: 81),
         ],
       ),
     ).paddingOnly(bottom: 20);

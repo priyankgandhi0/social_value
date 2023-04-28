@@ -11,14 +11,14 @@ String getArticleToJson(List<GetArticle> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class GetArticle {
-  String? id;
-  String? title;
-  String? parentCategoryId;
+  String id;
+  String title;
+  String parentCategoryId;
 
   GetArticle({
-    this.id,
-    this.title,
-    this.parentCategoryId,
+    required this.id,
+    required this.title,
+    required this.parentCategoryId,
   });
 
   factory GetArticle.fromJson(Map<String, dynamic> json) => GetArticle(

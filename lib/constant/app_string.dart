@@ -153,6 +153,15 @@ const lesMills = 'Les Mills';
 const maximumMemberShipText = 'Learn how to maximise your membership';
 const memberShipText = 'Get You Free XO Discount Card membership';
 const wellbeingHub = 'Wellbeing Hub ';
+const ediHub = 'EDI Hub ';
+const ediHubText =
+    'Learn more about diversity with webinars  and expert lead content';
+const communityHub = 'Community Hub ';
+const communityHubText =
+    'A place to find fundraising ideas, volunteering inspriration and more! plus get discounts from leading retailers';
+const sustainabilityHub = 'Sustainability Hub ';
+const sustainabilityHubText =
+    'A place where you can learn about making a difference of people and the planet';
 const memberShipDesc =
     'Get access to 100 s of discounts from some of the UK s biggest and best retailers. Free XO Discounts membership is included in your SVC membership.';
 const wellbeingHubText =
