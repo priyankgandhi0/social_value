@@ -7,7 +7,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
 
 import '../constant/app_string.dart';
-import '../generated/asset.dart';
+
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
 import 'app_button.dart';
@@ -474,15 +474,11 @@ class AwarenessDaysCard extends StatelessWidget {
 }
 
 class AlcoholFreeCard extends StatelessWidget {
-  const AlcoholFreeCard(
-      {Key? key,
-      required this.title,
-      required this.desc,
-      required this.firstLetter})
-      : super(key: key);
-  final String title;
-  final String desc;
-  final String firstLetter;
+  const AlcoholFreeCard({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
+  final Widget data;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -498,65 +494,62 @@ class AlcoholFreeCard extends StatelessWidget {
                 offset: const Offset(3, 3))
           ],
           borderRadius: BorderRadius.circular(8)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Transform(
-                transform: Matrix4.skewX(0.15),
-                child: Container(
-                    height: 50,
-                    width: 60,
-                    color: darkPurple,
-                    child: Center(
-                      child: firstLetter.interTextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          fontColor: Colors.white),
-                    )),
-              ),
-              // Image.asset(
-              //   ImageAssets.aImage,
-              //   alignment: Alignment.topLeft,
-              // ),
-              22.0.addWSpace(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  title.interTextStyle(
-                      fontWeight: FontWeight.w700, fontSize: 16),
-                ],
-              )
-            ],
-          ),
-          SizedBox(
-            child:
-                desc.interTextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-          ).paddingOnly(left: 81),
-          20.0.addHSpace(),
-          // SizedBox(
-          //   child: "Afternoon tea"
-          //       .interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-          // ).paddingOnly(left: 81),
-          // 20.0.addHSpace(),
-          // SizedBox(
-          //   child: afternoonTeaDesc.interTextStyle(
-          //       fontWeight: FontWeight.w400, fontSize: 14),
-          // ).paddingOnly(left: 81),
-          // 20.0.addHSpace(),
-          // SizedBox(
-          //   child: "Auction"
-          //       .interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-          // ).paddingOnly(left: 81),
-          // 10.0.addHSpace(),
-          // SizedBox(
-          //         child: auctionDesc.interTextStyle(
-          //             fontWeight: FontWeight.w400, fontSize: 14))
-          //     .paddingOnly(left: 81),
-        ],
-      ),
+      child: data,
     ).paddingOnly(bottom: 20);
+  }
+}
+
+class AlcoholFreeData extends StatelessWidget {
+  const AlcoholFreeData(
+      {Key? key,
+      required this.title,
+      required this.desc,
+      required this.firstLetter,
+      required this.color})
+      : super(key: key);
+  final String title;
+  final String desc;
+  final String firstLetter;
+  final Color color;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Transform(
+                  transform: Matrix4.skewX(0.15),
+                  child: Container(
+                      height: 50,
+                      width: 60,
+                      color: color,
+                      child: Center(
+                        child: firstLetter.interTextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            fontColor: Colors.white),
+                      )),
+                ),
+              ],
+            ),
+            22.0.addWSpace(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                title.interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+              ],
+            )
+          ],
+        ),
+        SizedBox(
+          child: desc.interTextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+        ).paddingOnly(left: 81),
+      ],
+    );
   }
 }
 

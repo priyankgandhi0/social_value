@@ -47,8 +47,9 @@ dependencies:
   flutter_svg: ^0.23.0
   percent_indicator: ^4.2.3
   http: ^0.13.5
-
+  collection: ^1.17.0
   http_parser: ^4.0.2
+  grouped_list: ^5.1.2
 
 dev_dependencies:
   flutter_test:
