@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:http/http.dart' as http;
 import '../models/response_item.dart';
 import 'api_exception.dart';
@@ -26,9 +25,8 @@ class BaseApiHelper {
         .onError((error, stackTrace) => onError(error));
   }
 
-  static Future<dynamic> getRequest(
-    String requestUrl,
-  ) async {
+  static Future<dynamic> getRequest(String requestUrl,
+      {Map<String, dynamic>? params}) async {
     log("request:$requestUrl");
     // log("headers:${requestHeader(passAuthToken)}");
 

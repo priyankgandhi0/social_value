@@ -13,10 +13,14 @@ class MethodNames {
   static const getArticleCategories = "get-article-categories";
   static const getInsurances = "get-insurances";
   static const getFundraisingIdeas = "get-fundraising-ideas";
+  static const getHelplineCategories = "get-helpline-categories";
+  static const getHelplines = "get-helplines";
+  static const getVideos = "get-videos";
 }
 
 class RequestParam {
-  static const page = "page";
+  static const category = "category";
+  static const ids = "ids";
 }
 
 class RequestHeaderKey {

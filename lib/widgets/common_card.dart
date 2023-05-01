@@ -477,8 +477,10 @@ class AlcoholFreeCard extends StatelessWidget {
   const AlcoholFreeCard({
     Key? key,
     required this.data,
+    required this.firstLetter,
   }) : super(key: key);
   final Widget data;
+  final String firstLetter;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -494,62 +496,31 @@ class AlcoholFreeCard extends StatelessWidget {
                 offset: const Offset(3, 3))
           ],
           borderRadius: BorderRadius.circular(8)),
-      child: data,
-    ).paddingOnly(bottom: 20);
-  }
-}
-
-class AlcoholFreeData extends StatelessWidget {
-  const AlcoholFreeData(
-      {Key? key,
-      required this.title,
-      required this.desc,
-      required this.firstLetter,
-      required this.color})
-      : super(key: key);
-  final String title;
-  final String desc;
-  final String firstLetter;
-  final Color color;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Transform(
-                  transform: Matrix4.skewX(0.15),
-                  child: Container(
-                      height: 50,
-                      width: 60,
-                      color: color,
-                      child: Center(
-                        child: firstLetter.interTextStyle(
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold,
-                            fontColor: Colors.white),
-                      )),
-                ),
-              ],
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 0,
+            child: Transform(
+              transform: Matrix4.skewX(0.15),
+              child: Container(
+                  alignment: Alignment.topLeft,
+                  height: 50,
+                  width: 60,
+                  color: darkPurple,
+                  child: Center(
+                    child: firstLetter.interTextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        fontColor: Colors.white),
+                  )),
             ),
-            22.0.addWSpace(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                title.interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
-              ],
-            )
-          ],
-        ),
-        SizedBox(
-          child: desc.interTextStyle(fontWeight: FontWeight.w400, fontSize: 14),
-        ).paddingOnly(left: 81),
-      ],
-    );
+          ),
+          20.0.addWSpace(),
+          data
+        ],
+      ),
+    ).paddingOnly(bottom: 20);
   }
 }
 

@@ -17,6 +17,7 @@ import '../ui/main/wellbeing/finances/finances_main/finances_main.dart';
 import '../ui/main/wellbeing/my_mental_health/mental_health_main/mental_health_main.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
 import '../ui/main/wellbeing/wellbeing_main/wellbeing_main_screen.dart';
+import '../ui/video-player.dart';
 
 class Routes {
   static String splashScreen = "/splash_screen";
@@ -36,6 +37,7 @@ class Routes {
   static String myProfileScreen = "/MyProfile_Screen";
   static String articleDetailScreen = "/Article_Detail_Screen";
   static String socialValueScore = "/socialValueScore";
+  static String videoPlayerScreen = "/VideoPlayerScreen";
 
   static List<GetPage> pages = [
     GetPage(
@@ -102,6 +104,10 @@ class Routes {
     GetPage(
         name: Routes.socialValueScore,
         page: () => const SocialValueScore(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.videoPlayerScreen,
+        page: () => const VideoPlayerExample(),
         transition: Transition.noTransition),
   ];
 }

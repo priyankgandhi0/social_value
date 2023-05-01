@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
+
 import 'package:social_value/utils/routes_manager.dart';
 
 import 'dart:async';
@@ -35,6 +36,7 @@ class SplashScreen extends StatelessWidget {
     Future.delayed(const Duration(seconds: 3)).then((value) async {
       var isLogin = preferences.getBool(SharedPreference.IS_LOGGED_IN);
       if (isLogin == true) {
+        // Get.offAllNamed(Routes.videoPlayerScreen);
         Get.offAllNamed(Routes.dashboardScreen);
       } else {
         Get.offAllNamed(Routes.login);

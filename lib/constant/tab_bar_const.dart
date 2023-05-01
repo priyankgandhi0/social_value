@@ -108,9 +108,7 @@ List<AppTabBarModel> wellbeingMentalHealthTabs = [
   AppTabBarModel(
       tabText: articles, tabWidget: const MentalHealthArticles(), onTap: () {}),
   AppTabBarModel(
-      tabText: supportServices,
-      tabWidget: const SupportServices(),
-      onTap: () {}),
+      tabText: supportServices, tabWidget: SupportServices(), onTap: () {}),
 ];
 List<AppTabBarModel> wellbeingFinanceTabs = [
   AppTabBarModel(
@@ -123,8 +121,7 @@ List<AppTabBarModel> wellbeingFinanceTabs = [
       tabText: discountCard,
       tabWidget: const FinancesDiscountCard(),
       onTap: () {}),
-  AppTabBarModel(
-      tabText: support, tabWidget: const SupportServices(), onTap: () {}),
+  AppTabBarModel(tabText: support, tabWidget: SupportServices(), onTap: () {}),
   AppTabBarModel(
       tabText: articles, tabWidget: const FinancesArticle(), onTap: () {}),
 ];

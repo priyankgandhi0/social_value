@@ -1,8 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grouped_list/grouped_list.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:social_value/widgets/common_card.dart';
@@ -15,6 +12,7 @@ import 'fundraising_controller.dart';
 class FundraisingScreen extends StatelessWidget {
   FundraisingScreen({Key? key}) : super(key: key);
   final FundraisingController controller = Get.put(FundraisingController());
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -52,47 +50,48 @@ class FundraisingScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontColor: textColor)),
                   20.0.addHSpace(),
-                  // ListView.builder(
-                  //   itemCount: ctrl.getFundraising.length,
-                  //   shrinkWrap: true,
-                  //   physics: const NeverScrollableScrollPhysics(),
-                  //   itemBuilder: (context, index) {
-                  //     var result = ctrl.getFundraising.map((f) =>
-                  //         {"title": ctrl.getFundraising[index].title[0]});
-                  //     print(result);
-                  //     return AlcoholFreeCard(
-                  //       title: ctrl.getFundraising[index].title,
-                  //       desc: ctrl.getFundraising[index].description,
-                  //       firstLetter: ctrl.getFundraising[index].title[0],
-                  //     );
-                  //   },
-                  // ),
-                  GroupedListView<Fundraising, String>(
-                    elements: ctrl.getFundraising,
-                    groupBy: (element) => element.title[0],
-                    groupComparator: (value1, value2) =>
-                        value2[0].compareTo(value1[0]),
-                    itemComparator: (item1, item2) =>
-                        (item1.title[0]).compareTo(item2.title[0]),
-                    order: GroupedListOrder.DESC,
-                    useStickyGroupSeparators: false,
-                    groupSeparatorBuilder: (String value) => Padding(
-                      padding: EdgeInsets.zero,
-                      child: Text(
-                        value[0],
-                      ),
-                    ),
+                  ListView.builder(
+                    itemCount: listAlphabet.length,
                     shrinkWrap: true,
-                    indexedItemBuilder:
-                        (BuildContext context, element, int index) {
-                      return SizedBox(
-                          height: 170,
-                          child: AlcoholFreeData(
-                            title: element.title,
-                            desc: element.description,
-                            color: darkPurple,
-                            firstLetter: element.title[0],
-                          ));
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return AlcoholFreeCard(
+                        firstLetter: listAlphabet[index].toUpperCase(),
+                        data: Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ...ctrl.getFundraising
+                                  .map(
+                                    (e) => e.title.isNotEmpty
+                                        ? Visibility(
+                                            visible: listAlphabet[index]
+                                                    .trim()
+                                                    .toLowerCase() ==
+                                                (e.title.trim()[0])
+                                                    .toLowerCase(),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                e.title.interTextStyle(
+                                                    fontWeight: FontWeight.w700,
+                                                    fontSize: 16),
+                                                10.0.addHSpace(),
+                                                e.description.interTextStyle(
+                                                    maxLines: 8,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 14)
+                                              ],
+                                            ).paddingOnly(bottom: 10),
+                                          )
+                                        : SizedBox(),
+                                  )
+                                  .toList(),
+                            ],
+                          ),
+                        ),
+                      );
                     },
                   ),
                 ],
