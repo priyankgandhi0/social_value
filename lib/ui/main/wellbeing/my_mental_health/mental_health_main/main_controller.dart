@@ -7,6 +7,7 @@ class MentalHealthMainController extends GetxController
   @override
   void onInit() {
     controller = TabController(vsync: this, length: 7);
+    controller!.index = 6;
     super.onInit();
   }
 
@@ -15,6 +16,4 @@ class MentalHealthMainController extends GetxController
     controller!.dispose();
     super.dispose();
   }
-
-  RxInt currentIndex = 0.obs;
 }

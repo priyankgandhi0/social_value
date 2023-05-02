@@ -14,12 +14,31 @@ import '../../../widgets/app_progress.dart';
 import '../../../widgets/common_card.dart';
 import '../../../widgets/home_screen_card.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
+import '../planet/planet_main/main_controller.dart';
+import '../planet/planet_main/planet_main.dart';
+import '../wellbeing/my_mental_health/mental_health_main/mental_health_main.dart';
 import 'dashboard_contorller.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   DashboardScreen({Key? key}) : super(key: key);
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
   String name = preferences.getString(SharedPreference.FIRST_NAME) ?? "";
+
   final DashboardController controller = Get.put(DashboardController());
+
+  final PlanetMainController planetController = Get.put(PlanetMainController());
+
+  // changeMyTab() {
+  //   setState(() {
+  //     planetController!.index = 1;
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return BottomNaviBarScreen(
@@ -30,7 +49,9 @@ class DashboardScreen extends StatelessWidget {
             child: GetBuilder<DashboardController>(initState: (state) {
               Future.delayed(Duration.zero)
                   .then((value) => controller.getVideos("86"));
-            }, builder: (context) {
+              // Future.delayed(Duration.zero)
+              //     .then((value) => controller.getVideoUrl(""));
+            }, builder: (ctrl) {
               return Column(
                 children: [
                   Container(
@@ -323,11 +344,19 @@ class DashboardScreen extends StatelessWidget {
                             height: 111,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
-                              itemCount: 4,
+                              itemCount: ctrl.getVideo.length,
+                              cacheExtent: 1000,
                               shrinkWrap: true,
+                              // key: const PageStorageKey(),
+                              addAutomaticKeepAlives: false,
                               itemBuilder: (context, index) {
-                                return const AppVideoCommonCard(
-                                    image: Assets.imagesWorkoutImg);
+                                return AppVideoCommonCard(
+                                  key: PageStorageKey(
+                                    index,
+                                  ),
+                                  url: ctrl.getVideo[index].videoUrl,
+                                  videoId: ctrl.getVideo[index].museVideoId,
+                                );
                               },
                             ),
                           ).paddingOnly(left: 10, right: 10),
@@ -343,24 +372,71 @@ class DashboardScreen extends StatelessWidget {
                           //           ).paddingOnly(right: 3)),
                           // ),
                           15.0.addHSpace(),
-                          SizedBox(
-                            height: 210,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: 4,
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) {
-                                return Container(
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
                                   height: 210,
                                   width: 170,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.circular(12),
+                                      image: const DecorationImage(
+                                          image: AssetImage(
+                                            ImageAssets.startSurvey,
+                                          ),
+                                          fit: BoxFit.cover)),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      AppButton(
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      PlanetMain(
+                                                        selectedPage: 1,
+                                                      )));
+                                        },
+                                        text: "Start Survey",
+                                        color: white,
+                                      ).paddingOnly(
+                                        left: 10,
+                                        right: 10,
+                                        bottom: 10,
+                                      ),
+                                    ],
                                   ),
-                                  child: Image.asset(Assets.imagesTree),
-                                );
-                              },
-                            ),
-                          ).paddingOnly(left: 16, right: 16),
+                                ),
+                                10.0.addWSpace(),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MentalHealthMain(
+                                                  selectedPage: 6,
+                                                )));
+                                  },
+                                  child: Container(
+                                    height: 210,
+                                    width: 170,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12),
+                                        image: const DecorationImage(
+                                            image: AssetImage(
+                                              ImageAssets.support,
+                                            ),
+                                            fit: BoxFit.cover)),
+                                  ),
+                                ),
+                              ],
+                            ).paddingOnly(left: 16, right: 16),
+                          ),
+
                           15.0.addHSpace(),
                           Container(
                               padding: const EdgeInsets.all(10),

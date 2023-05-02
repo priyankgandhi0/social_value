@@ -85,7 +85,7 @@ class FundraisingScreen extends StatelessWidget {
                                               ],
                                             ).paddingOnly(bottom: 10),
                                           )
-                                        : SizedBox(),
+                                        : const SizedBox(),
                                   )
                                   .toList(),
                             ],

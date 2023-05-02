@@ -1,11 +1,13 @@
 import 'dart:ui';
 
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:social_value/ui/main/dashboard_screen/dashboard_contorller.dart';
 import 'package:social_value/utils/extension.dart';
-
+import 'package:video_player/video_player.dart';
 import '../constant/app_string.dart';
 
 import '../generated/assets.dart';
@@ -145,18 +147,60 @@ class AppArticlesCard extends StatelessWidget {
   }
 }
 
-class AppVideoCommonCard extends StatelessWidget {
-  const AppVideoCommonCard({
+class AppVideoCommonCard extends StatefulWidget {
+  AppVideoCommonCard({
     Key? key,
-    required this.image,
+    // this.image,
+    required this.url,
+    required this.videoId,
   }) : super(key: key);
 
-  final String image;
+  // final String image;
+  final String url;
+  final String videoId;
+
+  @override
+  State<AppVideoCommonCard> createState() => _AppVideoCommonCardState();
+}
+
+class _AppVideoCommonCardState extends State<AppVideoCommonCard> {
+  final DashboardController ctrl = Get.put(DashboardController());
+  late VideoPlayerController controller;
+  late ChewieController chewieController;
+  late Future<void> initializeVideoPlayerFuture;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Create and store the VideoPlayerController. The VideoPlayerController
+    // offers several different constructors to play videos from assets, files,
+    // or the internet.
+    controller = VideoPlayerController.network(widget.url)
+      ..addListener(() {})
+      ..setLooping(true)
+      ..initialize().then((value) => controller.play());
+    initializeVideoPlayerFuture = controller.initialize();
+
+    // Use the controller to loop the video.
+    // _controller.setLooping(true);
+  }
+
+  @override
+  void dispose() {
+    // Ensure disposing of the VideoPlayerController to free up resources.
+    controller.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Container(
+    return GetBuilder<DashboardController>(initState: (state) {
+      Future.delayed(Duration.zero)
+          .then((value) => ctrl.getVideoUrl(widget.videoId));
+    }, builder: (context) {
+      return Container(
         margin: const EdgeInsets.only(right: 10, left: 10),
         height: 111,
         width: 188,
@@ -164,31 +208,64 @@ class AppVideoCommonCard extends StatelessWidget {
           BoxShadow(
               color: Colors.grey.shade400,
               blurRadius: 2,
-              // spreadRadius: 2,
               offset: const Offset(2, 3))
         ], color: white, borderRadius: BorderRadius.circular(8)),
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                image,
-                fit: BoxFit.cover,
-                height: Get.height,
-                width: Get.width,
-              ),
-            ),
-            Center(
-              child: Image.asset(
-                color: Colors.grey.shade300.withOpacity(0.9),
-                Assets.imagesPlayButton,
-                fit: BoxFit.cover,
-                height: 50,
-                width: 50,
-              ),
-            ),
-          ],
-        ));
+        child: FutureBuilder(
+          future: initializeVideoPlayerFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Chewie(
+                  key: PageStorageKey(widget.url),
+                  controller: ChewieController(
+                    videoPlayerController: controller,
+                    aspectRatio: 1.7 / 1,
+                    autoInitialize: true,
+                    looping: false,
+                    autoPlay: false,
+                    errorBuilder: (context, errorMessage) {
+                      return Center(
+                        child: Text(
+                          errorMessage,
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+        ),
+        // Stack(
+        //   children: [
+        //     ClipRRect(
+        //       borderRadius: BorderRadius.circular(10),
+        //       child: Image.asset(
+        //         widget.image,
+        //         fit: BoxFit.cover,
+        //         height: Get.height,
+        //         width: Get.width,
+        //       ),
+        //     ),
+        //     Center(
+        //       child: Image.asset(
+        //         color: Colors.grey.shade300.withOpacity(0.9),
+        //         Assets.imagesPlayButton,
+        //         fit: BoxFit.cover,
+        //         height: 50,
+        //         width: 50,
+        //       ),
+        //     ),
+        //   ],
+        // )
+      );
+    });
   }
 }
 
@@ -481,6 +558,7 @@ class AlcoholFreeCard extends StatelessWidget {
   }) : super(key: key);
   final Widget data;
   final String firstLetter;
+
   @override
   Widget build(BuildContext context) {
     return Container(

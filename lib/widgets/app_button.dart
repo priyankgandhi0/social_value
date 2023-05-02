@@ -109,10 +109,12 @@ class BorderButton extends StatelessWidget {
 }
 
 class AppButton extends StatelessWidget {
-  const AppButton({Key? key, required this.onTap, required this.text})
+  const AppButton(
+      {Key? key, required this.onTap, required this.text, this.color})
       : super(key: key);
   final VoidCallback onTap;
   final String text;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -121,7 +123,7 @@ class AppButton extends StatelessWidget {
         height: 35,
         width: 150,
         decoration: BoxDecoration(
-            border: Border.all(color: darkPurple),
+            border: Border.all(color: color ?? darkPurple),
             borderRadius: BorderRadius.circular(8)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -129,10 +131,10 @@ class AppButton extends StatelessWidget {
             text.interTextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 13,
-                fontColor: const Color(0xff333333)),
-            const Icon(
+                fontColor: color ?? Color(0xff333333)),
+            Icon(
               Icons.arrow_forward_ios_sharp,
-              color: Color(0xff333333),
+              color: color ?? Color(0xff333333),
               size: 15,
             )
           ],

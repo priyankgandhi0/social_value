@@ -13,13 +13,21 @@ import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
 import 'main_controller.dart';
 
 class MentalHealthMain extends StatelessWidget {
-  MentalHealthMain({Key? key}) : super(key: key);
-  final MentalHealthMainController controller =
-      Get.put(MentalHealthMainController());
+  MentalHealthMain({Key? key, this.selectedPage}) : super(key: key);
+  int? selectedPage;
+
+  final MentalHealthMainController ctrl = Get.put(MentalHealthMainController());
+  @override
+  void initState() {
+    // controller = TabController(vsync: this, length: 7);
+    ctrl.controller!.index = selectedPage!;
+    // super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: selectedPage ?? 0,
       length: 7,
       child: BottomNaviBarScreen(
         bottomColor: darkDeepPurple,
@@ -55,12 +63,12 @@ class MentalHealthMain extends StatelessWidget {
             isScrollable: true,
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
-            controller: controller.controller,
+            controller: ctrl.controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
-                wellbeingMentalHealthTabs[controller.controller?.index ?? 0]
+                wellbeingMentalHealthTabs[ctrl.controller?.index ?? 0]
                     .onTap
                     .call();
               }
@@ -83,7 +91,7 @@ class MentalHealthMain extends StatelessWidget {
           ),
         ),
         child: TabBarView(
-          controller: controller.controller,
+          controller: ctrl.controller,
           children: wellbeingMentalHealthTabs.map((e) => e.tabWidget).toList(),
         ),
       ),

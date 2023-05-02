@@ -34,6 +34,8 @@ class ImageAssets {
   static const hand = 'assets/images/hand.png';
   static const fundraising = 'assets/images/fundraising.png';
   static const aImage = 'assets/images/aImage.png';
+  static const support = 'assets/images/support.png';
+  static const startSurvey = 'assets/images/startsurvey.png';
   static const articleLadyImage = 'assets/images/detaillady.png';
 }
 

@@ -69,7 +69,10 @@ class PhysicalHealthDashBoard extends StatelessWidget {
               itemCount: 4,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return const AppVideoCommonCard(image: Assets.imagesWorkoutImg);
+                return AppVideoCommonCard(
+                  // image: Assets.imagesWorkoutImg,
+                  url: '', videoId: '',
+                );
               },
             ),
           ),

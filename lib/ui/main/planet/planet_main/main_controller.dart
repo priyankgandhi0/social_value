@@ -6,9 +6,16 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 class PlanetMainController extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? controller;
+
+  // changeMyTab() {
+  //   controller!.index = 1;
+  //   update();
+  // }
+
   @override
   void onInit() {
     controller = TabController(vsync: this, length: 4);
+
     super.onInit();
   }
 

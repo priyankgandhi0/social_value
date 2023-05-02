@@ -15,12 +15,14 @@ class VideoData {
   String title;
   String categoryId;
   String museVideoId;
+  String videoUrl;
 
   VideoData({
     required this.id,
     required this.title,
     required this.categoryId,
     required this.museVideoId,
+    this.videoUrl = "",
   });
 
   factory VideoData.fromJson(Map<String, dynamic> json) => VideoData(

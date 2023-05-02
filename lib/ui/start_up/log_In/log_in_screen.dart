@@ -5,7 +5,7 @@ import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
 
 import '../../../generated/assets.dart';
-import '../../../utils/routes_manager.dart';
+
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_progress.dart';
 import '../../../widgets/common_textfield.dart';

@@ -11,6 +11,7 @@ import '../ui/main/common_screen/article__detail_screen/article_detail_screen.da
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
 import '../ui/main/my_profile/my_profile.dart';
+import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
 import '../ui/main/staff_survey/staff_survey.dart';
 import '../ui/main/staff_survey/staffsurvey_question.dart';
 import '../ui/main/wellbeing/finances/finances_main/finances_main.dart';
@@ -38,6 +39,7 @@ class Routes {
   static String articleDetailScreen = "/Article_Detail_Screen";
   static String socialValueScore = "/socialValueScore";
   static String videoPlayerScreen = "/VideoPlayerScreen";
+  static String carbonFootPrintCalculator = "/CarbonFootPrintCalculator";
 
   static List<GetPage> pages = [
     GetPage(
@@ -108,6 +110,10 @@ class Routes {
     GetPage(
         name: Routes.videoPlayerScreen,
         page: () => const VideoPlayerExample(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.carbonFootPrintCalculator,
+        page: () => CarbonFootPrintCalculator(),
         transition: Transition.noTransition),
   ];
 }

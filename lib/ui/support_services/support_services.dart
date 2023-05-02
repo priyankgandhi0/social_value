@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/ui/support_services/support_services_controller.dart';
 import 'package:social_value/utils/extension.dart';
-
 import '../../constant/app_string.dart';
 import '../../widgets/app_progress.dart';
 import '../../widgets/wellbeing_screen_card.dart';
@@ -21,8 +20,8 @@ class SupportServices extends StatelessWidget {
         child: GetBuilder<SupportServicesController>(initState: (state) {
           Future.delayed(Duration.zero)
               .then((value) => controller.getHelplineCategories());
-          Future.delayed(Duration.zero).then((value) =>
-              controller.getHelplines(controller.getCategories[0].id));
+          // Future.delayed(Duration.zero).then((value) =>
+          //     controller.getHelplines(controller.getCategories[0].id));
         }, builder: (ctrl) {
           return Stack(
             children: [
@@ -64,9 +63,9 @@ class SupportServices extends StatelessWidget {
                                 fontSize: 15,
                                 textDecoration: TextDecoration.underline),
                             20.0.addHSpace(),
-                            AddictionCard(
-                              title: ctrl.getCategoriesList[0].title,
-                              desc: ctrl.getCategoriesList[0].website,
+                            const AddictionCard(
+                              title: servicesTitle,
+                              desc: servicesDesc,
                               color: lightDeepPurple,
                             ),
                             const AddictionCard(
