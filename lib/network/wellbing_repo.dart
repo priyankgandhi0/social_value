@@ -39,4 +39,43 @@ class WellbeingRepo {
     result = await BaseApiHelper.getRequest(requestUrl);
     return result;
   }
+
+  Future<dynamic> getArticleCategories() async {
+    dynamic result;
+    String queryString = MethodNames.getArticleCategories;
+    // String queryString = Uri(queryParameters: queryParameters).query;
+    String requestUrl = AppUrls.BASE_URL + queryString;
+
+    result = await BaseApiHelper.getRequest(requestUrl);
+
+    return result;
+  }
+
+  Future<dynamic> getArticles({required String ids}) async {
+    dynamic result;
+    var queryParameters = {
+      RequestParam.ids: ids,
+    };
+    String queryString =
+        Uri(path: MethodNames.getArticles, queryParameters: queryParameters)
+            .toString();
+
+    String requestUrl = AppUrls.BASE_URL + queryString;
+    result = await BaseApiHelper.getRequest(requestUrl);
+    return result;
+  }
+
+  Future<dynamic> getSingleArticle({required String id}) async {
+    dynamic result;
+    var queryParameters = {
+      RequestParam.id: id,
+    };
+    String queryString =
+        Uri(path: MethodNames.getArticle, queryParameters: queryParameters)
+            .toString();
+
+    String requestUrl = AppUrls.BASE_URL + queryString;
+    result = await BaseApiHelper.getRequest(requestUrl);
+    return result;
+  }
 }

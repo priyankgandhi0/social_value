@@ -3,6 +3,7 @@
 //     final videoData = videoDataFromJson(jsonString);
 
 import 'dart:convert';
+import 'dart:io';
 
 List<VideoData> videoDataFromJson(String str) =>
     List<VideoData>.from(json.decode(str).map((x) => VideoData.fromJson(x)));
@@ -16,6 +17,7 @@ class VideoData {
   String categoryId;
   String museVideoId;
   String videoUrl;
+  String? thumbnail;
 
   VideoData({
     required this.id,
@@ -23,6 +25,7 @@ class VideoData {
     required this.categoryId,
     required this.museVideoId,
     this.videoUrl = "",
+    this.thumbnail = "",
   });
 
   factory VideoData.fromJson(Map<String, dynamic> json) => VideoData(

@@ -40,24 +40,4 @@ class UserStartupRepo {
     //   status: status,
     // );
   }
-
-  Future<dynamic> getArticleCategories() async {
-    // bool status = false;
-    dynamic result;
-    // dynamic data;
-    // String message;
-
-    String queryString = MethodNames.getArticleCategories;
-    // String queryString = Uri(queryParameters: queryParameters).query;
-    String requestUrl = AppUrls.BASE_URL + queryString;
-
-    result = await BaseApiHelper.getRequest(requestUrl);
-
-    // print("data  ${data}");
-    // status = result.status;
-    // data = result.data;
-    // message = result.message;
-    return result;
-    // return ResponseItem(data: data, message: message, status: status);
-  }
 }

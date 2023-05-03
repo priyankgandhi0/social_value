@@ -72,12 +72,10 @@ List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
       tabWidget: const PhysicalHealthBmiCalculator(),
       onTap: () {}),
   AppTabBarModel(
-      tabText: mealPlans,
-      tabWidget: const PhysicalHealthMealPlans(),
-      onTap: () {}),
+      tabText: mealPlans, tabWidget: PhysicalHealthMealPlans(), onTap: () {}),
   AppTabBarModel(
       tabText: articles,
-      tabWidget: const PhysicalHealthArticleScreen(),
+      tabWidget: PhysicalHealthArticleScreen(),
       onTap: () {}),
   AppTabBarModel(
       tabText: dailyWorkouts,
@@ -102,11 +100,9 @@ List<AppTabBarModel> wellbeingMentalHealthTabs = [
       tabWidget: const MentalHealthYogaVideo(),
       onTap: () {}),
   AppTabBarModel(
-      tabText: mindfulness,
-      tabWidget: const MentalHealthMainFulNess(),
-      onTap: () {}),
+      tabText: mindfulness, tabWidget: MentalHealthMainFulNess(), onTap: () {}),
   AppTabBarModel(
-      tabText: articles, tabWidget: const MentalHealthArticles(), onTap: () {}),
+      tabText: articles, tabWidget: MentalHealthArticles(), onTap: () {}),
   AppTabBarModel(
       tabText: supportServices, tabWidget: SupportServices(), onTap: () {}),
 ];

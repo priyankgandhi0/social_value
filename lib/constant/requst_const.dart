@@ -16,11 +16,14 @@ class MethodNames {
   static const getHelplineCategories = "get-helpline-categories";
   static const getHelplines = "get-helplines";
   static const getVideos = "get-videos";
+  static const getArticles = "get-articles";
+  static const getArticle = "get-article";
 }
 
 class RequestParam {
   static const category = "category";
   static const ids = "ids";
+  static const id = "id";
 }
 
 class RequestHeaderKey {

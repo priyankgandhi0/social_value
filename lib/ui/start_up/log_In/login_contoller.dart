@@ -53,22 +53,4 @@ class LogInScreenController extends GetxController {
     isLoading.value = false;
     update();
   }
-
-  getArticleCategories() async {
-    FocusManager.instance.primaryFocus?.unfocus();
-    isLoading.value = true;
-    dynamic result;
-    result = await UserStartupRepo.instance.getArticleCategories();
-    try {
-      print("login data123${result}");
-      var data = getArticleFromJson(result);
-      // get = data as GetArticle?;
-      print("data----${data[0].title}");
-    } catch (e) {
-      print(e);
-      showAppSnackBar(errorText);
-    }
-    isLoading.value = false;
-    update();
-  }
 }

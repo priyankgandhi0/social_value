@@ -109,7 +109,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.videoPlayerScreen,
-        page: () => const VideoPlayerExample(),
+        page: () => VideoPlayer(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.carbonFootPrintCalculator,

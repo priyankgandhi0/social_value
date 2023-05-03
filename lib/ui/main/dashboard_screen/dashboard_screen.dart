@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -11,7 +13,6 @@ import '../../../theme/app_color.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_progress.dart';
-import '../../../widgets/common_card.dart';
 import '../../../widgets/home_screen_card.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
 import '../planet/planet_main/main_controller.dart';
@@ -350,13 +351,66 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               // key: const PageStorageKey(),
                               addAutomaticKeepAlives: false,
                               itemBuilder: (context, index) {
-                                return AppVideoCommonCard(
-                                  key: PageStorageKey(
-                                    index,
-                                  ),
-                                  url: ctrl.getVideo[index].videoUrl,
-                                  videoId: ctrl.getVideo[index].museVideoId,
-                                );
+                                return Container(
+                                    margin: const EdgeInsets.only(
+                                        right: 10, left: 10),
+                                    height: 111,
+                                    width: 188,
+                                    decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey.shade400,
+                                              blurRadius: 2,
+                                              offset: const Offset(2, 3))
+                                        ],
+                                        color: white,
+                                        borderRadius: BorderRadius.circular(8)),
+                                    child: Center(
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Stack(
+                                          children: [
+                                            Image.file(
+                                              File(ctrl
+                                                  .getVideo[index].thumbnail!),
+                                              height: 111,
+                                              width: 188,
+                                              fit: BoxFit.cover,
+                                            ).paddingOnly(left: 20),
+                                            Center(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  Get.toNamed(
+                                                      Routes.videoPlayerScreen,
+                                                      arguments: [
+                                                        {
+                                                          "url": ctrl
+                                                              .getVideo[index]
+                                                              .videoUrl
+                                                        }
+                                                      ]);
+                                                },
+                                                child: Image.asset(
+                                                  color: Colors.grey.shade300
+                                                      .withOpacity(0.9),
+                                                  Assets.imagesPlayButton,
+                                                  fit: BoxFit.cover,
+                                                  height: 50,
+                                                  width: 50,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ));
+                                // return AppVideoCommonCard(
+                                //   key: PageStorageKey(
+                                //     index,
+                                //   ),
+                                //   url: ctrl.getVideo[index].videoUrl,
+                                //   videoId: ctrl.getVideo[index].museVideoId,
+                                // );
                               },
                             ),
                           ).paddingOnly(left: 10, right: 10),

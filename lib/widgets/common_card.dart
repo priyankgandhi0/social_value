@@ -1,15 +1,20 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/ui/main/dashboard_screen/dashboard_contorller.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:video_player/video_player.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 import '../constant/app_string.dart';
-
+import 'package:http/http.dart' as http;
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
 import 'app_button.dart';
@@ -150,57 +155,42 @@ class AppArticlesCard extends StatelessWidget {
 class AppVideoCommonCard extends StatefulWidget {
   AppVideoCommonCard({
     Key? key,
-    // this.image,
-    required this.url,
-    required this.videoId,
+    required this.image,
   }) : super(key: key);
 
-  // final String image;
-  final String url;
-  final String videoId;
+  final String image;
 
   @override
   State<AppVideoCommonCard> createState() => _AppVideoCommonCardState();
 }
 
 class _AppVideoCommonCardState extends State<AppVideoCommonCard> {
-  final DashboardController ctrl = Get.put(DashboardController());
-  late VideoPlayerController controller;
-  late ChewieController chewieController;
-  late Future<void> initializeVideoPlayerFuture;
+  // final DashboardController ctrl = Get.put(DashboardController());
+  // late VideoPlayerController controller;
+  // late ChewieController chewieController;
+  // late Future<void> initializeVideoPlayerFuture;
 
-  @override
-  void initState() {
-    super.initState();
-
-    // Create and store the VideoPlayerController. The VideoPlayerController
-    // offers several different constructors to play videos from assets, files,
-    // or the internet.
-    controller = VideoPlayerController.network(widget.url)
-      ..addListener(() {})
-      ..setLooping(true)
-      ..initialize().then((value) => controller.play());
-    initializeVideoPlayerFuture = controller.initialize();
-
-    // Use the controller to loop the video.
-    // _controller.setLooping(true);
-  }
-
-  @override
-  void dispose() {
-    // Ensure disposing of the VideoPlayerController to free up resources.
-    controller.dispose();
-
-    super.dispose();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   // _generateThumbnail();
+  //   controller = VideoPlayerController.network(widget.url)
+  //     ..addListener(() {})
+  //     ..setLooping(true);
+  //
+  //   initializeVideoPlayerFuture = controller.initialize();
+  // }
+  //
+  // @override
+  // void dispose() {
+  //   // Ensure disposing of the VideoPlayerController to free up resources.
+  //   controller.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DashboardController>(initState: (state) {
-      Future.delayed(Duration.zero)
-          .then((value) => ctrl.getVideoUrl(widget.videoId));
-    }, builder: (context) {
-      return Container(
+    return Container(
         margin: const EdgeInsets.only(right: 10, left: 10),
         height: 111,
         width: 188,
@@ -210,64 +200,85 @@ class _AppVideoCommonCardState extends State<AppVideoCommonCard> {
               blurRadius: 2,
               offset: const Offset(2, 3))
         ], color: white, borderRadius: BorderRadius.circular(8)),
-        child: FutureBuilder(
-          future: initializeVideoPlayerFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Chewie(
-                  key: PageStorageKey(widget.url),
-                  controller: ChewieController(
-                    videoPlayerController: controller,
-                    aspectRatio: 1.7 / 1,
-                    autoInitialize: true,
-                    looping: false,
-                    autoPlay: false,
-                    errorBuilder: (context, errorMessage) {
-                      return Center(
-                        child: Text(
-                          errorMessage,
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              );
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        ),
-        // Stack(
-        //   children: [
-        //     ClipRRect(
-        //       borderRadius: BorderRadius.circular(10),
-        //       child: Image.asset(
-        //         widget.image,
-        //         fit: BoxFit.cover,
-        //         height: Get.height,
-        //         width: Get.width,
-        //       ),
-        //     ),
-        //     Center(
-        //       child: Image.asset(
-        //         color: Colors.grey.shade300.withOpacity(0.9),
-        //         Assets.imagesPlayButton,
-        //         fit: BoxFit.cover,
-        //         height: 50,
-        //         width: 50,
-        //       ),
-        //     ),
-        //   ],
-        // )
-      );
-    });
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                widget.image,
+                fit: BoxFit.cover,
+                height: Get.height,
+                width: Get.width,
+              ),
+            ),
+            Center(
+              child: Image.asset(
+                color: Colors.grey.shade300.withOpacity(0.9),
+                Assets.imagesPlayButton,
+                fit: BoxFit.cover,
+                height: 50,
+                width: 50,
+              ),
+            ),
+          ],
+        ));
   }
 }
+
+// class VideoThumbnail extends StatefulWidget {
+//   final String videoUrl;
+//
+//   VideoThumbnail({required this.videoUrl});
+//
+//   @override
+//   _VideoThumbnailState createState() => _VideoThumbnailState();
+//
+//   static thumbnailFile(
+//       {required String video,
+//       required ImageFormat imageFormat,
+//       required int maxHeight,
+//       required int maxWidth,
+//       required int quality,
+//       required String thumbnailPath}) {}
+// }
+//
+// class _VideoThumbnailState extends State<VideoThumbnail> {
+//
+//   File? thumbFile;
+//
+//   @override
+//   void initState() {
+//     Future.delayed(Duration(seconds: 10)).then((value) => getThumbnail());
+//     // getThumbnail();
+//     super.initState();
+//   }
+//
+//   getThumbnail() async {
+//     final fileName = await VideoThumbnail.thumbnailFile(
+//       video: widget.videoUrl,
+//       thumbnailPath: (await getTemporaryDirectory()).path,
+//       imageFormat: ImageFormat.PNG,
+//       maxHeight:
+//           64, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
+//       quality: 75, maxWidth: 100,
+//     );
+//     thumbFile = File(fileName!);
+//     setState(() {});
+//     print("File --> $thumbFile");
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return thumbFile == null
+//         ? Image.asset(Assets.imagesProfile)
+//         : Image.file(
+//             thumbFile!,
+//             width: 100,
+//             height: 100,
+//             fit: BoxFit.cover,
+//           );
+//   }
+// }
 
 class AppWorkOutCard extends StatelessWidget {
   const AppWorkOutCard({
@@ -422,7 +433,7 @@ class AppBodyPumptCard extends StatelessWidget {
                   // width: 170,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(image), fit: BoxFit.cover)),
+                          image: NetworkImage(image), fit: BoxFit.cover)),
                 ),
               ),
               Expanded(

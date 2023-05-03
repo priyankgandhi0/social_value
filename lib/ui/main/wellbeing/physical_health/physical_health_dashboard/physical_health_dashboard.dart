@@ -70,8 +70,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return AppVideoCommonCard(
-                  // image: Assets.imagesWorkoutImg,
-                  url: '', videoId: '',
+                  image: Assets.imagesWorkoutImg,
                 );
               },
             ),
