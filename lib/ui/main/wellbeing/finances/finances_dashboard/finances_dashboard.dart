@@ -67,11 +67,13 @@ class FinancesDashBoard extends StatelessWidget {
                 itemCount: 4,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return const AppArticlesCard(
+                  return AppArticlesCard(
+                      onTap: () {},
                       descColor: Colors.black,
                       desc:
                           'Diabetes - What you need to knowabout this condition',
-                      image: Assets.imagesWorkoutImg);
+                      image:
+                          "https://www.app.socialvaluecompany.com/assets/img/wellnesshub.jpg");
                 },
               ),
             ),

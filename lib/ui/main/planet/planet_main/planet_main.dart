@@ -13,14 +13,17 @@ import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 import 'main_controller.dart';
 
 class PlanetMain extends StatelessWidget {
-  PlanetMain({Key? key, this.selectedPage}) : super(key: key);
-  int? selectedPage;
+  PlanetMain({
+    Key? key,
+  }) : super(key: key);
+
+  dynamic data = Get.arguments;
   final PlanetMainController controller = Get.put(PlanetMainController());
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: selectedPage ?? 0,
+      // initialIndex: data[0]["index"] ?? 0,
       length: 4,
       child: BottomNaviBarScreen(
         color: darkGreen,

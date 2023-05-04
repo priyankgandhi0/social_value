@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,7 @@ class DashboardController extends GetxController {
   List<VideoData> getVideo = [];
 
   getVideos(String ids) async {
+    // if (getVideo.isNotEmpty) return;
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
@@ -24,9 +26,9 @@ class DashboardController extends GetxController {
       var data = videoDataFromJson(result);
       getVideo = data;
       await setVideoUrls();
-      print("data----${getVideo[0].videoUrl}");
+      // log("data----${getVideo[0].videoUrl}");
     } catch (e) {
-      print(e);
+      log(e.toString());
       showAppSnackBar(errorText);
     }
     isLoading.value = false;
@@ -64,9 +66,10 @@ Future getThumbnail(String videoUrl, int id) async {
     video: videoUrl,
     thumbnailPath: (await _prepareSaveDir(videoUrl, id)),
     imageFormat: ImageFormat.PNG,
-    maxHeight:
-        100, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
-    quality: 100, maxWidth: 150,
+    maxHeight: 100,
+    // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
+    quality: 100,
+    maxWidth: 150,
   );
 }
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import '../api/api_helpers.dart';
 import '../constant/requst_const.dart';
 
@@ -29,7 +31,7 @@ class UserStartupRepo {
     // status = result.status;
     // data = result.data;
 
-    print("data  ${data}");
+    log("data  ${data}");
     // var message = result.message;
 
     return result;

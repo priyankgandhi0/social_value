@@ -12,46 +12,51 @@ class ExploreHubCard extends StatelessWidget {
       required this.hubName,
       required this.hubDesc,
       required this.image,
-      required this.color})
+      required this.color,
+      required this.onTap})
       : super(key: key);
   final String hubName;
   final String hubDesc;
   final String image;
   final Color color;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 210,
-      width: 170,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: color)),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(children: [
-          SizedBox(
-            height: 100,
-            width: 160,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                image,
-                fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 210,
+        width: 170,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: color)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(children: [
+            SizedBox(
+              height: 100,
+              width: 160,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(
+                  image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          10.0.addHSpace(),
-          hubName.interTextStyle(fontWeight: FontWeight.w700, fontSize: 13),
-          5.0.addHSpace(),
-          hubDesc.interTextStyle(
-              textOverflow: TextOverflow.visible,
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
-              textAlign: TextAlign.center),
-        ]),
-      ),
-    ).paddingOnly(right: 15);
+            10.0.addHSpace(),
+            hubName.interTextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+            5.0.addHSpace(),
+            hubDesc.interTextStyle(
+                textOverflow: TextOverflow.visible,
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                textAlign: TextAlign.center),
+          ]),
+        ),
+      ).paddingOnly(right: 15),
+    );
   }
 }
 

@@ -5,7 +5,6 @@ import 'package:social_value/utils/extension.dart';
 import 'package:video_player/video_player.dart';
 
 import 'main/dashboard_screen/dashboard_contorller.dart';
-import 'main/wellbeing/wellbeing_main/wellbeing_main_screen.dart';
 
 class VideoPlayer extends StatefulWidget {
   VideoPlayer({
@@ -49,6 +48,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: GetBuilder<DashboardController>(initState: (state) {
         // Future.delayed(Duration.zero)
         //     .then((value) => ctrl.getVideoUrl(widget.videoId!));
@@ -64,7 +64,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
                   },
                   icon: const Icon(
                     Icons.arrow_back,
-                    color: Colors.black,
+                    color: Colors.white,
                   )),
               150.0.addHSpace(),
               Container(

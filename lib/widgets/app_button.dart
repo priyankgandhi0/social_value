@@ -131,10 +131,10 @@ class AppButton extends StatelessWidget {
             text.interTextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 13,
-                fontColor: color ?? Color(0xff333333)),
+                fontColor: color ?? const Color(0xff333333)),
             Icon(
               Icons.arrow_forward_ios_sharp,
-              color: color ?? Color(0xff333333),
+              color: color ?? const Color(0xff333333),
               size: 15,
             )
           ],

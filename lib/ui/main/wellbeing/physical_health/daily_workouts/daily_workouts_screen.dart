@@ -3,9 +3,6 @@ import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 
 import '../../../../../constant/app_string.dart';
-
-import '../../../../../generated/asset.dart';
-import '../../../../../generated/assets.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../widgets/common_card.dart';
 
@@ -44,9 +41,8 @@ class PhysicalHealthDailyWorkOut extends StatelessWidget {
                   title: index == 0
                       ? 'Full Body resistance Training - Low Mod Level'
                       : 'Lower Bodypump Session 2',
-                  image: index == 0
-                      ? ImageAssets.foodImage
-                      : Assets.imagesWorkoutImg,
+                  image:
+                      "https://www.app.socialvaluecompany.com/assets/img/wellnesshub.jpg",
                 );
               },
             )

@@ -13,19 +13,17 @@ class SupportServices extends StatelessWidget {
       Get.put(SupportServicesController());
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding:
-            const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 40),
-        child: GetBuilder<SupportServicesController>(initState: (state) {
-          Future.delayed(Duration.zero)
-              .then((value) => controller.getHelplineCategories());
-          // Future.delayed(Duration.zero).then((value) =>
-          //     controller.getHelplines(controller.getCategories[0].id));
-        }, builder: (ctrl) {
-          return Stack(
-            children: [
-              Column(
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 40),
+            child: GetBuilder<SupportServicesController>(initState: (state) {
+              Future.delayed(Duration.zero)
+                  .then((value) => controller.getHelplineCategories());
+            }, builder: (ctrl) {
+              return Column(
                 children: [
                   Container(
                     padding: const EdgeInsets.only(
@@ -94,16 +92,16 @@ class SupportServices extends StatelessWidget {
                     },
                   ),
                 ],
-              ),
-              Obx(() => controller.isLoading.value || controller.isLoading.value
-                  ? const AppProgress(
-                      color: darkDeepPurple,
-                    )
-                  : Container()),
-            ],
-          );
-        }),
-      ),
+              );
+            }),
+          ),
+        ),
+        Obx(() => controller.isLoading.value || controller.isLoading.value
+            ? const AppProgress(
+                color: darkDeepPurple,
+              )
+            : Container()),
+      ],
     );
   }
 }

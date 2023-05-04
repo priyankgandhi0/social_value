@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_value/generated/asset.dart';
+import 'package:social_value/constant/charity_card_const.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:social_value/widgets/common_card.dart';
 import '../../../../constant/app_string.dart';
@@ -43,14 +43,15 @@ class CharityPage extends StatelessWidget {
             ),
             15.0.addHSpace(),
             ListView.builder(
-              itemCount: 4,
+              itemCount: charityCard.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                return const ShelterCard(
-                  image: ImageAssets.shelterImage,
-                  desc: shelterDesc,
-                  link: shelterLink,
+                return CharityCard(
+                  image: charityCard[index].image,
+                  desc: charityCard[index].desc,
+                  link: charityCard[index].link,
+                  title: charityCard[index].title,
                 );
               },
             ),

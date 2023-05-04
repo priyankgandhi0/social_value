@@ -36,9 +36,7 @@ import '../utils/routes_manager.dart';
 
 List<AppTabBarModel> wellbeingTabs = [
   AppTabBarModel(
-      tabText: dashboard,
-      tabWidget: const WellBeingDashBoardScreen(),
-      onTap: () {}),
+      tabText: dashboard, tabWidget: WellBeingDashBoardScreen(), onTap: () {}),
   AppTabBarModel(
       tabText: myPhysicalHealth,
       tabWidget: Column(),
@@ -60,9 +58,7 @@ List<AppTabBarModel> wellbeingTabs = [
 ];
 List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
   AppTabBarModel(
-      tabText: dashboard,
-      tabWidget: const PhysicalHealthDashBoard(),
-      onTap: () {}),
+      tabText: dashboard, tabWidget: PhysicalHealthDashBoard(), onTap: () {}),
   AppTabBarModel(
       tabText: lesMills,
       tabWidget: const PhysicalHealthLesMills(),
@@ -84,17 +80,13 @@ List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
 ];
 List<AppTabBarModel> wellbeingMentalHealthTabs = [
   AppTabBarModel(
-      tabText: dashboard,
-      tabWidget: const MentalHealthDashBoard(),
-      onTap: () {}),
+      tabText: dashboard, tabWidget: MentalHealthDashBoard(), onTap: () {}),
   AppTabBarModel(
       tabText: mentalhealthapp,
       tabWidget: const MentalHealthApp(),
       onTap: () {}),
   AppTabBarModel(
-      tabText: brainGames,
-      tabWidget: const MentalHealthBrainGames(),
-      onTap: () {}),
+      tabText: brainGames, tabWidget: MentalHealthBrainGames(), onTap: () {}),
   AppTabBarModel(
       tabText: yogaVideos,
       tabWidget: const MentalHealthYogaVideo(),
@@ -124,7 +116,7 @@ List<AppTabBarModel> wellbeingFinanceTabs = [
 
 List<AppTabBarModel> planetTabs = [
   AppTabBarModel(
-      tabText: dashboard, tabWidget: const PlanetDashboard(), onTap: () {}),
+      tabText: dashboard, tabWidget: PlanetDashboard(), onTap: () {}),
   AppTabBarModel(
       tabText: carbonFootprintCalculator,
       tabWidget: CarbonFootPrintCalculator(),

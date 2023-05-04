@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../generated/asset.dart';
-import '../../../../generated/assets.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../utils/extension.dart';
 import '../../../../utils/routes_manager.dart';
 import '../../../../widgets/app_progress.dart';
 import '../../../../widgets/common_card.dart';
-import '../../common_screen/article__detail_screen/article_detail_controller.dart';
 import '../../wellbeing/physical_health/articles/article_controller.dart';
 
 class ArticlesScreen extends StatefulWidget {
@@ -97,17 +94,18 @@ class SustainabilityArticles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding:
-            const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 25),
-        child: GetBuilder<ArticleController>(initState: (state) {
-          Future.delayed(Duration.zero)
-              .then((value) => controller.getArticles("11"));
-        }, builder: (ctrl) {
-          return Stack(
-            children: [
-              Column(
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 25),
+            child: GetBuilder<ArticleController>(initState: (state) {
+              controller.articlesList.clear();
+              Future.delayed(Duration.zero)
+                  .then((value) => controller.getArticles("11"));
+            }, builder: (ctrl) {
+              return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GridView.builder(
@@ -137,16 +135,16 @@ class SustainabilityArticles extends StatelessWidget {
                     },
                   )
                 ],
-              ),
-              Obx(() => controller.isLoading.value || controller.isLoading.value
-                  ? const AppProgress(
-                      color: darkGreen,
-                    )
-                  : Container()),
-            ],
-          );
-        }),
-      ),
+              );
+            }),
+          ),
+        ),
+        Obx(() => controller.isLoading.value || controller.isLoading.value
+            ? const AppProgress(
+                color: darkGreen,
+              )
+            : Container()),
+      ],
     );
   }
 }

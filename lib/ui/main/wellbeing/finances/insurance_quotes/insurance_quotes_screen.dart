@@ -13,16 +13,16 @@ class FinancesInsuranceQuotes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
-        child: GetBuilder<InsuranceController>(initState: (state) {
-          Future.delayed(Duration.zero)
-              .then((value) => controller.getInsurances());
-        }, builder: (ctrl) {
-          return Stack(
-            children: [
-              Column(
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
+            child: GetBuilder<InsuranceController>(initState: (state) {
+              Future.delayed(Duration.zero)
+                  .then((value) => controller.getInsurances());
+            }, builder: (ctrl) {
+              return Column(
                 children: [
                   saveOnInsuranceQuotes.interTextStyle(
                       fontSize: 16,
@@ -64,14 +64,16 @@ class FinancesInsuranceQuotes extends StatelessWidget {
                     },
                   ),
                 ],
-              ),
-              Obx(() => controller.isLoading.value || controller.isLoading.value
-                  ? const AppProgress()
-                  : Container()),
-            ],
-          );
-        }),
-      ),
+              );
+            }),
+          ),
+        ),
+        Obx(() => controller.isLoading.value || controller.isLoading.value
+            ? const AppProgress(
+                color: darkDeepPurple,
+              )
+            : Container()),
+      ],
     );
   }
   // @override

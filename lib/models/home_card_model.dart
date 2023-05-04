@@ -5,7 +5,7 @@ class HomeCardModel {
   String title;
   String image;
   Color color;
-  Function onTap;
+  VoidCallback onTap;
 
   HomeCardModel(
       {required this.title,

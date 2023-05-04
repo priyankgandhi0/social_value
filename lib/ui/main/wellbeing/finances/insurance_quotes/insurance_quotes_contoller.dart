@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
@@ -19,10 +20,10 @@ class InsuranceController extends GetxController {
     dynamic result;
     result = await WellbeingRepo.instance.getInsurances();
     try {
-      print("data123${json.decode(result)}");
+      log("data123${json.decode(result)}");
       var data = insuranceFromJson(result);
       getInsurance = data;
-      print("data----\n ${getInsurance[0].title}");
+      log("data----\n ${getInsurance[0].title}");
     } catch (e) {
       print(e);
       showAppSnackBar(errorText);

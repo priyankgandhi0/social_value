@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../generated/asset.dart';
-import '../../../../generated/assets.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../utils/extension.dart';
 import '../../../../widgets/common_card.dart';
@@ -112,9 +110,8 @@ class SustainabilityWebinars extends StatelessWidget {
                   title: index == 0
                       ? 'Full Body resistance Training - Low Mod Level'
                       : 'Lower Bodypump Session 2',
-                  image: index == 0
-                      ? ImageAssets.foodImage
-                      : Assets.imagesWorkoutImg,
+                  image:
+                      "https://www.app.socialvaluecompany.com/assets/img/wellnesshub.jpg",
                 );
               },
             )

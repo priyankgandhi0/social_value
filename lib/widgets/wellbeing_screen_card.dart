@@ -267,6 +267,7 @@ class AppRactangleCard extends StatelessWidget {
     this.height,
     this.width,
     this.iconVisible,
+    required this.onTap,
   }) : super(key: key);
 
   final double? height;
@@ -279,42 +280,46 @@ class AppRactangleCard extends StatelessWidget {
   final String image;
   final Color? descColor;
   final String? btnText;
+  final VoidCallback onTap;
   bool? iconVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Stack(alignment: Alignment.center, children: [
-      ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Image.asset(
-          image,
-          fit: BoxFit.cover,
-          height: height ?? 165,
-          width: width ?? 165,
+      GestureDetector(
+        onTap: onTap,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            image,
+            fit: BoxFit.cover,
+            height: height ?? 165,
+            width: width ?? 165,
+          ),
         ),
       ),
-      10.0.addHSpace(),
-      btnText != null
-          ? Positioned(
-              left: left,
-              right: right,
-              top: top,
-              bottom: bottom,
-              child: SizedBox(
-                height: 30,
-                width: 150,
-                child: BorderButton(
-                  appBorderFillColor: Colors.white,
-                  appFillColor: Colors.transparent,
-                  onTap: () {},
-                  text: btnText!,
-                  fontSize: 12,
-                  value: 7,
-                  rightIcon: iconVisible ?? true,
-                ).paddingSymmetric(horizontal: 5),
-              ),
-            )
-          : Container()
+      // 10.0.addHSpace(),
+      // btnText != null
+      //     ? Positioned(
+      //         left: left,
+      //         right: right,
+      //         top: top,
+      //         bottom: bottom,
+      //         child: SizedBox(
+      //           height: 30,
+      //           width: 150,
+      //           child: BorderButton(
+      //             appBorderFillColor: Colors.white,
+      //             appFillColor: Colors.transparent,
+      //             onTap: () {},
+      //             text: btnText!,
+      //             fontSize: 12,
+      //             value: 7,
+      //             rightIcon: iconVisible ?? true,
+      //           ).paddingSymmetric(horizontal: 5),
+      //         ),
+      //       )
+      //     : Container()
     ]).paddingSymmetric(horizontal: 10);
   }
 }

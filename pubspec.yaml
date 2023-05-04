@@ -53,6 +53,7 @@ dependencies:
   video_thumbnail: ^0.5.3
   path_provider: ^2.0.14
   flutter_html: ^2.2.1
+  shimmer: ^2.0.0
 
 
 

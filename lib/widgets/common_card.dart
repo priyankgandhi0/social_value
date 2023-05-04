@@ -1,20 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
-import 'dart:typed_data';
 import 'dart:ui';
-
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:social_value/ui/main/dashboard_screen/dashboard_contorller.dart';
 import 'package:social_value/utils/extension.dart';
-import 'package:video_player/video_player.dart';
-import 'package:video_thumbnail/video_thumbnail.dart';
 import '../constant/app_string.dart';
-import 'package:http/http.dart' as http;
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
 import 'app_button.dart';
@@ -30,12 +19,10 @@ class AppSquareCard extends StatelessWidget {
     this.width,
     this.iconVisible,
   }) : super(key: key);
-
   final double? height;
   final double? width;
   final String? desc;
   final String image;
-
   final Color? descColor;
   final String? btnText;
   bool? iconVisible = false;
@@ -103,57 +90,63 @@ class AppArticlesCard extends StatelessWidget {
     required this.image,
     required this.descColor,
     this.btnText,
+    required this.onTap,
   }) : super(key: key);
 
   final String desc;
   final String image;
   final Color? descColor;
   final String? btnText;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey.shade400,
-                  blurRadius: 2,
-                  // spreadRadius: 2,
-                  offset: const Offset(1, 0))
-            ],
-            borderRadius: BorderRadius.circular(11),
-            image:
-                DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
-        height: 165,
-        width: 165,
-        child: Container(
-          alignment: Alignment.bottomCenter,
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10)),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-              child: Container(
-                alignment: Alignment.center,
-                height: 50,
-                decoration: BoxDecoration(color: Colors.white.withOpacity(0.7)),
-                child: desc.interTextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 11,
-                    maxLines: 4,
-                    textOverflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                    fontColor: descColor ?? Colors.black),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+          decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.shade400,
+                    blurRadius: 2,
+                    // spreadRadius: 2,
+                    offset: const Offset(1, 0))
+              ],
+              borderRadius: BorderRadius.circular(11),
+              image: DecorationImage(
+                  image: NetworkImage(image), fit: BoxFit.cover)),
+          height: 165,
+          width: 165,
+          child: Container(
+            alignment: Alignment.bottomCenter,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10)),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50,
+                  decoration:
+                      BoxDecoration(color: Colors.white.withOpacity(0.7)),
+                  child: desc.interTextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 11,
+                      maxLines: 4,
+                      textOverflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                      fontColor: descColor ?? Colors.black),
+                ),
               ),
             ),
-          ),
-        )).paddingSymmetric(horizontal: 10);
+          )).paddingSymmetric(horizontal: 10),
+    );
   }
 }
 
 class AppVideoCommonCard extends StatefulWidget {
-  AppVideoCommonCard({
+  const AppVideoCommonCard({
     Key? key,
     required this.image,
   }) : super(key: key);
@@ -341,7 +334,7 @@ class InsuranceCard extends StatelessWidget {
           40.0.addHSpace(),
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.end,
-          //   children: [FaIcon()],
+          //   children: [Html(data: icon)],
           // ),
         ],
       ),
@@ -613,14 +606,19 @@ class AlcoholFreeCard extends StatelessWidget {
   }
 }
 
-class ShelterCard extends StatelessWidget {
-  const ShelterCard(
-      {Key? key, required this.image, required this.desc, required this.link})
+class CharityCard extends StatelessWidget {
+  const CharityCard(
+      {Key? key,
+      required this.image,
+      required this.desc,
+      required this.link,
+      required this.title})
       : super(key: key);
 
   final String image;
   final String desc;
   final String link;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -643,8 +641,11 @@ class ShelterCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              shelter.interTextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-              Image.asset(image)
+              Flexible(
+                child: title.interTextStyle(
+                    fontWeight: FontWeight.w700, fontSize: 18),
+              ),
+              Flexible(child: Image.asset(image))
             ],
           ),
           10.0.addHSpace(),

@@ -36,7 +36,6 @@ class SplashScreen extends StatelessWidget {
     Future.delayed(const Duration(seconds: 3)).then((value) async {
       var isLogin = preferences.getBool(SharedPreference.IS_LOGGED_IN);
       if (isLogin == true) {
-        // Get.offAllNamed(Routes.videoPlayerScreen);
         Get.offAllNamed(Routes.dashboardScreen);
       } else {
         Get.offAllNamed(Routes.login);

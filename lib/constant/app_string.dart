@@ -87,7 +87,7 @@ const servicesDesc = 'alcoholics-anonymous.org.uk';
 const addiction = 'Addiction';
 const name = 'Name';
 const car = 'Car';
-const shelter = 'Shelter';
+const shelterText = 'Shelter';
 const shelterLink = 'www.shelter.org.uk';
 const shelterDesc =
     'Shelter is a registered charity that campaigns for tenant rights in Great Britain.\n\nIt gives advice, information and advocacy to people and lobbies government and local authorities for new laws and policies.\n\nIt works in partnership with Shelter Cymru in Wales and the Housing Rights Service in Northern Ireland';
@@ -157,9 +157,21 @@ const ediHub = 'EDI Hub ';
 const ediHubText =
     'Learn more about diversity with webinars  and expert lead content';
 const communityHub = 'Community Hub ';
+const teensUniteText = 'Teens Unite';
+const teensUniteLink = 'teensunite.org';
+const teensUniteDesc =
+    'Teens Unite supports young people fighting cancer to live their best life while others search for a cure.\n\nThe Charity inspires young people to recognise their potential now and in the future, and empowers them to live every moment to the full.\n\nWhen you’re faced with cancer, plenty of people will tell you what you can’t do, but Teens Unite shows these young people what they can do; without letting the “C” word hold them back or define who they are.';
 const communityHubText =
     'A place to find fundraising ideas, volunteering inspriration and more! plus get discounts from leading retailers';
 const sustainabilityHub = 'Sustainability Hub ';
+const trussellText = 'The Trussell Trust';
+const trussellLink = 'trusselltrust.org';
+const trussellDesc =
+    'The Trussell Trust is an NGO and charity that works to end the need for food banks in the United Kingdom.\n\nIt supports a network of over 1,200 food bank centres to provide emergency food and compassionate, practical support to people in crisis, while campaigning for long-term change to the structural issues that lock people into poverty.';
+const cysticText = 'Cystic Fibrosis Trust';
+const cysticLink = 'cysticfibrosis.org.uk/';
+const cysticDesc =
+    'The Cystic Fibrosis Trust is a UK-based national charity founded in 1964, dealing with all aspects of cystic fibrosis.\n\nIt funds research to treat and cure CF and aims to ensure appropriate clinical care and support for people with cystic fibrosis.';
 const sustainabilityHubText =
     'A place where you can learn about making a difference of people and the planet';
 const memberShipDesc =

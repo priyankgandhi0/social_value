@@ -13,10 +13,11 @@ class PhysicalHealthMainScreen extends StatelessWidget {
   PhysicalHealthMainScreen({Key? key}) : super(key: key);
   final PhysicalHealthHomeController controller =
       Get.put(PhysicalHealthHomeController());
-
+  dynamic data = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: 1,
       length: 6,
       child: BottomNaviBarScreen(
         bottomColor: darkDeepPurple,

@@ -14,15 +14,15 @@ import 'main_controller.dart';
 
 class MentalHealthMain extends StatelessWidget {
   MentalHealthMain({Key? key, this.selectedPage}) : super(key: key);
-  int? selectedPage;
+  final int? selectedPage;
 
   final MentalHealthMainController ctrl = Get.put(MentalHealthMainController());
-  @override
-  void initState() {
-    // controller = TabController(vsync: this, length: 7);
-    ctrl.controller!.index = selectedPage!;
-    // super.initState();
-  }
+  // @override
+  // void initState() {
+  //   // controller = TabController(vsync: this, length: 7);
+  //   ctrl.controller!.index = selectedPage!;
+  //   // super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {

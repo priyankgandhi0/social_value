@@ -19,7 +19,9 @@ class ImageAssets {
   // static const String imagesWorkoutImg = 'assets/images/workout_img.png';
   // static const String imagesDescBmi = 'assets/images/desc_bmi.png';
   static const shelterImage = 'assets/images/shelter.png';
-  static const teensUnitsImage = 'assets/images/teensunite.png';
+  static const teensUnitsImage = 'assets/images/teens.png';
+  static const cfImage = 'assets/images/cf.png';
+  static const trusselImage = 'assets/images/trussel.png';
   static const lessMillsDashBoard = 'assets/images/lessMillsDashBoard.png';
   static const foodImage = 'assets/images/food.png';
   static const friendImage = 'assets/images/friend.png';
@@ -35,8 +37,13 @@ class ImageAssets {
   static const fundraising = 'assets/images/fundraising.png';
   static const aImage = 'assets/images/aImage.png';
   static const support = 'assets/images/support.png';
+  static const bmiImage = 'assets/images/Bmi.png';
+  static const squareFndImage = 'assets/images/squareFnd.png';
+  static const foodImage1 = 'assets/images/foodImage.png';
   static const startSurvey = 'assets/images/startsurvey.png';
   static const articleLadyImage = 'assets/images/detaillady.png';
+  static const recLessMillsImage = 'assets/images/reclesmills.png';
+  static const appforSleepImage = 'assets/images/appforSleep.png';
 }
 
 class IconsAssets {

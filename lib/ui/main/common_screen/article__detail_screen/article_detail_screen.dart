@@ -8,7 +8,7 @@ import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 import 'article_detail_controller.dart';
 
 class ArticleDetailScreen extends StatefulWidget {
-  ArticleDetailScreen({
+  const ArticleDetailScreen({
     Key? key,
   }) : super(key: key);
 

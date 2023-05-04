@@ -116,7 +116,10 @@ class CommunityDashboard extends StatelessWidget {
                       child: Row(
                         children: [
                           Image.asset(ImageAssets.shelterImage),
-                          Image.asset(ImageAssets.teensUnitsImage)
+                          Image.asset(ImageAssets.teensUnitsImage),
+                          80.0.addWSpace(),
+                          Image.asset(ImageAssets.cfImage),
+                          Image.asset(ImageAssets.trusselImage),
                         ],
                       ),
                     ),

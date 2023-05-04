@@ -4,7 +4,6 @@ import 'package:social_value/ui/main/help_support/help_support_controller.dart';
 import 'package:social_value/utils/extension.dart';
 
 import '../../../constant/app_string.dart';
-import '../../../generated/assets.dart';
 import '../../../theme/app_color.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/appbar_chip.dart';
@@ -177,11 +176,13 @@ class HelpSupport extends StatelessWidget {
                       itemCount: 4,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return const AppArticlesCard(
+                        return AppArticlesCard(
+                            onTap: () {},
                             descColor: Colors.black,
                             desc:
                                 'Diabetes - What you need to knowabout this condition',
-                            image: Assets.imagesWorkoutImg);
+                            image:
+                                "https://www.app.socialvaluecompany.com/assets/img/wellnesshub.jpg");
                       },
                     ),
                   ),
