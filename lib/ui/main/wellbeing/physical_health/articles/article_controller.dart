@@ -11,15 +11,9 @@ import '../../../../../theme/app_helpers.dart';
 class ArticleController extends GetxController {
   RxBool isLoading = false.obs;
   List<ArticleList> articlesList = [];
-  // @override
-  // void dispose() {
-  //   articlesList.clear();
-  //   super.dispose();
-  // }
 
   getArticleCategories() async {
     FocusManager.instance.primaryFocus?.unfocus();
-
     isLoading.value = true;
     dynamic result;
     result = await WellbeingRepo.instance.getArticleCategories();

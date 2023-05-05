@@ -10,20 +10,37 @@ import '../../../../utils/extension.dart';
 import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 
-import 'main_controller.dart';
-
-class PlanetMain extends StatelessWidget {
-  PlanetMain({
+class PlanetMain extends StatefulWidget {
+  const PlanetMain({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<PlanetMain> createState() => _PlanetMainState();
+}
+
+class _PlanetMainState extends State<PlanetMain>
+    with SingleTickerProviderStateMixin {
   dynamic data = Get.arguments;
-  final PlanetMainController controller = Get.put(PlanetMainController());
+  TabController? controller;
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(vsync: this, length: 4);
+    controller!.index = data["selectedPage"]!;
+  }
+
+  @override
+  void dispose() {
+    controller!.dispose();
+    super.dispose();
+  }
+  // final PlanetMainController controller = Get.put(PlanetMainController());
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      // initialIndex: data[0]["index"] ?? 0,
+      initialIndex: data["selectedPage"],
       length: 4,
       child: BottomNaviBarScreen(
         color: darkGreen,
@@ -44,12 +61,12 @@ class PlanetMain extends StatelessWidget {
             isScrollable: true,
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
-            controller: controller.controller,
+            controller: controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
-                planetTabs[controller.controller?.index ?? 0].onTap.call();
+                planetTabs[controller?.index ?? 0].onTap.call();
               }
             },
             indicator: indicatorWidth(white),
@@ -70,7 +87,7 @@ class PlanetMain extends StatelessWidget {
           ),
         ),
         child: TabBarView(
-          controller: controller.controller,
+          controller: controller,
           children: planetTabs.map((e) => e.tabWidget).toList(),
         ),
       ),

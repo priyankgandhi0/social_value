@@ -61,11 +61,11 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.physicalHealthMainScreen,
-        page: () => PhysicalHealthMainScreen(),
+        page: () => const PhysicalHealthMainScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.mentalHealthMain,
-        page: () => MentalHealthMain(),
+        page: () => const MentalHealthMain(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.financeMain,
@@ -73,7 +73,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.planetMain,
-        page: () => PlanetMain(),
+        page: () => const PlanetMain(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.communityMain,
@@ -109,7 +109,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.videoPlayerScreen,
-        page: () => VideoPlayer(),
+        page: () => VideoPlayerScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.carbonFootPrintCalculator,

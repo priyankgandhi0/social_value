@@ -29,7 +29,6 @@ import '../ui/main/wellbeing/physical_health/daily_workouts/daily_workouts_scree
 import '../ui/main/wellbeing/physical_health/les_mills/les_mills_screen.dart';
 import '../ui/main/wellbeing/physical_health/meal_plans/meal_plans_screen.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_dashboard/physical_health_dashboard.dart';
-
 import '../ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_screen.dart';
 import '../ui/support_services/support_services.dart';
 import '../utils/routes_manager.dart';
@@ -41,19 +40,20 @@ List<AppTabBarModel> wellbeingTabs = [
       tabText: myPhysicalHealth,
       tabWidget: Column(),
       onTap: () {
-        Get.toNamed(Routes.physicalHealthMainScreen);
+        Get.toNamed(Routes.physicalHealthMainScreen,
+            arguments: {"selectedPage": 0});
       }),
   AppTabBarModel(
       tabText: myMentalHealth,
       tabWidget: Column(),
       onTap: () {
-        Get.toNamed(Routes.mentalHealthMain);
+        Get.toNamed(Routes.mentalHealthMain, arguments: {"selectedPage": 0});
       }),
   AppTabBarModel(
       tabText: finances,
       tabWidget: Column(),
       onTap: () {
-        Get.toNamed(Routes.financeMain);
+        Get.toNamed(Routes.financeMain, arguments: {"selectedPage": 0});
       }),
 ];
 List<AppTabBarModel> wellbeingPhysicalHealthTabs = [

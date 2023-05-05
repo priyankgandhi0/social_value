@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/constant/tab_bar_const.dart';
-import 'package:social_value/ui/main/wellbeing/wellbeing_main/wellbeing_dashboard_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../constant/app_string.dart';
 import '../../../../theme/app_color.dart';
@@ -20,8 +18,22 @@ class WellBeingMain extends StatefulWidget {
 
 TabController? controller;
 
-class _WellBeingMainState extends State<WellBeingMain> {
-  final WellbeingMainController controller = Get.put(WellbeingMainController());
+class _WellBeingMainState extends State<WellBeingMain>
+    with SingleTickerProviderStateMixin {
+  TabController? controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(vsync: this, length: 4);
+  }
+
+  @override
+  void dispose() {
+    controller!.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -46,14 +58,14 @@ class _WellBeingMainState extends State<WellBeingMain> {
               isScrollable: true,
               padding: EdgeInsets.zero,
               indicatorPadding: const EdgeInsets.only(top: 3),
-              controller: controller.controller,
+              controller: controller,
               // physics: const NeverScrollableScrollPhysics(),
               indicatorWeight: 0,
               onTap: (index) {
                 if (index != 0) {
-                  wellbeingTabs[controller.controller?.index ?? 0].onTap.call();
+                  wellbeingTabs[controller?.index ?? 0].onTap.call();
                 }
-                controller.controller?.animateTo(0);
+                controller?.animateTo(0);
               },
               indicator: indicatorWidth(white),
               indicatorSize: TabBarIndicatorSize.label,
@@ -71,7 +83,7 @@ class _WellBeingMainState extends State<WellBeingMain> {
                   .toList(),
             ),
           ),
-          child: wellbeingTabs[controller.controller?.index ?? 0].tabWidget,
+          child: wellbeingTabs[controller?.index ?? 0].tabWidget,
         ));
   }
 }

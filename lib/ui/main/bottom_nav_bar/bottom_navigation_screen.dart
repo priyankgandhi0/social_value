@@ -109,7 +109,8 @@ class BottomNaviBarScreen extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Get.toNamed(Routes.planetMain);
+                                Get.toNamed(Routes.planetMain,
+                                    arguments: {"selectedPage": 0});
                               },
                               child: Container(
                                 // padding: const EdgeInsets.only(left: 10, right: 10),
@@ -120,7 +121,8 @@ class BottomNaviBarScreen extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                         onTap: () {
-                                          Get.toNamed(Routes.planetMain);
+                                          Get.toNamed(Routes.planetMain,
+                                              arguments: {"selectedPage": 0});
                                         },
                                         child: SvgPicture.asset(
                                             Assets.iconsPlanet)),
@@ -135,7 +137,8 @@ class BottomNaviBarScreen extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Get.toNamed(Routes.communityMain);
+                                Get.toNamed(Routes.communityMain,
+                                    arguments: {"selectedPage": 0});
                               },
                               child: Container(
                                 // padding: const EdgeInsets.only(left: 10, right: 10),
@@ -146,7 +149,8 @@ class BottomNaviBarScreen extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                         onTap: () {
-                                          Get.toNamed(Routes.communityMain);
+                                          Get.toNamed(Routes.communityMain,
+                                              arguments: {"selectedPage": 0});
                                         },
                                         child: SvgPicture.asset(
                                             IconsAssets.communityIcon)),

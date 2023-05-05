@@ -3,21 +3,40 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/constant/tab_bar_const.dart';
 import 'package:social_value/theme/app_color.dart';
-import 'package:social_value/ui/main/wellbeing/physical_health/physical_health_main/physical_health_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
 import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
 
-class PhysicalHealthMainScreen extends StatelessWidget {
-  PhysicalHealthMainScreen({Key? key}) : super(key: key);
-  final PhysicalHealthHomeController controller =
-      Get.put(PhysicalHealthHomeController());
+class PhysicalHealthMainScreen extends StatefulWidget {
+  const PhysicalHealthMainScreen({Key? key}) : super(key: key);
+
+  @override
+  State<PhysicalHealthMainScreen> createState() =>
+      _PhysicalHealthMainScreenState();
+}
+
+class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
+    with SingleTickerProviderStateMixin {
   dynamic data = Get.arguments;
+  TabController? controller;
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(vsync: this, length: 6);
+    controller!.index = data["selectedPage"]!;
+  }
+
+  @override
+  void dispose() {
+    controller!.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 1,
+      initialIndex: data["selectedPage"],
       length: 6,
       child: BottomNaviBarScreen(
         bottomColor: darkDeepPurple,
@@ -52,12 +71,12 @@ class PhysicalHealthMainScreen extends StatelessWidget {
             isScrollable: true,
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
-            controller: controller.controller,
+            controller: controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
-                wellbeingPhysicalHealthTabs[controller.controller?.index ?? 0]
+                wellbeingPhysicalHealthTabs[controller?.index ?? 0]
                     .onTap
                     .call();
               }
@@ -88,7 +107,7 @@ class PhysicalHealthMainScreen extends StatelessWidget {
           ),
         ),
         child: TabBarView(
-          controller: controller.controller,
+          controller: controller,
           children:
               wellbeingPhysicalHealthTabs.map((e) => e.tabWidget).toList(),
         ),

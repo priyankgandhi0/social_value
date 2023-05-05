@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:social_value/constant/home_card_const.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
@@ -12,10 +11,9 @@ import '../../../generated/assets.dart';
 import '../../../theme/app_color.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_button.dart';
+import '../../../widgets/app_progress.dart';
 import '../../../widgets/home_screen_card.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
-import '../planet/planet_main/main_controller.dart';
-import '../wellbeing/my_mental_health/mental_health_main/mental_health_main.dart';
 import 'dashboard_contorller.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -29,8 +27,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   String name = preferences.getString(SharedPreference.FIRST_NAME) ?? "";
 
   final DashboardController controller = Get.put(DashboardController());
-
-  final PlanetMainController planetController = Get.put(PlanetMainController());
 
   @override
   Widget build(BuildContext context) {
@@ -263,10 +259,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       20.0.addHSpace(),
                       GestureDetector(
                         onTap: () {
-                          Get.toNamed(Routes.physicalHealthMainScreen);
-                          // arguments: [
-                          //   {"index": 1}
-                          // ]);
+                          Get.toNamed(Routes.physicalHealthMainScreen,
+                              arguments: {"selectedPage": 1});
                         },
                         child: Container(
                           height: 300,
@@ -296,27 +290,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ],
                       ).paddingOnly(left: 16, right: 16),
                       12.0.addHSpace(),
-                      const MemberShipCard(
+                      MemberShipCard(
+                        onTap: () {
+                          Get.toNamed(Routes.financeMain,
+                              arguments: {"selectedPage": 2});
+                        },
                         text: memberShipDesc,
                       ).paddingOnly(left: 16, right: 16),
-                      // GestureDetector(
-                      //   onTap: () {},
-                      //   child: Container(
-                      //     height: 225,
-                      //     width: double.infinity,
-                      //     decoration: BoxDecoration(
-                      //         borderRadius: BorderRadius.circular(8)),
-                      //     child: ClipRRect(
-                      //       borderRadius: BorderRadius.circular(8),
-                      //       child: Image.asset(
-                      //         ImageAssets.memberShip,
-                      //         fit: BoxFit.cover,
-                      //         height: 225,
-                      //         width: double.infinity,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ).paddingOnly(left: 16, right: 16),
+
                       12.0.addHSpace(),
                       Row(
                         children: [
@@ -329,77 +310,58 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ],
                       ).paddingOnly(left: 16, right: 16),
                       10.0.addHSpace(),
+
                       Obx(
-                        () => ctrl.isLoading.value
-                            ? Shimmer.fromColors(
-                                baseColor: Colors.grey[300]!,
-                                highlightColor: Colors.grey[500]!,
-                                direction: ShimmerDirection.ltr,
-                                child: SizedBox(
-                                  height: 111,
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    shrinkWrap: true,
-                                    itemCount: ctrl.getVideo.length,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return Container(
-                                        margin: const EdgeInsets.only(
-                                            right: 10, left: 10),
-                                        height: 115,
-                                        width: 188,
-                                        decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  color: Colors.grey.shade400,
-                                                  blurRadius: 2,
-                                                  offset: const Offset(2, 3))
-                                            ],
-                                            color: white,
-                                            borderRadius:
-                                                BorderRadius.circular(8)),
-                                      );
-                                    },
-                                  ),
-                                ).paddingOnly(left: 10, right: 10),
-                              )
+                        () => controller.isLoading.value
+                            ? SizedBox(
+                                height: 123,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  shrinkWrap: true,
+                                  itemCount: 4,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return const ShimmerEffect();
+                                  },
+                                ),
+                              ).paddingOnly(left: 10, right: 10)
                             : SizedBox(
-                                height: 111,
+                                height: 123,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   itemCount: ctrl.getVideo.length,
-                                  cacheExtent: 1000,
+                                  // cacheExtent: 1000,
                                   shrinkWrap: true,
                                   // key: const PageStorageKey(),
                                   addAutomaticKeepAlives: false,
                                   itemBuilder: (context, index) {
                                     return Container(
                                         margin: const EdgeInsets.only(
-                                            right: 10, left: 10),
+                                            right: 10, left: 10, bottom: 10),
                                         height: 111,
                                         width: 188,
                                         decoration: BoxDecoration(
                                             boxShadow: [
                                               BoxShadow(
                                                   color: Colors.grey.shade400,
-                                                  blurRadius: 2,
-                                                  offset: const Offset(2, 3))
+                                                  blurRadius: 3,
+                                                  offset: const Offset(3, 3))
                                             ],
                                             color: white,
                                             borderRadius:
-                                                BorderRadius.circular(8)),
+                                                BorderRadius.circular(10)),
                                         child: Center(
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(10),
                                             child: Stack(
                                               children: [
                                                 Image.file(
                                                   File(ctrl.getVideo[index]
                                                       .thumbnail!),
                                                   height: 111,
-                                                  width: 188,
-                                                  fit: BoxFit.cover,
+                                                  width: double.infinity,
+                                                  fit: BoxFit.contain,
                                                 ).paddingOnly(left: 20),
                                                 Center(
                                                   child: GestureDetector(
@@ -407,14 +369,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                       Get.toNamed(
                                                           Routes
                                                               .videoPlayerScreen,
-                                                          arguments: [
-                                                            {
-                                                              "url": ctrl
-                                                                  .getVideo[
-                                                                      index]
-                                                                  .videoUrl
-                                                            }
-                                                          ]);
+                                                          arguments: {
+                                                            "url": ctrl
+                                                                .getVideo[index]
+                                                                .videoUrl
+                                                          });
                                                     },
                                                     child: Image.asset(
                                                       color: Colors
@@ -431,18 +390,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                             ),
                                           ),
                                         ));
-                                    // return AppVideoCommonCard(
-                                    //   key: PageStorageKey(
-                                    //     index,
-                                    //   ),
-                                    //   url: ctrl.getVideo[index].videoUrl,
-                                    //   videoId: ctrl.getVideo[index].museVideoId,
-                                    // );
                                   },
                                 ),
                               ).paddingOnly(left: 10, right: 10),
                       ),
-                      10.0.addHSpace(),
+                      // 10.0.addHSpace(),
                       // Row(
                       //   mainAxisAlignment: MainAxisAlignment.center,
                       //   children: List.generate(
@@ -473,12 +425,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 children: [
                                   AppButton(
                                     onTap: () {
-                                      Get.toNamed(
-                                        Routes.planetMain,
-                                        // arguments: [
-                                        //   {"index": 1}
-                                        // ]
-                                      );
+                                      Get.toNamed(Routes.planetMain,
+                                          arguments: {"selectedPage": 1});
                                     },
                                     text: "Start Survey",
                                     color: white,
@@ -493,12 +441,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             10.0.addWSpace(),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => MentalHealthMain(
-                                              selectedPage: 6,
-                                            )));
+                                Get.toNamed(Routes.mentalHealthMain,
+                                    arguments: {"selectedPage": 6});
                               },
                               child: Container(
                                 height: 210,
@@ -548,7 +492,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               AppButton(
                                   text: "Find out more",
                                   onTap: () {
-                                    Get.toNamed(Routes.communityMain);
+                                    Get.toNamed(Routes.communityMain,
+                                        arguments: {"selectedPage": 5});
                                   }),
                             ],
                           )),

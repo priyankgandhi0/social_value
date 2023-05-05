@@ -10,24 +10,38 @@ import '../../../../../constant/app_string.dart';
 
 import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
-import 'main_controller.dart';
 
-class MentalHealthMain extends StatelessWidget {
-  MentalHealthMain({Key? key, this.selectedPage}) : super(key: key);
-  final int? selectedPage;
+class MentalHealthMain extends StatefulWidget {
+  const MentalHealthMain({
+    Key? key,
+  }) : super(key: key);
+  // final int? selectedPage;
 
-  final MentalHealthMainController ctrl = Get.put(MentalHealthMainController());
-  // @override
-  // void initState() {
-  //   // controller = TabController(vsync: this, length: 7);
-  //   ctrl.controller!.index = selectedPage!;
-  //   // super.initState();
-  // }
+  @override
+  State<MentalHealthMain> createState() => _MentalHealthMainState();
+}
+
+class _MentalHealthMainState extends State<MentalHealthMain>
+    with SingleTickerProviderStateMixin {
+  dynamic data = Get.arguments;
+  TabController? controller;
+  @override
+  void dispose() {
+    controller!.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(vsync: this, length: 7);
+    controller!.index = data["selectedPage"]!;
+  }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: selectedPage ?? 0,
+      initialIndex: data["selectedPage"],
       length: 7,
       child: BottomNaviBarScreen(
         bottomColor: darkDeepPurple,
@@ -63,14 +77,12 @@ class MentalHealthMain extends StatelessWidget {
             isScrollable: true,
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
-            controller: ctrl.controller,
+            controller: controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
-                wellbeingMentalHealthTabs[ctrl.controller?.index ?? 0]
-                    .onTap
-                    .call();
+                wellbeingMentalHealthTabs[controller?.index ?? 0].onTap.call();
               }
             },
             indicator: indicatorWidth(white),
@@ -91,7 +103,7 @@ class MentalHealthMain extends StatelessWidget {
           ),
         ),
         child: TabBarView(
-          controller: ctrl.controller,
+          controller: controller,
           children: wellbeingMentalHealthTabs.map((e) => e.tabWidget).toList(),
         ),
       ),

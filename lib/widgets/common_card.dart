@@ -18,6 +18,7 @@ class AppSquareCard extends StatelessWidget {
     this.height,
     this.width,
     this.iconVisible,
+    this.onTap,
   }) : super(key: key);
   final double? height;
   final double? width;
@@ -25,18 +26,22 @@ class AppSquareCard extends StatelessWidget {
   final String image;
   final Color? descColor;
   final String? btnText;
+  final VoidCallback? onTap;
   bool? iconVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Stack(alignment: Alignment.center, children: [
-      ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Image.asset(
-          image,
-          fit: BoxFit.cover,
-          height: height ?? 165,
-          width: width ?? 165,
+      GestureDetector(
+        onTap: onTap,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            image,
+            fit: BoxFit.cover,
+            height: height ?? 165,
+            width: width ?? 165,
+          ),
         ),
       ),
       10.0.addHSpace(),
@@ -68,7 +73,7 @@ class AppSquareCard extends StatelessWidget {
                     child: BorderButton(
                       appBorderFillColor: Colors.white,
                       appFillColor: Colors.transparent,
-                      onTap: () {},
+                      onTap: onTap ?? () {},
                       text: btnText!,
                       fontSize: 12,
                       value: 7,
@@ -391,14 +396,14 @@ class AppBodyPumptCard extends StatelessWidget {
     Key? key,
     required this.title,
     required this.image,
-    this.onTap,
-    this.titleColor,
+    required this.onTap,
+    // this.titleColor,
   }) : super(key: key);
 
   final String title;
   final String image;
-  final Color? titleColor;
-  final VoidCallback? onTap;
+  // final Color? titleColor;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -447,7 +452,7 @@ class AppBodyPumptCard extends StatelessWidget {
                           maxLines: 4,
                           textOverflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.center,
-                          fontColor: titleColor ?? textColor),
+                          fontColor: textColor),
                     )),
               ),
             ],

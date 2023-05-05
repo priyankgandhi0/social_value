@@ -15,16 +15,16 @@ class FundraisingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-        child: GetBuilder<FundraisingController>(initState: (state) {
-          Future.delayed(Duration.zero)
-              .then((value) => controller.getFundraisingIdeas());
-        }, builder: (ctrl) {
-          return Stack(
-            children: [
-              Column(
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+            child: GetBuilder<FundraisingController>(initState: (state) {
+              Future.delayed(Duration.zero)
+                  .then((value) => controller.getFundraisingIdeas());
+            }, builder: (ctrl) {
+              return Column(
                 children: [
                   SizedBox(
                     width: double.infinity,
@@ -95,14 +95,16 @@ class FundraisingScreen extends StatelessWidget {
                     },
                   ),
                 ],
-              ),
-              Obx(() => controller.isLoading.value || controller.isLoading.value
-                  ? const AppProgress()
-                  : Container()),
-            ],
-          );
-        }),
-      ),
+              );
+            }),
+          ),
+        ),
+        Obx(() => controller.isLoading.value || controller.isLoading.value
+            ? const AppProgress(
+                color: darkPurple,
+              )
+            : Container()),
+      ],
     );
   }
 }

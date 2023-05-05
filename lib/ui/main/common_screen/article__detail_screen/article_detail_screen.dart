@@ -22,6 +22,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return BottomNaviBarScreen(
+      bottomColor: data[1]["color"],
       backGround: white,
       color: data[1]["color"],
       child: Stack(

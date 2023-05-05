@@ -7,15 +7,36 @@ import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
 import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
-import 'finances_controller.dart';
 
-class FinanceMain extends StatelessWidget {
+class FinanceMain extends StatefulWidget {
   FinanceMain({Key? key}) : super(key: key);
-  final FinanceMainController controller = Get.put(FinanceMainController());
+
+  @override
+  State<FinanceMain> createState() => _FinanceMainState();
+}
+
+class _FinanceMainState extends State<FinanceMain>
+    with SingleTickerProviderStateMixin {
+  dynamic data = Get.arguments;
+  TabController? controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(vsync: this, length: 5);
+    controller!.index = data["selectedPage"]!;
+  }
+
+  @override
+  void dispose() {
+    controller!.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: data["selectedPage"],
       length: 5,
       child: BottomNaviBarScreen(
         bottomColor: darkDeepPurple,
@@ -50,14 +71,12 @@ class FinanceMain extends StatelessWidget {
             isScrollable: true,
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
-            controller: controller.controller,
+            controller: controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
-                wellbeingFinanceTabs[controller.controller?.index ?? 0]
-                    .onTap
-                    .call();
+                wellbeingFinanceTabs[controller?.index ?? 0].onTap.call();
               }
             },
             indicator: indicatorWidth(white),
@@ -78,7 +97,7 @@ class FinanceMain extends StatelessWidget {
           ),
         ),
         child: TabBarView(
-          controller: controller.controller,
+          controller: controller,
           children: wellbeingFinanceTabs.map((e) => e.tabWidget).toList(),
         ),
       ),

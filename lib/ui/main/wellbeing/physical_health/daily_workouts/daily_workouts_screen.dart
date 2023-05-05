@@ -43,6 +43,7 @@ class PhysicalHealthDailyWorkOut extends StatelessWidget {
                       : 'Lower Bodypump Session 2',
                   image:
                       "https://www.app.socialvaluecompany.com/assets/img/wellnesshub.jpg",
+                  onTap: () {},
                 );
               },
             )

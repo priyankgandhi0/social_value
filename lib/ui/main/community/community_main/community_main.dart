@@ -7,14 +7,35 @@ import '../../../../constant/tab_bar_const.dart';
 import '../../../../utils/extension.dart';
 import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
-import 'main_controller.dart';
 
-class CommunityMain extends StatelessWidget {
+class CommunityMain extends StatefulWidget {
   CommunityMain({Key? key}) : super(key: key);
-  final CommunityMainController controller = Get.put(CommunityMainController());
+
+  @override
+  State<CommunityMain> createState() => _CommunityMainState();
+}
+
+class _CommunityMainState extends State<CommunityMain>
+    with SingleTickerProviderStateMixin {
+  TabController? controller;
+  dynamic data = Get.arguments;
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(vsync: this, length: 6);
+    controller!.index = data["selectedPage"]!;
+  }
+
+  @override
+  void dispose() {
+    controller!.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: data["selectedPage"],
       length: 6,
       child: BottomNaviBarScreen(
         bottomColor: darkPurple,
@@ -37,12 +58,12 @@ class CommunityMain extends StatelessWidget {
             isScrollable: true,
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
-            controller: controller.controller,
+            controller: controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
-                communityTabs[controller.controller?.index ?? 0].onTap.call();
+                communityTabs[controller?.index ?? 0].onTap.call();
               }
             },
             indicator: indicatorWidth(Colors.white),
@@ -63,7 +84,7 @@ class CommunityMain extends StatelessWidget {
           ),
         ),
         child: TabBarView(
-          controller: controller.controller,
+          controller: controller,
           children: communityTabs.map((e) => e.tabWidget).toList(),
         ),
       ),

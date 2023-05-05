@@ -84,9 +84,7 @@ class BorderButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(value),
               side: BorderSide(color: appBorderFillColor ?? Colors.white))),
         ),
-        onPressed: () {
-          onTap();
-        },
+        onPressed: onTap,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

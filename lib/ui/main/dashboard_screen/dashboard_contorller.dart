@@ -13,12 +13,14 @@ import 'package:http/http.dart' as http;
 
 class DashboardController extends GetxController {
   RxBool isLoading = false.obs;
+  bool isLoadingVideo = false;
   List<VideoData> getVideo = [];
 
   getVideos(String ids) async {
     // if (getVideo.isNotEmpty) return;
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
+    isLoadingVideo = true;
     dynamic result;
     result = await DashboardRepo.instance.getVideos(ids: ids);
     try {
@@ -31,6 +33,7 @@ class DashboardController extends GetxController {
       log(e.toString());
       showAppSnackBar(errorText);
     }
+    isLoadingVideo = false;
     isLoading.value = false;
     update();
   }
@@ -82,7 +85,7 @@ Future<String?> _prepareSaveDir(String downLoadUrl, int id) async {
   if (!hasExisted) {
     await savedDir.create();
   }
-  return path;
+  return File(path).path;
 }
 
 Future<String?> _findLocalPath() async {
@@ -97,8 +100,69 @@ Future<String?> _findLocalPath() async {
       externalStorageDirPath = directory?.path;
     }
   } else if (Platform.isIOS) {
-    externalStorageDirPath =
-        (await getApplicationDocumentsDirectory()).absolute.path;
+    try {
+      // final directory = await getApplicationDocumentsDirectory();
+      // externalStorageDirPath = directory.path;
+      externalStorageDirPath = (await getApplicationDocumentsDirectory()).path;
+    } catch (e) {
+      // final directory = await getApplicationDocumentsDirectory();
+      // externalStorageDirPath = directory.path;
+      externalStorageDirPath = (await getApplicationDocumentsDirectory()).path;
+    }
   }
   return externalStorageDirPath;
 }
+
+// Future<String?> _prepareSaveDir() async {
+//   String path = (await findLocalPath())!;
+//   // String fileName = "/SocialValue$id";
+//   // path = path + fileName;
+//   final savedDir = Directory(path);
+//   final hasExisted = savedDir.existsSync();
+//   if (!hasExisted) {
+//     await savedDir.create();
+//   }
+//   return "${path}muse.png";
+// }
+//
+// Future<String?> findLocalPath() async {
+//   String? externalStorageDirPath;
+//   if (Platform.isAndroid) {
+//     try {
+//       final directory = await getExternalStorageDirectory();
+//       externalStorageDirPath = directory?.path;
+//       // externalStorageDirPath = await AndroidPathProvider.downloadsPath;
+//     } catch (e) {
+//       final directory = await getExternalStorageDirectory();
+//       externalStorageDirPath = directory?.path;
+//     }
+//   } else if (Platform.isIOS) {
+//     externalStorageDirPath =
+//         (await getApplicationDocumentsDirectory()).absolute.path;
+//   }
+//   return externalStorageDirPath;
+// }
+//
+// getThumbnail(String videoUrl, int id) async {
+//   String fileName = "/SocialValue$id";
+//   String? localPath = await _prepareSaveDir();
+//   if (localPath == null) {
+//     return null;
+//   }
+//
+//   try {
+//     final fileData = await VideoThumbnail.thumbnailData(
+//       video: videoUrl,
+//       imageFormat: ImageFormat.PNG,
+//       maxHeight:
+//           64, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
+//       quality: 75,
+//     );
+//     File file = File(localPath + fileName);
+//     file.writeAsBytes(fileData!);
+//
+//     print("File Path --->$file");
+//   } catch (e) {
+//     print("Error --> APP $e");
+//   }
+// }
