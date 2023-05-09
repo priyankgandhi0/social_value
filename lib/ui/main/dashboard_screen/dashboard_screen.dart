@@ -17,7 +17,7 @@ import '../bottom_nav_bar/bottom_navigation_screen.dart';
 import 'dashboard_contorller.dart';
 
 class DashboardScreen extends StatefulWidget {
-  DashboardScreen({Key? key}) : super(key: key);
+  const DashboardScreen({Key? key}) : super(key: key);
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -362,7 +362,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                   height: 111,
                                                   width: double.infinity,
                                                   fit: BoxFit.contain,
-                                                ).paddingOnly(left: 20),
+                                                ),
                                                 Center(
                                                   child: GestureDetector(
                                                     onTap: () {

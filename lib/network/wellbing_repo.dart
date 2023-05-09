@@ -53,8 +53,16 @@ class WellbeingRepo {
 
   Future<dynamic> getArticles({required String ids}) async {
     dynamic result;
+    List<String> iDs = [];
+    iDs.add(ids);
     var queryParameters = {
-      RequestParam.ids: ids,
+      RequestParam.ids: iDs
+          .toString()
+          .replaceAll(
+            '[',
+            '',
+          )
+          .replaceAll(']', ''),
     };
     String queryString =
         Uri(path: MethodNames.getArticles, queryParameters: queryParameters)
@@ -76,6 +84,17 @@ class WellbeingRepo {
 
     String requestUrl = AppUrls.BASE_URL + queryString;
     result = await BaseApiHelper.getRequest(requestUrl);
+    return result;
+  }
+
+  Future<dynamic> getVideoCategories() async {
+    dynamic result;
+    String queryString = MethodNames.getVideoCategories;
+    // String queryString = Uri(queryParameters: queryParameters).query;
+    String requestUrl = AppUrls.BASE_URL + queryString;
+
+    result = await BaseApiHelper.getRequest(requestUrl);
+
     return result;
   }
 }

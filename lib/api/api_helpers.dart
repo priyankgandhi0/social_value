@@ -98,7 +98,7 @@ class BaseApiHelper {
   }
 
   static Future onValue(http.Response response) async {
-    print(response.statusCode);
+    log(response.statusCode.toString());
     log(response.body.toString());
 
     dynamic result;

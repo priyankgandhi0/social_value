@@ -22,13 +22,15 @@ class DashboardController extends GetxController {
     isLoading.value = true;
     isLoadingVideo = true;
     dynamic result;
-    result = await DashboardRepo.instance.getVideos(ids: ids);
+    result = await DashboardRepo.instance.getVideos(
+      ids: ids,
+    );
     try {
       // print("data123${json.decode(result)}");
       var data = videoDataFromJson(result);
       getVideo = data;
       await setVideoUrls();
-      // log("data----${getVideo[0].videoUrl}");
+      // log("data----${getVideo[0].title}");
     } catch (e) {
       log(e.toString());
       showAppSnackBar(errorText);

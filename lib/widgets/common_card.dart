@@ -1,8 +1,11 @@
+import 'dart:async';
+import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
+import 'package:video_player/video_player.dart';
 import '../constant/app_string.dart';
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
@@ -467,41 +470,46 @@ class WorkOutCard extends StatelessWidget {
     required this.title,
     required this.image,
     this.titleColor,
+    required this.onTap,
   }) : super(key: key);
 
   final String title;
   final String image;
   final Color? titleColor;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 100,
-        width: 180,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                image,
-                fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+          height: 100,
+          width: 180,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+          child: Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            Positioned(
-              left: 0,
-              right: 0,
-              top: 50,
-              child: title.interTextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
-                  maxLines: 4,
-                  textOverflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  fontColor: titleColor ?? white),
-            )
-          ],
-        ));
+              Positioned(
+                left: 0,
+                right: 0,
+                top: 50,
+                child: title.interTextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                    maxLines: 4,
+                    textOverflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    fontColor: titleColor ?? white),
+              )
+            ],
+          )),
+    );
   }
 }
 
@@ -917,5 +925,101 @@ class ScorePageCard extends StatelessWidget {
         ],
       ).paddingSymmetric(vertical: 10, horizontal: 10),
     );
+  }
+}
+
+class AppVideoCard extends StatefulWidget {
+  const AppVideoCard({
+    Key? key,
+    required this.title,
+    required this.image,
+    required this.onTap,
+    required this.url,
+  }) : super(key: key);
+
+  final String title;
+  final String image;
+  final VoidCallback onTap;
+  final String url;
+
+  @override
+  State<AppVideoCard> createState() => _AppVideoCardState();
+}
+
+class _AppVideoCardState extends State<AppVideoCard> {
+  dynamic data = Get.arguments;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 200,
+        // width: 110,
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(10), boxShadow: [
+          BoxShadow(
+              color: Colors.grey.shade400,
+              blurRadius: 3,
+              offset: const Offset(2, 2))
+        ]),
+        child: Column(
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              child: SizedBox(
+                height: 100,
+                // width: double.infinity,
+                child: Stack(
+                  children: [
+                    Image.file(
+                      File(widget.image),
+                      height: double.infinity,
+                      width: double.infinity,
+                      fit: BoxFit.fitHeight,
+                    ),
+                    Positioned(
+                      left: 10,
+                      bottom: 10,
+                      child: GestureDetector(
+                        onTap: widget.onTap,
+                        child: Image.asset(
+                          color: Colors.grey.shade300.withOpacity(0.9),
+                          Assets.imagesPlayButton,
+                          fit: BoxFit.cover,
+                          height: 50,
+                          width: 50,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                // decoration: BoxDecoration(
+                //     image: DecorationImage(
+                //         image: AssetImage(image), fit: BoxFit.cover)),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                  alignment: Alignment.center,
+                  height: 100,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      color: Colors.white),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
+                    child: widget.title.interTextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        maxLines: 4,
+                        textOverflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        fontColor: textColor),
+                  )),
+            ),
+          ],
+        )).paddingOnly(left: 10);
   }
 }

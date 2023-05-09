@@ -20,7 +20,8 @@ class ArticleController extends GetxController {
     try {
       print("login data123${result}");
       var data = getArticleFromJson(result);
-      print("data----${data[0].title}");
+
+      // print("data----${data[0].title}");
     } catch (e) {
       showAppSnackBar(errorText);
     }

@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 
+import '../../../../../constant/app_string.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../utils/bulletlist.dart';
 import '../../../../../widgets/common_textfield.dart';
+import 'bmi_calculator_controller.dart';
 
 class PhysicalHealthBmiCalculator extends StatelessWidget {
-  const PhysicalHealthBmiCalculator({Key? key}) : super(key: key);
+  PhysicalHealthBmiCalculator({Key? key}) : super(key: key);
+  final BmiCalculatorController controller = Get.put(BmiCalculatorController());
 
   @override
   Widget build(BuildContext context) {
@@ -27,63 +30,90 @@ class PhysicalHealthBmiCalculator extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: darkDeepPurple),
                 color: Colors.white),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                'Find Out What Your BMI is'.interTextStyle(
-                  fontColor: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
-                ),
-                10.0.addHSpace(),
-                const StartUpTextFiled(
-                  headingText: 'Enter your weight in kg',
-                  headingTextColor: Colors.black,
-                  hintText: '',
-                  fillColor: Colors.transparent,
-                  borderColor: Colors.grey,
-                  fontColor: Colors.black,
-                ),
-                10.0.addHSpace(),
-                const StartUpTextFiled(
-                  headingText: 'Height in cm',
-                  headingTextColor: Colors.black,
-                  hintText: '',
-                  fillColor: Colors.transparent,
-                  borderColor: Colors.grey,
-                  fontColor: Colors.black,
-                ),
-                25.0.addHSpace(),
-                Center(
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      height: 45,
-                      width: 170,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: darkDeepPurple),
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          'Calculate BMI'.interTextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                          ),
-                        ],
+            child: Form(
+              key: controller.key,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  'Find Out What Your BMI is'.interTextStyle(
+                    fontColor: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
+                  10.0.addHSpace(),
+                  StartUpTextFiled(
+                    controller: controller.weightCtrl,
+                    headingText: 'Enter your weight in kg',
+                    headingTextColor: Colors.black,
+                    hintText: '',
+                    fillColor: Colors.transparent,
+                    borderColor: Colors.grey,
+                    fontColor: Colors.black,
+                    validator: (_) {
+                      if (controller.weightCtrl.text.isEmpty) {
+                        return pleaseEnterWeight;
+                      }
+                      return null;
+                    },
+                  ),
+                  10.0.addHSpace(),
+                  StartUpTextFiled(
+                    controller: controller.heightCtrl,
+                    headingText: 'Height in cm',
+                    headingTextColor: Colors.black,
+                    hintText: '',
+                    fillColor: Colors.transparent,
+                    borderColor: Colors.grey,
+                    fontColor: Colors.black,
+                    validator: (_) {
+                      if (controller.heightCtrl.text.isEmpty) {
+                        return pleaseEnterHeight;
+                      }
+                      return null;
+                    },
+                  ),
+                  25.0.addHSpace(),
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        if (controller.key.currentState!.validate()) {
+                          controller.isCalculate.value =
+                              !controller.isCalculate.value;
+                        }
+                      },
+                      child: Container(
+                        height: 45,
+                        width: 170,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: darkDeepPurple),
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            'Calculate BMI'.interTextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                35.0.addHSpace(),
-                'Body Mass Index (BMI) is a measuring tool used by general practitioners (GPs) and allied health professionals to see whether your weight is deemed healthy. The BMI scale divides an adult’s weight in Kilograms (KGs) by their height in meters squares (M2).'
-                    .interTextStyle(
-                  fontColor: Colors.black,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                )
-              ],
-            ).paddingAll(10),
+                  35.0.addHSpace(),
+                  Obx(
+                    () => !controller.isCalculate.value
+                        ? Text("51454")
+                        : Text(""),
+                  ),
+                  'Body Mass Index (BMI) is a measuring tool used by general practitioners (GPs) and allied health professionals to see whether your weight is deemed healthy. The BMI scale divides an adult’s weight in Kilograms (KGs) by their height in meters squares (M2).'
+                      .interTextStyle(
+                    fontColor: Colors.black,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                  )
+                ],
+              ).paddingAll(10),
+            ),
           ).paddingSymmetric(horizontal: 15, vertical: 15).paddingOnly(top: 15),
           Container(
             decoration: BoxDecoration(boxShadow: [

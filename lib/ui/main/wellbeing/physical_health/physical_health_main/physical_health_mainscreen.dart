@@ -24,7 +24,7 @@ class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
   void initState() {
     super.initState();
     controller = TabController(vsync: this, length: 6);
-    controller!.index = data["selectedPage"]!;
+    controller!.index = data["selectedPage"];
   }
 
   @override

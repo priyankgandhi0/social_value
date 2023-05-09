@@ -9,7 +9,7 @@ import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class CommunityMain extends StatefulWidget {
-  CommunityMain({Key? key}) : super(key: key);
+  const CommunityMain({Key? key}) : super(key: key);
 
   @override
   State<CommunityMain> createState() => _CommunityMainState();

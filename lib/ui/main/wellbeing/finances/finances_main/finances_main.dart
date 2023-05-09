@@ -9,7 +9,7 @@ import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class FinanceMain extends StatefulWidget {
-  FinanceMain({Key? key}) : super(key: key);
+  const FinanceMain({Key? key}) : super(key: key);
 
   @override
   State<FinanceMain> createState() => _FinanceMainState();

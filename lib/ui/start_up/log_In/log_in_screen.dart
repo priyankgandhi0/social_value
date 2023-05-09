@@ -4,6 +4,7 @@ import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
 
+import '../../../generated/asset.dart';
 import '../../../generated/assets.dart';
 
 import '../../../widgets/app_button.dart';
@@ -55,17 +56,33 @@ class LogInScreen extends StatelessWidget {
                         textInputType: TextInputType.emailAddress,
                       ),
                       37.0.addHSpace(),
-                      StartUpTextFiled(
-                        headingText: password,
-                        headingTextColor: white,
-                        controller: controller.passwordCtr,
-                        validator: (_) {
-                          if (controller.passwordCtr.text.isEmpty) {
-                            return pleaseEnterPassword;
-                          }
-                          return null;
-                        },
-                      ),
+                      Obx(() {
+                        return StartUpTextFiled(
+                          headingText: password,
+                          headingTextColor: white,
+                          obscureText: controller.isObscureText.value,
+                          controller: controller.passwordCtr,
+                          validator: (_) {
+                            if (controller.passwordCtr.text.isEmpty) {
+                              return pleaseEnterPassword;
+                            }
+                            return null;
+                          },
+                          suffixIconWidget: controller.isObscureText.value
+                              ? const Icon(
+                                  Icons.visibility_off_outlined,
+                                  color: Colors.white,
+                                )
+                              : const Icon(
+                                  Icons.visibility,
+                                  color: Colors.white,
+                                ),
+                          suffixIconOnPress: () {
+                            controller.isObscureText.value =
+                                !controller.isObscureText.value;
+                          },
+                        );
+                      }),
                       56.0.addHSpace(),
                       AppFilledButton(
                         text: logIn,

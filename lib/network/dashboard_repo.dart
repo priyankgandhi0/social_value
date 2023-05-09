@@ -9,8 +9,16 @@ class DashboardRepo {
   static DashboardRepo get instance => _instance ??= DashboardRepo._();
   Future<dynamic> getVideos({required String ids}) async {
     dynamic result;
+    List<String> iDs = [];
+    iDs.add(ids);
     var queryParameters = {
-      RequestParam.ids: ids,
+      RequestParam.ids: iDs
+          .toString()
+          .replaceAll(
+            '[',
+            '',
+          )
+          .replaceAll(']', ''),
     };
     String queryString =
         Uri(path: MethodNames.getVideos, queryParameters: queryParameters)

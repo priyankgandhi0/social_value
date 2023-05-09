@@ -16,6 +16,7 @@ class MethodNames {
   static const getHelplineCategories = "get-helpline-categories";
   static const getHelplines = "get-helplines";
   static const getVideos = "get-videos";
+  static const getVideoCategories = "get-video-categories";
   static const getArticles = "get-articles";
   static const getArticle = "get-article";
 }

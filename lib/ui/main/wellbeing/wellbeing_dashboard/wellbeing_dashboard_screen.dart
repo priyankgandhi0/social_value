@@ -11,18 +11,22 @@ import '../../../../widgets/app_progress.dart';
 import '../../../../widgets/common_card.dart';
 import '../../../../widgets/wellbeing_screen_card.dart';
 import '../../dashboard_screen/dashboard_contorller.dart';
+import '../physical_health/articles/article_controller.dart';
 
 class WellBeingDashBoardScreen extends StatelessWidget {
   WellBeingDashBoardScreen({Key? key}) : super(key: key);
   final DashboardController controller = Get.put(DashboardController());
-
+  final ArticleController articleController = Get.put(ArticleController());
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: GetBuilder<DashboardController>(initState: (state) {
         controller.getVideo.clear();
+        articleController.articlesList.clear();
         Future.delayed(Duration.zero)
-            .then((value) => controller.getVideos("83"));
+            .then((value) => controller.getVideos("65,83"));
+        Future.delayed(Duration.zero).then((value) => articleController.getArticles(
+            "5,9,10,14,15,17,22,23,24,26,29,31,32,33,34,35,36,37,38,39,40,41,442,49"));
       }, builder: (ctrl) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +128,7 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                                         height: 111,
                                         width: 188,
                                         fit: BoxFit.cover,
-                                      ).paddingOnly(left: 20),
+                                      ),
                                       Center(
                                         child: GestureDetector(
                                           onTap: () {
@@ -207,23 +211,43 @@ class WellBeingDashBoardScreen extends StatelessWidget {
               left: 20,
             ),
             10.0.addHSpace(),
-            SizedBox(
-              height: 165,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 4,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return AppArticlesCard(
-                      onTap: () {},
-                      descColor: Colors.black,
-                      desc:
-                          'Diabetes - What you need to knowabout this condition',
-                      image:
-                          "https://www.app.socialvaluecompany.com/assets/img/wellnesshub.jpg");
-                },
-              ),
-            ).paddingOnly(left: 10, right: 10),
+            Obx(
+              () => ctrl.isLoading.value
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: darkDeepPurple,
+                      ),
+                    )
+                  : SizedBox(
+                      height: 165,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 8,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return AppArticlesCard(
+                              onTap: () {
+                                Get.toNamed(Routes.articleDetailScreen,
+                                    arguments: [
+                                      {
+                                        "text": "Wellbeing",
+                                      },
+                                      {"color": darkDeepPurple},
+                                      {"color1": darkDeepPurple},
+                                      {
+                                        "id": articleController
+                                            .articlesList[index].id
+                                      }
+                                    ]);
+                              },
+                              descColor: Colors.black,
+                              desc: articleController.articlesList[index].title,
+                              image: articleController
+                                  .articlesList[index].featuredImage);
+                        },
+                      ),
+                    ).paddingOnly(left: 10, right: 10),
+            ),
             30.0.addHSpace(),
           ],
         );

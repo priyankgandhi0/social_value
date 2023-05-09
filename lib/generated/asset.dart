@@ -49,6 +49,8 @@ class ImageAssets {
 class IconsAssets {
   static const wellbeingIcon = 'assets/icons/heart.svg';
   static const celenderIcon = 'assets/images/calendar.png';
+  static const eyeIcon = "asset/icons/eye.png";
+
   // static const heart = 'assets/icons/heart.png';
   // static const myProfile = 'assets/icons/myProfile.svg';
   // static const settingIcon = 'assets/icons/settingIcon.svg';
@@ -59,6 +61,6 @@ class IconsAssets {
   // static const dashBoardIcon = 'assets/icons/dashBoardIcon.svg';
   // static const planetIcon = 'assets/icons/planet.svg';
   static const communityIcon = 'assets/icons/community.svg';
-  // static const moreIcon = 'assets/icons/more.svg';
-  // static const supportIcon = 'assets/icons/support.svg';
+// static const moreIcon = 'assets/icons/more.svg';
+// static const supportIcon = 'assets/icons/support.svg';
 }

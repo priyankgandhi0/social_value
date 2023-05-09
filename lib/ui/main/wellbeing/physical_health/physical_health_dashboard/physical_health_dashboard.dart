@@ -33,7 +33,10 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                     fontColor: textColor),
                 20.0.addHSpace(),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(Routes.physicalHealthMainScreen,
+                        arguments: {"selectedPage": 1});
+                  },
                   child: Container(
                     height: 300,
                     width: double.infinity,
@@ -55,12 +58,20 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                   child: Row(
                     children: [
                       AppSquareCard(
+                        onTap: () {
+                          Get.toNamed(Routes.physicalHealthMainScreen,
+                              arguments: {"selectedPage": 2});
+                        },
                         desc: 'Discover What Your BMI is',
                         btnText: 'Get Your BMI',
                         image: ImageAssets.bmiImage,
                         descColor: Colors.white,
                       ),
                       AppSquareCard(
+                        onTap: () {
+                          Get.toNamed(Routes.physicalHealthMainScreen,
+                              arguments: {"selectedPage": 3});
+                        },
                         desc: 'Healthy Eating Made easy with our Meal Plans',
                         btnText: 'Download Now',
                         image: ImageAssets.foodImage1,
@@ -98,7 +109,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                   height: 165,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: ctrl.articlesList.length,
+                    itemCount: 8,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return AppArticlesCard(
@@ -123,7 +134,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
             ).paddingSymmetric(horizontal: 15);
           }),
         ).paddingOnly(bottom: 18),
-        Obx(() => controller.isLoading.value || controller.isLoading.value
+        Obx(() => controller.isLoading.value
             ? const AppProgress(
                 color: darkDeepPurple,
               )

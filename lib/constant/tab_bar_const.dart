@@ -60,12 +60,10 @@ List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
   AppTabBarModel(
       tabText: dashboard, tabWidget: PhysicalHealthDashBoard(), onTap: () {}),
   AppTabBarModel(
-      tabText: lesMills,
-      tabWidget: const PhysicalHealthLesMills(),
-      onTap: () {}),
+      tabText: lesMills, tabWidget: PhysicalHealthLesMills(), onTap: () {}),
   AppTabBarModel(
       tabText: bmiCalculator,
-      tabWidget: const PhysicalHealthBmiCalculator(),
+      tabWidget: PhysicalHealthBmiCalculator(),
       onTap: () {}),
   AppTabBarModel(
       tabText: mealPlans, tabWidget: PhysicalHealthMealPlans(), onTap: () {}),
