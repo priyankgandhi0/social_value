@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-
 import '../../../../../api/api_extension.dart';
-import '../../../../../models/get_srticle_model.dart';
 import '../../../../../models/video_catgory_model.dart';
 import '../../../../../network/wellbing_repo.dart';
 import '../../../../../theme/app_helpers.dart';
@@ -11,8 +9,10 @@ import '../../../../../theme/app_helpers.dart';
 class LessMillsController extends GetxController {
   RxBool isLoading = false.obs;
   List<VideoCategory> videoCategoryList = [];
-  List<Map<String, dynamic>> videoId = [];
+  List<VideoCategory> videoCategoryItem = [];
+
   getVideoCategories() async {
+    if (videoCategoryItem.isNotEmpty) return;
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
@@ -21,7 +21,12 @@ class LessMillsController extends GetxController {
       print("login data123${result}");
       var data = videoCategoryFromJson(result);
       videoCategoryList = data;
-      // print("data----${data[0].title}");
+      for (var element in videoCategoryList) {
+        if (element.parentCategoryId == "72") {
+          videoCategoryItem.add(element);
+          update();
+        }
+      }
     } catch (e) {
       showAppSnackBar(errorText);
     }

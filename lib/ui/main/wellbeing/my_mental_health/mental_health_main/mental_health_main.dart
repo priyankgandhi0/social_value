@@ -35,7 +35,7 @@ class _MentalHealthMainState extends State<MentalHealthMain>
   void initState() {
     super.initState();
     controller = TabController(vsync: this, length: 7);
-    controller!.index = data["selectedPage"]!;
+    controller!.index = data["selectedPage"];
   }
 
   @override

@@ -9,6 +9,7 @@ import 'package:video_player/video_player.dart';
 import '../constant/app_string.dart';
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
+import '../utils/routes_manager.dart';
 import 'app_button.dart';
 
 class AppSquareCard extends StatelessWidget {
@@ -973,6 +974,9 @@ class _AppVideoCardState extends State<AppVideoCard> {
                   children: [
                     Image.file(
                       File(widget.image),
+                      errorBuilder: (context, error, trace) {
+                        return const Center(child: CircularProgressIndicator());
+                      },
                       height: double.infinity,
                       width: double.infinity,
                       fit: BoxFit.fitHeight,
@@ -1021,5 +1025,93 @@ class _AppVideoCardState extends State<AppVideoCard> {
             ),
           ],
         )).paddingOnly(left: 10);
+  }
+}
+
+class VideoThmbnailCard extends StatefulWidget {
+  const VideoThmbnailCard(
+      {Key? key, required this.videoUrl, required this.onTap})
+      : super(key: key);
+  final String videoUrl;
+  final VoidCallback onTap;
+  @override
+  State<VideoThmbnailCard> createState() => _VideoThmbnailCardState();
+}
+
+class _VideoThmbnailCardState extends State<VideoThmbnailCard> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(widget.videoUrl)
+      ..initialize().then((_) {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  // return VideoThmbnailCard(videoUrl: ctrl.getVideo[index].videoUrl, onTap: (){
+  // Get.toNamed(Routes.videoPlayerScreen,
+  // arguments: {"url": ctrl.getVideo[index].videoUrl});
+  // });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
+        height: 111,
+        width: 188,
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              color: Colors.grey.shade400,
+              blurRadius: 3,
+              offset: const Offset(3, 3))
+        ], color: white, borderRadius: BorderRadius.circular(10)),
+        child: Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Stack(
+              children: [
+                VideoPlayer(_controller),
+
+                // Image.file(
+                //   File(ctrl.getVideo[index]
+                //       .thumbnail!),
+                //   errorBuilder:
+                //       (context, error, trace) {
+                //     return const Center(
+                //         child:
+                //             CircularProgressIndicator());
+                //   },
+                //   height: 111,
+                //   width: double.infinity,
+                //   fit: BoxFit.contain,
+                // ),
+                Center(
+                  child: GestureDetector(
+                    onTap: widget.onTap,
+                    //     () {
+                    //   Get.toNamed(Routes.videoPlayerScreen,
+                    //       arguments: {"url": ctrl.getVideo[index].videoUrl});
+                    // },
+                    child: Image.asset(
+                      color: Colors.grey.shade300.withOpacity(0.9),
+                      Assets.imagesPlayButton,
+                      fit: BoxFit.cover,
+                      height: 50,
+                      width: 50,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }

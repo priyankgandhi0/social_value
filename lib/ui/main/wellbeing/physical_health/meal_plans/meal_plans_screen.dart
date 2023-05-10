@@ -18,7 +18,7 @@ class PhysicalHealthMealPlans extends StatelessWidget {
         SingleChildScrollView(
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
+                const EdgeInsets.only(left: 10, right: 20, top: 25, bottom: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
               controller.articlesList.clear();
               Future.delayed(Duration.zero)

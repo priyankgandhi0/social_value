@@ -36,7 +36,7 @@ class ArticleController extends GetxController {
     dynamic result;
     result = await WellbeingRepo.instance.getArticles(ids: ids);
     try {
-      print("data123${json.decode(result)}");
+      // print("data123${json.decode(result)}");
       var data = articleListFromJson(result);
       articlesList = data;
       // print("data----${articlesList[0].title}");

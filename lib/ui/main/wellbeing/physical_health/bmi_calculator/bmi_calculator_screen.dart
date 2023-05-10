@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
-
 import '../../../../../constant/app_string.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../utils/bulletlist.dart';
 import '../../../../../widgets/common_textfield.dart';
 import 'bmi_calculator_controller.dart';
 
-class PhysicalHealthBmiCalculator extends StatelessWidget {
-  PhysicalHealthBmiCalculator({Key? key}) : super(key: key);
+class PhysicalHealthBmiCalculator extends StatefulWidget {
+  const PhysicalHealthBmiCalculator({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<PhysicalHealthBmiCalculator> createState() =>
+      _PhysicalHealthBmiCalculatorState();
+}
+
+class _PhysicalHealthBmiCalculatorState
+    extends State<PhysicalHealthBmiCalculator> {
   final BmiCalculatorController controller = Get.put(BmiCalculatorController());
+  double? _result;
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +87,9 @@ class PhysicalHealthBmiCalculator extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         if (controller.key.currentState!.validate()) {
-                          controller.isCalculate.value =
-                              !controller.isCalculate.value;
+                          calculateBMI();
+                          controller.isCalculate.value = true;
+                          controller.update();
                         }
                       },
                       child: Container(
@@ -99,12 +110,23 @@ class PhysicalHealthBmiCalculator extends StatelessWidget {
                       ),
                     ),
                   ),
-                  35.0.addHSpace(),
+                  25.0.addHSpace(),
                   Obx(
-                    () => !controller.isCalculate.value
-                        ? Text("51454")
-                        : Text(""),
+                    () => controller.isCalculate.value
+                        ? _result?.toStringAsFixed(1) == null
+                            ? const Text("")
+                            : Row(
+                                children: [
+                                  "Your BMI is ${(_result?.toStringAsFixed(1))}"
+                                      .interTextStyle(
+                                          fontColor: darkDeepPurple,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700),
+                                ],
+                              )
+                        : const Text(""),
                   ),
+                  10.0.addHSpace(),
                   'Body Mass Index (BMI) is a measuring tool used by general practitioners (GPs) and allied health professionals to see whether your weight is deemed healthy. The BMI scale divides an adult’s weight in Kilograms (KGs) by their height in meters squares (M2).'
                       .interTextStyle(
                     fontColor: Colors.black,
@@ -211,5 +233,45 @@ class PhysicalHealthBmiCalculator extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void calculateBMI() {
+    double height = double.parse(controller.heightCtrl.text) / 100;
+    double weight = double.parse(controller.weightCtrl.text);
+
+    double heightSquare = height * height;
+    double result = weight / heightSquare;
+    print(result);
+    setState(() {
+      _result = result;
+    });
+  }
+
+  getResult() {
+    if (_result! < 18.5) {
+      return const Text("(underweight)",
+          style: TextStyle(
+              color: darkDeepPurple,
+              fontSize: 16,
+              fontWeight: FontWeight.w700));
+    } else if (_result! >= 18.5 && _result! <= 24.9) {
+      return const Text("(healthy weight)",
+          style: TextStyle(
+              color: darkDeepPurple,
+              fontSize: 16,
+              fontWeight: FontWeight.w700));
+    } else if (_result! >= 25 && _result! <= 29.9) {
+      return const Text("(overweight )",
+          style: TextStyle(
+              color: darkDeepPurple,
+              fontSize: 16,
+              fontWeight: FontWeight.w700));
+    } else if (_result! >= 30 && _result! <= 39.9) {
+      return const Text("(obese )",
+          style: TextStyle(
+              color: darkDeepPurple,
+              fontSize: 16,
+              fontWeight: FontWeight.w700));
+    }
   }
 }

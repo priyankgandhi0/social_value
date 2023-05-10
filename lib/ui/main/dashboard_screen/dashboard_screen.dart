@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/constant/home_card_const.dart';
 import 'package:social_value/utils/extension.dart';
+import 'package:social_value/widgets/common_card.dart';
+import 'package:video_player/video_player.dart';
 import '../../../constant/app_string.dart';
 import '../../../constant/shred_preference.dart';
 import '../../../generated/asset.dart';
@@ -25,7 +27,6 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   String name = preferences.getString(SharedPreference.FIRST_NAME) ?? "";
-
   final DashboardController controller = Get.put(DashboardController());
 
   @override
@@ -359,6 +360,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                 Image.file(
                                                   File(ctrl.getVideo[index]
                                                       .thumbnail!),
+                                                  errorBuilder:
+                                                      (context, error, trace) {
+                                                    return const Center(
+                                                        child:
+                                                            CircularProgressIndicator());
+                                                  },
                                                   height: 111,
                                                   width: double.infinity,
                                                   fit: BoxFit.contain,

@@ -97,6 +97,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                           progressBarSettings: FlickProgressBarSettings(
                             playedColor: Colors.red,
                             handleRadius: 5,
+                            bufferedColor: Colors.white,
                             handleColor: Colors.black,
                             padding: const EdgeInsets.symmetric(vertical: 0),
                           ),

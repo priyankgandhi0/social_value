@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
@@ -8,20 +10,28 @@ import '../../../../../theme/app_color.dart';
 import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/app_progress.dart';
 import '../../../../../widgets/common_card.dart';
+import '../../../dashboard_screen/dashboard_contorller.dart';
 import '../articles/article_controller.dart';
 
 class PhysicalHealthDashBoard extends StatelessWidget {
   PhysicalHealthDashBoard({Key? key}) : super(key: key);
   final ArticleController controller = Get.put(ArticleController());
+
+  final DashboardController dashboardController =
+      Get.put(DashboardController());
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         SingleChildScrollView(
           child: GetBuilder<ArticleController>(initState: (state) {
-            controller.articlesList.clear();
             Future.delayed(Duration.zero)
                 .then((value) => controller.getArticles("31"));
+            controller.articlesList.clear();
+            Future.delayed(Duration.zero)
+                .then((value) => dashboardController.getVideos("67"));
+            dashboardController.getVideo.clear();
           }, builder: (ctrl) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,18 +96,87 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     fontColor: textColor),
                 10.0.addHSpace(),
-                SizedBox(
-                  height: 111,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 4,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return const AppVideoCommonCard(
-                        image: Assets.imagesWorkoutImg,
-                      );
-                    },
-                  ),
+                Obx(
+                  () => controller.isLoading.value
+                      ? SizedBox(
+                          height: 123,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemCount: 4,
+                            itemBuilder: (BuildContext context, int index) {
+                              return const ShimmerEffect();
+                            },
+                          ),
+                        ).paddingOnly(left: 10, right: 10)
+                      : SizedBox(
+                          height: 123,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: dashboardController.getVideo.length,
+                            shrinkWrap: true,
+                            addAutomaticKeepAlives: false,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                  margin: const EdgeInsets.only(
+                                      right: 10, left: 10, bottom: 10),
+                                  height: 111,
+                                  width: 188,
+                                  decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.shade400,
+                                            blurRadius: 3,
+                                            offset: const Offset(3, 3))
+                                      ],
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Center(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Stack(
+                                        children: [
+                                          Image.file(
+                                            File(dashboardController
+                                                .getVideo[index].thumbnail!),
+                                            errorBuilder:
+                                                (context, error, trace) {
+                                              return const Center(
+                                                  child:
+                                                      CircularProgressIndicator());
+                                            },
+                                            height: 111,
+                                            width: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          Center(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Get.toNamed(
+                                                    Routes.videoPlayerScreen,
+                                                    arguments: {
+                                                      "url": dashboardController
+                                                          .getVideo[index]
+                                                          .videoUrl
+                                                    });
+                                              },
+                                              child: Image.asset(
+                                                color: Colors.grey.shade300
+                                                    .withOpacity(0.9),
+                                                Assets.imagesPlayButton,
+                                                fit: BoxFit.cover,
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ));
+                            },
+                          ),
+                        ).paddingOnly(left: 10, right: 10),
                 ),
                 30.0.addHSpace(),
                 latestArticlesText.interTextStyle(
@@ -105,30 +184,35 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     fontColor: textColor),
                 10.0.addHSpace(),
-                SizedBox(
-                  height: 165,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 8,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return AppArticlesCard(
-                          onTap: () {
-                            Get.toNamed(Routes.articleDetailScreen, arguments: [
-                              {
-                                "text": "physical health",
-                              },
-                              {"color": darkDeepPurple},
-                              {"color1": darkDeepPurple},
-                              {"id": ctrl.articlesList[index].id}
-                            ]);
+                ctrl.articlesList.isEmpty
+                    ? const SizedBox(
+                        height: 123,
+                      )
+                    : SizedBox(
+                        height: 165,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 8,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return AppArticlesCard(
+                                onTap: () {
+                                  Get.toNamed(Routes.articleDetailScreen,
+                                      arguments: [
+                                        {
+                                          "text": "physical health",
+                                        },
+                                        {"color": darkDeepPurple},
+                                        {"color1": darkDeepPurple},
+                                        {"id": ctrl.articlesList[index].id}
+                                      ]);
+                                },
+                                descColor: Colors.black,
+                                desc: ctrl.articlesList[index].title,
+                                image: ctrl.articlesList[index].featuredImage);
                           },
-                          descColor: Colors.black,
-                          desc: ctrl.articlesList[index].title,
-                          image: ctrl.articlesList[index].featuredImage);
-                    },
-                  ),
-                ),
+                        ),
+                      ),
                 10.0.addHSpace(),
               ],
             ).paddingSymmetric(horizontal: 15);
