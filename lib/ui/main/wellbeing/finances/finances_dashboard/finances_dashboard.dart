@@ -14,6 +14,7 @@ import '../../physical_health/articles/article_controller.dart';
 class FinancesDashBoard extends StatelessWidget {
   FinancesDashBoard({Key? key}) : super(key: key);
   final ArticleController controller = Get.put(ArticleController());
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -32,34 +33,44 @@ class FinancesDashBoard extends StatelessWidget {
                   financesHome.interTextStyle(
                       fontSize: 17, fontWeight: FontWeight.w700),
                   10.0.addHSpace(),
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    // margin: const EdgeInsets.symmetric(horizontal: 17),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: const Color(0xffF4F4F4)),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.shade300,
-                              offset: const Offset(2, 2),
-                              blurRadius: 2)
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.financeMain,
+                          arguments: {"selectedPage": 3});
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      // margin: const EdgeInsets.symmetric(horizontal: 17),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: const Color(0xffF4F4F4)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade300,
+                                offset: const Offset(2, 2),
+                                blurRadius: 2)
+                          ],
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          lookingForFinancialSupport.interTextStyle(
+                              fontSize: 17, fontWeight: FontWeight.w700),
+                          8.0.addHSpace(),
+                          supportServicesToHelp.interTextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w400),
+                          8.0.addHSpace(),
+                          Image.asset(ImageAssets.financesCard)
                         ],
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        lookingForFinancialSupport.interTextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w700),
-                        8.0.addHSpace(),
-                        supportServicesToHelp.interTextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w400),
-                        8.0.addHSpace(),
-                        Image.asset(ImageAssets.financesCard)
-                      ],
+                      ),
                     ),
                   ),
                   20.0.addHSpace(),
-                  const XoDiscountCard(
+                  XoDiscountCard(
+                    onTap: () {
+                      Get.toNamed(Routes.financeMain,
+                          arguments: {"selectedPage": 2});
+                    },
                     fillColor: lightDeepPurple,
                     image: Assets.imagesCreditCard,
                     appBorderFillColor: darkDeepPurple,
@@ -71,31 +82,34 @@ class FinancesDashBoard extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       fontColor: textColor),
                   10.0.addHSpace(),
-                  SizedBox(
-                    height: 165,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 8,
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return AppArticlesCard(
-                            onTap: () {
-                              Get.toNamed(Routes.articleDetailScreen,
-                                  arguments: [
-                                    {
-                                      "text": "Finances",
-                                    },
-                                    {"color": darkDeepPurple},
-                                    {"color1": darkDeepPurple},
-                                    {"id": ctrl.articlesList[index].id}
-                                  ]);
+                  ctrl.articlesList.isEmpty
+                      ? const SizedBox()
+                      : SizedBox(
+                          height: 165,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 8,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return AppArticlesCard(
+                                  onTap: () {
+                                    Get.toNamed(Routes.articleDetailScreen,
+                                        arguments: [
+                                          {
+                                            "text": "Finances",
+                                          },
+                                          {"color": darkDeepPurple},
+                                          {"color1": darkDeepPurple},
+                                          {"id": ctrl.articlesList[index].id}
+                                        ]);
+                                  },
+                                  descColor: Colors.black,
+                                  desc: ctrl.articlesList[index].title,
+                                  image:
+                                      ctrl.articlesList[index].featuredImage);
                             },
-                            descColor: Colors.black,
-                            desc: ctrl.articlesList[index].title,
-                            image: ctrl.articlesList[index].featuredImage);
-                      },
-                    ),
-                  ),
+                          ),
+                        ),
                 ],
               );
             }),

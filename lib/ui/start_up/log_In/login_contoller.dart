@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../../api/api_extension.dart';
 import '../../../constant/shred_preference.dart';
-import '../../../models/get_srticle_model.dart';
+import '../../../models/get_article_model.dart';
 import '../../../models/user_model.dart';
 import '../../../network/auth_repo.dart';
 import '../../../theme/app_helpers.dart';

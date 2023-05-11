@@ -96,14 +96,6 @@ class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
                   (e) => Tab(text: e.tabText),
                 )
                 .toList(),
-            // const [
-            //   Tab(text: dashboard),
-            //   Tab(text: lesMills),
-            //   Tab(text: bmiCalculator),
-            //   Tab(text: mealPlans),
-            //   Tab(text: articles),
-            //   Tab(text: dailyWorkouts),
-            // ],
           ),
         ),
         child: TabBarView(

@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import '../../../../../api/api_extension.dart';
-import '../../../../../models/video_catgory_model.dart';
+import '../../../../../models/catgory_model.dart';
 import '../../../../../network/wellbing_repo.dart';
 import '../../../../../theme/app_helpers.dart';
 
 class LessMillsController extends GetxController {
   RxBool isLoading = false.obs;
-  List<VideoCategory> videoCategoryList = [];
-  List<VideoCategory> videoCategoryItem = [];
+  List<CategoryList> videoCategoryList = [];
+  List<CategoryList> videoCategoryItem = [];
 
   getVideoCategories() async {
     if (videoCategoryItem.isNotEmpty) return;

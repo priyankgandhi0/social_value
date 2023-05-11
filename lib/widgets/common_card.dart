@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
@@ -322,7 +323,7 @@ class InsuranceCard extends StatelessWidget {
   const InsuranceCard({Key? key, required this.title, this.icon})
       : super(key: key);
   final String title;
-  final String? icon;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -340,11 +341,13 @@ class InsuranceCard extends StatelessWidget {
           5.0.addHSpace(),
           insurance.interTextStyle(
               fontSize: 12, fontWeight: FontWeight.w400, fontColor: white),
-          40.0.addHSpace(),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.end,
-          //   children: [Html(data: icon)],
-          // ),
+          30.0.addHSpace(),
+          // Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          //   Icon(
+          //     icon,
+          //     color: Colors.white,
+          //   ),
+          // ]),
         ],
       ),
     );
@@ -406,6 +409,7 @@ class AppBodyPumptCard extends StatelessWidget {
 
   final String title;
   final String image;
+
   // final Color? titleColor;
   final VoidCallback onTap;
 
@@ -449,11 +453,11 @@ class AppBodyPumptCard extends StatelessWidget {
                         color: Colors.white),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
+                          horizontal: 10, vertical: 8),
                       child: title.interTextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 12,
-                          maxLines: 4,
+                          maxLines: 3,
                           textOverflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.center,
                           fontColor: textColor),
@@ -1034,6 +1038,7 @@ class VideoThmbnailCard extends StatefulWidget {
       : super(key: key);
   final String videoUrl;
   final VoidCallback onTap;
+
   @override
   State<VideoThmbnailCard> createState() => _VideoThmbnailCardState();
 }

@@ -584,13 +584,15 @@ class XoDiscountCard extends StatelessWidget {
       required this.image,
       this.appBorderFillColor,
       required this.desc,
-      this.fillColor})
+      this.fillColor,
+      required this.onTap})
       : super(key: key);
 
   final String image;
   final String desc;
   final Color? appBorderFillColor;
   final Color? fillColor;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -633,6 +635,7 @@ class XoDiscountCard extends StatelessWidget {
           ),
           20.0.addHSpace(),
           AppBorderButton(
+                  onTap: onTap,
                   text: startSavingNow,
                   borderColor: appBorderFillColor ?? darkDeepPurple)
               .paddingOnly(left: 60, right: 60)

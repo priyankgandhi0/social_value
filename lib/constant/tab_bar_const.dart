@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:social_value/constant/app_string.dart';
 import 'package:social_value/models/app_tab_bar_model.dart';
 import 'package:social_value/ui/main/wellbeing/physical_health/articles/articles_screen.dart';
-
 import '../ui/main/community/awareness_days/awareness_days.dart';
 import '../ui/main/community/charity_Page/charity_Page.dart';
 import '../ui/main/community/communitty_dashboard/community_dashboard.dart';
@@ -14,6 +13,7 @@ import '../ui/main/planet/articles/articles.dart';
 import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
 import '../ui/main/planet/planet_dashboard/planet_dashboard.dart';
 import '../ui/main/planet/webinars/webinars.dart';
+import '../ui/main/wellbeing/all_article_screen.dart';
 import '../ui/main/wellbeing/finances/ articles/finances_artical_screen.dart';
 import '../ui/main/wellbeing/finances/discount_card/discount_card_screen.dart';
 import '../ui/main/wellbeing/finances/finances_dashboard/finances_dashboard.dart';
@@ -29,6 +29,7 @@ import '../ui/main/wellbeing/physical_health/daily_workouts/daily_workouts_scree
 import '../ui/main/wellbeing/physical_health/les_mills/les_mills_screen.dart';
 import '../ui/main/wellbeing/physical_health/meal_plans/meal_plans_screen.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_dashboard/physical_health_dashboard.dart';
+import '../ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
 import '../ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_screen.dart';
 import '../ui/support_services/support_services.dart';
 import '../utils/routes_manager.dart';
@@ -38,7 +39,7 @@ List<AppTabBarModel> wellbeingTabs = [
       tabText: dashboard, tabWidget: WellBeingDashBoardScreen(), onTap: () {}),
   AppTabBarModel(
       tabText: myPhysicalHealth,
-      tabWidget: Column(),
+      tabWidget: const PhysicalHealthMainScreen(),
       onTap: () {
         Get.toNamed(Routes.physicalHealthMainScreen,
             arguments: {"selectedPage": 0});
@@ -55,6 +56,12 @@ List<AppTabBarModel> wellbeingTabs = [
       onTap: () {
         Get.toNamed(Routes.financeMain, arguments: {"selectedPage": 0});
       }),
+  AppTabBarModel(
+      tabText: articles,
+      tabWidget: Column(),
+      onTap: () {
+        Get.toNamed(Routes.allArticleScreen);
+      }),
 ];
 List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
   AppTabBarModel(
@@ -63,7 +70,7 @@ List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
       tabText: lesMills, tabWidget: PhysicalHealthLesMills(), onTap: () {}),
   AppTabBarModel(
       tabText: bmiCalculator,
-      tabWidget: PhysicalHealthBmiCalculator(),
+      tabWidget: const PhysicalHealthBmiCalculator(),
       onTap: () {}),
   AppTabBarModel(
       tabText: mealPlans, tabWidget: PhysicalHealthMealPlans(), onTap: () {}),
@@ -106,8 +113,7 @@ List<AppTabBarModel> wellbeingFinanceTabs = [
       tabWidget: const FinancesDiscountCard(),
       onTap: () {}),
   AppTabBarModel(tabText: support, tabWidget: SupportServices(), onTap: () {}),
-  AppTabBarModel(
-      tabText: articles, tabWidget: const FinancesArticle(), onTap: () {}),
+  AppTabBarModel(tabText: articles, tabWidget: FinancesArticle(), onTap: () {}),
 ];
 
 List<AppTabBarModel> planetTabs = [

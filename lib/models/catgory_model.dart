@@ -4,25 +4,24 @@
 
 import 'dart:convert';
 
-List<VideoCategory> videoCategoryFromJson(String str) =>
-    List<VideoCategory>.from(
-        json.decode(str).map((x) => VideoCategory.fromJson(x)));
+List<CategoryList> videoCategoryFromJson(String str) => List<CategoryList>.from(
+    json.decode(str).map((x) => CategoryList.fromJson(x)));
 
-String videoCategoryToJson(List<VideoCategory> data) =>
+String videoCategoryToJson(List<CategoryList> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class VideoCategory {
+class CategoryList {
   String id;
   String title;
   String parentCategoryId;
 
-  VideoCategory({
+  CategoryList({
     required this.id,
     required this.title,
     required this.parentCategoryId,
   });
 
-  factory VideoCategory.fromJson(Map<String, dynamic> json) => VideoCategory(
+  factory CategoryList.fromJson(Map<String, dynamic> json) => CategoryList(
         id: json["id"] ?? "",
         title: json["title"] ?? "",
         parentCategoryId: json["parentCategoryID"] ?? "",

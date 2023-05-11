@@ -2,10 +2,12 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:social_value/network/wellbing_repo.dart';
 import '../../../../../api/api_extension.dart';
+import '../../../../../constant/app_string.dart';
 import '../../../../../models/insurance_model.dart';
 import '../../../../../theme/app_helpers.dart';
 

@@ -8,6 +8,7 @@ import '../splash_screen.dart';
 import '../ui/Start_up/log_In/log_in_screen.dart';
 
 import '../ui/main/common_screen/article__detail_screen/article_detail_screen.dart';
+import '../ui/main/common_screen/brain_gamesplay_screen.dart';
 import '../ui/main/common_screen/workout_video_screen.dart';
 import '../ui/main/dashboard_screen/dashboard_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
@@ -15,6 +16,7 @@ import '../ui/main/my_profile/my_profile.dart';
 import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
 import '../ui/main/staff_survey/staff_survey.dart';
 import '../ui/main/staff_survey/staffsurvey_question.dart';
+import '../ui/main/wellbeing/all_article_screen.dart';
 import '../ui/main/wellbeing/finances/finances_main/finances_main.dart';
 import '../ui/main/wellbeing/my_mental_health/mental_health_main/mental_health_main.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
@@ -30,6 +32,7 @@ class Routes {
   static String physicalHealthMainScreen = "/Physical_Health_MainScreen";
   static String mentalHealthMain = "/Mental_Health_Main";
   static String financeMain = "/Finance_Main";
+  static String allArticleScreen = "/All_Article_Screen";
   static String planetMain = "/Planet_Main";
   static String communityMain = "/Community_Main";
   static String staffSurveyScreen = "/Staff_Survey_Screen";
@@ -41,6 +44,7 @@ class Routes {
   static String socialValueScore = "/socialValueScore";
   static String videoPlayerScreen = "/VideoPlayerScreen";
   static String workOutVideoScreen = "/WorkOutVideoScreen";
+  static String brainGamesPlayScreen = "/BrainGamesPlayScreen";
   static String carbonFootPrintCalculator = "/CarbonFootPrintCalculator";
 
   static List<GetPage> pages = [
@@ -72,6 +76,10 @@ class Routes {
     GetPage(
         name: Routes.financeMain,
         page: () => FinanceMain(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.allArticleScreen,
+        page: () => AllArticleScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.planetMain,
@@ -120,6 +128,10 @@ class Routes {
     GetPage(
         name: Routes.workOutVideoScreen,
         page: () => WorkOutVideoScreen(),
+        transition: Transition.noTransition),
+    GetPage(
+        name: Routes.brainGamesPlayScreen,
+        page: () => BrainGamesPlayScreen(),
         transition: Transition.noTransition),
   ];
 }

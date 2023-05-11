@@ -29,6 +29,7 @@ class SharedPreference {
   static const FIRST_NAME = "firstname";
   static const LAST_NAME = "last-name";
   static const USER_EMAIL = "email";
+  static const ACCOUNT_ID = "account-ID";
   static const USER_PROFILE_IMAGE = "user-image";
   static const String IS_DARK_MODE = "skipLogin";
   static const String USER_TYPE = "userType";
@@ -44,6 +45,7 @@ class SharedPreference {
     preferences.putString(FIRST_NAME, userItem.firstname);
     preferences.putString(LAST_NAME, userItem.lastname);
     preferences.putString(USER_PROFILE_IMAGE, userItem.profileImage);
+    preferences.putString(ACCOUNT_ID, userItem.accountId);
     _preferences!.setString(USER_INFO, jsonEncode((userItem).toJson()));
   }
 

@@ -97,4 +97,12 @@ class WellbeingRepo {
 
     return result;
   }
+
+  Future<dynamic> getGames() async {
+    dynamic result;
+    String queryString = MethodNames.getGames;
+    String requestUrl = AppUrls.BASE_URL + queryString;
+    result = await BaseApiHelper.getRequest(requestUrl);
+    return result;
+  }
 }

@@ -1,17 +1,26 @@
-import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:social_value/network/wellbing_repo.dart';
 import '../../../../../api/api_extension.dart';
 import '../../../../../models/article_list_model.dart';
-import '../../../../../models/get_srticle_model.dart';
+import '../../../../../models/get_article_model.dart';
 import '../../../../../theme/app_helpers.dart';
 
 class ArticleController extends GetxController {
   RxBool isLoading = false.obs;
   List<ArticleList> articlesList = [];
+  List<GetArticle> articleCategoryList = [];
+  List<GetArticle> articleCategoryItem = [];
+  bool _isOpen = false;
+  bool get isOpen => _isOpen;
 
+  set isOpen(bool value) {
+    _isOpen = value;
+    update();
+  }
+
+  String articleType = "All";
   getArticleCategories() async {
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
@@ -20,7 +29,13 @@ class ArticleController extends GetxController {
     try {
       print("login data123${result}");
       var data = getArticleFromJson(result);
-
+      articleCategoryList = data;
+      for (var element in articleCategoryList) {
+        if (element.parentCategoryId == "28") {
+          articleCategoryItem.add(element);
+          update();
+        }
+      }
       // print("data----${data[0].title}");
     } catch (e) {
       showAppSnackBar(errorText);

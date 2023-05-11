@@ -40,4 +40,21 @@ class UserStartupRepo {
     //   status: status,
     // );
   }
+
+  Future<dynamic> changePassword({
+    required String email,
+    required String password,
+    required String id,
+  }) async {
+    dynamic result;
+    var params = {
+      "email": email,
+      "password": password,
+      "id": id,
+    };
+    String queryString = MethodNames.changePassword;
+    String requestUrl = AppUrls.BASE_URL + queryString;
+    result = await BaseApiHelper.postRequest(requestUrl, params);
+    return result;
+  }
 }

@@ -60,7 +60,6 @@ class LogInScreen extends StatelessWidget {
                         return StartUpTextFiled(
                           headingText: password,
                           headingTextColor: white,
-                          obscureText: controller.isObscureText.value,
                           controller: controller.passwordCtr,
                           validator: (_) {
                             if (controller.passwordCtr.text.isEmpty) {
@@ -68,6 +67,7 @@ class LogInScreen extends StatelessWidget {
                             }
                             return null;
                           },
+                          obscureText: controller.isObscureText.value,
                           suffixIconWidget: controller.isObscureText.value
                               ? const Icon(
                                   Icons.visibility_off_outlined,

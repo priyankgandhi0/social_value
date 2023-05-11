@@ -19,6 +19,8 @@ class MethodNames {
   static const getVideoCategories = "get-video-categories";
   static const getArticles = "get-articles";
   static const getArticle = "get-article";
+  static const getGames = "get-games";
+  static const changePassword = "change-Password";
 }
 
 class RequestParam {

@@ -25,7 +25,7 @@ class _WellBeingMainState extends State<WellBeingMain>
   @override
   void initState() {
     super.initState();
-    controller = TabController(vsync: this, length: 4);
+    controller = TabController(vsync: this, length: 5);
   }
 
   @override
@@ -37,7 +37,7 @@ class _WellBeingMainState extends State<WellBeingMain>
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 4,
+        length: 5,
         child: BottomNaviBarScreen(
           bottomColor: darkDeepPurple,
           color: darkDeepPurple,
@@ -62,7 +62,7 @@ class _WellBeingMainState extends State<WellBeingMain>
               // physics: const NeverScrollableScrollPhysics(),
               indicatorWeight: 0,
               onTap: (index) {
-                if (index != 0) {
+                if (index != 0 || index != 4) {
                   wellbeingTabs[controller?.index ?? 0].onTap.call();
                 }
                 controller?.animateTo(0);
