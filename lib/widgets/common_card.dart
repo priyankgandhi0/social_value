@@ -143,7 +143,7 @@ class AppArticlesCard extends StatelessWidget {
                   child: desc.interTextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 11,
-                      maxLines: 4,
+                      maxLines: 3,
                       textOverflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       fontColor: descColor ?? Colors.black),
@@ -983,7 +983,7 @@ class _AppVideoCardState extends State<AppVideoCard> {
                       },
                       height: double.infinity,
                       width: double.infinity,
-                      fit: BoxFit.fitHeight,
+                      fit: BoxFit.cover,
                     ),
                     Positioned(
                       left: 10,

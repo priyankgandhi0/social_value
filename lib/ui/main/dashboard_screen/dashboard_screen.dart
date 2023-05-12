@@ -359,7 +359,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                               children: [
                                                 Image.file(
                                                   File(ctrl.getVideo[index]
-                                                      .thumbnail!),
+                                                          .thumbnail ??
+                                                      ""),
                                                   errorBuilder:
                                                       (context, error, trace) {
                                                     return const Center(

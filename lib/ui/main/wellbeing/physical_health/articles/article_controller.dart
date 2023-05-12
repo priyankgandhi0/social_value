@@ -10,6 +10,7 @@ import '../../../../../theme/app_helpers.dart';
 class ArticleController extends GetxController {
   RxBool isLoading = false.obs;
   List<ArticleList> articlesList = [];
+  List<ArticleList> planetArticleList = [];
   List<GetArticle> articleCategoryList = [];
   List<GetArticle> articleCategoryItem = [];
   bool _isOpen = false;
@@ -46,15 +47,17 @@ class ArticleController extends GetxController {
 
   getArticles(String ids) async {
     FocusManager.instance.primaryFocus?.unfocus();
-
     isLoading.value = true;
     dynamic result;
     result = await WellbeingRepo.instance.getArticles(ids: ids);
     try {
       // print("data123${json.decode(result)}");
       var data = articleListFromJson(result);
-      articlesList = data;
-      // print("data----${articlesList[0].title}");
+      if (ids == "11") {
+        planetArticleList = data;
+      } else {
+        articlesList = data;
+      }
     } catch (e) {
       print(e);
       showAppSnackBar(errorText);

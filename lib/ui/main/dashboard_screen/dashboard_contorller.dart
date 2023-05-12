@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
 import '../../../api/api_extension.dart';
 import '../../../models/dashboard_video_model.dart';
@@ -29,6 +30,7 @@ class DashboardController extends GetxController {
       // print("data123${json.decode(result)}");
       var data = videoDataFromJson(result);
       getVideo = data;
+
       await setVideoUrls();
       // log("data----${getVideo[0].title}");
     } catch (e) {
@@ -44,7 +46,7 @@ class DashboardController extends GetxController {
     for (int i = 0; i < getVideo.length; i++) {
       getVideo[i].videoUrl = await getVideoUrl(getVideo[i].museVideoId);
       getVideo[i].thumbnail =
-          await getThumbnail(getVideo[i].videoUrl, int.parse(getVideo[i].id));
+          await getThumbnail(getVideo[i].videoUrl, getVideo[i].id);
     }
   }
 
@@ -66,30 +68,6 @@ class DashboardController extends GetxController {
   }
 }
 
-Future getThumbnail(String videoUrl, int id) async {
-  return await VideoThumbnail.thumbnailFile(
-    video: videoUrl,
-    thumbnailPath: (await _prepareSaveDir(videoUrl, id)),
-    imageFormat: ImageFormat.PNG,
-    maxHeight: 100,
-    // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
-    quality: 100,
-    maxWidth: 150,
-  );
-}
-
-Future<String?> _prepareSaveDir(String downLoadUrl, int id) async {
-  String fileName = "/SocialValue$id";
-  String path = (await _findLocalPath())!;
-  path = path + fileName;
-  final savedDir = Directory(path);
-  final hasExisted = savedDir.existsSync();
-  if (!hasExisted) {
-    await savedDir.create();
-  }
-  return File(path).path;
-}
-
 Future<String?> _findLocalPath() async {
   String? externalStorageDirPath;
   if (Platform.isAndroid) {
@@ -102,69 +80,47 @@ Future<String?> _findLocalPath() async {
       externalStorageDirPath = directory?.path;
     }
   } else if (Platform.isIOS) {
-    try {
-      // final directory = await getApplicationDocumentsDirectory();
-      // externalStorageDirPath = directory.path;
-      externalStorageDirPath = (await getApplicationDocumentsDirectory()).path;
-    } catch (e) {
-      // final directory = await getApplicationDocumentsDirectory();
-      // externalStorageDirPath = directory.path;
-      externalStorageDirPath = (await getApplicationDocumentsDirectory()).path;
+    var status = await Permission.storage.request();
+    if (status.isGranted) {
+      try {
+        // final directory = await getApplicationDocumentsDirectory();
+        // externalStorageDirPath = directory.path;
+        externalStorageDirPath =
+            (await getApplicationDocumentsDirectory()).path;
+        print("==$externalStorageDirPath");
+      } catch (e) {
+        // final directory = await getApplicationDocumentsDirectory();
+        // externalStorageDirPath = directory.path;
+        externalStorageDirPath =
+            (await getApplicationDocumentsDirectory()).path;
+        print(e);
+      }
+    } else {
+      print("==not have permission");
     }
   }
   return externalStorageDirPath;
 }
 
-// Future<String?> _prepareSaveDir() async {
-//   String path = (await findLocalPath())!;
-//   // String fileName = "/SocialValue$id";
-//   // path = path + fileName;
-//   final savedDir = Directory(path);
-//   final hasExisted = savedDir.existsSync();
-//   if (!hasExisted) {
-//     await savedDir.create();
-//   }
-//   return "${path}muse.png";
-// }
-//
-// Future<String?> findLocalPath() async {
-//   String? externalStorageDirPath;
-//   if (Platform.isAndroid) {
-//     try {
-//       final directory = await getExternalStorageDirectory();
-//       externalStorageDirPath = directory?.path;
-//       // externalStorageDirPath = await AndroidPathProvider.downloadsPath;
-//     } catch (e) {
-//       final directory = await getExternalStorageDirectory();
-//       externalStorageDirPath = directory?.path;
-//     }
-//   } else if (Platform.isIOS) {
-//     externalStorageDirPath =
-//         (await getApplicationDocumentsDirectory()).absolute.path;
-//   }
-//   return externalStorageDirPath;
-// }
-//
-// getThumbnail(String videoUrl, int id) async {
-//   String fileName = "/SocialValue$id";
-//   String? localPath = await _prepareSaveDir();
-//   if (localPath == null) {
-//     return null;
-//   }
-//
-//   try {
-//     final fileData = await VideoThumbnail.thumbnailData(
-//       video: videoUrl,
-//       imageFormat: ImageFormat.PNG,
-//       maxHeight:
-//           64, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
-//       quality: 75,
-//     );
-//     File file = File(localPath + fileName);
-//     file.writeAsBytes(fileData!);
-//
-//     print("File Path --->$file");
-//   } catch (e) {
-//     print("Error --> APP $e");
-//   }
-// }
+Future<String?> _prepareSaveDir(String id) async {
+  String fileName = "/SocialValue$id";
+  String path = (await _findLocalPath())!;
+  path = path + fileName;
+  final savedDir = Directory(path);
+  final hasExisted = savedDir.existsSync();
+  if (!hasExisted) {
+    await savedDir.create();
+  }
+  return File(path).path;
+}
+
+Future getThumbnail(String videoUrl, String id) async {
+  return await VideoThumbnail.thumbnailFile(
+    video: videoUrl,
+    thumbnailPath: (await _prepareSaveDir(id)),
+    imageFormat: ImageFormat.JPEG,
+    maxHeight: 100,
+    quality: 100,
+    maxWidth: 150,
+  );
+}

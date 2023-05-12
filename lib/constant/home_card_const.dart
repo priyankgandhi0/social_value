@@ -17,7 +17,7 @@ List<HomeCardModel> homeCard = [
   ),
   HomeCardModel(
     onTap: () {
-      Get.toNamed(Routes.planetMain);
+      Get.toNamed(Routes.planetMain, arguments: {"selectedPage": 0});
     },
     title: sustainabilityHub,
     desc: sustainabilityHubText,
@@ -34,7 +34,7 @@ List<HomeCardModel> homeCard = [
   ),
   HomeCardModel(
     onTap: () {
-      Get.toNamed(Routes.communityMain);
+      Get.toNamed(Routes.communityMain, arguments: {"selectedPage": 0});
     },
     title: communityHub,
     desc: communityHubText,

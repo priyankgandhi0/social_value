@@ -24,7 +24,7 @@ class PhysicalHealthLesMills extends StatelessWidget {
             child: GetBuilder<LessMillsController>(initState: (state) {
               Future.delayed(Duration.zero)
                   .then((value) => controller.getVideoCategories());
-              // controller.videoCategoryItem.clear();
+              controller.videoCategoryItem.clear();
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

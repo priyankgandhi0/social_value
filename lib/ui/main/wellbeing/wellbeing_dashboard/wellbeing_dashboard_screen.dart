@@ -125,7 +125,8 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                                   child: Stack(
                                     children: [
                                       Image.file(
-                                        File(ctrl.getVideo[index].thumbnail!),
+                                        File(ctrl.getVideo[index].thumbnail ??
+                                            ""),
                                         errorBuilder: (context, error, trace) {
                                           return const Center(
                                               child:

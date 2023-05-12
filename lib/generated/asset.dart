@@ -41,9 +41,12 @@ class ImageAssets {
   static const squareFndImage = 'assets/images/squareFnd.png';
   static const foodImage1 = 'assets/images/foodImage.png';
   static const startSurvey = 'assets/images/startsurvey.png';
+  static const planetImage = 'assets/images/planet.png';
   static const articleLadyImage = 'assets/images/detaillady.png';
   static const recLessMillsImage = 'assets/images/reclesmills.png';
   static const appforSleepImage = 'assets/images/appforSleep.png';
+  static const atozFundrising = 'assets/images/atozfundrising.png';
+  static const volunteering = 'assets/images/volunteering.png';
 }
 
 class IconsAssets {

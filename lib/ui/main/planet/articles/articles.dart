@@ -80,7 +80,7 @@ class _ArticlesScreenState extends State<ArticlesScreen>
         Expanded(
           child: TabBarView(
             controller: controller!,
-            children: [SustainabilityArticles(), const EdiArticles()],
+            children: [SustainabilityArticles(), EdiArticles()],
           ),
         )
       ],
@@ -101,9 +101,70 @@ class SustainabilityArticles extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
-              controller.articlesList.clear();
               Future.delayed(Duration.zero)
                   .then((value) => controller.getArticles("11"));
+              controller.planetArticleList.clear();
+            }, builder: (ctrl) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GridView.builder(
+                    itemCount: ctrl.planetArticleList.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 24,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return AppBodyPumptCard(
+                          onTap: () {
+                            Get.toNamed(Routes.articleDetailScreen, arguments: [
+                              {
+                                "text": "Sustainability",
+                              },
+                              {"color": darkGreen},
+                              {"color1": darkSky},
+                              {"id": ctrl.planetArticleList[index].id},
+                            ]);
+                          },
+                          title: ctrl.planetArticleList[index].title,
+                          image: ctrl.planetArticleList[index].featuredImage);
+                    },
+                  )
+                ],
+              );
+            }),
+          ),
+        ),
+        Obx(() => controller.isLoading.value || controller.isLoading.value
+            ? const AppProgress(
+                color: darkGreen,
+              )
+            : Container()),
+      ],
+    );
+  }
+}
+
+class EdiArticles extends StatelessWidget {
+  EdiArticles({Key? key}) : super(key: key);
+  final ArticleController controller = Get.put(ArticleController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 25),
+            child: GetBuilder<ArticleController>(initState: (state) {
+              controller.articlesList.clear();
+              Future.delayed(Duration.zero)
+                  .then((value) => controller.getArticles("13"));
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,7 +184,7 @@ class SustainabilityArticles extends StatelessWidget {
                           onTap: () {
                             Get.toNamed(Routes.articleDetailScreen, arguments: [
                               {
-                                "text": "Sustainability",
+                                "text": "EDI",
                               },
                               {"color": darkGreen},
                               {"color1": darkSky},
@@ -146,14 +207,5 @@ class SustainabilityArticles extends StatelessWidget {
             : Container()),
       ],
     );
-  }
-}
-
-class EdiArticles extends StatelessWidget {
-  const EdiArticles({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column();
   }
 }

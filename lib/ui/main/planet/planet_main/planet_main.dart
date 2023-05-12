@@ -35,7 +35,6 @@ class _PlanetMainState extends State<PlanetMain>
     controller!.dispose();
     super.dispose();
   }
-  // final PlanetMainController controller = Get.put(PlanetMainController());
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +64,10 @@ class _PlanetMainState extends State<PlanetMain>
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
-              if (index != 0) {
-                planetTabs[controller?.index ?? 0].onTap.call();
-              }
+              planetTabs[controller?.index ?? 0].onTap.call();
+              // if (index != 0) {
+              //   planetTabs[controller?.index ?? 0].onTap.call();
+              // }
             },
             indicator: indicatorWidth(white),
             indicatorSize: TabBarIndicatorSize.label,

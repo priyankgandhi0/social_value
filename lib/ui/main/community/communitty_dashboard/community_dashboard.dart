@@ -27,27 +27,66 @@ class CommunityDashboard extends StatelessWidget {
                   fontWeight: FontWeight.w700, fontSize: 16),
             ),
             20.0.addHSpace(),
-            SizedBox(
-              height: 175,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 4,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.only(left: 20),
-                    height: 175,
-                    width: 160,
-                    decoration: BoxDecoration(
-                        // color: Colors.red,
-                        borderRadius: BorderRadius.circular(8),
-                        image: const DecorationImage(
-                            image: AssetImage(
-                              ImageAssets.hand,
-                            ),
-                            fit: BoxFit.cover)),
-                  );
-                },
+            // SizedBox(
+            //   height: 175,
+            //   child: ListView.builder(
+            //     scrollDirection: Axis.horizontal,
+            //     itemCount: 4,
+            //     shrinkWrap: true,
+            //     itemBuilder: (context, index) {
+            //       return Container(
+            //         margin: const EdgeInsets.only(left: 20),
+            //         height: 175,
+            //         width: 160,
+            //         decoration: BoxDecoration(
+            //             // color: Colors.red,
+            //             borderRadius: BorderRadius.circular(8),
+            //             image: const DecorationImage(
+            //                 image: AssetImage(
+            //                   ImageAssets.atozFundrising,
+            //                 ),
+            //                 fit: BoxFit.cover)),
+            //       );
+            //     },
+            //   ),
+            // ),
+
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 20),
+                      height: 175,
+                      width: 165,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          image: const DecorationImage(
+                              image: AssetImage(
+                                ImageAssets.atozFundrising,
+                              ),
+                              fit: BoxFit.cover)),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 20),
+                      height: 175,
+                      width: 165,
+                      decoration: BoxDecoration(
+                          // color: Colors.red,
+                          borderRadius: BorderRadius.circular(8),
+                          image: const DecorationImage(
+                              image: AssetImage(
+                                ImageAssets.volunteering,
+                              ),
+                              fit: BoxFit.cover)),
+                    ),
+                  ),
+                ],
               ),
             ),
             20.0.addHSpace(),

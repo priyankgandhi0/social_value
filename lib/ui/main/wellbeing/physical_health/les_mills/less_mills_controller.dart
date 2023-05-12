@@ -12,7 +12,7 @@ class LessMillsController extends GetxController {
   List<CategoryList> videoCategoryItem = [];
 
   getVideoCategories() async {
-    if (videoCategoryItem.isNotEmpty) return;
+    // if (videoCategoryItem.isNotEmpty) return;
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
