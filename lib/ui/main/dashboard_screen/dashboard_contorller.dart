@@ -74,7 +74,6 @@ Future<String?> _findLocalPath() async {
     try {
       final directory = await getExternalStorageDirectory();
       externalStorageDirPath = directory?.path;
-      // externalStorageDirPath = await AndroidPathProvider.downloadsPath;
     } catch (e) {
       final directory = await getExternalStorageDirectory();
       externalStorageDirPath = directory?.path;
@@ -86,13 +85,13 @@ Future<String?> _findLocalPath() async {
         // final directory = await getApplicationDocumentsDirectory();
         // externalStorageDirPath = directory.path;
         externalStorageDirPath =
-            (await getApplicationDocumentsDirectory()).path;
+            (await getApplicationDocumentsDirectory()).absolute.path;
         print("==$externalStorageDirPath");
       } catch (e) {
         // final directory = await getApplicationDocumentsDirectory();
         // externalStorageDirPath = directory.path;
         externalStorageDirPath =
-            (await getApplicationDocumentsDirectory()).path;
+            (await getApplicationDocumentsDirectory()).absolute.path;
         print(e);
       }
     } else {

@@ -16,7 +16,7 @@ import '../ui/main/my_profile/my_profile.dart';
 import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
 import '../ui/main/staff_survey/staff_survey.dart';
 import '../ui/main/staff_survey/staffsurvey_question.dart';
-import '../ui/main/wellbeing/all_article_screen.dart';
+import '../ui/main/wellbeing/all_article/all_article_screen.dart';
 import '../ui/main/wellbeing/finances/finances_main/finances_main.dart';
 import '../ui/main/wellbeing/my_mental_health/mental_health_main/mental_health_main.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';

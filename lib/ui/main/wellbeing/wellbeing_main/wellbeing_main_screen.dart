@@ -59,13 +59,16 @@ class _WellBeingMainState extends State<WellBeingMain>
               padding: EdgeInsets.zero,
               indicatorPadding: const EdgeInsets.only(top: 3),
               controller: controller,
-              // physics: const NeverScrollableScrollPhysics(),
               indicatorWeight: 0,
               onTap: (index) {
-                if (index != 0 || index != 4) {
+                if (index != 0) {
                   wellbeingTabs[controller?.index ?? 0].onTap.call();
                 }
-                controller?.animateTo(0);
+                setState(() {
+                  controller?.index = 4;
+                });
+
+                controller?.animateTo(index == 4 ? index : 0);
               },
               indicator: indicatorWidth(white),
               indicatorSize: TabBarIndicatorSize.label,

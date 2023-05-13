@@ -64,10 +64,9 @@ class _PlanetMainState extends State<PlanetMain>
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
-              planetTabs[controller?.index ?? 0].onTap.call();
-              // if (index != 0) {
-              //   planetTabs[controller?.index ?? 0].onTap.call();
-              // }
+              if (index != 0) {
+                communityTabs[controller?.index ?? 0].onTap.call();
+              }
             },
             indicator: indicatorWidth(white),
             indicatorSize: TabBarIndicatorSize.label,

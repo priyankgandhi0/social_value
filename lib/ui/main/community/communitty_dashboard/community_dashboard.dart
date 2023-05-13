@@ -1,175 +1,208 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
+import 'package:social_value/widgets/app_progress.dart';
 import 'package:social_value/widgets/wellbeing_screen_card.dart';
 
 import '../../../../constant/app_string.dart';
 import '../../../../generated/assets.dart';
 import '../../../../theme/app_color.dart';
+import '../../../../utils/routes_manager.dart';
 import '../../../../widgets/app_button.dart';
+import '../../../../widgets/common_card.dart';
+import '../../wellbeing/physical_health/articles/article_controller.dart';
 
 class CommunityDashboard extends StatelessWidget {
-  const CommunityDashboard({Key? key}) : super(key: key);
+  CommunityDashboard({Key? key}) : super(key: key);
+  final ArticleController controller = Get.put(ArticleController());
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 25),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: communityHome.interTextStyle(
-                  fontWeight: FontWeight.w700, fontSize: 16),
-            ),
-            20.0.addHSpace(),
-            // SizedBox(
-            //   height: 175,
-            //   child: ListView.builder(
-            //     scrollDirection: Axis.horizontal,
-            //     itemCount: 4,
-            //     shrinkWrap: true,
-            //     itemBuilder: (context, index) {
-            //       return Container(
-            //         margin: const EdgeInsets.only(left: 20),
-            //         height: 175,
-            //         width: 160,
-            //         decoration: BoxDecoration(
-            //             // color: Colors.red,
-            //             borderRadius: BorderRadius.circular(8),
-            //             image: const DecorationImage(
-            //                 image: AssetImage(
-            //                   ImageAssets.atozFundrising,
-            //                 ),
-            //                 fit: BoxFit.cover)),
-            //       );
-            //     },
-            //   ),
-            // ),
-
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 25),
+            child: GetBuilder<ArticleController>(initState: (state) {
+              Future.delayed(Duration.zero)
+                  .then((value) => controller.getArticles("12,60"));
+              controller.articlesList.clear();
+            }, builder: (ctrl) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      height: 175,
-                      width: 165,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          image: const DecorationImage(
-                              image: AssetImage(
-                                ImageAssets.atozFundrising,
-                              ),
-                              fit: BoxFit.cover)),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: communityHome.interTextStyle(
+                        fontWeight: FontWeight.w700, fontSize: 16),
                   ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      height: 175,
-                      width: 165,
-                      decoration: BoxDecoration(
-                          // color: Colors.red,
-                          borderRadius: BorderRadius.circular(8),
-                          image: const DecorationImage(
-                              image: AssetImage(
-                                ImageAssets.volunteering,
-                              ),
-                              fit: BoxFit.cover)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            20.0.addHSpace(),
-            Container(
-              padding: const EdgeInsets.all(15),
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: darkPurple, borderRadius: BorderRadius.circular(8)),
-              child: Row(
-                children: [
-                  Image.asset(
-                    IconsAssets.celenderIcon,
-                    color: white,
-                  ),
-                  10.0.addWSpace(),
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                  20.0.addHSpace(),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
                       children: [
-                        nextAwarenessDay.interTextStyle(
-                            textAlign: TextAlign.center,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            fontColor: white),
-                        7.0.addHSpace(),
-                        internationalMicrovolunteering.interTextStyle(
-                            textAlign: TextAlign.center,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 18,
-                            fontColor: white),
-                        7.0.addHSpace(),
-                        "15th April 2023".interTextStyle(
-                            textAlign: TextAlign.center,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 12,
-                            fontColor: white)
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 20),
+                            height: 175,
+                            width: 165,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: const DecorationImage(
+                                    image: AssetImage(
+                                      ImageAssets.atozFundrising,
+                                    ),
+                                    fit: BoxFit.cover)),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 20),
+                            height: 175,
+                            width: 165,
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(8),
+                                image: const DecorationImage(
+                                    image: AssetImage(
+                                      ImageAssets.volunteering,
+                                    ),
+                                    fit: BoxFit.cover)),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            25.0.addHSpace(),
-            XoDiscountCard(
-              onTap: () {},
-              fillColor: lightPurple,
-              image: Assets.imagesCreditCard,
-              appBorderFillColor: darkPurple,
-              desc: memberShipDesc,
-            ).paddingSymmetric(horizontal: 20),
-            20.0.addHSpace(),
-            Container(
-                padding: const EdgeInsets.all(10),
-                height: 250,
-                width: double.infinity,
-                // color: Colors.white,
-                child: Column(
-                  children: [
-                    ukBased.interTextStyle(
-                        textAlign: TextAlign.center,
-                        fontWeight: FontWeight.w700,
-                        fontColor: textColor,
-                        fontSize: 16,
-                        maxLines: 2),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          Image.asset(ImageAssets.shelterImage),
-                          Image.asset(ImageAssets.teensUnitsImage),
-                          80.0.addWSpace(),
-                          Image.asset(ImageAssets.cfImage),
-                          Image.asset(ImageAssets.trusselImage),
-                        ],
-                      ),
+                  20.0.addHSpace(),
+                  Container(
+                    padding: const EdgeInsets.all(15),
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                        color: darkPurple,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          IconsAssets.celenderIcon,
+                          color: white,
+                        ),
+                        10.0.addWSpace(),
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              nextAwarenessDay.interTextStyle(
+                                  textAlign: TextAlign.center,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  fontColor: white),
+                              7.0.addHSpace(),
+                              internationalMicrovolunteering.interTextStyle(
+                                  textAlign: TextAlign.center,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 18,
+                                  fontColor: white),
+                              7.0.addHSpace(),
+                              "15th April 2023".interTextStyle(
+                                  textAlign: TextAlign.center,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12,
+                                  fontColor: white)
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    15.0.addHSpace(),
-                    AppButton(text: "Find out more", onTap: () {}),
-                  ],
-                )),
-          ],
+                  ),
+                  25.0.addHSpace(),
+                  XoDiscountCard(
+                    onTap: () {},
+                    fillColor: lightPurple,
+                    image: Assets.imagesCreditCard,
+                    appBorderFillColor: darkPurple,
+                    desc: memberShipDesc,
+                  ).paddingSymmetric(horizontal: 20),
+                  20.0.addHSpace(),
+                  Container(
+                      padding: const EdgeInsets.all(10),
+                      height: 250,
+                      width: double.infinity,
+                      // color: Colors.white,
+                      child: Column(
+                        children: [
+                          ukBased.interTextStyle(
+                              textAlign: TextAlign.center,
+                              fontWeight: FontWeight.w700,
+                              fontColor: textColor,
+                              fontSize: 16,
+                              maxLines: 2),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                Image.asset(ImageAssets.shelterImage),
+                                Image.asset(ImageAssets.teensUnitsImage),
+                                80.0.addWSpace(),
+                                Image.asset(ImageAssets.cfImage),
+                                Image.asset(ImageAssets.trusselImage),
+                              ],
+                            ),
+                          ),
+                          15.0.addHSpace(),
+                          AppButton(text: "Find out more", onTap: () {}),
+                        ],
+                      )),
+                  20.0.addHSpace(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: latestArticlesText.interTextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        fontColor: textColor),
+                  ),
+                  10.0.addHSpace(),
+                  ctrl.articlesList.isEmpty
+                      ? const SizedBox()
+                      : SizedBox(
+                          height: 165,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 4,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return AppArticlesCard(
+                                  onTap: () {
+                                    Get.toNamed(Routes.articleDetailScreen,
+                                        arguments: [
+                                          {
+                                            "text": "Community",
+                                          },
+                                          {"color": darkPurple},
+                                          {"color1": darkPurple},
+                                          {"id": ctrl.articlesList[index].id}
+                                        ]);
+                                  },
+                                  descColor: Colors.black,
+                                  desc: ctrl.articlesList[index].title,
+                                  image:
+                                      ctrl.articlesList[index].featuredImage);
+                            },
+                          ),
+                        ).paddingOnly(left: 10, right: 10),
+                ],
+              );
+            }),
+          ),
         ),
-      ),
+        Obx(() => controller.isLoading.value
+            ? const AppProgress(
+                color: darkPurple,
+              )
+            : Container())
+      ],
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:social_value/constant/app_string.dart';
 import 'package:social_value/models/app_tab_bar_model.dart';
+import 'package:social_value/ui/main/wellbeing/all_article/all_article_screen.dart';
 import 'package:social_value/ui/main/wellbeing/physical_health/articles/articles_screen.dart';
 import '../ui/main/community/awareness_days/awareness_days.dart';
 import '../ui/main/community/charity_Page/charity_Page.dart';
@@ -13,7 +14,6 @@ import '../ui/main/planet/articles/articles.dart';
 import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
 import '../ui/main/planet/planet_dashboard/planet_dashboard.dart';
 import '../ui/main/planet/webinars/webinars.dart';
-import '../ui/main/wellbeing/all_article_screen.dart';
 import '../ui/main/wellbeing/finances/ articles/finances_artical_screen.dart';
 import '../ui/main/wellbeing/finances/discount_card/discount_card_screen.dart';
 import '../ui/main/wellbeing/finances/finances_dashboard/finances_dashboard.dart';
@@ -57,11 +57,7 @@ List<AppTabBarModel> wellbeingTabs = [
         Get.toNamed(Routes.financeMain, arguments: {"selectedPage": 0});
       }),
   AppTabBarModel(
-      tabText: articles,
-      tabWidget: Column(),
-      onTap: () {
-        Get.toNamed(Routes.allArticleScreen);
-      }),
+      tabText: articles, tabWidget: AllArticleScreen(), onTap: () {}),
 ];
 List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
   AppTabBarModel(
@@ -130,7 +126,7 @@ List<AppTabBarModel> planetTabs = [
 ];
 List<AppTabBarModel> communityTabs = [
   AppTabBarModel(
-      tabText: dashboard, tabWidget: const CommunityDashboard(), onTap: () {}),
+      tabText: dashboard, tabWidget: CommunityDashboard(), onTap: () {}),
   AppTabBarModel(
       tabText: awarenessDays,
       tabWidget: const AwarenessDaysScreen(),

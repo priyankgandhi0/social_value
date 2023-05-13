@@ -143,7 +143,7 @@ class SustainabilityWebinars extends StatelessWidget {
         ),
         Obx(() => controller.isLoading.value || controller.isLoading.value
             ? const AppProgress(
-                color: darkDeepPurple,
+                color: darkGreen,
               )
             : Container()),
       ],
@@ -207,7 +207,7 @@ class EdiWebinars extends StatelessWidget {
         ),
         Obx(() => controller.isLoading.value || controller.isLoading.value
             ? const AppProgress(
-                color: darkDeepPurple,
+                color: darkGreen,
               )
             : Container()),
       ],

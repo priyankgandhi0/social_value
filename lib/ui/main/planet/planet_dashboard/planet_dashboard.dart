@@ -77,7 +77,6 @@ class PlanetDashboard extends StatelessWidget {
                     child: Row(
                       children: [
                         AppRactangleCard(
-                          // top: 260,
                           height: 320,
                           width: 211,
                           desc: '',

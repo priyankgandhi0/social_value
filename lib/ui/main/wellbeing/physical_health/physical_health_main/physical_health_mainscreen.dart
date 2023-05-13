@@ -72,7 +72,6 @@ class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
             controller: controller,
-            // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
