@@ -208,30 +208,33 @@ class MentalHealthDashBoard extends StatelessWidget {
               left: 20,
             ),
             10.0.addHSpace(),
-            SizedBox(
-              height: 165,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 8,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return AppArticlesCard(
-                      onTap: () {
-                        Get.toNamed(Routes.articleDetailScreen, arguments: [
-                          {
-                            "text": "mental health",
-                          },
-                          {"color": darkDeepPurple},
-                          {"color1": darkDeepPurple},
-                          {"id": controller.articlesList[index].id}
-                        ]);
+            ctrl.articlesList.isEmpty
+                ? const SizedBox()
+                : SizedBox(
+                    height: 165,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 8,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return AppArticlesCard(
+                            onTap: () {
+                              Get.toNamed(Routes.articleDetailScreen,
+                                  arguments: [
+                                    {
+                                      "text": "mental health",
+                                    },
+                                    {"color": darkDeepPurple},
+                                    {"color1": darkDeepPurple},
+                                    {"id": controller.articlesList[index].id}
+                                  ]);
+                            },
+                            descColor: Colors.black,
+                            desc: ctrl.articlesList[index].title,
+                            image: ctrl.articlesList[index].featuredImage);
                       },
-                      descColor: Colors.black,
-                      desc: ctrl.articlesList[index].title,
-                      image: ctrl.articlesList[index].featuredImage);
-                },
-              ),
-            ).paddingOnly(left: 10, right: 10),
+                    ),
+                  ).paddingOnly(left: 10, right: 10),
             30.0.addHSpace(),
           ],
         );

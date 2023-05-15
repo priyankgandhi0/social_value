@@ -43,7 +43,10 @@ class CommunityDashboard extends StatelessWidget {
                     child: Row(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(Routes.communityMain,
+                                arguments: {"selectedPage": 3});
+                          },
                           child: Container(
                             margin: const EdgeInsets.only(left: 20),
                             height: 175,
@@ -170,7 +173,9 @@ class CommunityDashboard extends StatelessWidget {
                           height: 165,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 4,
+                            itemCount: ctrl.articlesList.length >= 8
+                                ? 8
+                                : ctrl.articlesList.length,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
                               return AppArticlesCard(

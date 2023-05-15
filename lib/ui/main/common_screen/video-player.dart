@@ -23,6 +23,7 @@ class VideoPlayerScreen extends StatefulWidget {
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   final DashboardController ctrl = Get.put(DashboardController());
+
   // late VideoPlayerController controller;
   // late Future<void> initializeVideoPlayerFuture;
   // bool visible = false;
@@ -49,11 +50,17 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   //   super.dispose();
   // }
   late FlickManager flickManager;
+
   @override
   void initState() {
     super.initState();
     flickManager = FlickManager(
-      videoPlayerController: VideoPlayerController.network(widget.data["url"]),
+      videoPlayerController: VideoPlayerController.network(widget.data["url"]
+          // "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          )
+        ..initialize().then((value) {
+          setState(() {});
+        }),
     );
   }
 

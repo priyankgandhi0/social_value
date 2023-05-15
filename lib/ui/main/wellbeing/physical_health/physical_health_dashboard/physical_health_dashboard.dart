@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:social_value/ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
 import '../../../../../generated/asset.dart';
@@ -175,7 +176,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                                   ));
                             },
                           ),
-                        ).paddingOnly(left: 10, right: 10),
+                        ),
                 ),
                 30.0.addHSpace(),
                 latestArticlesText.interTextStyle(

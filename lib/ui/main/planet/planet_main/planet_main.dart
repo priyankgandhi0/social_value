@@ -21,8 +21,9 @@ class PlanetMain extends StatefulWidget {
 
 class _PlanetMainState extends State<PlanetMain>
     with SingleTickerProviderStateMixin {
-  dynamic data = Get.arguments;
   TabController? controller;
+  dynamic data = Get.arguments;
+
   @override
   void initState() {
     super.initState();
@@ -61,7 +62,6 @@ class _PlanetMainState extends State<PlanetMain>
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
             controller: controller,
-            // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {

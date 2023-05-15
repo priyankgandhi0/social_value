@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:social_value/ui/main/wellbeing/physical_health/articles/article_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:social_value/widgets/app_progress.dart';
-
 import '../../../../constant/app_string.dart';
 import '../../../../generated/asset.dart';
 import '../../../../generated/assets.dart';
@@ -12,11 +11,13 @@ import '../../../../theme/app_color.dart';
 import '../../../../utils/routes_manager.dart';
 import '../../../../widgets/common_card.dart';
 import '../../../../widgets/wellbeing_screen_card.dart';
+import '../../wellbeing/wellbeing_dashboard/wellbeing_dashboard_controller.dart';
 
 class PlanetDashboard extends StatelessWidget {
   PlanetDashboard({Key? key}) : super(key: key);
   final ArticleController controller = Get.put(ArticleController());
-
+  final WellbeingController wellbeingController =
+      Get.put(WellbeingController());
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -29,6 +30,8 @@ class PlanetDashboard extends StatelessWidget {
                   .then((value) => controller.getArticles("13"));
               Future.delayed(Duration.zero)
                   .then((value) => controller.getArticles("11"));
+              Future.delayed(Duration.zero)
+                  .then((value) => wellbeingController.getCompany());
               controller.articlesList.clear();
               controller.planetArticleList.clear();
             }, builder: (ctrl) {
@@ -45,12 +48,18 @@ class PlanetDashboard extends StatelessWidget {
                         children: [
                           Flexible(
                             child: PlanetScore(
-                              scoreTitle: scoreTitle,
-                              scoreDesc: scoreDesc,
-                              percentage: 0.75,
+                              scoreTitle: "Test Company's Sustainability Score",
+                              scoreDesc:
+                                  "This score is based on the sustainability score of your organisation. As the organisation evolves with the support of our platform the score will continually improve.",
+                              percentage: double.parse(wellbeingController
+                                          .companyData?.sustainabilityScore ??
+                                      "") /
+                                  100,
                               bgColor: darkGreen,
                               percentageColor: darkGreen,
-                              score: '75',
+                              score: wellbeingController
+                                      .companyData?.sustainabilityScore ??
+                                  "",
                             ),
                           ),
                           const VerticalDivider(
@@ -60,11 +69,17 @@ class PlanetDashboard extends StatelessWidget {
                           Flexible(
                             child: PlanetScore(
                               scoreTitle: "Test Company's EDI Score",
-                              scoreDesc: scoreDesc,
-                              percentage: 0.75,
+                              scoreDesc:
+                                  "Your organisation's staff well being score will appear here as soon as they have completed the SVC survey.",
+                              percentage: double.parse(wellbeingController
+                                          .companyData?.diversityScore ??
+                                      "") /
+                                  100,
                               bgColor: darkGreen,
                               percentageColor: darkGreen,
-                              score: '75',
+                              score: wellbeingController
+                                      .companyData?.diversityScore ??
+                                  "",
                             ),
                           ),
                         ],

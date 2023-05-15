@@ -21,6 +21,7 @@ class _PhysicalHealthBmiCalculatorState
     extends State<PhysicalHealthBmiCalculator> {
   final BmiCalculatorController controller = Get.put(BmiCalculatorController());
   double? _result;
+  Text? type;
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +89,7 @@ class _PhysicalHealthBmiCalculatorState
                       onTap: () {
                         if (controller.key.currentState!.validate()) {
                           calculateBMI();
+                          // getResult();
                           controller.isCalculate.value = true;
                           controller.update();
                         }
@@ -117,7 +119,7 @@ class _PhysicalHealthBmiCalculatorState
                             ? const Text("")
                             : Row(
                                 children: [
-                                  "Your BMI is ${(_result?.toStringAsFixed(1))}"
+                                  "Your BMI is ${(_result?.toStringAsFixed(1))} ${type.toString()}"
                                       .interTextStyle(
                                           fontColor: darkDeepPurple,
                                           fontSize: 16,
@@ -249,29 +251,30 @@ class _PhysicalHealthBmiCalculatorState
 
   getResult() {
     if (_result! < 18.5) {
-      return const Text("(underweight)",
+      return type = const Text("(underweight)",
           style: TextStyle(
               color: darkDeepPurple,
               fontSize: 16,
               fontWeight: FontWeight.w700));
     } else if (_result! >= 18.5 && _result! <= 24.9) {
-      return const Text("(healthy weight)",
+      return type = const Text("(healthy weight)",
           style: TextStyle(
               color: darkDeepPurple,
               fontSize: 16,
               fontWeight: FontWeight.w700));
     } else if (_result! >= 25 && _result! <= 29.9) {
-      return const Text("(overweight )",
+      return type = const Text("(overweight )",
           style: TextStyle(
               color: darkDeepPurple,
               fontSize: 16,
               fontWeight: FontWeight.w700));
     } else if (_result! >= 30 && _result! <= 39.9) {
-      return const Text("(obese )",
+      return type = const Text("(obese )",
           style: TextStyle(
               color: darkDeepPurple,
               fontSize: 16,
               fontWeight: FontWeight.w700));
     }
+    return type.toString();
   }
 }

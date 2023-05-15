@@ -21,6 +21,8 @@ class MethodNames {
   static const getArticle = "get-article";
   static const getGames = "get-games";
   static const changePassword = "change-Password";
+  static const editProfile = "edit-profile";
+  static const getCompany = "get-company";
 }
 
 class RequestParam {

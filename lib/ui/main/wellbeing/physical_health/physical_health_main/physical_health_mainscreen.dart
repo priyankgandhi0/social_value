@@ -9,7 +9,9 @@ import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
 
 class PhysicalHealthMainScreen extends StatefulWidget {
-  const PhysicalHealthMainScreen({Key? key}) : super(key: key);
+  const PhysicalHealthMainScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<PhysicalHealthMainScreen> createState() =>

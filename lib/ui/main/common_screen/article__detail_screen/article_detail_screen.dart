@@ -123,8 +123,8 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
             }),
           ),
           Obx(() => controller.isLoading.value || controller.isLoading.value
-              ? const AppProgress(
-                  color: darkDeepPurple,
+              ? AppProgress(
+                  color: data[1]["color"],
                 )
               : Container()),
         ],

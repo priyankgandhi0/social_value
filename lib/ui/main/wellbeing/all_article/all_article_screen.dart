@@ -28,6 +28,7 @@ class AllArticleScreen extends StatelessWidget {
                   Future.delayed(Duration.zero).then((value) =>
                       controller.getArticles(
                           "33,38,41,40,32,37,30,39,36,49,31,35,34,29"));
+                  controller.articleType = "All";
                   controller.articlesList.clear();
                 }, builder: (ctrl) {
                   return Stack(
@@ -116,6 +117,8 @@ class AllArticleScreen extends StatelessWidget {
                                           ),
                                           ListView.builder(
                                             shrinkWrap: true,
+                                            physics:
+                                                const NeverScrollableScrollPhysics(),
                                             itemCount:
                                                 ctrl.articleCategoryItem.length,
                                             itemBuilder: (BuildContext context,

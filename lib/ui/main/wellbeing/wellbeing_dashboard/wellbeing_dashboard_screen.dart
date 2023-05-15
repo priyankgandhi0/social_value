@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/generated/asset.dart';
+import 'package:social_value/ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../constant/app_string.dart';
 import '../../../../generated/assets.dart';
@@ -17,6 +18,8 @@ class WellBeingDashBoardScreen extends StatelessWidget {
   WellBeingDashBoardScreen({Key? key}) : super(key: key);
   final DashboardController controller = Get.put(DashboardController());
   final ArticleController articleController = Get.put(ArticleController());
+  final WellbeingController wellbeingController =
+      Get.put(WellbeingController());
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,8 @@ class WellBeingDashBoardScreen extends StatelessWidget {
         controller.getVideo.clear();
         Future.delayed(Duration.zero).then((value) => articleController.getArticles(
             "5,9,10,14,15,17,22,23,24,26,29,31,32,33,34,35,36,37,38,39,40,41,442,49"));
+        Future.delayed(Duration.zero)
+            .then((value) => wellbeingController.getCompany());
         articleController.articlesList.clear();
       }, builder: (ctrl) {
         return Column(
@@ -35,10 +40,12 @@ class WellBeingDashBoardScreen extends StatelessWidget {
             WellBeingScore(
               scoreTitle: scoreTitle,
               scoreDesc: scoreDesc,
-              percentage: 0.7,
+              percentage: double.parse(
+                      wellbeingController.companyData?.wellbeingScore ?? "") /
+                  100,
               bgColor: deepPurple,
               percentageColor: darkDeepPurple,
-              score: '75',
+              score: wellbeingController.companyData?.wellbeingScore ?? "",
             ),
             10.0.addHSpace(),
             SingleChildScrollView(

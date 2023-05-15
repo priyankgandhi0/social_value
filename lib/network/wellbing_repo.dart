@@ -105,4 +105,17 @@ class WellbeingRepo {
     result = await BaseApiHelper.getRequest(requestUrl);
     return result;
   }
+
+  Future<dynamic> getCompany({required String id}) async {
+    dynamic result;
+
+    var queryParameters = {RequestParam.id: id};
+    String queryString =
+        Uri(path: MethodNames.getCompany, queryParameters: queryParameters)
+            .toString();
+
+    String requestUrl = AppUrls.BASE_URL + queryString;
+    result = await BaseApiHelper.getRequest(requestUrl);
+    return result;
+  }
 }
