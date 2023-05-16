@@ -119,7 +119,7 @@ class _PhysicalHealthBmiCalculatorState
                             ? const Text("")
                             : Row(
                                 children: [
-                                  "Your BMI is ${(_result?.toStringAsFixed(1))} ${type.toString()}"
+                                  "Your BMI is ${(_result?.toStringAsFixed(1))}"
                                       .interTextStyle(
                                           fontColor: darkDeepPurple,
                                           fontSize: 16,

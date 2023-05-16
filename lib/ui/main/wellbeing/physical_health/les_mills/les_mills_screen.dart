@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:social_value/generated/asset.dart';
 
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
@@ -22,8 +23,9 @@ class PhysicalHealthLesMills extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 25),
             child: GetBuilder<LessMillsController>(initState: (state) {
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getVideoCategories());
+              Future.delayed(Duration.zero, () async {
+                await controller.getVideoCategories();
+              });
               controller.videoCategoryItem.clear();
             }, builder: (ctrl) {
               return Column(
@@ -44,7 +46,7 @@ class PhysicalHealthLesMills extends StatelessWidget {
                       child: Column(
                         children: [
                           Image.asset(
-                            Assets.imagesLessmills,
+                            ImageAssets.lessmillsblack,
                             color: Colors.black,
                           ),
                           20.0.addHSpace(),

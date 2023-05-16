@@ -41,7 +41,7 @@ class WellBeingDashBoardScreen extends StatelessWidget {
               scoreTitle: scoreTitle,
               scoreDesc: scoreDesc,
               percentage: double.parse(
-                      wellbeingController.companyData?.wellbeingScore ?? "") /
+                      wellbeingController.companyData?.wellbeingScore ?? "0") /
                   100,
               bgColor: deepPurple,
               percentageColor: darkDeepPurple,

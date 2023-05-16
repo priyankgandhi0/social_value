@@ -29,7 +29,7 @@ class LogInScreenController extends GetxController {
       password: passwordCtr.text,
     );
     try {
-      print("login data123${result}");
+      // print("login data123$result");
       UserModel user = UserModel.fromJson(json.decode(result));
       preferences.saveUserItem(user);
       preferences.putString(SharedPreference.USER_EMAIL, user.email);

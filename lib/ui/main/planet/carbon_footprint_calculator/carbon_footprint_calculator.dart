@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:social_value/generated/asset.dart';
-import 'package:social_value/utils/extension.dart';
-import '../../../../constant/app_string.dart';
-import '../../../../theme/app_color.dart';
-import '../../../../widgets/app_button.dart';
-import '../../../../widgets/common_textfield.dart';
-import 'carbon_footprint_controller.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class CarbonFootPrintCalculator extends StatelessWidget {
-  CarbonFootPrintCalculator({Key? key}) : super(key: key);
-  final CarbonFootPrintController controller =
-      Get.put(CarbonFootPrintController());
+  const CarbonFootPrintCalculator({Key? key}) : super(key: key);
+  // final CarbonFootPrintController controller =
+  //     Get.put(CarbonFootPrintController());
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const WebView(
+        backgroundColor: Colors.white,
+        javascriptMode: JavascriptMode.unrestricted,
+        initialUrl:
+            "https://socialvaluecompany.com/household-carbon-calculator/");
+    /*return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         child: Form(
@@ -154,6 +152,6 @@ class CarbonFootPrintCalculator extends StatelessWidget {
           ),
         ),
       ),
-    );
+    );*/
   }
 }

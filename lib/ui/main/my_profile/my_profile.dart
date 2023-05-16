@@ -59,11 +59,39 @@ class MyProfileScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8)),
                       child: Column(
                         children: [
-                          memberSinceFeb.interTextStyle(
-                            textAlign: TextAlign.center,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
+                          RichText(
+                            text: TextSpan(
+                              text: "Hi, ",
+                              style: const TextStyle(
+                                color: textColor,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 16,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: ctrl.firstName,
+                                  style: const TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                const TextSpan(
+                                  text: memberSinceFeb,
+                                  style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
+                          // memberSinceFeb.interTextStyle(
+                          //   textAlign: TextAlign.center,
+                          //   fontSize: 16,
+                          //   fontWeight: FontWeight.w700,
+                          // ),
                           10.0.addHSpace(),
                           Image.asset(Assets.imagesMemberLogo),
                           10.0.addHSpace(),

@@ -53,7 +53,7 @@ class PlanetDashboard extends StatelessWidget {
                                   "This score is based on the sustainability score of your organisation. As the organisation evolves with the support of our platform the score will continually improve.",
                               percentage: double.parse(wellbeingController
                                           .companyData?.sustainabilityScore ??
-                                      "") /
+                                      "0") /
                                   100,
                               bgColor: darkGreen,
                               percentageColor: darkGreen,
@@ -73,7 +73,7 @@ class PlanetDashboard extends StatelessWidget {
                                   "Your organisation's staff well being score will appear here as soon as they have completed the SVC survey.",
                               percentage: double.parse(wellbeingController
                                           .companyData?.diversityScore ??
-                                      "") /
+                                      "0") /
                                   100,
                               bgColor: darkGreen,
                               percentageColor: darkGreen,

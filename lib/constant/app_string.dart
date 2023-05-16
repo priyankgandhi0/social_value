@@ -24,7 +24,7 @@ const introductionDesc =
 const privacyPolicy = 'Privacy Policy';
 const memberSinceFebDesc =
     'You can earn more digital badges via participation and account longevity. Keep an eye out here for your digital badges and rewards.';
-const memberSinceFeb = 'Hi, [First Name], you’ve been a member Since Feb 2022';
+const memberSinceFeb = ', you’ve been a member Since Feb 2022';
 const firstName = 'First Name';
 const lastName = 'Last Name';
 const socialValueScoreText = 'Social Value Score';

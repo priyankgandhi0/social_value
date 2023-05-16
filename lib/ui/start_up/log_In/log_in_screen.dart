@@ -4,7 +4,6 @@ import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
 
-import '../../../generated/asset.dart';
 import '../../../generated/assets.dart';
 
 import '../../../widgets/app_button.dart';
@@ -49,7 +48,6 @@ class LogInScreen extends StatelessWidget {
                                   r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                               .hasMatch(_!)) {
                             return enterValidEmail;
-                            // 'Enter Valid $message';
                           }
                           return null;
                         },

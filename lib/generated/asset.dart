@@ -47,6 +47,9 @@ class ImageAssets {
   static const appforSleepImage = 'assets/images/appforSleep.png';
   static const atozFundrising = 'assets/images/atozfundrising.png';
   static const volunteering = 'assets/images/volunteering.png';
+  static const lessmills = 'assets/images/lessmills.svg';
+  static const lessmillsblack = 'assets/images/lessmillablack.png';
+  static const String placeHolder = 'assets/images/placeholder.png';
 }
 
 class IconsAssets {

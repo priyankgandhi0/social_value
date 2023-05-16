@@ -1,8 +1,6 @@
-import 'dart:async';
 import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
@@ -10,7 +8,6 @@ import 'package:video_player/video_player.dart';
 import '../constant/app_string.dart';
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
-import '../utils/routes_manager.dart';
 import 'app_button.dart';
 
 class AppSquareCard extends StatelessWidget {
@@ -424,7 +421,7 @@ class AppBodyPumptCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.grey.shade400,
+                    color: Colors.grey.shade300,
                     blurRadius: 3,
                     offset: const Offset(2, 2))
               ]),
@@ -436,10 +433,24 @@ class AppBodyPumptCard extends StatelessWidget {
                     topRight: Radius.circular(10)),
                 child: Container(
                   height: 116,
+                  child: FadeInImage.assetNetwork(
+                    placeholder: "assets/images/placeholder.png",
+                    image: image,
+                    fit: BoxFit.cover,
+                    placeholderFit: BoxFit.fitWidth,
+                    placeholderCacheHeight: 116,
+                    // placeholderCacheWidth:,
+                  ),
                   // width: 170,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(image), fit: BoxFit.cover)),
+                  // child: image.isEmpty
+                  //     ? Image.asset(ImageAssets.placeHolder)
+                  //     : Image.network(
+                  //         image,
+                  //         fit: BoxFit.cover,
+                  //       ),
+                  // decoration: BoxDecoration(
+                  //     image: DecorationImage(
+                  //         image: NetworkImage(image), fit: BoxFit.cover)),
                 ),
               ),
               Expanded(
@@ -481,12 +492,14 @@ class WorkOutCard extends StatelessWidget {
   final String title;
   final String image;
   final Color? titleColor;
-  final VoidCallback onTap;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        onTap();
+      },
       child: Container(
           height: 100,
           width: 180,

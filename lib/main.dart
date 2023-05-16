@@ -6,6 +6,7 @@ import 'constant/shred_preference.dart';
 
 void main() async {
   runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
   await preferences.init();
   await preferences.putAppDeviceInfo();
 }

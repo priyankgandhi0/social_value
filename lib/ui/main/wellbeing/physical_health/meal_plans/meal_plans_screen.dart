@@ -51,7 +51,7 @@ class PhysicalHealthMealPlans extends StatelessWidget {
                         onTap: () {
                           Get.toNamed(Routes.articleDetailScreen, arguments: [
                             {
-                              "text": "physical health",
+                              "text": "Meal plan",
                             },
                             {"color": darkDeepPurple},
                             {"color1": darkDeepPurple},
