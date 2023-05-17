@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:social_value/ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
+import '../../../../../constant/requst_const.dart';
 import '../../../../../generated/asset.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../theme/app_color.dart';
@@ -26,11 +26,11 @@ class PhysicalHealthDashBoard extends StatelessWidget {
       children: [
         SingleChildScrollView(
           child: GetBuilder<ArticleController>(initState: (state) {
-            Future.delayed(Duration.zero)
-                .then((value) => controller.getArticles("31"));
+            Future.delayed(Duration.zero).then((value) =>
+                controller.getArticles(MethodIDs.physicalDashboardArticle));
             controller.articlesList.clear();
-            Future.delayed(Duration.zero)
-                .then((value) => dashboardController.getVideos("67"));
+            Future.delayed(Duration.zero).then((value) => dashboardController
+                .getVideos(MethodIDs.physicalDashboardVideo));
             dashboardController.getVideo.clear();
           }, builder: (ctrl) {
             return Column(

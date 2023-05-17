@@ -1,13 +1,7 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:social_value/constant/app_string.dart';
-
 import '../../../api/api_extension.dart';
 import '../../../constant/shred_preference.dart';
-import '../../../models/user_model.dart';
 import '../../../network/auth_repo.dart';
 import '../../../theme/app_helpers.dart';
 

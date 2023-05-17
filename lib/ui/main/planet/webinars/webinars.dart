@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../constant/requst_const.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../utils/extension.dart';
 import '../../../../utils/routes_manager.dart';
@@ -100,8 +101,8 @@ class SustainabilityWebinars extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getVideos("89,90"));
+              Future.delayed(Duration.zero).then((value) =>
+                  controller.getVideos(MethodIDs.sustainabilityWebinars));
               controller.getVideo.clear();
             }, builder: (ctrl) {
               return Column(
@@ -165,7 +166,7 @@ class EdiWebinars extends StatelessWidget {
                 const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
               Future.delayed(Duration.zero)
-                  .then((value) => controller.getVideos("64"));
+                  .then((value) => controller.getVideos(MethodIDs.EdiWebinars));
               controller.getVideo.clear();
             }, builder: (ctrl) {
               return Column(

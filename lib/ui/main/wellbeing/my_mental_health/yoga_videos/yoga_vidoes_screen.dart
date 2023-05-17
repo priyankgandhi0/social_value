@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 
 import '../../../../../constant/app_string.dart';
+import '../../../../../constant/requst_const.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/app_progress.dart';
@@ -22,8 +23,8 @@ class MentalHealthYogaVideo extends StatelessWidget {
                 const EdgeInsets.only(left: 10, right: 20, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
               controller.getVideo.clear();
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getVideos("83"));
+              Future.delayed(Duration.zero).then(
+                  (value) => controller.getVideos(MethodIDs.mentalYogaVideo));
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

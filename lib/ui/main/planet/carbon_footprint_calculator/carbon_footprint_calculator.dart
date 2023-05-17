@@ -1,17 +1,58 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:social_value/constant/requst_const.dart';
+import 'package:social_value/theme/app_color.dart';
+import 'package:social_value/widgets/app_progress.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class CarbonFootPrintCalculator extends StatelessWidget {
+class CarbonFootPrintCalculator extends StatefulWidget {
   const CarbonFootPrintCalculator({Key? key}) : super(key: key);
-  // final CarbonFootPrintController controller =
-  //     Get.put(CarbonFootPrintController());
+
+  @override
+  State<CarbonFootPrintCalculator> createState() =>
+      _CarbonFootPrintCalculatorState();
+}
+
+class _CarbonFootPrintCalculatorState extends State<CarbonFootPrintCalculator> {
+  final Completer<WebViewController> _controller =
+      Completer<WebViewController>();
+  bool isLoading = true;
+
   @override
   Widget build(BuildContext context) {
-    return const WebView(
-        backgroundColor: Colors.white,
-        javascriptMode: JavascriptMode.unrestricted,
-        initialUrl:
-            "https://socialvaluecompany.com/household-carbon-calculator/");
+    return Stack(
+      children: [
+        SizedBox(
+          height: double.infinity,
+          width: double.infinity,
+          child: WebView(
+            javascriptMode: JavascriptMode.unrestricted,
+            // initialUrl: Uri.dataFromString(
+            //   '<html><body><iframe frameborder="0" style="height:3000px;width:100%;border:none;"  src="https://socialvaluecompany.com/household-carbon-calculator/"></iframe></body></html>',
+            //   mimeType: 'text/html',
+            // ).toString(),
+            initialUrl: AppUrls.CARBON_FOOTPRINT_URL,
+            onPageFinished: (finish) {
+              setState(() {
+                isLoading = false;
+              });
+            },
+            onWebViewCreated: (WebViewController webViewController) {
+              _controller.complete(webViewController);
+            },
+          ),
+        ),
+        Visibility(
+          visible: isLoading,
+          child: const Center(
+            child: AppProgress(
+              color: darkGreen,
+            ),
+          ),
+        )
+      ],
+    );
     /*return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),

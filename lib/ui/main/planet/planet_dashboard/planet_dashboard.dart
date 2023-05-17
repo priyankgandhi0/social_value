@@ -18,6 +18,7 @@ class PlanetDashboard extends StatelessWidget {
   final ArticleController controller = Get.put(ArticleController());
   final WellbeingController wellbeingController =
       Get.put(WellbeingController());
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -28,12 +29,12 @@ class PlanetDashboard extends StatelessWidget {
             child: GetBuilder<ArticleController>(initState: (state) {
               Future.delayed(Duration.zero)
                   .then((value) => controller.getArticles("13"));
+              controller.articlesList.clear();
               Future.delayed(Duration.zero)
                   .then((value) => controller.getArticles("11"));
+              controller.planetArticleList.clear();
               Future.delayed(Duration.zero)
                   .then((value) => wellbeingController.getCompany());
-              controller.articlesList.clear();
-              controller.planetArticleList.clear();
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,9 +49,8 @@ class PlanetDashboard extends StatelessWidget {
                         children: [
                           Flexible(
                             child: PlanetScore(
-                              scoreTitle: "Test Company's Sustainability Score",
-                              scoreDesc:
-                                  "This score is based on the sustainability score of your organisation. As the organisation evolves with the support of our platform the score will continually improve.",
+                              scoreTitle: sustainabilityScore,
+                              scoreDesc: sustainabilityScoreDesc,
                               percentage: double.parse(wellbeingController
                                           .companyData?.sustainabilityScore ??
                                       "0") /
@@ -68,9 +68,8 @@ class PlanetDashboard extends StatelessWidget {
                           ),
                           Flexible(
                             child: PlanetScore(
-                              scoreTitle: "Test Company's EDI Score",
-                              scoreDesc:
-                                  "Your organisation's staff well being score will appear here as soon as they have completed the SVC survey.",
+                              scoreTitle: eDIScore,
+                              scoreDesc: eDIScoreDesc,
                               percentage: double.parse(wellbeingController
                                           .companyData?.diversityScore ??
                                       "0") /
@@ -93,7 +92,7 @@ class PlanetDashboard extends StatelessWidget {
                       children: [
                         AppRactangleCard(
                           height: 320,
-                          width: 211,
+                          width: 230,
                           desc: '',
                           btnText: null,
                           image: ImageAssets.planetImage,
@@ -104,7 +103,7 @@ class PlanetDashboard extends StatelessWidget {
                         ),
                         AppRactangleCard(
                           height: 320,
-                          width: 211,
+                          width: 230,
                           desc: '',
                           btnText: null,
                           image: ImageAssets.journey,
@@ -248,7 +247,7 @@ class PlanetDashboard extends StatelessWidget {
             }),
           ),
         ),
-        Obx(() => controller.isLoading.value
+        Obx(() => wellbeingController.isLoading.value
             ? const AppProgress(
                 color: darkGreen,
               )

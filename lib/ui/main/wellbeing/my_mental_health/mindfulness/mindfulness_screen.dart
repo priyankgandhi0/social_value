@@ -4,6 +4,7 @@ import 'package:social_value/ui/main/dashboard_screen/dashboard_contorller.dart'
 import 'package:social_value/utils/extension.dart';
 
 import '../../../../../constant/app_string.dart';
+import '../../../../../constant/requst_const.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/app_progress.dart';
@@ -12,6 +13,7 @@ import '../../../../../widgets/common_card.dart';
 class MentalHealthMainFulNess extends StatelessWidget {
   MentalHealthMainFulNess({Key? key}) : super(key: key);
   final DashboardController controller = Get.put(DashboardController());
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -22,8 +24,8 @@ class MentalHealthMainFulNess extends StatelessWidget {
                 const EdgeInsets.only(left: 10, right: 20, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
               controller.getVideo.clear();
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getVideos("71"));
+              Future.delayed(Duration.zero).then((value) =>
+                  controller.getVideos(MethodIDs.mentalMindfulNessVideo));
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:social_value/constant/requst_const.dart';
 import 'package:social_value/ui/main/dashboard_screen/dashboard_contorller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
@@ -23,11 +24,11 @@ class MentalHealthDashBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: GetBuilder<ArticleController>(initState: (state) {
-        Future.delayed(Duration.zero)
-            .then((value) => dashboardController.getVideos("71"));
+        Future.delayed(Duration.zero).then((value) =>
+            dashboardController.getVideos(MethodIDs.mentalDashboardVideo));
         dashboardController.getVideo.clear();
-        Future.delayed(Duration.zero)
-            .then((value) => controller.getArticles("30"));
+        Future.delayed(Duration.zero).then((value) =>
+            controller.getArticles(MethodIDs.mentalDashboardArticle));
         controller.articlesList.clear();
       }, builder: (ctrl) {
         return Column(

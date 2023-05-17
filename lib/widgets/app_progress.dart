@@ -9,6 +9,7 @@ import '../theme/app_color.dart';
 class AppProgress extends StatelessWidget {
   const AppProgress({Key? key, this.color}) : super(key: key);
   final Color? color;
+
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
@@ -25,7 +26,9 @@ class AppProgress extends StatelessWidget {
 }
 
 class ShimmerEffect extends StatelessWidget {
-  const ShimmerEffect({Key? key}) : super(key: key);
+  const ShimmerEffect({Key? key, this.height, this.width}) : super(key: key);
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +38,8 @@ class ShimmerEffect extends StatelessWidget {
       direction: ShimmerDirection.ltr,
       child: Container(
         margin: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
-        height: 115,
-        width: 188,
+        height: height ?? 115,
+        width: width ?? 188,
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
               color: Colors.grey.shade400,

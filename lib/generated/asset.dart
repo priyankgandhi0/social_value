@@ -28,6 +28,7 @@ class ImageAssets {
   static const relaxImage = 'assets/images/relex.png';
   static const treeImage = 'assets/images/bigtree.png';
   static const cupImage = 'assets/images/cup.png';
+  // static const cupImage = 'assets/images/cup.svg';
   static const financesCard = 'assets/images/financesCard.png';
   static const car = 'assets/images/car.png';
   static const discountCard = 'assets/images/discountCard.png';
@@ -41,7 +42,7 @@ class ImageAssets {
   static const squareFndImage = 'assets/images/squareFnd.png';
   static const foodImage1 = 'assets/images/foodImage.png';
   static const startSurvey = 'assets/images/startsurvey.png';
-  static const planetImage = 'assets/images/planet.png';
+  static const planetImage = 'assets/images/planetImage.png';
   static const articleLadyImage = 'assets/images/detaillady.png';
   static const recLessMillsImage = 'assets/images/reclesmills.png';
   static const appforSleepImage = 'assets/images/appforSleep.png';

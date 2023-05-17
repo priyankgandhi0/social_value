@@ -21,7 +21,6 @@ class ArticleDetailController extends GetxController {
       print("data123${json.decode(result)}");
       var data = articleListFromJson(result);
       singleArticle = data;
-      print("data----${singleArticle[0].id}");
     } catch (e) {
       print(e);
       showAppSnackBar(errorText);

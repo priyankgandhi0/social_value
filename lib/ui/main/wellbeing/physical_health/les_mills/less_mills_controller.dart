@@ -12,20 +12,22 @@ class LessMillsController extends GetxController {
   List<CategoryList> videoCategoryItem = [];
 
   getVideoCategories() async {
+    videoCategoryItem.clear();
     // if (videoCategoryItem.isNotEmpty) return;
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
     result = await WellbeingRepo.instance.getVideoCategories();
     try {
-      print("login data123${result}");
-      var data = videoCategoryFromJson(result);
-      videoCategoryList = data;
-      for (var element in videoCategoryList) {
+      print("login data123 $result");
+      var data = videoCategoryFromJson(result ?? []);
+      // videoCategoryItem = [];
+      for (var element in data) {
         if (element.parentCategoryId == "72") {
           videoCategoryItem.add(element);
           update();
         }
+        print("video---$videoCategoryItem");
       }
     } catch (e) {
       showAppSnackBar(errorText);

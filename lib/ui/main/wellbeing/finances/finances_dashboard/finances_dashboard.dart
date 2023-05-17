@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
+import '../../../../../constant/requst_const.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../utils/routes_manager.dart';
@@ -23,8 +24,8 @@ class FinancesDashBoard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             child: GetBuilder<ArticleController>(initState: (state) {
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getArticles("42"));
+              Future.delayed(Duration.zero).then((value) =>
+                  controller.getArticles(MethodIDs.financesDashboardArticle));
               controller.articlesList.clear();
             }, builder: (ctrl) {
               return Column(

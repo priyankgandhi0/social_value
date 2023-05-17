@@ -126,13 +126,15 @@ class AllArticleScreen extends StatelessWidget {
                                               return GestureDetector(
                                                 onTap: () {
                                                   ctrl.articleType = ctrl
-                                                      .articleCategoryItem[
-                                                          index]
-                                                      .title;
+                                                          .articleCategoryItem[
+                                                              index]
+                                                          .title ??
+                                                      "";
                                                   ctrl.getArticles(ctrl
-                                                      .articleCategoryItem[
-                                                          index]
-                                                      .id);
+                                                          .articleCategoryItem[
+                                                              index]
+                                                          .id ??
+                                                      "");
                                                   ctrl.articlesList.clear();
                                                   ctrl.isOpen = !ctrl.isOpen;
                                                   ctrl.update();
@@ -143,10 +145,11 @@ class AllArticleScreen extends StatelessWidget {
                                                     padding:
                                                         const EdgeInsets.all(
                                                             8.0),
-                                                    child: ctrl
-                                                        .articleCategoryItem[
-                                                            index]
-                                                        .title
+                                                    child: (ctrl
+                                                                .articleCategoryItem[
+                                                                    index]
+                                                                .title ??
+                                                            "")
                                                         .interTextStyle(
                                                             fontColor:
                                                                 textColor,

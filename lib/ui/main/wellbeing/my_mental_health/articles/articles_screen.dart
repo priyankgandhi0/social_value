@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
+import '../../../../../constant/requst_const.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/app_progress.dart';
@@ -21,8 +22,8 @@ class MentalHealthArticles extends StatelessWidget {
                 const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
               controller.articlesList.clear();
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getArticles("30"));
+              Future.delayed(Duration.zero).then(
+                  (value) => controller.getArticles(MethodIDs.mentalArticle));
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

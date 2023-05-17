@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:social_value/network/wellbing_repo.dart';
 import '../../../../../api/api_extension.dart';
-import '../../../../../models/get_games_model.dart';
+import '../../../../../models/games_model.dart';
 import '../../../../../theme/app_helpers.dart';
 
 class BrainGamesController extends GetxController {

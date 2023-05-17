@@ -7,6 +7,7 @@ import 'package:social_value/utils/extension.dart';
 import 'package:social_value/widgets/common_card.dart';
 import 'package:video_player/video_player.dart';
 import '../../../constant/app_string.dart';
+import '../../../constant/requst_const.dart';
 import '../../../constant/shred_preference.dart';
 import '../../../generated/asset.dart';
 import '../../../generated/assets.dart';
@@ -37,7 +38,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: GetBuilder<DashboardController>(initState: (state) {
           controller.getVideo.clear();
           Future.delayed(Duration.zero)
-              .then((value) => controller.getVideos("86"));
+              .then((value) => controller.getVideos(MethodIDs.SupportVideosId));
         }, builder: (ctrl) {
           return Column(
             children: [

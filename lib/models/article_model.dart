@@ -11,9 +11,9 @@ String getArticleToJson(List<GetArticle> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class GetArticle {
-  String id;
-  String title;
-  String parentCategoryId;
+  String? id;
+  String? title;
+  String? parentCategoryId;
 
   GetArticle({
     required this.id,

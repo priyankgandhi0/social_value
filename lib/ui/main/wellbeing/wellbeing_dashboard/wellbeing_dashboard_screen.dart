@@ -5,6 +5,7 @@ import 'package:social_value/generated/asset.dart';
 import 'package:social_value/ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../constant/app_string.dart';
+import '../../../../constant/requst_const.dart';
 import '../../../../generated/assets.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../utils/routes_manager.dart';
@@ -25,11 +26,11 @@ class WellBeingDashBoardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: GetBuilder<DashboardController>(initState: (state) {
-        Future.delayed(Duration.zero)
-            .then((value) => controller.getVideos("65"));
+        Future.delayed(Duration.zero).then(
+            (value) => controller.getVideos(MethodIDs.wellbeingDashboardYoga));
         controller.getVideo.clear();
-        Future.delayed(Duration.zero).then((value) => articleController.getArticles(
-            "5,9,10,14,15,17,22,23,24,26,29,31,32,33,34,35,36,37,38,39,40,41,442,49"));
+        Future.delayed(Duration.zero).then((value) =>
+            articleController.getArticles(MethodIDs.wellbeingDashboardArticle));
         Future.delayed(Duration.zero)
             .then((value) => wellbeingController.getCompany());
         articleController.articlesList.clear();

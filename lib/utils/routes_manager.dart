@@ -59,7 +59,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.dashboardScreen,
-        page: () => DashboardScreen(),
+        page: () => const DashboardScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.wellBeingDashBoardScreen,
@@ -87,7 +87,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.communityMain,
-        page: () => CommunityMain(),
+        page: () => const CommunityMain(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.termsCondition,
@@ -111,7 +111,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.articleDetailScreen,
-        page: () => ArticleDetailScreen(),
+        page: () => const ArticleDetailScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.socialValueScore,
@@ -123,7 +123,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.carbonFootPrintCalculator,
-        page: () => CarbonFootPrintCalculator(),
+        page: () => const CarbonFootPrintCalculator(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.workOutVideoScreen,
@@ -131,7 +131,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.brainGamesPlayScreen,
-        page: () => BrainGamesPlayScreen(),
+        page: () => const BrainGamesPlayScreen(),
         transition: Transition.noTransition),
   ];
 }

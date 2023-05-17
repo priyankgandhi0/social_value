@@ -14,7 +14,8 @@ import 'less_mills_controller.dart';
 
 class PhysicalHealthLesMills extends StatelessWidget {
   PhysicalHealthLesMills({Key? key}) : super(key: key);
-  final LessMillsController controller = Get.put(LessMillsController());
+  final LessMillsController controller = Get.find<LessMillsController>();
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -23,10 +24,8 @@ class PhysicalHealthLesMills extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 25),
             child: GetBuilder<LessMillsController>(initState: (state) {
-              Future.delayed(Duration.zero, () async {
-                await controller.getVideoCategories();
-              });
-              controller.videoCategoryItem.clear();
+              Future.delayed(Duration.zero)
+                  .then((value) => controller.getVideoCategories());
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +62,7 @@ class PhysicalHealthLesMills extends StatelessWidget {
                   chooseYourWorkout.interTextStyle(
                       fontSize: 16, fontWeight: FontWeight.w700),
                   15.0.addHSpace(),
-                  controller.videoCategoryItem.isEmpty
+                  ctrl.videoCategoryItem.isEmpty
                       ? const SizedBox()
                       : GridView.builder(
                           itemCount: ctrl.videoCategoryItem.length,

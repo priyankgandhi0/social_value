@@ -89,6 +89,12 @@ const servicesDesc = 'alcoholics-anonymous.org.uk';
 const addiction = 'Addiction';
 const name = 'Name';
 const car = 'Car';
+const eDIScoreDesc =
+    "Your organisation's staff well being score will appear here as soon as they have completed the SVC survey.";
+const eDIScore = "Test Company's EDI Score";
+const sustainabilityScoreDesc =
+    "This score is based on the sustainability score of your organisation. As the organisation evolves with the support of our platform the score will continually improve.";
+const sustainabilityScore = "Test Company's Sustainability Score";
 const shelterText = 'Shelter';
 const shelterLink = 'www.shelter.org.uk';
 const shelterDesc =

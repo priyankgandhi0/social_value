@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../constant/requst_const.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../utils/extension.dart';
 import '../../../../utils/routes_manager.dart';
@@ -101,8 +102,8 @@ class SustainabilityArticles extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getArticles("11"));
+              Future.delayed(Duration.zero).then((value) =>
+                  controller.getArticles(MethodIDs.sustainabilityArticles));
               controller.planetArticleList.clear();
             }, builder: (ctrl) {
               return Column(
@@ -163,8 +164,8 @@ class EdiArticles extends StatelessWidget {
                 const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
               controller.articlesList.clear();
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getArticles("13"));
+              Future.delayed(Duration.zero).then(
+                  (value) => controller.getArticles(MethodIDs.EdiArticles));
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -121,7 +121,9 @@ class AppArticlesCard extends StatelessWidget {
               ],
               borderRadius: BorderRadius.circular(11),
               image: DecorationImage(
-                  image: NetworkImage(image), fit: BoxFit.cover)),
+                image: NetworkImage(image),
+                fit: BoxFit.cover,
+              )),
           height: 165,
           width: 165,
           child: Container(
@@ -431,15 +433,17 @@ class AppBodyPumptCard extends StatelessWidget {
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10)),
-                child: Container(
+                child: SizedBox(
                   height: 116,
                   child: FadeInImage.assetNetwork(
                     placeholder: "assets/images/placeholder.png",
                     image: image,
+                    height: 116,
+                    width: double.infinity,
                     fit: BoxFit.cover,
                     placeholderFit: BoxFit.fitWidth,
                     placeholderCacheHeight: 116,
-                    // placeholderCacheWidth:,
+                    // placeholderCacheWidth,
                   ),
                   // width: 170,
                   // child: image.isEmpty

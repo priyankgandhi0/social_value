@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,8 +11,6 @@ class VideoPlayerScreen extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  // final String image;
-  // final String? url;
   final dynamic data = Get.arguments;
 
   @override

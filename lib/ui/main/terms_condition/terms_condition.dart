@@ -21,7 +21,7 @@ class TermsCondition extends StatelessWidget {
           children: [
             AppBarChip(
               onTap: () {},
-              text: privacyPolicy,
+              text: termsConditions,
               textColor: white,
               color: sky,
             ),

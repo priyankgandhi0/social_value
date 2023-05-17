@@ -4,7 +4,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:social_value/network/wellbing_repo.dart';
 import '../../../../../api/api_extension.dart';
 import '../../../../../models/article_list_model.dart';
-import '../../../../../models/get_article_model.dart';
+import '../../../../../models/article_model.dart';
 import '../../../../../theme/app_helpers.dart';
 
 class ArticleController extends GetxController {

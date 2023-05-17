@@ -6,6 +6,7 @@ import 'package:social_value/widgets/app_progress.dart';
 import 'package:social_value/widgets/wellbeing_screen_card.dart';
 
 import '../../../../constant/app_string.dart';
+import '../../../../constant/requst_const.dart';
 import '../../../../generated/assets.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../utils/routes_manager.dart';
@@ -25,8 +26,8 @@ class CommunityDashboard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getArticles("12,60"));
+              Future.delayed(Duration.zero).then((value) =>
+                  controller.getArticles(MethodIDs.communityDashboardArticle));
               controller.articlesList.clear();
             }, builder: (ctrl) {
               return Column(
@@ -44,7 +45,7 @@ class CommunityDashboard extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Get.toNamed(Routes.communityMain,
+                            Get.offAndToNamed(Routes.communityMain,
                                 arguments: {"selectedPage": 3});
                           },
                           child: Container(
@@ -61,7 +62,10 @@ class CommunityDashboard extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.offAndToNamed(Routes.communityMain,
+                                arguments: {"selectedPage": 2});
+                          },
                           child: Container(
                             margin: const EdgeInsets.only(left: 20),
                             height: 175,
@@ -80,49 +84,58 @@ class CommunityDashboard extends StatelessWidget {
                     ),
                   ),
                   20.0.addHSpace(),
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    decoration: BoxDecoration(
-                        color: darkPurple,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          IconsAssets.celenderIcon,
-                          color: white,
-                        ),
-                        10.0.addWSpace(),
-                        Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              nextAwarenessDay.interTextStyle(
-                                  textAlign: TextAlign.center,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                  fontColor: white),
-                              7.0.addHSpace(),
-                              internationalMicrovolunteering.interTextStyle(
-                                  textAlign: TextAlign.center,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 18,
-                                  fontColor: white),
-                              7.0.addHSpace(),
-                              "15th April 2023".interTextStyle(
-                                  textAlign: TextAlign.center,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 12,
-                                  fontColor: white)
-                            ],
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.communityMain,
+                          arguments: {"selectedPage": 1});
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(15),
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                          color: darkPurple,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            IconsAssets.celenderIcon,
+                            color: white,
                           ),
-                        ),
-                      ],
+                          10.0.addWSpace(),
+                          Flexible(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                nextAwarenessDay.interTextStyle(
+                                    textAlign: TextAlign.center,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12,
+                                    fontColor: white),
+                                7.0.addHSpace(),
+                                internationalMicrovolunteering.interTextStyle(
+                                    textAlign: TextAlign.center,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 18,
+                                    fontColor: white),
+                                7.0.addHSpace(),
+                                "15th April 2023".interTextStyle(
+                                    textAlign: TextAlign.center,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 12,
+                                    fontColor: white)
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   25.0.addHSpace(),
                   XoDiscountCard(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(Routes.communityMain,
+                          arguments: {"selectedPage": 4});
+                    },
                     fillColor: lightPurple,
                     image: Assets.imagesCreditCard,
                     appBorderFillColor: darkPurple,
@@ -155,7 +168,12 @@ class CommunityDashboard extends StatelessWidget {
                             ),
                           ),
                           15.0.addHSpace(),
-                          AppButton(text: "Find out more", onTap: () {}),
+                          AppButton(
+                              text: "Find out more",
+                              onTap: () {
+                                Get.toNamed(Routes.communityMain,
+                                    arguments: {"selectedPage": 5});
+                              }),
                         ],
                       )),
                   20.0.addHSpace(),

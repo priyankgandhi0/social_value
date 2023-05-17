@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
+import '../../../../../constant/requst_const.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/app_progress.dart';
@@ -11,6 +12,7 @@ import '../../physical_health/articles/article_controller.dart';
 class FinancesArticle extends StatelessWidget {
   FinancesArticle({Key? key}) : super(key: key);
   final ArticleController controller = Get.put(ArticleController());
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -23,8 +25,8 @@ class FinancesArticle extends StatelessWidget {
               controller.articlesList.clear();
               Future.delayed(Duration.zero)
                   .then((value) => controller.getArticleCategories());
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getArticles("42,29,5,26"));
+              Future.delayed(Duration.zero).then(
+                  (value) => controller.getArticles(MethodIDs.financesArticle));
             }, builder: (ctrl) {
               return Stack(
                 children: [

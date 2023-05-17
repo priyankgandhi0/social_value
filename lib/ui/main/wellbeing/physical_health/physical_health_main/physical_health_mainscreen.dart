@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/constant/tab_bar_const.dart';
 import 'package:social_value/theme/app_color.dart';
+import 'package:social_value/ui/main/wellbeing/physical_health/les_mills/less_mills_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
 import '../../../../../widgets/appbar_chip.dart';
@@ -22,6 +23,7 @@ class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
     with SingleTickerProviderStateMixin {
   dynamic data = Get.arguments;
   TabController? controller;
+  final LessMillsController lesMilsCtrl = Get.put(LessMillsController());
   @override
   void initState() {
     super.initState();
