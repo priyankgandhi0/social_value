@@ -9,6 +9,8 @@ import '../../../../constant/tab_bar_const.dart';
 import '../../../../utils/extension.dart';
 import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
+import '../../dashboard_screen/dashboard_contorller.dart';
+import '../../wellbeing/physical_health/articles/article_controller.dart';
 
 class PlanetMain extends StatefulWidget {
   const PlanetMain({
@@ -21,6 +23,10 @@ class PlanetMain extends StatefulWidget {
 
 class _PlanetMainState extends State<PlanetMain>
     with SingleTickerProviderStateMixin {
+  final DashboardController dashboardController =
+      Get.put(DashboardController());
+
+  final ArticleController articleController = Get.put(ArticleController());
   TabController? controller;
   dynamic data = Get.arguments;
 
@@ -62,6 +68,7 @@ class _PlanetMainState extends State<PlanetMain>
             padding: EdgeInsets.zero,
             indicatorPadding: EdgeInsets.zero,
             controller: controller,
+            // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
@@ -87,6 +94,7 @@ class _PlanetMainState extends State<PlanetMain>
         ),
         child: TabBarView(
           controller: controller,
+          // physics: const NeverScrollableScrollPhysics(),
           children: planetTabs.map((e) => e.tabWidget).toList(),
         ),
       ),

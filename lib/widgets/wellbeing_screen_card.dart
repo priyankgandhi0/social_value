@@ -50,6 +50,7 @@ class WellBeingScore extends StatelessWidget {
                   radius: 55.0,
                   lineWidth: 7.0,
                   percent: percentage,
+                  // restartAnimation: true,
                   center: score.appEpilogueTextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 40,

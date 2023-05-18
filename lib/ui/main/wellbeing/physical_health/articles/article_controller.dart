@@ -46,13 +46,15 @@ class ArticleController extends GetxController {
   }
 
   getArticles(String ids) async {
+    // articlesList.clear();
+    // planetArticleList.clear();
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
     result = await WellbeingRepo.instance.getArticles(ids: ids);
     try {
       // print("data123${json.decode(result)}");
-      var data = articleListFromJson(result);
+      var data = articleListFromJson(result ?? []);
       if (ids == "11") {
         planetArticleList = data;
       } else {

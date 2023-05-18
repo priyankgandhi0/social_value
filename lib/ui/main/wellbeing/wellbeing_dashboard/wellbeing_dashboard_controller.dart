@@ -11,12 +11,12 @@ import '../../../../network/wellbing_repo.dart';
 import '../../../../theme/app_helpers.dart';
 
 class WellbeingController extends GetxController {
-  RxBool isLoading = false.obs;
+  // RxBool isLoading = false.obs;
   CompanyList? companyData;
   String companyId = preferences.getString(SharedPreference.COMPANY_ID) ?? "";
   getCompany() async {
     FocusManager.instance.primaryFocus?.unfocus();
-    isLoading.value = true;
+    // isLoading.value = true;
     dynamic result;
     result = await WellbeingRepo.instance.getCompany(id: companyId);
     try {
@@ -25,7 +25,7 @@ class WellbeingController extends GetxController {
       print(e);
       showAppSnackBar(errorText);
     }
-    isLoading.value = false;
+    // isLoading.value = false;
     update();
   }
 }

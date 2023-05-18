@@ -6,6 +6,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:video_player/video_player.dart';
 import '../constant/app_string.dart';
+import '../generated/asset.dart';
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
 import 'app_button.dart';
@@ -110,23 +111,37 @@ class AppArticlesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-          decoration: BoxDecoration(
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                    color: Colors.grey.shade400,
+                    color: Colors.grey.shade300,
                     blurRadius: 2,
                     // spreadRadius: 2,
                     offset: const Offset(1, 0))
               ],
               borderRadius: BorderRadius.circular(11),
-              image: DecorationImage(
-                image: NetworkImage(image),
+            ),
+            height: 165,
+            width: 165,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: FadeInImage.assetNetwork(
+                placeholder: "assets/images/placeholder.png",
+                image: image,
+                height: 116,
+                width: double.infinity,
                 fit: BoxFit.cover,
-              )),
-          height: 165,
-          width: 165,
-          child: Container(
+                placeholderFit: BoxFit.fitWidth,
+                placeholderCacheHeight: 116,
+                // placeholderCacheWidth,
+              ),
+            ),
+          ),
+          Container(
+            width: 165,
             alignment: Alignment.bottomCenter,
             child: ClipRRect(
               borderRadius: const BorderRadius.only(
@@ -149,7 +164,9 @@ class AppArticlesCard extends StatelessWidget {
                 ),
               ),
             ),
-          )).paddingSymmetric(horizontal: 10),
+          ),
+        ],
+      ).paddingSymmetric(horizontal: 10),
     );
   }
 }
@@ -979,7 +996,7 @@ class _AppVideoCardState extends State<AppVideoCard> {
         decoration:
             BoxDecoration(borderRadius: BorderRadius.circular(10), boxShadow: [
           BoxShadow(
-              color: Colors.grey.shade400,
+              color: Colors.grey.shade300,
               blurRadius: 3,
               offset: const Offset(2, 2))
         ]),
@@ -996,7 +1013,13 @@ class _AppVideoCardState extends State<AppVideoCard> {
                     Image.file(
                       File(widget.image),
                       errorBuilder: (context, error, trace) {
-                        return const Center(child: CircularProgressIndicator());
+                        return Center(
+                            child: Image.asset(
+                          ImageAssets.placeHolder,
+                          fit: BoxFit.cover,
+                          height: double.infinity,
+                          width: double.infinity,
+                        ));
                       },
                       height: double.infinity,
                       width: double.infinity,
@@ -1038,7 +1061,7 @@ class _AppVideoCardState extends State<AppVideoCard> {
                     child: widget.title.interTextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 12,
-                        maxLines: 4,
+                        maxLines: 3,
                         textOverflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,
                         fontColor: textColor),

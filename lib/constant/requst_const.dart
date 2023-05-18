@@ -9,6 +9,8 @@ class AppUrls {
 
   static const String CARBON_FOOTPRINT_URL =
       "https://socialvaluecompany.com/household-carbon-calculator/";
+  static const String GET_STARTED_FORM =
+      "https://forms.zohopublic.eu/dan25/form/InsightTimerAppRequest/formperma/pKLshzm66IyxtmcC8fgdc4pzURmhfn2a43Or863ttZY";
 }
 
 class MethodNames {

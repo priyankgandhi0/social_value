@@ -7,9 +7,13 @@ import '../../../../constant/tab_bar_const.dart';
 import '../../../../utils/extension.dart';
 import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
+import '../../wellbeing/physical_health/articles/article_controller.dart';
+import '../fundraising/fundraising_controller.dart';
 
 class CommunityMain extends StatefulWidget {
-  const CommunityMain({Key? key}) : super(key: key);
+  const CommunityMain({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<CommunityMain> createState() => _CommunityMainState();
@@ -17,6 +21,9 @@ class CommunityMain extends StatefulWidget {
 
 class _CommunityMainState extends State<CommunityMain>
     with SingleTickerProviderStateMixin {
+  final ArticleController articleController = Get.put(ArticleController());
+  final FundraisingController fundraisingController =
+      Get.put(FundraisingController());
   TabController? controller;
   dynamic data = Get.arguments;
 

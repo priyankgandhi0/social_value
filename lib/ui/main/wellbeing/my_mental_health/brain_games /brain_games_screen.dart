@@ -10,7 +10,7 @@ import 'brain_games_controller.dart';
 
 class MentalHealthBrainGames extends StatelessWidget {
   MentalHealthBrainGames({Key? key}) : super(key: key);
-  final BrainGamesController controller = Get.put(BrainGamesController());
+  final BrainGamesController controller = Get.find<BrainGamesController>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,6 @@ class MentalHealthBrainGames extends StatelessWidget {
             child: GetBuilder<BrainGamesController>(initState: (state) {
               Future.delayed(Duration.zero)
                   .then((value) => controller.getGames());
-              controller.gamesList.clear();
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

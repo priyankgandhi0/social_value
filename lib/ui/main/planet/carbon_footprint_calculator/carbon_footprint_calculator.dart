@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:social_value/constant/requst_const.dart';
 import 'package:social_value/theme/app_color.dart';
@@ -27,11 +29,12 @@ class _CarbonFootPrintCalculatorState extends State<CarbonFootPrintCalculator> {
           height: double.infinity,
           width: double.infinity,
           child: WebView(
+            backgroundColor: Colors.white,
+            gestureNavigationEnabled: true,
+            gestureRecognizers: Set()
+              ..add(Factory<VerticalDragGestureRecognizer>(
+                  () => VerticalDragGestureRecognizer())),
             javascriptMode: JavascriptMode.unrestricted,
-            // initialUrl: Uri.dataFromString(
-            //   '<html><body><iframe frameborder="0" style="height:3000px;width:100%;border:none;"  src="https://socialvaluecompany.com/household-carbon-calculator/"></iframe></body></html>',
-            //   mimeType: 'text/html',
-            // ).toString(),
             initialUrl: AppUrls.CARBON_FOOTPRINT_URL,
             onPageFinished: (finish) {
               setState(() {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:social_value/constant/requst_const.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
@@ -90,8 +91,7 @@ class _MentalHealthAppState extends State<MentalHealthApp> {
                 borderRadius: BorderRadius.circular(8)),
             child: const WebView(
                 javascriptMode: JavascriptMode.unrestricted,
-                initialUrl:
-                    "https://forms.zohopublic.eu/dan25/form/InsightTimerAppRequest/formperma/pKLshzm66IyxtmcC8fgdc4pzURmhfn2a43Or863ttZY"),
+                initialUrl: AppUrls.GET_STARTED_FORM),
           )
         ],
       ).paddingOnly(bottom: 30),

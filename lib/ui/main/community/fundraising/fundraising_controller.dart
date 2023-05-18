@@ -11,13 +11,14 @@ class FundraisingController extends GetxController {
   List<Fundraising> getFundraising = [];
 
   getFundraisingIdeas() async {
+    getFundraising.clear();
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
     result = await CommunityRepo.instance.getFundraisingIdeas();
     try {
       print("data123${json.decode(result)}");
-      var data = fundraisingFromJson(result);
+      var data = fundraisingFromJson(result ?? []);
       getFundraising = data;
     } catch (e) {
       print(e);

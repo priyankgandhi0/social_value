@@ -4,7 +4,6 @@ import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:social_value/widgets/app_progress.dart';
 import 'package:social_value/widgets/wellbeing_screen_card.dart';
-
 import '../../../../constant/app_string.dart';
 import '../../../../constant/requst_const.dart';
 import '../../../../generated/assets.dart';
@@ -13,11 +12,15 @@ import '../../../../utils/routes_manager.dart';
 import '../../../../widgets/app_button.dart';
 import '../../../../widgets/common_card.dart';
 import '../../wellbeing/physical_health/articles/article_controller.dart';
+import '../fundraising/fundraising_controller.dart';
 
 class CommunityDashboard extends StatelessWidget {
   CommunityDashboard({Key? key}) : super(key: key);
   final ArticleController controller = Get.put(ArticleController());
-
+  final FundraisingController fundraisingController =
+      Get.put(FundraisingController());
+  // final FundraisingController fundraisingController =
+  //     Get.find<FundraisingController>();
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -26,9 +29,9 @@ class CommunityDashboard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
+              controller.articlesList.clear();
               Future.delayed(Duration.zero).then((value) =>
                   controller.getArticles(MethodIDs.communityDashboardArticle));
-              controller.articlesList.clear();
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,8 +48,8 @@ class CommunityDashboard extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Get.offAndToNamed(Routes.communityMain,
-                                arguments: {"selectedPage": 3});
+                            // Get.offAndToNamed(Routes.communityMain,
+                            //     arguments: {"selectedPage": 3});
                           },
                           child: Container(
                             margin: const EdgeInsets.only(left: 20),
@@ -86,7 +89,7 @@ class CommunityDashboard extends StatelessWidget {
                   20.0.addHSpace(),
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(Routes.communityMain,
+                      Get.offAndToNamed(Routes.communityMain,
                           arguments: {"selectedPage": 1});
                     },
                     child: Container(
@@ -133,7 +136,7 @@ class CommunityDashboard extends StatelessWidget {
                   25.0.addHSpace(),
                   XoDiscountCard(
                     onTap: () {
-                      Get.toNamed(Routes.communityMain,
+                      Get.offAndToNamed(Routes.communityMain,
                           arguments: {"selectedPage": 4});
                     },
                     fillColor: lightPurple,

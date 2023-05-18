@@ -13,7 +13,9 @@ import '../../../../widgets/app_progress.dart';
 import '../../../../widgets/common_card.dart';
 import '../../../../widgets/wellbeing_screen_card.dart';
 import '../../dashboard_screen/dashboard_contorller.dart';
+import '../my_mental_health/support_services/support_services_controller.dart';
 import '../physical_health/articles/article_controller.dart';
+import '../physical_health/les_mills/less_mills_controller.dart';
 
 class WellBeingDashBoardScreen extends StatelessWidget {
   WellBeingDashBoardScreen({Key? key}) : super(key: key);
@@ -21,19 +23,23 @@ class WellBeingDashBoardScreen extends StatelessWidget {
   final ArticleController articleController = Get.put(ArticleController());
   final WellbeingController wellbeingController =
       Get.put(WellbeingController());
+  final LessMillsController lessMillsController =
+      Get.find<LessMillsController>();
+  final SupportServicesController servicesController =
+      Get.find<SupportServicesController>();
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: GetBuilder<DashboardController>(initState: (state) {
+        articleController.articlesList.clear();
+        controller.getVideo.clear();
         Future.delayed(Duration.zero).then(
             (value) => controller.getVideos(MethodIDs.wellbeingDashboardYoga));
-        controller.getVideo.clear();
         Future.delayed(Duration.zero).then((value) =>
             articleController.getArticles(MethodIDs.wellbeingDashboardArticle));
         Future.delayed(Duration.zero)
             .then((value) => wellbeingController.getCompany());
-        articleController.articlesList.clear();
       }, builder: (ctrl) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +52,7 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                   100,
               bgColor: deepPurple,
               percentageColor: darkDeepPurple,
-              score: wellbeingController.companyData?.wellbeingScore ?? "",
+              score: wellbeingController.companyData?.wellbeingScore ?? "0",
             ),
             10.0.addHSpace(),
             SingleChildScrollView(

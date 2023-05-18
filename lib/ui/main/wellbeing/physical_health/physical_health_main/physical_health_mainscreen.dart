@@ -6,6 +6,7 @@ import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/ui/main/wellbeing/physical_health/les_mills/less_mills_controller.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
+import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
 
@@ -52,7 +53,8 @@ class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
             children: [
               AppBarChip(
                 onTap: () {
-                  Get.back();
+                  // Get.back();
+                  Get.toNamed(Routes.wellBeingDashBoardScreen);
                 },
                 text: wellbeing,
                 textColor: white,

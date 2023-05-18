@@ -247,7 +247,7 @@ class PlanetDashboard extends StatelessWidget {
             }),
           ),
         ),
-        Obx(() => wellbeingController.isLoading.value
+        Obx(() => controller.isLoading.value
             ? const AppProgress(
                 color: darkGreen,
               )

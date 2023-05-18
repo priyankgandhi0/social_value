@@ -11,7 +11,8 @@ import '../../physical_health/articles/article_controller.dart';
 
 class MentalHealthArticles extends StatelessWidget {
   MentalHealthArticles({Key? key}) : super(key: key);
-  final ArticleController controller = Get.put(ArticleController());
+  final ArticleController controller = Get.find<ArticleController>();
+
   @override
   Widget build(BuildContext context) {
     return Stack(

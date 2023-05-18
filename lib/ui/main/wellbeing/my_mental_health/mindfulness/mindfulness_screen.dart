@@ -12,7 +12,7 @@ import '../../../../../widgets/common_card.dart';
 
 class MentalHealthMainFulNess extends StatelessWidget {
   MentalHealthMainFulNess({Key? key}) : super(key: key);
-  final DashboardController controller = Get.put(DashboardController());
+  final DashboardController controller = Get.find<DashboardController>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,49 +39,63 @@ class MentalHealthMainFulNess extends StatelessWidget {
                     ],
                   ).paddingOnly(left: 10),
                   18.0.addHSpace(),
-                  ctrl.getVideo.isEmpty
-                      ? const SizedBox()
-                      : GridView.builder(
-                          itemCount: ctrl.getVideo.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10,
-                                  childAspectRatio: 2 / 2.1
-                                  // mainAxisSpacing: 10,
-                                  ),
-                          itemBuilder: (BuildContext context, int index) {
-                            // if (ctrl.videoCategoryList[index].parentCategoryId == "72") {
-                            //   ctrl.videoId.add(ctrl.videoCategoryList[index].toJson());
-                            //   print("videoData---${}")
-                            // }
-                            return AppVideoCard(
-                              url: ctrl.getVideo[index].videoUrl,
-                              onTap: () {
-                                Get.toNamed(Routes.videoPlayerScreen,
-                                    arguments: {
-                                      "url": ctrl.getVideo[index].videoUrl
-                                    });
-                              },
-                              title: ctrl.getVideo[index].title,
-                              image: ctrl.getVideo[index].thumbnail ?? "",
-                            ).paddingOnly(
-                              bottom: 20,
-                            );
-                          },
-                        ),
+                  Obx(
+                    () => controller.isLoading.value
+                        ? GridView.builder(
+                            itemCount: 6,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 2 / 2.1
+                                    // mainAxisSpacing: 10,
+                                    ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return const ShimmerEffect(
+                                height: 200,
+                              ).paddingOnly(bottom: 10);
+                            },
+                          ).paddingOnly(left: 10, right: 10)
+                        : GridView.builder(
+                            itemCount: ctrl.getVideo.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 2 / 2.1
+                                    // mainAxisSpacing: 10,
+                                    ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return AppVideoCard(
+                                url: ctrl.getVideo[index].videoUrl,
+                                onTap: () {
+                                  Get.toNamed(Routes.videoPlayerScreen,
+                                      arguments: {
+                                        "url": ctrl.getVideo[index].videoUrl
+                                      });
+                                },
+                                title: ctrl.getVideo[index].title,
+                                image: ctrl.getVideo[index].thumbnail ?? "",
+                              ).paddingOnly(
+                                bottom: 20,
+                              );
+                            },
+                          ),
+                  )
                 ],
               );
             }),
           ),
         ),
-        Obx(() => controller.isLoading.value || controller.isLoading.value
-            ? const AppProgress(
-                color: darkDeepPurple,
-              )
-            : Container()),
+        // Obx(() => controller.isLoading.value || controller.isLoading.value
+        //     ? const AppProgress(
+        //         color: darkDeepPurple,
+        //       )
+        //     : Container()),
       ],
     );
   }

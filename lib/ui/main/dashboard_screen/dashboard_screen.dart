@@ -4,8 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/constant/home_card_const.dart';
 import 'package:social_value/utils/extension.dart';
-import 'package:social_value/widgets/common_card.dart';
-import 'package:video_player/video_player.dart';
 import '../../../constant/app_string.dart';
 import '../../../constant/requst_const.dart';
 import '../../../constant/shred_preference.dart';
@@ -17,6 +15,8 @@ import '../../../widgets/app_button.dart';
 import '../../../widgets/app_progress.dart';
 import '../../../widgets/home_screen_card.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
+import '../wellbeing/my_mental_health/support_services/support_services_controller.dart';
+import '../wellbeing/physical_health/les_mills/less_mills_controller.dart';
 import 'dashboard_contorller.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -29,6 +29,10 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   String name = preferences.getString(SharedPreference.FIRST_NAME) ?? "";
   final DashboardController controller = Get.put(DashboardController());
+  final LessMillsController lessMillsController =
+      Get.put(LessMillsController());
+  final SupportServicesController servicesController =
+      Get.put(SupportServicesController());
 
   @override
   Widget build(BuildContext context) {

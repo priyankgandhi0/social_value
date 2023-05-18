@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
-import 'package:social_value/ui/support_services/support_services_controller.dart';
+import 'package:social_value/ui/main/wellbeing/my_mental_health/support_services/support_services_controller.dart';
 import 'package:social_value/utils/extension.dart';
-import '../../constant/app_string.dart';
-import '../../widgets/app_progress.dart';
-import '../../widgets/wellbeing_screen_card.dart';
+import '../../../../../constant/app_string.dart';
+import '../../../../../widgets/app_progress.dart';
+import '../../../../../widgets/wellbeing_screen_card.dart';
 
 class SupportServices extends StatelessWidget {
   SupportServices({Key? key}) : super(key: key);
   final SupportServicesController controller =
-      Get.put(SupportServicesController());
+      Get.find<SupportServicesController>();
   @override
   Widget build(BuildContext context) {
     return Stack(

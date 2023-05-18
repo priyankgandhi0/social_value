@@ -5,8 +5,10 @@ import 'package:social_value/constant/tab_bar_const.dart';
 import 'package:social_value/theme/app_color.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
+import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
+import '../../physical_health/articles/article_controller.dart';
 
 class FinanceMain extends StatefulWidget {
   const FinanceMain({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class FinanceMain extends StatefulWidget {
 
 class _FinanceMainState extends State<FinanceMain>
     with SingleTickerProviderStateMixin {
+  final ArticleController articleController = Get.put(ArticleController());
   dynamic data = Get.arguments;
   TabController? controller;
 
@@ -48,7 +51,8 @@ class _FinanceMainState extends State<FinanceMain>
             children: [
               AppBarChip(
                 onTap: () {
-                  Get.back();
+                  // Get.back();
+                  Get.toNamed(Routes.wellBeingDashBoardScreen);
                 },
                 text: wellbeing,
                 textColor: white,

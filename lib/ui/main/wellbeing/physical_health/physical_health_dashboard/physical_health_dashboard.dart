@@ -20,18 +20,20 @@ class PhysicalHealthDashBoard extends StatelessWidget {
   final DashboardController dashboardController =
       Get.put(DashboardController());
 
+  final ArticleController articleController = Get.put(ArticleController());
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         SingleChildScrollView(
           child: GetBuilder<ArticleController>(initState: (state) {
+            dashboardController.getVideo.clear();
+            controller.articlesList.clear();
             Future.delayed(Duration.zero).then((value) =>
                 controller.getArticles(MethodIDs.physicalDashboardArticle));
-            controller.articlesList.clear();
             Future.delayed(Duration.zero).then((value) => dashboardController
                 .getVideos(MethodIDs.physicalDashboardVideo));
-            dashboardController.getVideo.clear();
           }, builder: (ctrl) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,

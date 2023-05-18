@@ -38,61 +38,54 @@ class PhysicalHealthDailyWorkOut extends StatelessWidget {
                     ],
                   ).paddingOnly(left: 10),
                   18.0.addHSpace(),
-                  ctrl.getVideo.isEmpty
-                      ? const SizedBox()
-                      : Obx(
-                          () => controller.isLoading.value
-                              ? SizedBox(
-                                  height: 200,
-                                  child: GridView.builder(
-                                    itemCount: 5,
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    gridDelegate:
-                                        const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 2,
-                                            crossAxisSpacing: 10,
-                                            childAspectRatio: 2 / 2.1
-                                            // mainAxisSpacing: 10,
-                                            ),
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return const ShimmerEffect(
-                                        height: 200,
-                                      );
-                                    },
-                                  ),
-                                ).paddingOnly(left: 10, right: 10)
-                              : GridView.builder(
-                                  itemCount: ctrl.getVideo.length,
-                                  shrinkWrap: true,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                          crossAxisSpacing: 10,
-                                          childAspectRatio: 2 / 2.1),
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return AppVideoCard(
-                                      url: ctrl.getVideo[index].videoUrl,
-                                      onTap: () {
-                                        Get.toNamed(Routes.videoPlayerScreen,
-                                            arguments: {
-                                              "url":
-                                                  ctrl.getVideo[index].videoUrl
-                                            });
-                                      },
-                                      title: ctrl.getVideo[index].title,
-                                      image:
-                                          ctrl.getVideo[index].thumbnail ?? "",
-                                    ).paddingOnly(
-                                      bottom: 20,
-                                    );
-                                  },
-                                ),
-                        )
+                  // ctrl.getVideo.isEmpty
+                  //     ? const SizedBox()
+                  //     :
+                  Obx(
+                    () => controller.isLoading.value
+                        ? GridView.builder(
+                            itemCount: 5,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 2 / 2.1
+                                    // mainAxisSpacing: 10,
+                                    ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return const ShimmerEffect(
+                                height: 200,
+                              ).paddingOnly(bottom: 10);
+                            },
+                          ).paddingOnly(left: 10, right: 10)
+                        : GridView.builder(
+                            itemCount: ctrl.getVideo.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 2 / 2.1),
+                            itemBuilder: (BuildContext context, int index) {
+                              return AppVideoCard(
+                                url: ctrl.getVideo[index].videoUrl,
+                                onTap: () {
+                                  Get.toNamed(Routes.videoPlayerScreen,
+                                      arguments: {
+                                        "url": ctrl.getVideo[index].videoUrl
+                                      });
+                                },
+                                title: ctrl.getVideo[index].title,
+                                image: ctrl.getVideo[index].thumbnail ?? "",
+                              ).paddingOnly(
+                                bottom: 20,
+                              );
+                            },
+                          ),
+                  )
                 ],
               );
             }),

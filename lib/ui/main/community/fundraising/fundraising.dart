@@ -11,7 +11,8 @@ import 'fundraising_controller.dart';
 
 class FundraisingScreen extends StatelessWidget {
   FundraisingScreen({Key? key}) : super(key: key);
-  final FundraisingController controller = Get.put(FundraisingController());
+  // final FundraisingController controller = Get.put(FundraisingController());
+  final FundraisingController controller = Get.find<FundraisingController>();
 
   @override
   Widget build(BuildContext context) {

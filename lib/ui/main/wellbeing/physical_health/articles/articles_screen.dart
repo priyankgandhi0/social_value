@@ -11,7 +11,7 @@ import 'article_controller.dart';
 
 class PhysicalHealthArticleScreen extends StatelessWidget {
   PhysicalHealthArticleScreen({Key? key}) : super(key: key);
-  final ArticleController controller = Get.put(ArticleController());
+  final ArticleController controller = Get.find<ArticleController>();
   @override
   Widget build(BuildContext context) {
     return Stack(

@@ -30,7 +30,6 @@ class DashboardController extends GetxController {
       // print("data123${json.decode(result)}");
       var data = videoDataFromJson(result);
       getVideo = data;
-
       await setVideoUrls();
       // log("data----${getVideo[0].title}");
     } catch (e) {

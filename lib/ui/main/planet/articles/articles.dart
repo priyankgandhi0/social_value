@@ -19,6 +19,7 @@ class ArticlesScreen extends StatefulWidget {
 
 class _ArticlesScreenState extends State<ArticlesScreen>
     with SingleTickerProviderStateMixin {
+  final ArticleController articleController = Get.find<ArticleController>();
   TabController? controller;
   int currentIndex = 0;
 
@@ -91,7 +92,7 @@ class _ArticlesScreenState extends State<ArticlesScreen>
 
 class SustainabilityArticles extends StatelessWidget {
   SustainabilityArticles({Key? key}) : super(key: key);
-  final ArticleController controller = Get.put(ArticleController());
+  final ArticleController controller = Get.find<ArticleController>();
 
   @override
   Widget build(BuildContext context) {
@@ -102,9 +103,9 @@ class SustainabilityArticles extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
+              controller.planetArticleList.clear();
               Future.delayed(Duration.zero).then((value) =>
                   controller.getArticles(MethodIDs.sustainabilityArticles));
-              controller.planetArticleList.clear();
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,7 +153,7 @@ class SustainabilityArticles extends StatelessWidget {
 
 class EdiArticles extends StatelessWidget {
   EdiArticles({Key? key}) : super(key: key);
-  final ArticleController controller = Get.put(ArticleController());
+  final ArticleController controller = Get.find<ArticleController>();
 
   @override
   Widget build(BuildContext context) {

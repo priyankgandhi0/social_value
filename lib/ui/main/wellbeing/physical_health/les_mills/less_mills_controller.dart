@@ -13,6 +13,7 @@ class LessMillsController extends GetxController {
 
   getVideoCategories() async {
     videoCategoryItem.clear();
+    videoCategoryList.clear();
     // if (videoCategoryItem.isNotEmpty) return;
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
@@ -21,13 +22,13 @@ class LessMillsController extends GetxController {
     try {
       print("login data123 $result");
       var data = videoCategoryFromJson(result ?? []);
-      // videoCategoryItem = [];
-      for (var element in data) {
+      videoCategoryList = data;
+      for (var element in videoCategoryList) {
         if (element.parentCategoryId == "72") {
           videoCategoryItem.add(element);
           update();
         }
-        print("video---$videoCategoryItem");
+        // print("video---${videoCategoryItem[0].title}");
       }
     } catch (e) {
       showAppSnackBar(errorText);

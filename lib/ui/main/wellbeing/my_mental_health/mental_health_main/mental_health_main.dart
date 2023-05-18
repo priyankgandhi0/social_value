@@ -8,13 +8,19 @@ import 'package:social_value/utils/extension.dart';
 
 import '../../../../../constant/app_string.dart';
 
+import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
+import '../../../dashboard_screen/dashboard_contorller.dart';
+import '../../physical_health/articles/article_controller.dart';
+import '../brain_games /brain_games_controller.dart';
+import '../support_services/support_services_controller.dart';
 
 class MentalHealthMain extends StatefulWidget {
   const MentalHealthMain({
     Key? key,
   }) : super(key: key);
+
   // final int? selectedPage;
 
   @override
@@ -23,8 +29,18 @@ class MentalHealthMain extends StatefulWidget {
 
 class _MentalHealthMainState extends State<MentalHealthMain>
     with SingleTickerProviderStateMixin {
+  final SupportServicesController servicesController =
+      Get.put(SupportServicesController());
+  final BrainGamesController brainGamesController =
+      Get.put(BrainGamesController());
+  final DashboardController dashboardController =
+      Get.put(DashboardController());
+
+  final ArticleController articleController = Get.put(ArticleController());
+
   dynamic data = Get.arguments;
   TabController? controller;
+
   @override
   void dispose() {
     controller!.dispose();
@@ -54,7 +70,8 @@ class _MentalHealthMainState extends State<MentalHealthMain>
             children: [
               AppBarChip(
                 onTap: () {
-                  Get.back();
+                  // Get.back();
+                  Get.toNamed(Routes.wellBeingDashBoardScreen);
                 },
                 text: wellbeing,
                 textColor: white,

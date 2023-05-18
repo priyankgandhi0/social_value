@@ -7,7 +7,6 @@ import '../../../../utils/routes_manager.dart';
 import '../../../../widgets/app_progress.dart';
 import '../../../../widgets/common_card.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../dashboard_screen/dashboard_contorller.dart';
 
 class WebinarsScreen extends StatefulWidget {
@@ -19,6 +18,8 @@ class WebinarsScreen extends StatefulWidget {
 
 class _WebinarsScreenState extends State<WebinarsScreen>
     with SingleTickerProviderStateMixin {
+  final DashboardController dashboardController =
+      Get.find<DashboardController>();
   TabController? controller;
   int currentIndex = 0;
 
@@ -90,7 +91,7 @@ class _WebinarsScreenState extends State<WebinarsScreen>
 
 class SustainabilityWebinars extends StatelessWidget {
   SustainabilityWebinars({Key? key}) : super(key: key);
-  final DashboardController controller = Get.put(DashboardController());
+  final DashboardController controller = Get.find<DashboardController>();
 
   @override
   Widget build(BuildContext context) {
@@ -101,52 +102,72 @@ class SustainabilityWebinars extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
+              controller.getVideo.clear();
               Future.delayed(Duration.zero).then((value) =>
                   controller.getVideos(MethodIDs.sustainabilityWebinars));
-              controller.getVideo.clear();
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ctrl.getVideo.isEmpty
-                      ? const SizedBox()
-                      : GridView.builder(
-                          itemCount: ctrl.getVideo.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10,
-                                  childAspectRatio: 2 / 2.1
-                                  // mainAxisSpacing: 10,
-                                  ),
-                          itemBuilder: (BuildContext context, int index) {
-                            return AppVideoCard(
-                              url: ctrl.getVideo[index].videoUrl,
-                              onTap: () {
-                                Get.toNamed(Routes.videoPlayerScreen,
-                                    arguments: {
-                                      "url": ctrl.getVideo[index].videoUrl
-                                    });
-                              },
-                              title: ctrl.getVideo[index].title,
-                              image: ctrl.getVideo[index].thumbnail ?? "",
-                            ).paddingOnly(
-                              bottom: 20,
-                            );
-                          },
-                        ),
+                  Obx(
+                    () => controller.isLoading.value
+                        ? GridView.builder(
+                            itemCount: 5,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 2 / 2.1
+                                    // mainAxisSpacing: 10,
+                                    ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return const ShimmerEffect(
+                                height: 200,
+                              ).paddingOnly(bottom: 10);
+                            },
+                          ).paddingOnly(
+                            left: 10,
+                          )
+                        : GridView.builder(
+                            itemCount: ctrl.getVideo.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 2 / 2.1
+                                    // mainAxisSpacing: 10,
+                                    ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return AppVideoCard(
+                                url: ctrl.getVideo[index].videoUrl,
+                                onTap: () {
+                                  Get.toNamed(Routes.videoPlayerScreen,
+                                      arguments: {
+                                        "url": ctrl.getVideo[index].videoUrl
+                                      });
+                                },
+                                title: ctrl.getVideo[index].title,
+                                image: ctrl.getVideo[index].thumbnail ?? "",
+                              ).paddingOnly(
+                                bottom: 20,
+                              );
+                            },
+                          ),
+                  )
                 ],
               );
             }),
           ),
         ),
-        Obx(() => controller.isLoading.value || controller.isLoading.value
-            ? const AppProgress(
-                color: darkGreen,
-              )
-            : Container()),
+        // Obx(() => controller.isLoading.value || controller.isLoading.value
+        //     ? const AppProgress(
+        //         color: darkGreen,
+        //       )
+        //     : Container()),
       ],
     );
   }
@@ -154,7 +175,7 @@ class SustainabilityWebinars extends StatelessWidget {
 
 class EdiWebinars extends StatelessWidget {
   EdiWebinars({Key? key}) : super(key: key);
-  final DashboardController controller = Get.put(DashboardController());
+  final DashboardController controller = Get.find<DashboardController>();
 
   @override
   Widget build(BuildContext context) {
@@ -165,52 +186,74 @@ class EdiWebinars extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
+              controller.getVideo.clear();
+
               Future.delayed(Duration.zero)
                   .then((value) => controller.getVideos(MethodIDs.EdiWebinars));
-              controller.getVideo.clear();
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ctrl.getVideo.isEmpty
-                      ? const SizedBox()
-                      : GridView.builder(
-                          itemCount: ctrl.getVideo.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10,
-                                  childAspectRatio: 2 / 2.1
-                                  // mainAxisSpacing: 10,
-                                  ),
-                          itemBuilder: (BuildContext context, int index) {
-                            return AppVideoCard(
-                              url: ctrl.getVideo[index].videoUrl,
-                              onTap: () {
-                                Get.toNamed(Routes.videoPlayerScreen,
-                                    arguments: {
-                                      "url": ctrl.getVideo[index].videoUrl
-                                    });
-                              },
-                              title: ctrl.getVideo[index].title,
-                              image: ctrl.getVideo[index].thumbnail ?? "",
-                            ).paddingOnly(
-                              bottom: 20,
-                            );
-                          },
-                        ),
+                  // ctrl.getVideo.isEmpty
+                  //     ? const SizedBox()
+                  //     :
+                  Obx(
+                    () => controller.isLoading.value
+                        ? GridView.builder(
+                            itemCount: 6,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 2 / 2.1
+                                    // mainAxisSpacing: 10,
+                                    ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return const ShimmerEffect(
+                                height: 200,
+                              ).paddingOnly(bottom: 10);
+                            },
+                          ).paddingOnly(left: 10, right: 10)
+                        : GridView.builder(
+                            itemCount: ctrl.getVideo.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 2 / 2.1
+                                    // mainAxisSpacing: 10,
+                                    ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return AppVideoCard(
+                                url: ctrl.getVideo[index].videoUrl,
+                                onTap: () {
+                                  Get.toNamed(Routes.videoPlayerScreen,
+                                      arguments: {
+                                        "url": ctrl.getVideo[index].videoUrl
+                                      });
+                                },
+                                title: ctrl.getVideo[index].title,
+                                image: ctrl.getVideo[index].thumbnail ?? "",
+                              ).paddingOnly(
+                                bottom: 20,
+                              );
+                            },
+                          ),
+                  )
                 ],
               );
             }),
           ),
         ),
-        Obx(() => controller.isLoading.value || controller.isLoading.value
-            ? const AppProgress(
-                color: darkGreen,
-              )
-            : Container()),
+        // Obx(() => controller.isLoading.value || controller.isLoading.value
+        //     ? const AppProgress(
+        //         color: darkGreen,
+        //       )
+        //     : Container()),
       ],
     );
   }

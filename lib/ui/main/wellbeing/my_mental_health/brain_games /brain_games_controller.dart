@@ -11,13 +11,14 @@ class BrainGamesController extends GetxController {
   List<GamesList> gamesList = [];
 
   getGames() async {
+    gamesList.clear();
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
     result = await WellbeingRepo.instance.getGames();
     try {
       print("data123${json.decode(result)}");
-      var data = gamesListFromJson(result);
+      var data = gamesListFromJson(result ?? []);
       gamesList = data;
     } catch (e) {
       print(e);

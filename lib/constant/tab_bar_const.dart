@@ -23,6 +23,7 @@ import '../ui/main/wellbeing/my_mental_health/brain_games /brain_games_screen.da
 import '../ui/main/wellbeing/my_mental_health/mental_health_dashboard/mental_health_dashboard.dart';
 import '../ui/main/wellbeing/my_mental_health/mentall_health_app/mental_health_app.dart';
 import '../ui/main/wellbeing/my_mental_health/mindfulness/mindfulness_screen.dart';
+import '../ui/main/wellbeing/my_mental_health/support_services/support_services.dart';
 import '../ui/main/wellbeing/my_mental_health/yoga_videos/yoga_vidoes_screen.dart';
 import '../ui/main/wellbeing/physical_health/bmi_calculator/bmi_calculator_screen.dart';
 import '../ui/main/wellbeing/physical_health/daily_workouts/daily_workouts_screen.dart';
@@ -31,7 +32,6 @@ import '../ui/main/wellbeing/physical_health/meal_plans/meal_plans_screen.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_dashboard/physical_health_dashboard.dart';
 import '../ui/main/wellbeing/physical_health/physical_health_main/physical_health_mainscreen.dart';
 import '../ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_screen.dart';
-import '../ui/support_services/support_services.dart';
 import '../utils/routes_manager.dart';
 
 List<AppTabBarModel> wellbeingTabs = [
@@ -117,7 +117,7 @@ List<AppTabBarModel> planetTabs = [
       tabText: dashboard, tabWidget: PlanetDashboard(), onTap: () {}),
   AppTabBarModel(
       tabText: carbonFootprintCalculator,
-      tabWidget: CarbonFootPrintCalculator(),
+      tabWidget: const CarbonFootPrintCalculator(),
       onTap: () {}),
   AppTabBarModel(
       tabText: webinars, tabWidget: const WebinarsScreen(), onTap: () {}),
