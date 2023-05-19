@@ -46,7 +46,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                 20.0.addHSpace(),
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(Routes.physicalHealthMainScreen,
+                    Get.offAndToNamed(Routes.physicalHealthMainScreen,
                         arguments: {"selectedPage": 1});
                   },
                   child: Container(
@@ -71,7 +71,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                     children: [
                       AppSquareCard(
                         onTap: () {
-                          Get.toNamed(Routes.physicalHealthMainScreen,
+                          Get.offAndToNamed(Routes.physicalHealthMainScreen,
                               arguments: {"selectedPage": 2});
                         },
                         desc: 'Discover What Your BMI is',
@@ -81,7 +81,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                       ),
                       AppSquareCard(
                         onTap: () {
-                          Get.toNamed(Routes.physicalHealthMainScreen,
+                          Get.offAndToNamed(Routes.physicalHealthMainScreen,
                               arguments: {"selectedPage": 3});
                         },
                         desc: 'Healthy Eating Made easy with our Meal Plans',

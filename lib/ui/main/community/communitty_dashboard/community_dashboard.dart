@@ -48,8 +48,8 @@ class CommunityDashboard extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            // Get.offAndToNamed(Routes.communityMain,
-                            //     arguments: {"selectedPage": 3});
+                            Get.offAndToNamed(Routes.communityMain,
+                                arguments: {"selectedPage": 3});
                           },
                           child: Container(
                             margin: const EdgeInsets.only(left: 20),
@@ -174,7 +174,7 @@ class CommunityDashboard extends StatelessWidget {
                           AppButton(
                               text: "Find out more",
                               onTap: () {
-                                Get.toNamed(Routes.communityMain,
+                                Get.offAndToNamed(Routes.communityMain,
                                     arguments: {"selectedPage": 5});
                               }),
                         ],

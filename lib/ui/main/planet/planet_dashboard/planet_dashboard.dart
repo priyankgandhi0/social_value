@@ -97,7 +97,10 @@ class PlanetDashboard extends StatelessWidget {
                           btnText: null,
                           image: ImageAssets.planetImage,
                           descColor: Colors.white,
-                          onTap: () {},
+                          onTap: () {
+                            Get.offAndToNamed(Routes.planetMain,
+                                arguments: {"selectedPage": 1});
+                          },
                         ).paddingOnly(
                           left: 10,
                         ),

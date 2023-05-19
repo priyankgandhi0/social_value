@@ -55,7 +55,7 @@ class MentalHealthDashBoard extends StatelessWidget {
                     image: ImageAssets.appforSleepImage,
                     descColor: Colors.white,
                     onTap: () {
-                      Get.toNamed(Routes.mentalHealthMain,
+                      Get.offAndToNamed(Routes.mentalHealthMain,
                           arguments: {"selectedPage": 1});
                     },
                   ).paddingOnly(
@@ -174,7 +174,7 @@ class MentalHealthDashBoard extends StatelessWidget {
                 children: [
                   AppSquareCard(
                     onTap: () {
-                      Get.toNamed(Routes.mentalHealthMain,
+                      Get.offAndToNamed(Routes.mentalHealthMain,
                           arguments: {"selectedPage": 6});
                     },
                     iconVisible: false,
@@ -185,7 +185,7 @@ class MentalHealthDashBoard extends StatelessWidget {
                   ),
                   AppSquareCard(
                     onTap: () {
-                      Get.toNamed(Routes.mentalHealthMain,
+                      Get.offAndToNamed(Routes.mentalHealthMain,
                           arguments: {"selectedPage": 3});
                     },
                     iconVisible: false,

@@ -35,7 +35,6 @@ class _MentalHealthMainState extends State<MentalHealthMain>
       Get.put(BrainGamesController());
   final DashboardController dashboardController =
       Get.put(DashboardController());
-
   final ArticleController articleController = Get.put(ArticleController());
 
   dynamic data = Get.arguments;

@@ -9,7 +9,8 @@ import 'insurance_quotes_contoller.dart';
 
 class FinancesInsuranceQuotes extends StatelessWidget {
   FinancesInsuranceQuotes({Key? key}) : super(key: key);
-  final InsuranceController controller = Get.put(InsuranceController());
+
+  final InsuranceController controller = Get.find<InsuranceController>();
 
   @override
   Widget build(BuildContext context) {
@@ -76,12 +77,12 @@ class FinancesInsuranceQuotes extends StatelessWidget {
       ],
     );
   }
-  // @override
-  // void initState() {
-  //   webViewController = WebViewController()
-  //     ..setJavaScriptMode(JavaScriptMode.unrestricted)
-  //     ..setBackgroundColor(const Color(0x00000000))
-  //     ..loadHtmlString(HtmlConst.privacyPolicyHtml);
-  //   super.initState();
-  // }
+// @override
+// void initState() {
+//   webViewController = WebViewController()
+//     ..setJavaScriptMode(JavaScriptMode.unrestricted)
+//     ..setBackgroundColor(const Color(0x00000000))
+//     ..loadHtmlString(HtmlConst.privacyPolicyHtml);
+//   super.initState();
+// }
 }

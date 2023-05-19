@@ -9,6 +9,7 @@ import '../../../../../utils/routes_manager.dart';
 import '../../../../../widgets/appbar_chip.dart';
 import '../../../bottom_nav_bar/bottom_navigation_screen.dart';
 import '../../physical_health/articles/article_controller.dart';
+import '../insurance_quotes/insurance_quotes_contoller.dart';
 
 class FinanceMain extends StatefulWidget {
   const FinanceMain({Key? key}) : super(key: key);
@@ -20,6 +21,9 @@ class FinanceMain extends StatefulWidget {
 class _FinanceMainState extends State<FinanceMain>
     with SingleTickerProviderStateMixin {
   final ArticleController articleController = Get.put(ArticleController());
+
+  final InsuranceController insuranceController =
+      Get.put(InsuranceController());
   dynamic data = Get.arguments;
   TabController? controller;
 

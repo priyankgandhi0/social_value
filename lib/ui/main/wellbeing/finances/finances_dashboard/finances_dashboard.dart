@@ -36,7 +36,7 @@ class FinancesDashBoard extends StatelessWidget {
                   10.0.addHSpace(),
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(Routes.financeMain,
+                      Get.offAndToNamed(Routes.financeMain,
                           arguments: {"selectedPage": 3});
                     },
                     child: Container(
@@ -69,7 +69,7 @@ class FinancesDashBoard extends StatelessWidget {
                   20.0.addHSpace(),
                   XoDiscountCard(
                     onTap: () {
-                      Get.toNamed(Routes.financeMain,
+                      Get.offAndToNamed(Routes.financeMain,
                           arguments: {"selectedPage": 2});
                     },
                     fillColor: lightDeepPurple,

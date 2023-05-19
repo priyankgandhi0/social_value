@@ -18,8 +18,8 @@ class WebinarsScreen extends StatefulWidget {
 
 class _WebinarsScreenState extends State<WebinarsScreen>
     with SingleTickerProviderStateMixin {
-  final DashboardController dashboardController =
-      Get.find<DashboardController>();
+  // final DashboardController dashboardController =
+  //     Get.find<DashboardController>();
   TabController? controller;
   int currentIndex = 0;
 
@@ -187,7 +187,6 @@ class EdiWebinars extends StatelessWidget {
                 const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
               controller.getVideo.clear();
-
               Future.delayed(Duration.zero)
                   .then((value) => controller.getVideos(MethodIDs.EdiWebinars));
             }, builder: (ctrl) {

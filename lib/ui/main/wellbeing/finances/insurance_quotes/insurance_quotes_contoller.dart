@@ -15,13 +15,14 @@ class InsuranceController extends GetxController {
   List<Insurance> getInsurance = [];
 
   getInsurances() async {
+    getInsurance.clear();
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
     result = await WellbeingRepo.instance.getInsurances();
     try {
       log("data123${json.decode(result)}");
-      var data = insuranceFromJson(result);
+      var data = insuranceFromJson(result ?? []);
       getInsurance = data;
       log("data----\n ${getInsurance[0].title}");
     } catch (e) {
