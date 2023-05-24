@@ -12,7 +12,7 @@ import '../../../../../theme/app_helpers.dart';
 class SupportServicesController extends GetxController {
   RxBool isLoading = false.obs;
   List<SupportCategoryData> getCategories = [];
-  List<SupportData> getCategoriesList = [];
+  List<HelpLinesModel> getHelplinesList = [];
 
   getHelplineCategories() async {
     FocusManager.instance.primaryFocus?.unfocus();
@@ -32,16 +32,16 @@ class SupportServicesController extends GetxController {
     update();
   }
 
-  getHelplines(String category) async {
+  getHelplines() async {
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
-    result = await WellbeingRepo.instance.getHelplines(category: category);
+    result = await WellbeingRepo.instance.getHelplines();
     try {
       print("data123${json.decode(result)}");
       var data = supportDataFromJson(result);
-      getCategoriesList = data;
-      print("data----\n ${getCategoriesList[0].title}");
+      getHelplinesList = data;
+      print("data----\n ${getHelplinesList[0].title}");
     } catch (e) {
       print(e);
       showAppSnackBar(errorText);

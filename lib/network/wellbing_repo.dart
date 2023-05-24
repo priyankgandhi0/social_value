@@ -24,21 +24,27 @@ class WellbeingRepo {
     return result;
   }
 
-  Future<dynamic> getHelplines({required String category}) async {
+  Future<dynamic> getHelplines() async {
     dynamic result;
-
-    var queryParameters = {
-      RequestParam.category: category,
-    };
-    String queryString =
-        Uri(path: MethodNames.getHelplines, queryParameters: queryParameters)
-            .toString();
-    // String queryString = MethodNames.getHelplines;
+    String queryString = Uri(path: MethodNames.getHelplines, ).toString();
     String requestUrl = AppUrls.BASE_URL + queryString;
 
     result = await BaseApiHelper.getRequest(requestUrl);
     return result;
   }
+
+ /* Future<dynamic> getHelplineData() async {
+    dynamic result;
+
+    String queryString =
+    Uri(path: MethodNames.getHelplines,)
+        .toString();
+    // String queryString = MethodNames.getHelplines;
+    String requestUrl = AppUrls.BASE_URL + queryString;
+
+    result = await BaseApiHelper.getRequest(requestUrl);
+    return result;
+  }*/
 
   Future<dynamic> getArticleCategories() async {
     dynamic result;

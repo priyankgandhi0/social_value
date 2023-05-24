@@ -108,7 +108,7 @@ List<AppTabBarModel> wellbeingFinanceTabs = [
       tabText: discountCard,
       tabWidget: const FinancesDiscountCard(),
       onTap: () {}),
-  AppTabBarModel(tabText: support, tabWidget: SupportServices(), onTap: () {}),
+  AppTabBarModel(tabText: support, tabWidget: SupportServices(isFinance: true,), onTap: () {}),
   AppTabBarModel(tabText: articles, tabWidget: FinancesArticle(), onTap: () {}),
 ];
 

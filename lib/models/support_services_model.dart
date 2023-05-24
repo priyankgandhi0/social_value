@@ -4,11 +4,43 @@
 
 import 'dart:convert';
 
-List<SupportData> supportDataFromJson(String str) => List<SupportData>.from(
-    json.decode(str).map((x) => SupportData.fromJson(x)));
+List<HelpLinesModel> supportDataFromJson(String str) => List<HelpLinesModel>.from(
+    json.decode(str).map((x) => HelpLinesModel.fromJson(x)));
 
-String supportDataToJson(List<SupportData> data) =>
+String supportDataToJson(List<HelpLinesModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+
+
+class HelpLinesModel {
+  String? id;
+  String? title;
+  List<SupportData>? items;
+
+  HelpLinesModel({this.id, this.title, this.items});
+
+  HelpLinesModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    if (json['items'] != null) {
+      items = <SupportData>[];
+      json['items'].forEach((v) {
+        items!.add(SupportData.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    if (items != null) {
+      data['items'] = items!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
 
 class SupportData {
   String id;

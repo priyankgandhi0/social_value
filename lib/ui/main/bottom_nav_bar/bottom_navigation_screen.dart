@@ -192,9 +192,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                               ),
                             )
                           ],
-                        ).paddingOnly(
-                          top: 25,
-                        ),
+                        ).paddingOnly(top: 25,),
                       ),
                     ),
                   ),

@@ -1,12 +1,16 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import '../constant/app_string.dart';
 
 import '../theme/app_color.dart';
 
 import 'app_button.dart';
+import 'app_progress.dart';
 import 'common_textfield.dart';
 
 class WellBeingScore extends StatelessWidget {
@@ -548,30 +552,143 @@ class AddictionCard extends StatelessWidget {
     this.color,
     required this.title,
     required this.desc,
+    required this.webLink,
   }) : super(key: key);
   final Color? color;
   final String title;
   final String desc;
+  final String webLink;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
       width: double.infinity,
       color: color,
       child: Row(
         children: [
-          title.interTextStyle(
-            fontWeight: FontWeight.w400,
-            fontSize: 12,
-            textOverflow: TextOverflow.ellipsis,
-          ),
           Expanded(
-            child: desc.interTextStyle(
-                // textOverflow: TextOverflow.ellipsis,
-                fontColor: darkDeepPurple,
-                fontWeight: FontWeight.w400,
-                fontSize: 12),
+            child: RichText(
+              text: TextSpan(
+                text: title,
+                style: const TextStyle(
+                  color: textColor,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                ),
+                children: [
+                  TextSpan(
+                    text: desc,
+                    style: const TextStyle(
+                      color: textColor,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                    ),
+                  ),
+                  TextSpan(
+                      text: webLink,
+                      style: const TextStyle(
+                        color: linkColor,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          Get.to(
+                            CustomWebViewFromLink(
+                              webUrl: webLink,
+                              title: title,
+                            ),
+                          );
+                          //_launchURL(webLink);
+                        }),
+                ],
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
+          /*desc.interTextStyle(
+              textOverflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              fontColor: darkDeepPurple,
+              fontWeight: FontWeight.w400,
+              fontSize: 12),
+          webLink.interTextStyle(
+              textOverflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              fontColor: darkDeepPurple,
+              fontWeight: FontWeight.w400,
+              fontSize: 12),*/
+        ],
+      ),
+    );
+  }
+
+  _launchURL(String url) async {
+    final Uri webViewUrl = Uri.parse(url);
+    if (await canLaunchUrl(webViewUrl)) {
+      await launchUrl(webViewUrl);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+}
+
+class CustomWebViewFromLink extends StatefulWidget {
+  String? webUrl;
+  String title;
+
+  CustomWebViewFromLink({Key? key, this.webUrl, required this.title})
+      : super(key: key);
+
+  @override
+  State<CustomWebViewFromLink> createState() => _CustomWebViewFromLinkState();
+}
+
+class _CustomWebViewFromLinkState extends State<CustomWebViewFromLink> {
+  late bool isLoading;
+  WebViewController? webViewController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    isLoading = true;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          backgroundColor: linkColor,
+          centerTitle: true,
+          title: Text(
+            widget.title.replaceAll('-', ''),
+            maxLines: 1,
+            style: const TextStyle(
+                overflow: TextOverflow.ellipsis,
+                color: white,
+                fontWeight: FontWeight.w600,
+                fontSize: 16),
+          )),
+      body: Stack(
+        children: [
+          WebView(
+            backgroundColor: Colors.white,
+            initialUrl: widget.webUrl,
+            gestureNavigationEnabled: true,
+            onPageFinished: (v) {
+              setState(() {
+                isLoading = false;
+              });
+            },
+          ),
+          Visibility(
+            visible: isLoading,
+            child: const Center(
+                child: AppProgress(
+              color: linkColor,
+            )),
           )
         ],
       ),

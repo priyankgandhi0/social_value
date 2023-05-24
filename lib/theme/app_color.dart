@@ -23,4 +23,5 @@ const Color white = Color(0XFFFFFFFF);
 const Color lightWhite = Color(0XFFEFF3F4);
 const Color darkWhite = Color(0XFFD9DDDE);
 const Color textColor = Color(0XFF000000);
+const Color linkColor = Color(0XFF926CC2);
 const Color cardColor = Color(0XFF926CC2);
