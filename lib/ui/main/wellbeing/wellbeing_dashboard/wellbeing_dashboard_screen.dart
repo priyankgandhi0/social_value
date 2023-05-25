@@ -32,8 +32,9 @@ class WellBeingDashBoardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: GetBuilder<DashboardController>(initState: (state) {
-        articleController.articlesList.clear();
         controller.getVideo.clear();
+        articleController.articlesList.clear();
+
         Future.delayed(Duration.zero).then(
             (value) => controller.getVideos(MethodIDs.wellbeingDashboardYoga));
         Future.delayed(Duration.zero).then((value) =>

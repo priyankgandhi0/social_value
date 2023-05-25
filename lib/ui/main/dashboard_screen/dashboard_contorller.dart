@@ -18,6 +18,7 @@ class DashboardController extends GetxController {
   List<VideoData> getVideo = [];
 
   getVideos(String ids) async {
+    // getVideo.clear();
     // if (getVideo.isNotEmpty) return;
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
@@ -113,8 +114,8 @@ Future<String?> _prepareSaveDir(String id) async {
 Future getThumbnail(String videoUrl, String id) async {
   String? file;
 
-  try{
-    file=  await VideoThumbnail.thumbnailFile(
+  try {
+    file = await VideoThumbnail.thumbnailFile(
       video: videoUrl,
       thumbnailPath: (await _prepareSaveDir(id)),
       imageFormat: ImageFormat.JPEG,
@@ -122,7 +123,7 @@ Future getThumbnail(String videoUrl, String id) async {
       quality: 100,
       maxWidth: 150,
     );
-  }catch(e){
+  } catch (e) {
     print(e);
   }
   return file;

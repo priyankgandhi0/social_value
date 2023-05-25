@@ -20,7 +20,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
   final DashboardController dashboardController =
       Get.put(DashboardController());
 
-  final ArticleController articleController = Get.put(ArticleController());
+  // final ArticleController articleController = Get.put(ArticleController());
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +99,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                     fontColor: textColor),
                 10.0.addHSpace(),
                 Obx(
-                  () => controller.isLoading.value
+                  () => dashboardController.isLoading.value
                       ? SizedBox(
                           height: 123,
                           child: ListView.builder(
@@ -140,7 +140,9 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                                         children: [
                                           Image.file(
                                             File(dashboardController
-                                                .getVideo[index].thumbnail ?? ""),
+                                                    .getVideo[index]
+                                                    .thumbnail ??
+                                                ""),
                                             errorBuilder:
                                                 (context, error, trace) {
                                               return const Center(
