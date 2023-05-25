@@ -111,12 +111,19 @@ Future<String?> _prepareSaveDir(String id) async {
 }
 
 Future getThumbnail(String videoUrl, String id) async {
-  return await VideoThumbnail.thumbnailFile(
-    video: videoUrl,
-    thumbnailPath: (await _prepareSaveDir(id)),
-    imageFormat: ImageFormat.JPEG,
-    maxHeight: 100,
-    quality: 100,
-    maxWidth: 150,
-  );
+  String? file;
+
+  try{
+    file=  await VideoThumbnail.thumbnailFile(
+      video: videoUrl,
+      thumbnailPath: (await _prepareSaveDir(id)),
+      imageFormat: ImageFormat.JPEG,
+      maxHeight: 100,
+      quality: 100,
+      maxWidth: 150,
+    );
+  }catch(e){
+    print(e);
+  }
+  return file;
 }

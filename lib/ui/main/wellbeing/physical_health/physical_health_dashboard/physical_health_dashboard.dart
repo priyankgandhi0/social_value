@@ -140,7 +140,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                                         children: [
                                           Image.file(
                                             File(dashboardController
-                                                .getVideo[index].thumbnail!),
+                                                .getVideo[index].thumbnail ?? ""),
                                             errorBuilder:
                                                 (context, error, trace) {
                                               return const Center(
