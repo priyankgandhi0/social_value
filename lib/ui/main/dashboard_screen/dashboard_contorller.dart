@@ -1,16 +1,18 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
+
 import '../../../api/api_extension.dart';
 import '../../../models/dashboard_video_model.dart';
 import '../../../network/dashboard_repo.dart';
 import '../../../theme/app_helpers.dart';
-import 'package:http/http.dart' as http;
 
 class DashboardController extends GetxController {
   RxBool isLoading = false.obs;
@@ -29,8 +31,8 @@ class DashboardController extends GetxController {
     );
     try {
       var data = videoDataFromJson(result);
-      getVideo = data;
-      await setVideoUrls();
+      getVideo = await setVideoUrls(data);
+      // getVideo = data;
     } catch (e) {
       log(e.toString());
       showAppSnackBar(errorText);
@@ -40,12 +42,13 @@ class DashboardController extends GetxController {
     update();
   }
 
-  Future setVideoUrls() async {
-    for (int i = 0; i < getVideo.length; i++) {
-      getVideo[i].videoUrl = await getVideoUrl(getVideo[i].museVideoId);
-      getVideo[i].thumbnail =
-          await getThumbnail(getVideo[i].videoUrl, getVideo[i].id);
+  Future<List<VideoData>> setVideoUrls(List<VideoData> videos) async {
+    for (int i = 0; i < videos.length; i++) {
+      videos[i].videoUrl = await getVideoUrl(videos[i].museVideoId);
+      videos[i].thumbnail =
+          await getThumbnail(videos[i].videoUrl, videos[i].id);
     }
+    return videos;
   }
 
   Future<String> getVideoUrl(
