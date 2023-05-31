@@ -133,7 +133,7 @@ List<AppTabBarModel> communityTabs = [
       onTap: () {}),
   AppTabBarModel(
       tabText: volunteering,
-      tabWidget: const VolunteeringScreen(),
+      tabWidget:  VolunteeringScreen(),
       onTap: () {}),
   AppTabBarModel(
       tabText: fundraising, tabWidget: FundraisingScreen(), onTap: () {}),

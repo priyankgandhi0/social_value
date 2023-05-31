@@ -8,6 +8,14 @@ class CommunityRepo {
 
   static CommunityRepo get instance => _instance ??= CommunityRepo._();
 
+  Future<dynamic> getVolunteeringData() async {
+    dynamic result;
+    String queryString = MethodNames.getVolunteering;
+    String requestUrl = AppUrls.BASE_URL + queryString;
+    result = await BaseApiHelper.getRequest(requestUrl);
+    return result;
+  }
+
   Future<dynamic> getFundraisingIdeas() async {
     dynamic result;
     String queryString = MethodNames.getFundraisingIdeas;

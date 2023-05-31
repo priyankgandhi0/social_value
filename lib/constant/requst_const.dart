@@ -17,6 +17,7 @@ class MethodNames {
   static const signIn = "sign-in";
   static const getArticleCategories = "get-article-categories";
   static const getInsurances = "get-insurances";
+  static const getVolunteering = "get-volunteering-orgs";
   static const getFundraisingIdeas = "get-fundraising-ideas";
   static const getHelplineCategories = "get-helpline-categories";
   static const getHelplines = "get-helplines";

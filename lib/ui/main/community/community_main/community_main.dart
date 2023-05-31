@@ -9,6 +9,7 @@ import '../../../../widgets/appbar_chip.dart';
 import '../../bottom_nav_bar/bottom_navigation_screen.dart';
 import '../../wellbeing/physical_health/articles/article_controller.dart';
 import '../fundraising/fundraising_controller.dart';
+import '../volunteering_screen/volunteering_controller.dart';
 
 class CommunityMain extends StatefulWidget {
   const CommunityMain({
@@ -22,8 +23,8 @@ class CommunityMain extends StatefulWidget {
 class _CommunityMainState extends State<CommunityMain>
     with SingleTickerProviderStateMixin {
   final ArticleController articleController = Get.put(ArticleController());
-  final FundraisingController fundraisingController =
-      Get.put(FundraisingController());
+  final FundraisingController fundraisingController = Get.put(FundraisingController());
+  final VolunteeringController volunteeringController = Get.put(VolunteeringController());
   TabController? controller;
   dynamic data = Get.arguments;
 

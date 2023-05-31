@@ -1,7 +1,11 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:jovial_svg/jovial_svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:video_player/video_player.dart';
@@ -770,22 +774,29 @@ class QuestionsCard extends StatelessWidget {
   }
 }
 
-class VolunterringCard extends StatelessWidget {
-  const VolunterringCard({
-    Key? key,
-    this.height,
-    this.width,
-    this.image,
-    required this.text,
-  }) : super(key: key);
+class VolunteeringCard extends StatelessWidget {
+  const VolunteeringCard(
+      {Key? key,
+      this.height,
+      this.width,
+      this.image,
+      required this.text,
+      required this.title,
+      required this.webLink,
+      required this.onTap})
+      : super(key: key);
 
   final double? height;
   final double? width;
   final String? image;
   final String text;
+  final String title;
+  final String webLink;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
+    var imageExtension = image?.split(".").last;
     return Container(
       width: Get.width,
       decoration: BoxDecoration(
@@ -803,20 +814,42 @@ class VolunterringCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           20.0.addHSpace(),
-          Image.asset(
-            image ?? Assets.imagesVolunterringLogo,
-            height: height ?? 70,
-            width: width ?? Get.width,
-          ),
+          '$image'.isNotEmpty && image != ''
+              ? imageExtension == 'svg'
+                  ? SizedBox(
+                      height: height ?? 70,
+                      width: width ?? Get.width,
+                      child: ScalableImageWidget.fromSISource(
+                        si: ScalableImageSource.fromSvgHttpUrl(
+                          Uri.parse('$image'),
+                        ),
+                      ),
+                    )
+                  : Image.network(
+                      '$image',
+                      height: height ?? 70,
+                      width: width ?? Get.width,
+                    )
+              : Image.asset(
+                  Assets.imagesVolunterringLogo,
+                  height: height ?? 70,
+                  width: width ?? Get.width,
+                ),
           15.0.addHSpace(),
           text.interTextStyle(
+
             fontSize: 12,
             fontWeight: FontWeight.w400,
           ),
           15.0.addHSpace(),
-          'Visit the Reach Website.'.interTextStyle(
-              fontSize: 12, fontWeight: FontWeight.w700, fontColor: darkPurple),
-          20.0.addHSpace(),
+          TextButton(
+            onPressed: onTap,
+            child: 'Visit the Reach Website.'.interTextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                fontColor: darkPurple),
+          ),
+          15.0.addHSpace(),
         ],
       ).paddingSymmetric(horizontal: 15),
     );
@@ -828,13 +861,13 @@ class ReasonVolunterringCard extends StatelessWidget {
     Key? key,
     this.height,
     this.width,
-    this.image,
+    this.count,
     required this.text,
   }) : super(key: key);
 
   final double? height;
   final double? width;
-  final String? image;
+  final String? count;
   final String text;
 
   @override
@@ -855,10 +888,15 @@ class ReasonVolunterringCard extends StatelessWidget {
       child: Row(
         children: [
           20.0.addHSpace(),
-          Image.asset(
-            image ?? Assets.imagesReasonVolun,
+          Container(
             height: height ?? 50,
             width: width ?? 50,
+            decoration: const BoxDecoration(
+              image: DecorationImage(image: AssetImage(Assets.imagesReasonVolun),fit: BoxFit.cover,)
+            ),
+            child: Center(
+              child: count?.interTextStyle(fontColor: Colors.white,fontSize: 20,fontWeight: FontWeight.w700),
+            ),
           ),
           15.0.addWSpace(),
           Expanded(
