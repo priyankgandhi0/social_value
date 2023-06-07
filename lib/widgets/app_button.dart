@@ -16,7 +16,7 @@ class AppFilledButton extends StatelessWidget {
       required this.onTap})
       : super(key: key);
   final String text;
-  final Function() onTap;
+  final VoidCallback onTap;
   final double? fontSize;
   final double? width;
   final FontWeight? fontWeight;

@@ -27,14 +27,11 @@ class PlanetDashboard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(bottom: 40),
             child: GetBuilder<ArticleController>(initState: (state) {
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getArticles("13"));
+              Future.delayed(Duration.zero).then((value) => controller.getArticles("13"));
               controller.articlesList.clear();
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getArticles("11"));
+              Future.delayed(Duration.zero).then((value) => controller.getArticles("11"));
               controller.planetArticleList.clear();
-              Future.delayed(Duration.zero)
-                  .then((value) => wellbeingController.getCompany());
+              Future.delayed(Duration.zero).then((value) => wellbeingController.getCompany());
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,9 +48,7 @@ class PlanetDashboard extends StatelessWidget {
                             child: PlanetScore(
                               scoreTitle: sustainabilityScore,
                               scoreDesc: sustainabilityScoreDesc,
-                              percentage: double.parse(wellbeingController
-                                          .companyData?.sustainabilityScore ??
-                                      "0") /
+                              percentage: double.parse(wellbeingController.companyData?.sustainabilityScore ?? "0") /
                                   100,
                               bgColor: darkGreen,
                               percentageColor: darkGreen,
@@ -227,14 +222,10 @@ class PlanetDashboard extends StatelessWidget {
                                   onTap: () {
                                     Get.toNamed(Routes.articleDetailScreen,
                                         arguments: [
-                                          {
-                                            "text": "Sustainability",
-                                          },
+                                          {"text": "Sustainability",},
                                           {"color": darkGreen},
                                           {"color1": darkGreen},
-                                          {
-                                            "id":
-                                                ctrl.planetArticleList[index].id
+                                          {"id": ctrl.planetArticleList[index].id
                                           }
                                         ]);
                                   },

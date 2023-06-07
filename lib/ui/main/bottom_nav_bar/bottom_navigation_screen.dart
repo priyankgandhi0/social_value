@@ -67,8 +67,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                                         onTap: () {
                                           Get.toNamed(Routes.dashboardScreen);
                                         },
-                                        child: SvgPicture.asset(
-                                            Assets.iconsDashBoardIcon)),
+                                        child: SvgPicture.asset(Assets.iconsDashBoardIcon)),
                                     4.0.addHSpace(),
                                     dashboard.interTextStyle(
                                         fontSize: 12,
@@ -90,8 +89,7 @@ class BottomNaviBarScreen extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                         onTap: () {
-                                          Get.toNamed(
-                                              Routes.wellBeingDashBoardScreen);
+                                          Get.toNamed(Routes.wellBeingDashBoardScreen);
                                         },
                                         child: SvgPicture.asset(
                                           IconsAssets.wellbeingIcon,

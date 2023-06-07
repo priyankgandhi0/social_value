@@ -44,6 +44,7 @@ class _BrainGamesPlayScreenState extends State<BrainGamesPlayScreen> {
                   height: 650,
                   // width: double.infinity,
                   child: WebView(
+                    backgroundColor: Colors.white,
                     initialUrl: data["url"],
                     javascriptMode: JavascriptMode.unrestricted,
                     onWebViewCreated: (WebViewController webViewController) {

@@ -16,8 +16,7 @@ class PhysicalHealthMainScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<PhysicalHealthMainScreen> createState() =>
-      _PhysicalHealthMainScreenState();
+  State<PhysicalHealthMainScreen> createState() => _PhysicalHealthMainScreenState();
 }
 
 class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
@@ -105,8 +104,7 @@ class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
         ),
         child: TabBarView(
           controller: controller,
-          children:
-              wellbeingPhysicalHealthTabs.map((e) => e.tabWidget).toList(),
+          children: wellbeingPhysicalHealthTabs.map((e) => e.tabWidget).toList(),
         ),
       ),
     );

@@ -598,6 +598,7 @@ class AddictionCard extends StatelessWidget {
                             CustomWebViewFromLink(
                               webUrl: webLink,
                               title: title,
+                             color: linkColor,
                             ),
                           );
                           //_launchURL(webLink);
@@ -637,8 +638,9 @@ class AddictionCard extends StatelessWidget {
 class CustomWebViewFromLink extends StatefulWidget {
   String? webUrl;
   String title;
+  Color color;
 
-  CustomWebViewFromLink({Key? key, this.webUrl, required this.title})
+  CustomWebViewFromLink({Key? key, this.webUrl, required this.title,required this.color})
       : super(key: key);
 
   @override
@@ -660,7 +662,7 @@ class _CustomWebViewFromLinkState extends State<CustomWebViewFromLink> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: linkColor,
+          backgroundColor: widget.color,
           centerTitle: true,
           title: Text(
             widget.title.replaceAll('-', ''),
@@ -685,9 +687,9 @@ class _CustomWebViewFromLinkState extends State<CustomWebViewFromLink> {
           ),
           Visibility(
             visible: isLoading,
-            child: const Center(
+            child: Center(
                 child: AppProgress(
-              color: linkColor,
+              color: widget.color,
             )),
           )
         ],

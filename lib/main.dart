@@ -5,10 +5,10 @@ import 'package:social_value/utils/routes_manager.dart';
 import 'constant/shred_preference.dart';
 
 void main() async {
-  runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
   await preferences.init();
   await preferences.putAppDeviceInfo();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

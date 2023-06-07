@@ -7,10 +7,8 @@ class AppUrls {
   /// Create request with query parameter
   static const String BASE_URL = "$LIVE_BASE_URL/api/";
 
-  static const String CARBON_FOOTPRINT_URL =
-      "https://socialvaluecompany.com/household-carbon-calculator/";
-  static const String GET_STARTED_FORM =
-      "https://forms.zohopublic.eu/dan25/form/InsightTimerAppRequest/formperma/pKLshzm66IyxtmcC8fgdc4pzURmhfn2a43Or863ttZY";
+  static const String CARBON_FOOTPRINT_URL = "https://socialvaluecompany.com/household-carbon-calculator/";
+  static const String GET_STARTED_FORM = "https://forms.zohopublic.eu/dan25/form/InsightTimerAppRequest/formperma/pKLshzm66IyxtmcC8fgdc4pzURmhfn2a43Or863ttZY";
 }
 
 class MethodNames {
@@ -29,13 +27,14 @@ class MethodNames {
   static const changePassword = "change-Password";
   static const editProfile = "edit-profile";
   static const getCompany = "get-company";
+  static const getFaqs = "get-faqs";
+  static const awarenessDays = "awareness-days";
 }
 
 class MethodIDs {
   static const SupportVideosId = "86";
   static const wellbeingDashboardYoga = "65";
-  static const wellbeingDashboardArticle =
-      "5,9,10,14,15,17,22,23,24,26,29,31,32,33,34,35,36,37,38,39,40,41,442,49";
+  static const wellbeingDashboardArticle = "5,9,10,14,15,17,22,23,24,26,29,31,32,33,34,35,36,37,38,39,40,41,442,49";
   static const physicalDashboardArticle = "31";
   static const physicalDashboardVideo = "67";
   static const mealPlanArticle = "46";

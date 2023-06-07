@@ -9,8 +9,11 @@ import '../../../../../widgets/wellbeing_screen_card.dart';
 
 class SupportServices extends StatelessWidget {
   bool? isFinance = false;
-  SupportServices({Key? key,this.isFinance}) : super(key: key);
-  final SupportServicesController controller = Get.find<SupportServicesController>();
+
+  SupportServices({Key? key, this.isFinance}) : super(key: key);
+  final SupportServicesController controller =
+      Get.find<SupportServicesController>();
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -20,7 +23,8 @@ class SupportServices extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 40),
             child: GetBuilder<SupportServicesController>(initState: (state) {
-              Future.delayed(Duration.zero).then((value) => controller.getHelplines());
+              Future.delayed(Duration.zero)
+                  .then((value) => controller.getHelplines());
             }, builder: (ctrl) {
               return Column(
                 children: [
@@ -44,73 +48,100 @@ class SupportServices extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       return isFinance == true
-                        ? ctrl.getHelplinesList[index].id == '2'
-                          ? Container(
-                           padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 10),
-                           width: double.infinity,
+                          ? ctrl.getHelplinesList[index].id == '2'
+                              ? Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 15, horizontal: 10),
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      color: white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                          color: Colors.grey.shade300)),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      (ctrl.getHelplinesList[index].title ?? "")
+                                          .interTextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 15,
+                                              textDecoration:
+                                                  TextDecoration.underline),
+                                      20.0.addHSpace(),
+                                      ListView.builder(
+                                          shrinkWrap: true,
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
+                                          itemCount: ctrl
+                                              .getHelplinesList[index]
+                                              .items
+                                              ?.length,
+                                          itemBuilder: (context, i) {
+                                            return AddictionCard(
+                                              title:
+                                                  '${ctrl.getHelplinesList[index].items![i].title} - ',
+                                              desc: ctrl.getHelplinesList[index]
+                                                      .items![i].phone.isEmpty
+                                                  ? ''
+                                                  : '${ctrl.getHelplinesList[index].items![i].phone} - ',
+                                              webLink: ctrl
+                                                  .getHelplinesList[index]
+                                                  .items![i]
+                                                  .website,
+                                              color: i.isEven
+                                                  ? lightDeepPurple
+                                                  : white,
+                                            );
+                                          }),
+                                    ],
+                                  ),
+                                ).paddingOnly(bottom: 20)
+                              : Container()
+                          : Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 10),
+                              // height: 20,
+                              width: double.infinity,
                               decoration: BoxDecoration(
-                            color: white,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey.shade300)),
-                             child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ctrl.getHelplinesList[index].title?.interTextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 15,
-                                textDecoration: TextDecoration.underline),
-                                20.0.addHSpace(),
-                                ListView.builder(
-                                 shrinkWrap: true,
-                                 physics: const NeverScrollableScrollPhysics(),
-                                 itemCount: ctrl.getHelplinesList[index].items?.length,
-                                 itemBuilder: (context , i){
-                                   return AddictionCard(
-                                     title: '${ctrl.getHelplinesList[index].items![i].title} - ',
-                                     desc: ctrl.getHelplinesList[index].items![i].phone.isEmpty ?'':'${ctrl.getHelplinesList[index].items![i].phone} - ',
-                                     webLink: ctrl.getHelplinesList[index].items![i].website,
-                                     color: i.isEven ? lightDeepPurple :white,
-                                   );
-                                 }
-                             ),
-                          ],
-                        ),
-                      ).paddingOnly(bottom: 20)
-                          :Container()
-                      :Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 10),
-                        // height: 20,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: white,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey.shade300)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ctrl.getHelplinesList[index].title?.interTextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 15,
-                                textDecoration: TextDecoration.underline),
-                            20.0.addHSpace(),
-                            ListView.builder(
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                itemCount: ctrl.getHelplinesList[index].items?.length,
-                                itemBuilder: (context , i){
-                                  return AddictionCard(
-                                    title: '${ctrl.getHelplinesList[index].items![i].title} - ',
-                                    desc: ctrl.getHelplinesList[index].items![i].phone.isEmpty ?'':'${ctrl.getHelplinesList[index].items![i].phone} - ',
-                                    webLink: ctrl.getHelplinesList[index].items![i].website,
-                                    color: i.isEven ? lightDeepPurple : white,
-                                  );
-                                }
-                            ),
-                          ],
-                        ),
-                      ).paddingOnly(bottom: 20);
+                                  color: white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border:
+                                      Border.all(color: Colors.grey.shade300)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  (ctrl.getHelplinesList[index].title ?? "")
+                                      .interTextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 15,
+                                          textDecoration:
+                                              TextDecoration.underline),
+                                  20.0.addHSpace(),
+                                  ListView.builder(
+                                      shrinkWrap: true,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      itemCount: ctrl.getHelplinesList[index]
+                                          .items?.length,
+                                      itemBuilder: (context, i) {
+                                        return AddictionCard(
+                                          title:
+                                              '${ctrl.getHelplinesList[index].items![i].title} - ',
+                                          desc: ctrl.getHelplinesList[index]
+                                                  .items![i].phone.isEmpty
+                                              ? ''
+                                              : '${ctrl.getHelplinesList[index].items![i].phone} - ',
+                                          webLink: ctrl.getHelplinesList[index]
+                                              .items![i].website,
+                                          color: i.isEven
+                                              ? lightDeepPurple
+                                              : white,
+                                        );
+                                      }),
+                                ],
+                              ),
+                            ).paddingOnly(bottom: 20);
                     },
                   ),
                 ],

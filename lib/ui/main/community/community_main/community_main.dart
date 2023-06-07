@@ -84,10 +84,7 @@ class _CommunityMainState extends State<CommunityMain>
                 color: white, fontWeight: FontWeight.w700, fontSize: 13),
             unselectedLabelStyle: GoogleFonts.inter(
                 color: white, fontWeight: FontWeight.w700, fontSize: 13),
-            tabs: communityTabs
-                .map(
-                  (e) => Tab(text: e.tabText),
-                )
+            tabs: communityTabs.map((e) => Tab(text: e.tabText),)
                 .toList(),
           ),
         ),

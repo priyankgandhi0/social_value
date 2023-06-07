@@ -12,7 +12,7 @@ class AppMenuItem extends StatelessWidget {
       : super(key: key);
   final String appImage;
   final String appItemText;
-  final Function()? itemOnTap;
+  final VoidCallback? itemOnTap;
   @override
   Widget build(BuildContext context) {
     return Column(

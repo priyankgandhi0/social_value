@@ -91,6 +91,8 @@ class LogInScreen extends StatelessWidget {
                           if (controller.signInKey.currentState!.validate()) {
                             controller.userLogin();
                             // controller.getArticleCategories();
+                          }else{
+                            controller.signInKey.currentState!.save();
                           }
                         },
                       ),
@@ -101,11 +103,18 @@ class LogInScreen extends StatelessWidget {
                           fontColor: white,
                           textDecoration: TextDecoration.underline),
                       12.0.addHSpace(),
+
+
+
+
                       needAnAccount.interTextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
                           fontColor: white,
                           textDecoration: TextDecoration.underline),
+
+
+
                     ],
                   ),
                 ),

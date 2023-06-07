@@ -210,8 +210,7 @@ class PickFile {
     } else if (status.isPermanentlyDenied) {
       Get.showSnackbar(
         GetSnackBar(
-          message:
-              "To access this feature please grant permission from settings.",
+          message: "To access this feature please grant permission from settings.",
           mainButton: SnackBarAction(
             label: "Settings",
             textColor: Colors.amber,

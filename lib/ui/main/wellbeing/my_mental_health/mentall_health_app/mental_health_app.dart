@@ -90,6 +90,7 @@ class _MentalHealthAppState extends State<MentalHealthApp> {
                 ],
                 borderRadius: BorderRadius.circular(8)),
             child: const WebView(
+              backgroundColor: Colors.white,
                 javascriptMode: JavascriptMode.unrestricted,
                 initialUrl: AppUrls.GET_STARTED_FORM),
           )

@@ -18,20 +18,14 @@ extension AppText on String {
       this,
       overflow: textOverflow,
       maxLines: maxLines,
-      style: GoogleFonts.epilogue(
-        color: fontColor ?? black,
-        fontSize: fontSize ?? 16,
-        fontWeight: fontWeight,
-        fontStyle: FontStyle.normal,
-        decoration: textDecoration ?? TextDecoration.none,
-      ),
+      style: GoogleFonts.epilogue(color: fontColor ?? black, fontSize: fontSize ?? 16, fontWeight: fontWeight, fontStyle: FontStyle.normal, decoration: textDecoration ?? TextDecoration.none,),
       textAlign: textAlign,
     );
   }
 }
 
 extension AppText2 on String {
-  interTextStyle({
+  Text interTextStyle({
     Color? fontColor,
     double? fontSize,
     TextDecoration? textDecoration,
@@ -44,13 +38,7 @@ extension AppText2 on String {
       this,
       overflow: textOverflow,
       maxLines: maxLines,
-      style: GoogleFonts.inter(
-        fontStyle: FontStyle.normal,
-        color: fontColor ?? textColor,
-        fontSize: fontSize ?? 16,
-        fontWeight: fontWeight,
-        decoration: textDecoration ?? TextDecoration.none,
-      ),
+      style: GoogleFonts.inter(fontStyle: FontStyle.normal, color: fontColor ?? textColor, fontSize: fontSize ?? 16, fontWeight: fontWeight, decoration: textDecoration ?? TextDecoration.none),
       textAlign: textAlign,
     );
   }
@@ -70,13 +58,7 @@ extension AppText3 on String {
       this,
       overflow: textOverflow,
       maxLines: maxLines,
-      style: GoogleFonts.openSans(
-        fontStyle: FontStyle.normal,
-        color: fontColor ?? textColor,
-        fontSize: fontSize ?? 16,
-        fontWeight: fontWeight,
-        decoration: textDecoration ?? TextDecoration.none,
-      ),
+      style: GoogleFonts.openSans(fontStyle: FontStyle.normal, color: fontColor ?? textColor, fontSize: fontSize ?? 16, fontWeight: fontWeight, decoration: textDecoration ?? TextDecoration.none),
       textAlign: textAlign,
     );
   }
@@ -96,7 +78,7 @@ Widget appCommonTextSpan({
   String? childText,
   TextDecoration? decoration,
   TextDecoration? childDecoration,
-  Function()? onTapUp,
+  VoidCallback? onTapUp,
 }) {
   return Text.rich(
       maxLines: maxLines,
@@ -112,12 +94,7 @@ Widget appCommonTextSpan({
           children: <InlineSpan>[
             TextSpan(
                 text: childText ?? '',
-                style: GoogleFonts.inter(
-                    fontSize: childsize ?? size,
-                    color: childColor,
-                    // color: isDarkMode ? Colors.white : color,
-                    fontWeight: childweight,
-                    decoration: childDecoration),
+                style: GoogleFonts.inter(fontSize: childsize ?? size, color: childColor, fontWeight: childweight, decoration: childDecoration),
                 recognizer: TapGestureRecognizer()..onTap = onTapUp)
           ]));
 }
@@ -142,6 +119,17 @@ extension Space on double {
   }
 }
 
+
+
+extension AppDivider on double {
+  addDivider () {
+    return Divider(
+      thickness: this,
+    );
+  }
+}
+
+
 extension AppExpanded on Widget {
   Expanded expand({Key? key, int flex = 1}) {
     return Expanded(
@@ -149,5 +137,31 @@ extension AppExpanded on Widget {
       flex: flex,
       child: this,
     );
+  }
+}
+
+
+extension NumberParsing on int {
+  String toOrdinalString() {
+    if ((this < 0)) {
+      //here you change the range
+      throw Exception('Invalid number: Number must be a positive number');
+    }
+    if (this == 0) {
+      return '0';
+    }
+
+    String stringValue = toString();
+
+    switch (stringValue[stringValue.length - 1]) {
+      case '1':
+        return '${stringValue}st';
+      case '2':
+        return '${stringValue}nd';
+      case '3':
+        return '${stringValue}rd';
+      default:
+        return '${stringValue}th';
+    }
   }
 }

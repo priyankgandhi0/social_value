@@ -30,6 +30,7 @@ const lastName = 'Last Name';
 const socialValueScoreText = 'Social Value Score';
 const privacyCentre = 'Privacy Centre';
 const termsConditions = 'Terms & Conditions';
+const privacyCenter = 'Privacy Center';
 const memberSinceText = 'Member Since Feb 2022';
 const welComeText = 'Welcome to your Social Value Hub';
 const companyNameText = '[Company Name]’s';
@@ -189,6 +190,7 @@ const wellbeingHubText =
 const soFarYouHaveHelpedPlantText = 'So far you have helped plant:';
 const lesmillsText =
     'Discover Les Mills Workouts with 200+ training videos. Workout at home or on the go!';
+
 
 
 

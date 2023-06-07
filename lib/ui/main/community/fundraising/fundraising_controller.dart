@@ -17,7 +17,6 @@ class FundraisingController extends GetxController {
     dynamic result;
     result = await CommunityRepo.instance.getFundraisingIdeas();
     try {
-      print("data123${json.decode(result)}");
       var data = fundraisingFromJson(result ?? []);
       getFundraising = data;
     } catch (e) {

@@ -129,12 +129,10 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        'General Details'.interTextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20,
-                        ),
-                        20.0.addHSpace(),
-                        Row(
+
+                        'General Details'.interTextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+
+                        20.0.addHSpace(),                        Row(
                           children: [
                             Flexible(
                               child: StartUpTextFiled(
@@ -162,8 +160,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                                 fillColor: Colors.transparent,
                                 borderColor: Colors.grey,
                                 fontColor: Colors.black,
-                                controller: ctrl.lastNameCtr
-                                  ..text = ctrl.lastName,
+                                controller: ctrl.lastNameCtr..text = ctrl.lastName,
                                 validator: (_) {
                                   if (ctrl.lastNameCtr.text.isEmpty) {
                                     return pleaseEnterName;
@@ -305,8 +302,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                                           color: textColor,
                                         ),
                                   suffixIconOnPress: () {
-                                    ctrl.isObscureText.value =
-                                        !ctrl.isObscureText.value;
+                                    ctrl.isObscureText.value = !ctrl.isObscureText.value;
                                   },
                                   controller: ctrl.newPassCtr,
                                   hintText: '',

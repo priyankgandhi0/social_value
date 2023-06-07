@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../theme/app_color.dart';
@@ -105,15 +105,19 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
                       color: Colors.white,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 16, right: 16, top: 10, bottom: 20),
+                      padding: const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 20),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Html(
-                              data: ctrl.singleArticle.isNotEmpty
-                                  ? ctrl.singleArticle[0].html
-                                  : "",
+                            // Html(
+                            //   data: ctrl.singleArticle.isNotEmpty
+                            //       ? ctrl.singleArticle[0].html
+                            //       : "",
+                            // ),
+                            HtmlWidget(
+                                ctrl.singleArticle.isNotEmpty
+                                    ? ctrl.singleArticle[0].html
+                                    : "",
                             ),
                           ]),
                     ),

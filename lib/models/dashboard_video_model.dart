@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-List<VideoData> videoDataFromJson(String str) =>
-    List<VideoData>.from(json.decode(str).map((x) => VideoData.fromJson(x)));
+List<VideoData> videoDataFromJson(String str) => List<VideoData>.from(json.decode(str).map((x) => VideoData.fromJson(x)));
 
-String videoDataToJson(List<VideoData> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String videoDataToJson(List<VideoData> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class VideoData {
   String id;

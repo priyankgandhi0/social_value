@@ -52,9 +52,7 @@ class PhysicalHealthMealPlans extends StatelessWidget {
                       return AppBodyPumptCard(
                         onTap: () {
                           Get.toNamed(Routes.articleDetailScreen, arguments: [
-                            {
-                              "text": "Meal plan",
-                            },
+                            {"text": "Meal plan",},
                             {"color": darkDeepPurple},
                             {"color1": darkDeepPurple},
                             {"id": ctrl.articlesList[index].id}

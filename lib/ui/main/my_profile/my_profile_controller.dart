@@ -28,8 +28,7 @@ class MyProfileController extends GetxController {
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
     dynamic result;
-    result = await UserStartupRepo.instance
-        .changePassword(email: email, password: newPassCtr.text, id: id);
+    result = await UserStartupRepo.instance.changePassword(email: email, password: newPassCtr.text, id: id);
     try {
       showAppSnackBar("Password has been change Successfully");
       newPassCtr.clear();

@@ -26,45 +26,29 @@ class VolunteeringScreen extends StatelessWidget {
         SingleChildScrollView(
           child: GetBuilder<VolunteeringController>(
             initState: (state){
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getVolunteering());
+              Future.delayed(Duration.zero).then((value) => controller.getVolunteering());
             },
             builder: (controller){
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Image.asset(Assets.imagesGiveBackVolun),
-                  ),
+                  Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)), child: Image.asset(Assets.imagesGiveBackVolun)),
                   15.0.addHSpace(),
                   Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10), color: lightPurple),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: lightPurple),
                     child: BulletList(
                       const [
                         'There are many reasons why people should volunteer, but one of the most important is that it can benefit both the volunteer and the community.',
                         'When people give their time and energy to help others, they often find that they also get a lot back in return.',
                         'Volunteers often report feeling a sense of satisfaction and purpose, as well as a sense of connection to their community. In addition, volunteering can also help to build skills and experiences that can be valuable in the workplace..',
                         'It’s good for you, and it’s good for your community.',
-                      ],
-                      left: 10,
-                      right: 10,
-                      top: 10,
-                      bottom: 10,
+                      ], left: 10, right: 10, top: 10, bottom: 10,
                     ),
                   ),
                   15.0.addHSpace(),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child:
-                    'Here are 3 of the leading volunteering organisations in the UK'
-                        .interTextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16,
-                    ),
+                    child: 'Here are 3 of the leading volunteering organisations in the UK'.interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
                   ),
                   15.0.addHSpace(),
                   volunteeringView(controller),
@@ -80,10 +64,9 @@ class VolunteeringScreen extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       return  ReasonVolunterringCard(
-                          text: '${volunteeringData[index].details}',
+                        text: '${volunteeringData[index].details}',
                         count: '${volunteeringData[index].id}',
-                      )
-                          .paddingSymmetric(vertical: 10);
+                      ).paddingSymmetric(vertical: 10);
                     },
                   ),
                 ],

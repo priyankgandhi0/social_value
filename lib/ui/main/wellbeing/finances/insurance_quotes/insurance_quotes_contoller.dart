@@ -21,7 +21,6 @@ class InsuranceController extends GetxController {
     dynamic result;
     result = await WellbeingRepo.instance.getInsurances();
     try {
-      log("data123${json.decode(result)}");
       var data = insuranceFromJson(result ?? []);
       getInsurance = data;
       log("data----\n ${getInsurance[0].title}");

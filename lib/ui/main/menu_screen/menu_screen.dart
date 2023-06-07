@@ -99,7 +99,9 @@ class MenuScreen extends StatelessWidget {
               AppMenuItem(
                   appImage: Assets.iconsPrivacyIcon,
                   appItemText: privacyCentre,
-                  itemOnTap: () {}),
+                  itemOnTap: () {
+                    Get.toNamed(Routes.privacyCenter);
+                  }),
               40.0.addHSpace(),
               Container(
                 height: 229,

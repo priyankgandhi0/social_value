@@ -14,6 +14,7 @@ import '../ui/main/dashboard_screen/dashboard_screen.dart';
 import '../ui/main/menu_screen/menu_screen.dart';
 import '../ui/main/my_profile/my_profile.dart';
 import '../ui/main/planet/carbon_footprint_calculator/carbon_footprint_calculator.dart';
+import '../ui/main/privacy_center_screen/privacy_center_screen.dart';
 import '../ui/main/staff_survey/staff_survey.dart';
 import '../ui/main/staff_survey/staffsurvey_question.dart';
 import '../ui/main/wellbeing/all_article/all_article_screen.dart';
@@ -38,6 +39,7 @@ class Routes {
   static String staffSurveyScreen = "/Staff_Survey_Screen";
   static String staffSurveyQuestion = "/StaffSurvey_Question";
   static String termsCondition = "/termsCondition";
+  static String privacyCenter = "/privacyCenter";
   static String helpSupport = "/helpSupport";
   static String myProfileScreen = "/MyProfile_Screen";
   static String articleDetailScreen = "/Article_Detail_Screen";
@@ -75,7 +77,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.financeMain,
-        page: () => FinanceMain(),
+        page: () => const FinanceMain(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.allArticleScreen,
@@ -94,6 +96,10 @@ class Routes {
         page: () => const TermsCondition(),
         transition: Transition.noTransition),
     GetPage(
+        name: Routes.privacyCenter,
+        page: () => const PrivacyCenterScreen(),
+        transition: Transition.noTransition),
+    GetPage(
         name: Routes.helpSupport,
         page: () => HelpSupport(),
         transition: Transition.noTransition),
@@ -107,7 +113,7 @@ class Routes {
         transition: Transition.noTransition),
     GetPage(
         name: Routes.myProfileScreen,
-        page: () => MyProfileScreen(),
+        page: () => const MyProfileScreen(),
         transition: Transition.noTransition),
     GetPage(
         name: Routes.articleDetailScreen,
@@ -133,5 +139,6 @@ class Routes {
         name: Routes.brainGamesPlayScreen,
         page: () => const BrainGamesPlayScreen(),
         transition: Transition.noTransition),
+
   ];
 }

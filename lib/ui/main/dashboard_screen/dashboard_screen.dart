@@ -243,12 +243,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           itemCount: homeCard.length,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
-                            return ExploreHubCard(
-                                onTap: homeCard[index].onTap,
-                                color: homeCard[index].color,
-                                image: homeCard[index].image,
-                                hubDesc: homeCard[index].desc,
-                                hubName: homeCard[index].title);
+                            return ExploreHubCard(onTap: homeCard[index].onTap, color: homeCard[index].color, image: homeCard[index].image, hubDesc: homeCard[index].desc, hubName: homeCard[index].title);
                           },
                         ),
                       ).paddingOnly(left: 16, right: 16),

@@ -4,13 +4,12 @@ import 'package:social_value/utils/extension.dart';
 
 import '../theme/app_color.dart';
 
-Widget expandedTile(String title, Function() onclick, {bool? isExpandable}) {
-  return InkWell(
+Widget expandedTile(String title,String subTitle, Function() onclick, {bool? isExpandable}) {
+  return GestureDetector(
     onTap: onclick,
     child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
         alignment: Alignment.centerLeft,
-        // height: 50,
         width: Get.size.width,
         decoration: BoxDecoration(
           boxShadow: const [
@@ -29,15 +28,17 @@ Widget expandedTile(String title, Function() onclick, {bool? isExpandable}) {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 5),
-                  child: title.interTextStyle(
-                    fontColor: textColor,
-                    fontSize: 15,
-                    maxLines: 1,
-                    textAlign: TextAlign.start,
-                    textOverflow: TextOverflow.ellipsis,
-                    fontWeight: FontWeight.w500,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15, right: 0),
+                    child: title.interTextStyle(
+                      fontColor: textColor,
+                      fontSize: 15,
+                      maxLines: 1,
+                      textAlign: TextAlign.start,
+                      textOverflow: TextOverflow.clip,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 isExpandable == true
@@ -55,16 +56,22 @@ Widget expandedTile(String title, Function() onclick, {bool? isExpandable}) {
             ),
             10.0.addHSpace(),
             isExpandable == true
-                ? SizedBox(
-                    child:
-                        "asweud dnwbedwegndy dhewb nydgweydgywegtdy ydwegdygefwyd gwedfg"
-                            .interTextStyle(
-                    fontColor: textColor,
-                    fontSize: 15,
-                    textAlign: TextAlign.start,
-                    fontWeight: FontWeight.w500,
-                  )).paddingOnly(left: 14)
-                : SizedBox()
+                ? Column(
+                  children: [
+
+                    1.0.addDivider(),
+
+
+                    SizedBox(
+                        child: subTitle.interTextStyle(
+                        fontColor: textColor,
+                        fontSize: 15,
+                        textAlign: TextAlign.start,
+                        fontWeight: FontWeight.w500,
+                      )).paddingOnly(left: 14),
+                  ],
+                )
+                : const SizedBox()
           ],
         )).paddingSymmetric(vertical: 5),
   );

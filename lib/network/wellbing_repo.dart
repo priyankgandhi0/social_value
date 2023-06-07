@@ -81,12 +81,8 @@ class WellbeingRepo {
 
   Future<dynamic> getSingleArticle({required String id}) async {
     dynamic result;
-    var queryParameters = {
-      RequestParam.id: id,
-    };
-    String queryString =
-        Uri(path: MethodNames.getArticle, queryParameters: queryParameters)
-            .toString();
+    var queryParameters = {RequestParam.id: id};
+    String queryString = Uri(path: MethodNames.getArticle, queryParameters: queryParameters).toString();
 
     String requestUrl = AppUrls.BASE_URL + queryString;
     result = await BaseApiHelper.getRequest(requestUrl);

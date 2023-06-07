@@ -21,12 +21,12 @@ class PlanetMain extends StatefulWidget {
   State<PlanetMain> createState() => _PlanetMainState();
 }
 
-class _PlanetMainState extends State<PlanetMain>
-    with SingleTickerProviderStateMixin {
-  final DashboardController dashboardController =
-      Get.put(DashboardController());
+class _PlanetMainState extends State<PlanetMain> with SingleTickerProviderStateMixin {
+
+  final DashboardController dashboardController = Get.put(DashboardController());
 
   final ArticleController articleController = Get.put(ArticleController());
+
   TabController? controller;
   dynamic data = Get.arguments;
 
@@ -81,15 +81,9 @@ class _PlanetMainState extends State<PlanetMain>
             automaticIndicatorColorAdjustment: true,
             labelColor: white,
             unselectedLabelColor: white,
-            labelStyle: GoogleFonts.inter(
-                color: white, fontWeight: FontWeight.w700, fontSize: 13),
-            unselectedLabelStyle: GoogleFonts.inter(
-                color: white, fontWeight: FontWeight.w700, fontSize: 13),
-            tabs: planetTabs
-                .map(
-                  (e) => Tab(text: e.tabText),
-                )
-                .toList(),
+            labelStyle: GoogleFonts.inter(color: white, fontWeight: FontWeight.w700, fontSize: 13),
+            unselectedLabelStyle: GoogleFonts.inter(color: white, fontWeight: FontWeight.w700, fontSize: 13),
+            tabs: planetTabs.map((e) => Tab(text: e.tabText)).toList(),
           ),
         ),
         child: TabBarView(

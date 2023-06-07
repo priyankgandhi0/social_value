@@ -56,8 +56,7 @@ class SharedPreference {
       return null;
     } else {
       String? userPref = _preferences!.getString(USER_INFO);
-      Map<String, dynamic> userMap =
-          jsonDecode(userPref!) as Map<String, dynamic>;
+      Map<String, dynamic> userMap = jsonDecode(userPref!) as Map<String, dynamic>;
       UserModel user = UserModel.fromJson(userMap);
       return user;
     }

@@ -7,12 +7,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:jovial_svg/jovial_svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:social_value/models/awarness_modal.dart';
 import 'package:social_value/utils/extension.dart';
+import 'package:social_value/widgets/wellbeing_screen_card.dart';
 import 'package:video_player/video_player.dart';
 import '../constant/app_string.dart';
 import '../generated/asset.dart';
 import '../generated/assets.dart';
 import '../theme/app_color.dart';
+import '../utils/routes_manager.dart';
 import 'app_button.dart';
 
 class AppSquareCard extends StatelessWidget {
@@ -517,7 +520,7 @@ class WorkOutCard extends StatelessWidget {
   final String title;
   final String image;
   final Color? titleColor;
-  final Function onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -542,13 +545,7 @@ class WorkOutCard extends StatelessWidget {
                 left: 0,
                 right: 0,
                 top: 50,
-                child: title.interTextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                    maxLines: 4,
-                    textOverflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                    fontColor: titleColor ?? white),
+                child: title.interTextStyle(fontWeight: FontWeight.w700, fontSize: 16, maxLines: 4, textOverflow: TextOverflow.ellipsis, textAlign: TextAlign.center, fontColor: titleColor ?? white),
               )
             ],
           )),
@@ -557,56 +554,61 @@ class WorkOutCard extends StatelessWidget {
 }
 
 class AwarenessDaysCard extends StatelessWidget {
-  const AwarenessDaysCard(
-      {Key? key,
-      required this.date,
-      required this.day,
-      required this.day2,
-      required this.day3})
-      : super(key: key);
+  const AwarenessDaysCard({
+    Key? key,
+    required this.date,
+    required this.data,
+  }) : super(key: key);
   final String date;
-  final String day;
-  final String day2;
-  final String day3;
+  final List<AwarenessModal> data;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Container(
-                height: 45,
-                width: 45,
-                decoration: BoxDecoration(
-                    color: darkPurple, borderRadius: BorderRadius.circular(8)),
-                child: Center(
-                  child: date.interTextStyle(
-                      textAlign: TextAlign.center,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      fontColor: white),
-                )),
-            25.0.addWSpace(),
-            day.interTextStyle(fontSize: 14, fontWeight: FontWeight.w400)
-          ],
-        ),
-        1.0.addHSpace(),
-        Row(
-          children: [
-            70.0.addWSpace(),
-            day2.interTextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-          ],
-        ),
-        15.0.addHSpace(),
-        Row(
-          children: [
-            70.0.addWSpace(),
-            day3.interTextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-          ],
-        )
-      ],
-    );
+    return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+
+                children: [
+                  Container(
+                      height: 45,
+                      width: 45,
+                      decoration: BoxDecoration(
+                          color: darkPurple,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Center(
+                          child: date.interTextStyle(
+                              textAlign: TextAlign.center,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              fontColor: white))).paddingOnly(top: 10),
+                  8.0.addWSpace(),
+
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: data.map((e) => SizedBox(
+                        height: 30,
+                        child: TextButton(style: const ButtonStyle(
+                            overlayColor : MaterialStatePropertyAll(Colors.transparent)
+                        ),
+                        onPressed: (){
+                          Get.to(
+                            CustomWebViewFromLink(
+                              webUrl: e.url,
+                              title: e.title,
+                              color: darkPurple,
+                            ),
+                          );
+
+                        }, child: e.title.interTextStyle(
+                              fontSize: 12, fontColor : Colors.black,
+                              fontWeight: FontWeight.w500,
+                              textAlign: TextAlign.start).paddingOnly(top: 0),
+                            ),
+                          )).toList(),
+                    ).paddingOnly(top: 10),
+                  ),
+                ],
+              ).paddingSymmetric(vertical: 8);
   }
 }
 
@@ -837,7 +839,6 @@ class VolunteeringCard extends StatelessWidget {
                 ),
           15.0.addHSpace(),
           text.interTextStyle(
-
             fontSize: 12,
             fontWeight: FontWeight.w400,
           ),
@@ -892,10 +893,15 @@ class ReasonVolunterringCard extends StatelessWidget {
             height: height ?? 50,
             width: width ?? 50,
             decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage(Assets.imagesReasonVolun),fit: BoxFit.cover,)
-            ),
+                image: DecorationImage(
+              image: AssetImage(Assets.imagesReasonVolun),
+              fit: BoxFit.cover,
+            )),
             child: Center(
-              child: count?.interTextStyle(fontColor: Colors.white,fontSize: 20,fontWeight: FontWeight.w700),
+              child: count?.interTextStyle(
+                  fontColor: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700),
             ),
           ),
           15.0.addWSpace(),

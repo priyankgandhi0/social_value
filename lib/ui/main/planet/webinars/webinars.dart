@@ -148,7 +148,8 @@ class SustainabilityWebinars extends StatelessWidget {
                                   Get.toNamed(Routes.videoPlayerScreen,
                                       arguments: {
                                         "url": ctrl.getVideo[index].videoUrl
-                                      });
+                                      }
+                                      );
                                 },
                                 title: ctrl.getVideo[index].title,
                                 image: ctrl.getVideo[index].thumbnail ?? "",

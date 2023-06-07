@@ -35,24 +35,29 @@ import '../ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_screen.dart
 import '../utils/routes_manager.dart';
 
 List<AppTabBarModel> wellbeingTabs = [
+
+
+
   AppTabBarModel(
-      tabText: dashboard, tabWidget: WellBeingDashBoardScreen(), onTap: () {}),
+      tabText: dashboard,
+      tabWidget: WellBeingDashBoardScreen(),
+      onTap: () {}
+  ),
   AppTabBarModel(
       tabText: myPhysicalHealth,
       tabWidget: const PhysicalHealthMainScreen(),
       onTap: () {
-        Get.toNamed(Routes.physicalHealthMainScreen,
-            arguments: {"selectedPage": 0});
+        Get.toNamed(Routes.physicalHealthMainScreen, arguments: {"selectedPage": 0});
       }),
   AppTabBarModel(
       tabText: myMentalHealth,
-      tabWidget: Column(),
+      tabWidget: const Column(),
       onTap: () {
         Get.toNamed(Routes.mentalHealthMain, arguments: {"selectedPage": 0});
       }),
   AppTabBarModel(
       tabText: finances,
-      tabWidget: Column(),
+      tabWidget: const Column(),
       onTap: () {
         Get.toNamed(Routes.financeMain, arguments: {"selectedPage": 0});
       }),
@@ -113,32 +118,20 @@ List<AppTabBarModel> wellbeingFinanceTabs = [
 ];
 
 List<AppTabBarModel> planetTabs = [
-  AppTabBarModel(
-      tabText: dashboard, tabWidget: PlanetDashboard(), onTap: () {}),
-  AppTabBarModel(
-      tabText: carbonFootprintCalculator,
-      tabWidget: const CarbonFootPrintCalculator(),
-      onTap: () {}),
-  AppTabBarModel(
-      tabText: webinars, tabWidget: const WebinarsScreen(), onTap: () {}),
-  AppTabBarModel(
-      tabText: articles, tabWidget: const ArticlesScreen(), onTap: () {})
+  AppTabBarModel(tabText: dashboard, tabWidget: PlanetDashboard(), onTap: () {}),
+  AppTabBarModel(tabText: carbonFootprintCalculator, tabWidget: const CarbonFootPrintCalculator(), onTap: () {}),
+  AppTabBarModel(tabText: webinars, tabWidget: const WebinarsScreen(), onTap: () {}),
+  AppTabBarModel(tabText: articles, tabWidget: const ArticlesScreen(), onTap: () {})
 ];
 List<AppTabBarModel> communityTabs = [
   AppTabBarModel(
       tabText: dashboard, tabWidget: CommunityDashboard(), onTap: () {}),
   AppTabBarModel(
       tabText: awarenessDays,
-      tabWidget: const AwarenessDaysScreen(),
+      tabWidget: AwarenessDaysScreen(),
       onTap: () {}),
-  AppTabBarModel(
-      tabText: volunteering,
-      tabWidget:  VolunteeringScreen(),
-      onTap: () {}),
-  AppTabBarModel(
-      tabText: fundraising, tabWidget: FundraisingScreen(), onTap: () {}),
-  AppTabBarModel(
-      tabText: discountCard, tabWidget: const DiscountCard(), onTap: () {}),
-  AppTabBarModel(
-      tabText: charityPage, tabWidget: const CharityPage(), onTap: () {}),
+  AppTabBarModel(tabText: volunteering, tabWidget:  VolunteeringScreen(), onTap: () {}),
+  AppTabBarModel(tabText: fundraising, tabWidget: FundraisingScreen(), onTap: () {}),
+  AppTabBarModel(tabText: discountCard, tabWidget: const DiscountCard(), onTap: () {}),
+  AppTabBarModel(tabText: charityPage, tabWidget: const CharityPage(), onTap: () {}),
 ];

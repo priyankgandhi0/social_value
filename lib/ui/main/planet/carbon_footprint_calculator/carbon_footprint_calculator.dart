@@ -12,13 +12,11 @@ class CarbonFootPrintCalculator extends StatefulWidget {
   const CarbonFootPrintCalculator({Key? key}) : super(key: key);
 
   @override
-  State<CarbonFootPrintCalculator> createState() =>
-      _CarbonFootPrintCalculatorState();
+  State<CarbonFootPrintCalculator> createState() => _CarbonFootPrintCalculatorState();
 }
 
 class _CarbonFootPrintCalculatorState extends State<CarbonFootPrintCalculator> {
-  final Completer<WebViewController> _controller =
-      Completer<WebViewController>();
+  final Completer<WebViewController> _controller = Completer<WebViewController>();
   bool isLoading = true;
 
   @override
@@ -31,9 +29,7 @@ class _CarbonFootPrintCalculatorState extends State<CarbonFootPrintCalculator> {
           child: WebView(
             backgroundColor: Colors.white,
             gestureNavigationEnabled: true,
-            gestureRecognizers: Set()
-              ..add(Factory<VerticalDragGestureRecognizer>(
-                  () => VerticalDragGestureRecognizer())),
+            gestureRecognizers: Set()..add(Factory<VerticalDragGestureRecognizer>(() => VerticalDragGestureRecognizer())),
             javascriptMode: JavascriptMode.unrestricted,
             initialUrl: AppUrls.CARBON_FOOTPRINT_URL,
             onPageFinished: (finish) {
