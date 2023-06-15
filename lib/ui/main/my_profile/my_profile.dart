@@ -18,6 +18,8 @@ class MyProfileScreen extends StatefulWidget {
 }
 
 class _MyProfileScreenState extends State<MyProfileScreen> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey1 = GlobalKey<FormState>();
   final MyProfileController controller = Get.put(MyProfileController());
 
   @override
@@ -49,17 +51,11 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             return Column(
               children: [
                 Container(
-                  // height: 229,
                   width: double.infinity,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   decoration: BoxDecoration(
                       boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey.shade400,
-                            offset: const Offset(1, 1),
-                            // spreadRadius: 1,
-                            blurRadius: 2)
+                        BoxShadow(color: Colors.grey.shade400, offset: const Offset(1, 1), blurRadius: 2)
                       ],
                       color: backGroundColor,
                       borderRadius: BorderRadius.circular(8)),
@@ -124,7 +120,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                     color: Colors.white,
                   ),
                   child: Form(
-                    key: ctrl.formKey1,
+                    key: formKey1,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +128,8 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
 
                         'General Details'.interTextStyle(fontWeight: FontWeight.w700, fontSize: 20),
 
-                        20.0.addHSpace(),                        Row(
+                        20.0.addHSpace(),
+                        Row(
                           children: [
                             Flexible(
                               child: StartUpTextFiled(
@@ -179,8 +176,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                           fillColor: Colors.transparent,
                           borderColor: Colors.grey,
                           fontColor: Colors.black,
-                          controller: TextEditingController()
-                            ..text = ctrl.email,
+                          controller: TextEditingController()..text = ctrl.email,
                           readOnly: true,
                         ),
                         30.0.addHSpace(),
@@ -222,14 +218,14 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                                       borderRadius: const BorderRadius.only(
                                           topRight: Radius.circular(5),
                                           bottomRight: Radius.circular(5))),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 5, right: 5, top: 4, bottom: 4),
-                                    child: ''.interTextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12,
-                                    ),
-                                  )),
+                                  // child: Padding(
+                                  //   padding: const EdgeInsets.only(left: 5, right: 5, top: 4, bottom: 4),
+                                  //   // child: ''.interTextStyle(
+                                  //   //   fontWeight: FontWeight.w400,
+                                  //   //   fontSize: 12,
+                                  //   // ),
+                                  // )
+                              ),
                             )
                           ],
                         ),
@@ -241,7 +237,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                             onTap: () {
                               // print("email----${ctrl.email}");
                               // print("id----${ctrl.id}");
-                              if (ctrl.formKey1.currentState!.validate()) {
+                              if (formKey1.currentState!.validate()) {
                                 ctrl.editProfile();
                               }
                             },
@@ -269,7 +265,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                     color: Colors.white,
                   ),
                   child: Form(
-                    key: ctrl.formKey,
+                    key: formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -388,7 +384,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                           width: 100,
                           child: AppBorderButton(
                             onTap: () {
-                              if (ctrl.formKey.currentState!.validate()) {
+                              if (formKey.currentState!.validate()) {
                                 ctrl.changePassword();
                               }
                             },

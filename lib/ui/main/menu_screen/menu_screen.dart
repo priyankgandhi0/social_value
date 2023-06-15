@@ -25,19 +25,12 @@ class MenuScreen extends StatelessWidget {
               Container(
                 height: 100,
                 width: 100,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
+                decoration: const BoxDecoration(shape: BoxShape.circle),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
-                  child: (preferences.getString(
-                                  SharedPreference.USER_PROFILE_IMAGE) ??
-                              "")
-                          .isNotEmpty
+                  child: (preferences.getString(SharedPreference.USER_PROFILE_IMAGE) ?? "").isNotEmpty
                       ? Image.network(
-                          (preferences.getString(
-                                  SharedPreference.USER_PROFILE_IMAGE) ??
-                              ""),
+                          (preferences.getString(SharedPreference.USER_PROFILE_IMAGE) ?? ""),
                           fit: BoxFit.cover,
                           // width: 200,
                           // height: 200,

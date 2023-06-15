@@ -20,7 +20,7 @@ class SocialValueScore extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               10.0.addHSpace(),
-              'Company Name'.appEpilogueTextStyle(
+              'Social Value\'s'.appEpilogueTextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
                 fontColor: Colors.white,
@@ -34,7 +34,7 @@ class SocialValueScore extends StatelessWidget {
               ),
               15.0.addHSpace(),
               ScorePageCard(
-                scoreTitle: 'Overall Social Value Score',
+                scoreTitle: 'Overall Social\'s Value Score',
                 scoreDesc: '75 /100',
                 percentage: 0.75,
                 bgColor: lightOrange,

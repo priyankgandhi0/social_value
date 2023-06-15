@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String assetsIconsHeart = 'assets/icons/heart.svg';
+  static const String cardIcon = 'assets/icons/cardIcon.svg';
   static const String assetsImagesMemberLogo = 'assets/images/memberLogo.svg';
   static const String icons75Rounder = 'assets/icons/75Rounder.svg';
   static const String iconsCommunity = 'assets/icons/community.svg';
@@ -36,8 +37,9 @@ class Assets {
   static const String imagesLadyImage = 'assets/images/ladyImage.png';
   static const String imagesLadyImage2 = 'assets/images/ladyImage2.png';
   static const String imagesLesMills = 'assets/images/lesMills.png';
-  static const String imagesLessMillsDashBoard =
-      'assets/images/lessMillsDashBoard.png';
+  static const String imagesLesMillsSvg = 'assets/images/lessmills.svg';
+  static const String imagesLessMillsDashBoard = 'assets/images/lessMillsDashBoard.png';
+  static const String lesMillsBackImage = 'assets/images/lesMillsImage.jpg';
   static const String imagesLessmills = 'assets/images/lessmills.png';
   static const String imagesMemberLogo = 'assets/images/memberLogo.png';
   static const String imagesMemberShip = 'assets/images/memberShip.png';
@@ -47,8 +49,9 @@ class Assets {
   static const String imagesRelex = 'assets/images/relex.png';
   static const String imagesRound = 'assets/images/round.png';
   static const String imagesShelter = 'assets/images/shelter.png';
-  static const String imagesSpash = 'assets/images/spash.png';
-  static const String imagesSplash = 'assets/images/splash.svg';
+  // static const String imagesSpash = 'assets/images/spash.png';
+  static const String imagesSpash = 'assets/icons/spash.png';
+  static const String imagesSplash = 'assets/icons/appLogoIcon.svg';
   static const String imagesTeensunite = 'assets/images/teensunite.png';
   static const String imagesTree = 'assets/images/tree.png';
   static const String imagesVolunterringLogo =

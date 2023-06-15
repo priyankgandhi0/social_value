@@ -23,27 +23,19 @@ class PhysicalHealthMealPlans extends StatelessWidget {
                 const EdgeInsets.only(left: 10, right: 20, top: 25, bottom: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
               controller.articlesList.clear();
-              Future.delayed(Duration.zero).then(
-                  (value) => controller.getArticles(MethodIDs.mealPlanArticle));
+              Future.delayed(Duration.zero).then((value) => controller.getArticles(MethodIDs.mealPlanArticle));
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      mealPlans.interTextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          fontColor: textColor),
-                    ],
-                  ).paddingOnly(left: 10),
+                  mealPlans.interTextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontColor: textColor).paddingOnly(left: 10),
+
                   18.0.addHSpace(),
                   GridView.builder(
                     itemCount: ctrl.articlesList.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 20,

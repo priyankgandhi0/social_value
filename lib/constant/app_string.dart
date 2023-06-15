@@ -4,7 +4,7 @@ const emailAddress = 'Email Address';
 const forgottenPassword = 'Forgotten Password?';
 const needAnAccount = 'Need an Account?';
 const myProfile = 'My Profile';
-const settings = 'Settings';
+const settings = 'Staff Survey';
 const helpCentre = 'Help Centre';
 const help = 'Help';
 const submit = 'Submit';
@@ -27,13 +27,13 @@ const memberSinceFebDesc =
 const memberSinceFeb = ', you’ve been a member Since Feb 2022';
 const firstName = 'First Name';
 const lastName = 'Last Name';
-const socialValueScoreText = 'Social Value Score';
+const socialValueScoreText = 'Social Value\'s Score';
 const privacyCentre = 'Privacy Centre';
 const termsConditions = 'Terms & Conditions';
 const privacyCenter = 'Privacy Center';
 const memberSinceText = 'Member Since Feb 2022';
-const welComeText = 'Welcome to your Social Value Hub';
-const companyNameText = '[Company Name]’s';
+const welComeText = 'Welcome to your Social Value\'s Hub';
+const companyNameText = 'Social Value\'s';
 const treeText = '65 Trees';
 const exploreText = 'Explore';
 const articleDesc = 'What You Should Know About Childhood Depression';
@@ -134,20 +134,18 @@ const goToWebSide =
 const step1Desc = 'Fill in the form below Step';
 const step2Desc =
     'Will then email instructions to download the Insight Timer app';
-const step3Desc =
-    'Create an account (with your personal or work email) and enjoy!';
+const step3Desc = 'Create an account (with your personal or work email) and enjoy!';
 const howToGetStarted = 'How to get started';
 const mentalHealthHome = 'Mental Health Home';
 const trySomeMindfulness = 'Try Some Mindfulness';
 const unwindWithSomeBrainGames = 'Unwind with some Brain Games';
 const mentalHealthSupportArticles = 'Mental Health Support Articles';
-const scoreTitle = 'Test Company s Employee Wellbeing Score';
-const scoreDesc =
-    'This score is based on the staff wellbeing score of your organisation. As the organisation evolves with the support of our platform the score will continually improve.';
+const scoreTitle = 'Test Company\'s Employee Wellbeing Score';
+const scoreDesc = 'This score is based on the staff wellbeing score of your organisation. As the organisation evolves with the support of our platform the score will continually improve.';
 const chooseYourWorkout = 'Choose Your Workout';
 const articleCategoryTitle = 'Article Category Title';
 const discountCard = 'Discount Card';
-const charityPage = 'Charity Page';
+const charityPage = 'Charity Pledge';
 const lessmillsDesc =
     'We’ve partnered with the world-leading LES MILLS which has over 140,000 instructors and 20,000 fitness clubs worldwide to give you 24/7 access to the world’s best workouts so you can become fitter, this doesn’t mean making you just work out. It means helping you fall in love with fitness, so you want to work out!\n  On this page, you will find over 100+ premium videos including equipment and non-equipment workouts, beginner, and pro workouts, along with technique videos to ensure they meet your goals.\n  This partnership is not solely about fitness, so we have along included their LesMills mindfulness series to improve your mental well-being too.';
 const insuranceQuotes = 'Insurance Quotes';
@@ -191,6 +189,5 @@ const soFarYouHaveHelpedPlantText = 'So far you have helped plant:';
 const lesmillsText =
     'Discover Les Mills Workouts with 200+ training videos. Workout at home or on the go!';
 
-
-
-
+const planetSeeHowText =
+    '''See How You Can Help Your Organisation on its Jopurney to Net Zero''';

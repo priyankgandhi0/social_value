@@ -23,7 +23,6 @@ class InsuranceController extends GetxController {
     try {
       var data = insuranceFromJson(result ?? []);
       getInsurance = data;
-      log("data----\n ${getInsurance[0].title}");
     } catch (e) {
       print(e);
       showAppSnackBar(errorText);

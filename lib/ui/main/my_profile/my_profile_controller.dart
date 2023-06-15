@@ -11,8 +11,7 @@ class MyProfileController extends GetxController {
   RxBool isObscureText2 = true.obs;
   RxInt tabIndex = 0.obs;
   RxBool isLoading = false.obs;
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final GlobalKey<FormState> formKey1 = GlobalKey<FormState>();
+
   String email = preferences.getString(SharedPreference.USER_EMAIL) ?? "";
   String id = preferences.getString(SharedPreference.ACCOUNT_ID) ?? "";
   String firstName = preferences.getString(SharedPreference.FIRST_NAME) ?? "";

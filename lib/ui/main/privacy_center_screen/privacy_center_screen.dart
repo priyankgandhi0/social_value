@@ -15,6 +15,7 @@ class PrivacyCenterScreen extends StatelessWidget {
     return BottomNaviBarScreen(
       color: darkSky,
       backGround: white,
+      bottomColor : darkSky,
       appbar: AppBar(
         automaticallyImplyLeading: false,
         title: Row(

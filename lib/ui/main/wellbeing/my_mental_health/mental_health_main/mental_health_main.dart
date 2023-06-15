@@ -107,15 +107,9 @@ class _MentalHealthMainState extends State<MentalHealthMain>
             automaticIndicatorColorAdjustment: true,
             labelColor: white,
             unselectedLabelColor: white,
-            labelStyle: GoogleFonts.inter(
-                color: white, fontWeight: FontWeight.w700, fontSize: 13),
-            unselectedLabelStyle: GoogleFonts.inter(
-                color: white, fontWeight: FontWeight.w700, fontSize: 13),
-            tabs: wellbeingMentalHealthTabs
-                .map(
-                  (e) => Tab(text: e.tabText),
-                )
-                .toList(),
+            labelStyle: GoogleFonts.inter(color: white, fontWeight: FontWeight.w700, fontSize: 13),
+            unselectedLabelStyle: GoogleFonts.inter(color: white, fontWeight: FontWeight.w700, fontSize: 13),
+            tabs: wellbeingMentalHealthTabs.map((e) => Tab(text: e.tabText)).toList(),
           ),
         ),
         child: TabBarView(

@@ -18,9 +18,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Social Value',
+      title: 'Social Value\'s',
       initialRoute: Routes.splashScreen,
       getPages: Routes.pages,
     );
   }
 }
+
+

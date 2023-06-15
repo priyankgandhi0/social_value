@@ -246,7 +246,7 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                           height: 165,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 8,
+                            itemCount: articleController.articlesList.length,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
                               return AppArticlesCard(
@@ -265,17 +265,15 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                                         ]);
                                   },
                                   descColor: Colors.black,
-                                  desc: articleController
-                                      .articlesList[index].title,
-                                  image: articleController
-                                      .articlesList[index].featuredImage);
+                                  desc: articleController.articlesList[index].title,
+                                  image: articleController.articlesList[index].featuredImage);
                             },
                           ),
                         ).paddingOnly(left: 10, right: 10),
             ),
             30.0.addHSpace(),
           ],
-        );
+        ).paddingOnly(bottom: 25);
       }),
     );
   }

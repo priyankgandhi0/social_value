@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
@@ -61,13 +62,13 @@ class CommunityDashboard extends StatelessWidget {
                                     image: AssetImage(
                                       ImageAssets.atozFundrising,
                                     ),
-                                    fit: BoxFit.cover)),
+                                    fit: BoxFit.cover)
+                            ),
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
-                            Get.offAndToNamed(Routes.communityMain,
-                                arguments: {"selectedPage": 2});
+                            Get.offAndToNamed(Routes.communityMain, arguments: {"selectedPage": 2});
                           },
                           child: Container(
                             margin: const EdgeInsets.only(left: 20),
@@ -219,14 +220,12 @@ class CommunityDashboard extends StatelessWidget {
                           ),
                         ).paddingOnly(left: 10, right: 10),
                 ],
-              );
+              ).paddingOnly(bottom: 35);
             }),
           ),
         ),
         Obx(() => controller.isLoading.value
-            ? const AppProgress(
-                color: darkPurple,
-              )
+            ? const AppProgress(color: darkPurple)
             : Container())
       ],
     );

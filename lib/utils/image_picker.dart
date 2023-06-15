@@ -20,8 +20,7 @@ class PickFile {
                       title: const Text("Gallery"),
                       leading: const Icon(Icons.photo_library),
                       onTap: () {
-                        imageFormGallery(
-                            context: context, onImageChose: onImageChose);
+                        imageFormGallery(context: context, onImageChose: onImageChose);
                         Navigator.pop(context);
                       },
                     ),
@@ -58,8 +57,7 @@ class PickFile {
                     title: const Text("Camera"),
                     leading: const Icon(Icons.photo_camera),
                     onTap: () {
-                      imageFromCamera(
-                          context: context, onImageChose: onImageChose);
+                      imageFromCamera(context: context, onImageChose: onImageChose);
                       Navigator.pop(context);
                     },
                   ),
@@ -69,9 +67,8 @@ class PickFile {
           );
   }
 
-  void imageFormGallery(
-      {required BuildContext context, required Function onImageChose}) async {
-    var status = await Permission.storage.request();
+  void imageFormGallery({required BuildContext context, required Function onImageChose}) async {
+    var status = await Permission.photos.request();
     if (status.isGranted) {
       final pickedFile = await FilePicker.platform.pickFiles(
         type: FileType.image,

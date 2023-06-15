@@ -52,15 +52,14 @@ class FinancesInsuranceQuotes extends StatelessWidget {
                     itemCount: ctrl.getInsurance.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       // crossAxisSpacing: 20,
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       return InsuranceCard(
                         title: ctrl.getInsurance[index].title,
-                        // icon: ctrl.getInsurance[index].fontAwesomeIcon,
+                        // icon: ctrl.getInsurance[index].\,
                       );
                     },
                   ),

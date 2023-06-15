@@ -20,7 +20,7 @@ class DashboardController extends GetxController {
   List<VideoData> getVideo = [];
 
   getVideos(String ids) async {
-    // getVideo.clear();
+    // getVide§o.clear();
     // if (getVideo.isNotEmpty) return;
     FocusManager.instance.primaryFocus?.unfocus();
     isLoading.value = true;
@@ -30,8 +30,10 @@ class DashboardController extends GetxController {
     try {
       var data = videoDataFromJson(result);
       getVideo = await setVideoUrls(data);
-      // getVideo = data;
+
+      // getVideo  = data;
     } catch (e) {
+      print('Deshboard get video error is ----> $e');
       log(e.toString());
       showAppSnackBar(errorText);
     }
@@ -43,20 +45,19 @@ class DashboardController extends GetxController {
   Future<List<VideoData>> setVideoUrls(List<VideoData> videos) async {
     for (int i = 0; i < videos.length; i++) {
       videos[i].videoUrl = await getVideoUrl(videos[i].museVideoId);
-      videos[i].thumbnail = await getThumbnail(videos[i].videoUrl, videos[i].id);
+      videos[i].thumbnail = await getThumbnail(Uri.encodeFull(videos[i].videoUrl), videos[i].id);
     }
     return videos;
   }
 
   Future<String> getVideoUrl(String videoId) async {
     const apiKey = "64mRkQ1EZ1w0hv0ecvLZqcER63d035bc"; // Replace with your Muse.ai API key
-    final apiUrl = 'https://muse.ai/api/files/videos/$videoId';
+    final apiUrl = 'https://muse.ai/api/files/videos/$videoId'; 
     final response = await http.get(Uri.parse(apiUrl));
     if (response.statusCode == 200) {
       print("response.body --->${response.body}");
       final json = jsonDecode(response.body);
       String videoUrl = json['url'];
-
       return videoUrl;
     } else {
       throw Exception('Failed to get video URL');

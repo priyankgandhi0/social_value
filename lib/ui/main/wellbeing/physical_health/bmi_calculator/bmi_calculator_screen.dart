@@ -234,7 +234,7 @@ class _PhysicalHealthBmiCalculatorState
           30.0.addHSpace(),
         ],
       ),
-    );
+    ).paddingOnly(bottom: 15);
   }
 
   void calculateBMI() {

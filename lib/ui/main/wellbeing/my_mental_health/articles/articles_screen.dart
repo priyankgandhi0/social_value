@@ -52,9 +52,7 @@ class MentalHealthArticles extends StatelessWidget {
                       return AppBodyPumptCard(
                           onTap: () {
                             Get.toNamed(Routes.articleDetailScreen, arguments: [
-                              {
-                                "text": "mental health",
-                              },
+                              {"text": "mental health"},
                               {"color": darkDeepPurple},
                               {"color1": darkDeepPurple},
                               {"id": ctrl.articlesList[index].id}

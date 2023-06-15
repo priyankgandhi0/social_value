@@ -112,7 +112,7 @@ class FinancesDashBoard extends StatelessWidget {
                           ),
                         ),
                 ],
-              );
+              ).paddingOnly(bottom: 35);
             }),
           ),
         ),

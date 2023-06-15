@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:social_value/utils/extension.dart';
@@ -7,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../constant/app_string.dart';
 
+import '../generated/asset.dart';
 import '../theme/app_color.dart';
 
 import 'app_button.dart';
@@ -55,10 +57,7 @@ class WellBeingScore extends StatelessWidget {
                   lineWidth: 7.0,
                   percent: percentage,
                   // restartAnimation: true,
-                  center: score.appEpilogueTextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 40,
-                      fontColor: percentageColor),
+                  center: score.appEpilogueTextStyle(fontWeight: FontWeight.w700, fontSize: 40, fontColor: percentageColor),
                   progressColor: percentageColor,
                 )).paddingOnly(left: 20),
             Expanded(
@@ -66,10 +65,7 @@ class WellBeingScore extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  scoreTitle.interTextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                      fontColor: scoreTitleColor ?? const Color(0xff333333)),
+                  scoreTitle.interTextStyle(fontWeight: FontWeight.w700, fontSize: 14, fontColor: scoreTitleColor ?? const Color(0xff333333)),
                   25.0.addHSpace(),
                   scoreDesc.interTextStyle(
                       fontWeight: FontWeight.w400,
@@ -328,6 +324,143 @@ class AppRactangleCard extends StatelessWidget {
     ]).paddingSymmetric(horizontal: 10);
   }
 }
+
+
+
+class AppSvgCard extends StatelessWidget {
+  AppSvgCard({
+    Key? key,
+    this.desc,
+    this.left,
+    this.right,
+    this.bottom,
+    this.top,
+    required this.image1,
+    required this.image2,
+    this.descColor,
+    this.btnText,
+    this.height,
+    this.width,
+    this.iconVisible,
+    required this.onTap,
+  }) : super(key: key);
+
+  final double? height;
+  final double? width;
+  final String? desc;
+  final double? left;
+  final double? right;
+  final double? bottom;
+  final double? top;
+  final String image1;
+  final String image2;
+  final Color? descColor;
+  final String? btnText;
+  final VoidCallback onTap;
+  bool? iconVisible = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Stack(
+          alignment: Alignment.center,
+          children: [
+         ClipRRect(
+           borderRadius: BorderRadius.circular(10),
+           child: Image.asset(
+             image1,
+             fit: BoxFit.cover,
+             height: height ?? 165,
+             width: width ?? 165,
+           ),
+         ),
+
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: SvgPicture.asset(
+            image2,
+            fit: BoxFit.cover,
+            height:   250,
+            width:  250,
+          ),
+        ).paddingOnly(left: 10),
+
+
+
+
+        // 10.0.addHSpace(),
+        // btnText != null
+        //     ? Positioned(
+        //         left: left,
+        //         right: right,
+        //         top: top,
+        //         bottom: bottom,
+        //         child: SizedBox(
+        //           height: 30,
+        //           width: 150,
+        //           child: BorderButton(
+        //             appBorderFillColor: Colors.white,
+        //             appFillColor: Colors.transparent,
+        //             onTap: () {},
+        //             text: btnText!,
+        //             fontSize: 12,
+        //             value: 7,
+        //             rightIcon: iconVisible ?? true,
+        //           ).paddingSymmetric(horizontal: 5),
+        //         ),
+        //       )
+        //     : Container()
+      ]).paddingSymmetric(horizontal: 10),
+    );
+  }
+}
+
+
+
+class PlanetSvgCard extends StatelessWidget {
+  PlanetSvgCard({
+    Key? key,
+    required this.image1,
+    this.height,
+    this.width,
+    this.iconVisible,
+    required this.onTap,
+  }) : super(key: key);
+
+  final double? height;
+  final double? width;
+
+  final String image1;
+  final VoidCallback onTap;
+  bool? iconVisible = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          height: height ?? 165,
+          width: width ??  165,
+          color: const Color(0xff19978F),
+          child: Column(
+            children: [
+              const Text(planetSeeHowText,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w700),).paddingSymmetric(horizontal: 20),
+              const Spacer(),
+              Image.asset(ImageAssets.xoBack)
+            ],
+          ).paddingSymmetric(horizontal: 10).paddingOnly(top: 10),
+        ),
+      ).paddingSymmetric(horizontal: 10),
+    );
+  }
+}
+
+
+
+
 
 class HowToGetStartedCard extends StatelessWidget {
   const HowToGetStartedCard({Key? key}) : super(key: key);

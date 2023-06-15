@@ -117,6 +117,8 @@ extension Space on double {
       width: this,
     );
   }
+
+
 }
 
 
@@ -145,7 +147,7 @@ extension NumberParsing on int {
   String toOrdinalString() {
     if ((this < 0)) {
       //here you change the range
-      throw Exception('Invalid number: Number must be a positive number');
+      throw Exception('0');
     }
     if (this == 0) {
       return '0';

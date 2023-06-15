@@ -51,7 +51,8 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   void initState() {
     super.initState();
     flickManager = FlickManager(
-      videoPlayerController: VideoPlayerController.network(widget.data["url"]
+      videoPlayerController: VideoPlayerController.network(
+          widget.data["url"]
           // "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
           )
         ..initialize().then((value) {

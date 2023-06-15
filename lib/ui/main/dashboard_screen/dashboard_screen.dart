@@ -53,8 +53,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 child: Column(
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 10, left: 16, right: 16),
+                      padding: const EdgeInsets.only(top: 10, left: 16, right: 16),
                       child: SafeArea(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -73,10 +72,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     ),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: (preferences.getString(
-                                                      SharedPreference
-                                                          .USER_PROFILE_IMAGE) ??
-                                                  "")
+                                      child: (preferences.getString(SharedPreference.USER_PROFILE_IMAGE) ?? "")
                                               .isNotEmpty
                                           ? Image.network(
                                               (preferences.getString(
@@ -164,18 +160,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           ),
                                           2.0.addWSpace(),
                                           Expanded(
-                                              child: socialValueScoreText
-                                                  .interTextStyle(
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      fontSize: 16))
+                                              child: socialValueScoreText.interTextStyle(textAlign: TextAlign.center, fontWeight: FontWeight.w400, fontSize: 16))
                                         ],
                                       ),
                                     ),
                                   ),
                                 ),
+
                                 Container(
                                   height: Get.height / 11.5,
                                   width: Get.width / 2.35,
@@ -302,14 +293,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       12.0.addHSpace(),
                       Row(
                         children: [
-                          Expanded(
-                            child: maximumMemberShipText.interTextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                                fontColor: textColor),
-                          ),
+                          Expanded(child: maximumMemberShipText.interTextStyle(fontWeight: FontWeight.w700, fontSize: 16, fontColor: textColor).paddingOnly(left: 16, right: 16)),
                         ],
-                      ).paddingOnly(left: 16, right: 16),
+                      ),
                       10.0.addHSpace(),
 
                       Obx(
@@ -320,8 +306,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   scrollDirection: Axis.horizontal,
                                   shrinkWrap: true,
                                   itemCount: 4,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemBuilder: (BuildContext context, int index) {
                                     return const ShimmerEffect();
                                   },
                                 ),
@@ -337,20 +323,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   addAutomaticKeepAlives: false,
                                   itemBuilder: (context, index) {
                                     return Container(
-                                        margin: const EdgeInsets.only(
-                                            right: 10, left: 10, bottom: 10),
+                                        margin: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
                                         height: 111,
                                         width: 188,
                                         decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  color: Colors.grey.shade400,
-                                                  blurRadius: 3,
-                                                  offset: const Offset(3, 3))
-                                            ],
+                                            boxShadow: [BoxShadow(color: Colors.grey.shade400, blurRadius: 3, offset: const Offset(3, 3))],
                                             color: white,
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
+                                            borderRadius: BorderRadius.circular(10)),
                                         child: Center(
                                           child: ClipRRect(
                                             borderRadius:
@@ -358,19 +337,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                             child: Stack(
                                               children: [
                                                 Image.file(
-                                                  File(ctrl.getVideo[index]
-                                                          .thumbnail ??
-                                                      ""),
+                                                  File(ctrl.getVideo[index].thumbnail ?? ""),
                                                   errorBuilder:
                                                       (context, error, trace) {
                                                     return const Center(
-                                                        child:
-                                                            CircularProgressIndicator());
+                                                        child: CircularProgressIndicator());
                                                   },
                                                   height: 111,
                                                   width: double.infinity,
                                                   fit: BoxFit.contain,
                                                 ),
+
+                                                // Image.network(
+                                                //   ctrl.getVideo[index].thumbnail ??
+                                                //       "",
+                                                //   errorBuilder:
+                                                //       (context, error, trace) {
+                                                //     return const Center(
+                                                //         child:
+                                                //         CircularProgressIndicator());
+                                                //   },
+                                                //   height: 111,
+                                                //   width: double.infinity,
+                                                //   fit: BoxFit.contain,
+                                                // ),
+
                                                 Center(
                                                   child: GestureDetector(
                                                     onTap: () {
@@ -433,8 +424,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 children: [
                                   AppButton(
                                     onTap: () {
-                                      Get.toNamed(Routes.planetMain,
-                                          arguments: {"selectedPage": 1});
+                                      Get.toNamed(Routes.planetMain, arguments: {"selectedPage": 1});
                                     },
                                     text: "Start Survey",
                                     color: white,
@@ -449,19 +439,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             10.0.addWSpace(),
                             GestureDetector(
                               onTap: () {
-                                Get.toNamed(Routes.mentalHealthMain,
-                                    arguments: {"selectedPage": 6});
+                                Get.toNamed(Routes.mentalHealthMain, arguments: {"selectedPage": 6});
                               },
                               child: Container(
                                 height: 210,
                                 width: 170,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    image: const DecorationImage(
-                                        image: AssetImage(
-                                          ImageAssets.support,
-                                        ),
-                                        fit: BoxFit.cover)),
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: const DecorationImage(image: AssetImage(ImageAssets.support), fit: BoxFit.cover)),
                               ),
                             ),
                           ],
@@ -504,7 +487,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         arguments: {"selectedPage": 5});
                                   }),
                             ],
-                          )),
+                          )).paddingOnly(bottom: 20),
                     ],
                   ),
                   // GestureDetector(

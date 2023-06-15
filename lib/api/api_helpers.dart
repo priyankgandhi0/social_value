@@ -8,10 +8,7 @@ import '../models/response_item.dart';
 import 'api_exception.dart';
 
 class BaseApiHelper {
-  static Future<dynamic> postRequest(
-    String requestUrl,
-    Map<String, dynamic> requestData,
-  ) async {
+  static Future<dynamic> postRequest(String requestUrl, Map<String, dynamic> requestData) async {
     log("request:$requestUrl");
     // log("headers:${requestHeader()}");
     log("body:${json.encode(requestData)}");
@@ -102,6 +99,7 @@ class BaseApiHelper {
       // data = responseData.data;
       // verify = responseData.isVerify ?? true;
       result = data;
+      // print("result DataType ------> ${result.runtimeType}");
       log("susccess");
       return result;
     } else {

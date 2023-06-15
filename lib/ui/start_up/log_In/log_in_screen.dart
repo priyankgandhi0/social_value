@@ -113,7 +113,7 @@ class LogInScreen extends StatelessWidget {
                           fontColor: white,
                           textDecoration: TextDecoration.underline),
 
-
+                      12.0.addHSpace(),
 
                     ],
                   ),

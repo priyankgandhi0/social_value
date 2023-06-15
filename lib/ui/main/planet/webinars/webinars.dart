@@ -21,7 +21,6 @@ class _WebinarsScreenState extends State<WebinarsScreen>
   // final DashboardController dashboardController =
   //     Get.find<DashboardController>();
   TabController? controller;
-  int currentIndex = 0;
 
   @override
   void initState() {
@@ -49,17 +48,13 @@ class _WebinarsScreenState extends State<WebinarsScreen>
             controller: controller,
             // physics: const NeverScrollableScrollPhysics(),
             indicatorWeight: 1,
-            onTap: (index) {
-              currentIndex = index;
-            },
             indicator: indicatorWidth(darkGreen),
             indicatorSize: TabBarIndicatorSize.label,
             indicatorColor: darkGreen,
             automaticIndicatorColorAdjustment: true,
             labelColor: black,
             unselectedLabelColor: black,
-            labelStyle: GoogleFonts.inter(
-                color: white, fontWeight: FontWeight.w700, fontSize: 16),
+            labelStyle: GoogleFonts.inter(color: white, fontWeight: FontWeight.w700, fontSize: 16),
             unselectedLabelStyle: GoogleFonts.inter(
                 color: white, fontWeight: FontWeight.w700, fontSize: 16),
             tabs: [
@@ -99,8 +94,7 @@ class SustainabilityWebinars extends StatelessWidget {
       children: [
         SingleChildScrollView(
           child: Padding(
-            padding:
-                const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
+            padding: const EdgeInsets.only(left: 10, right: 10, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
               controller.getVideo.clear();
               Future.delayed(Duration.zero).then((value) =>
@@ -145,11 +139,7 @@ class SustainabilityWebinars extends StatelessWidget {
                               return AppVideoCard(
                                 url: ctrl.getVideo[index].videoUrl,
                                 onTap: () {
-                                  Get.toNamed(Routes.videoPlayerScreen,
-                                      arguments: {
-                                        "url": ctrl.getVideo[index].videoUrl
-                                      }
-                                      );
+                                  Get.toNamed(Routes.videoPlayerScreen, arguments: {"url": ctrl.getVideo[index].videoUrl});
                                 },
                                 title: ctrl.getVideo[index].title,
                                 image: ctrl.getVideo[index].thumbnail ?? "",

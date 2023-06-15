@@ -82,7 +82,10 @@ class _ArticlesScreenState extends State<ArticlesScreen>
         Expanded(
           child: TabBarView(
             controller: controller!,
-            children: [SustainabilityArticles(), EdiArticles()],
+            children: [
+              SustainabilityArticles(),
+              EdiArticles()
+            ],
           ),
         )
       ],
@@ -114,8 +117,7 @@ class SustainabilityArticles extends StatelessWidget {
                     itemCount: ctrl.planetArticleList.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 24,

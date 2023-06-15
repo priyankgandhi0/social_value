@@ -10,6 +10,7 @@ import '../../../theme/app_helpers.dart';
 class HelpSupportController extends GetxController {
   var visibility = false.obs;
   RxBool isLoading  = false.obs;
+  bool webViewOpen = true;
   var index = 0.obs;
   List<FaqSModal>  faqsList = [];
 

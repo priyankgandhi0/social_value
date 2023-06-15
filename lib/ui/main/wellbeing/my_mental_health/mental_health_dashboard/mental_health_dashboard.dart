@@ -17,8 +17,7 @@ import '../../physical_health/articles/article_controller.dart';
 class MentalHealthDashBoard extends StatelessWidget {
   MentalHealthDashBoard({Key? key}) : super(key: key);
   final ArticleController controller = Get.put(ArticleController());
-  final DashboardController dashboardController =
-      Get.find<DashboardController>();
+  final DashboardController dashboardController = Get.put(DashboardController());
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +48,7 @@ class MentalHealthDashBoard extends StatelessWidget {
                     top: 260,
                     height: 320,
                     width: 211,
-                    desc:
-                        'Access the #1 app for sleep. anxiety, stress and mental health',
+                    desc: 'Access the #1 app for sleep. anxiety, stress and mental health',
                     btnText: accessNow,
                     image: ImageAssets.appforSleepImage,
                     descColor: Colors.white,
@@ -240,6 +238,6 @@ class MentalHealthDashBoard extends StatelessWidget {
           ],
         );
       }),
-    );
+    ).paddingOnly(bottom: 20);
   }
 }

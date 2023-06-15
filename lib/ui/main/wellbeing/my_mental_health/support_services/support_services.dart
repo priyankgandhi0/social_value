@@ -149,7 +149,7 @@ class SupportServices extends StatelessWidget {
             }),
           ),
         ),
-        Obx(() => controller.isLoading.value || controller.isLoading.value
+        Obx(() => controller.isLoading.value
             ? const AppProgress(
                 color: darkDeepPurple,
               )

@@ -57,8 +57,11 @@ class ArticleController extends GetxController {
       var data = articleListFromJson(result ?? []);
       if (ids == "11") {
         planetArticleList = data;
+        update();
       } else {
         articlesList = data;
+        print("Data Meal Plan  ----> ${result}");
+        update();
       }
     } catch (e) {
       print(e);

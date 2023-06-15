@@ -95,7 +95,8 @@ class _MentalHealthAppState extends State<MentalHealthApp> {
                 initialUrl: AppUrls.GET_STARTED_FORM),
           )
         ],
-      ).paddingOnly(bottom: 30),
+      ).paddingOnly(bottom: 75
+      ),
     );
   }
 }

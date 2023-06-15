@@ -36,8 +36,6 @@ import '../utils/routes_manager.dart';
 
 List<AppTabBarModel> wellbeingTabs = [
 
-
-
   AppTabBarModel(
       tabText: dashboard,
       tabWidget: WellBeingDashBoardScreen(),
@@ -85,34 +83,18 @@ List<AppTabBarModel> wellbeingPhysicalHealthTabs = [
       onTap: () {}),
 ];
 List<AppTabBarModel> wellbeingMentalHealthTabs = [
-  AppTabBarModel(
-      tabText: dashboard, tabWidget: MentalHealthDashBoard(), onTap: () {}),
-  AppTabBarModel(
-      tabText: mentalhealthapp,
-      tabWidget: const MentalHealthApp(),
-      onTap: () {}),
-  AppTabBarModel(
-      tabText: brainGames, tabWidget: MentalHealthBrainGames(), onTap: () {}),
-  AppTabBarModel(
-      tabText: yogaVideos, tabWidget: MentalHealthYogaVideo(), onTap: () {}),
-  AppTabBarModel(
-      tabText: mindfulness, tabWidget: MentalHealthMainFulNess(), onTap: () {}),
-  AppTabBarModel(
-      tabText: articles, tabWidget: MentalHealthArticles(), onTap: () {}),
-  AppTabBarModel(
-      tabText: supportServices, tabWidget: SupportServices(), onTap: () {}),
+  AppTabBarModel(tabText: dashboard, tabWidget: MentalHealthDashBoard(), onTap: () {}),
+  AppTabBarModel(tabText: mentalhealthapp, tabWidget: const MentalHealthApp(), onTap: () {}),
+  AppTabBarModel(tabText: brainGames, tabWidget: MentalHealthBrainGames(), onTap: () {}),
+  AppTabBarModel(tabText: yogaVideos, tabWidget: MentalHealthYogaVideo(), onTap: () {}),
+  AppTabBarModel(tabText: mindfulness, tabWidget: MentalHealthMainFulNess(), onTap: () {}),
+  AppTabBarModel(tabText: articles, tabWidget: MentalHealthArticles(), onTap: () {}),
+  AppTabBarModel(tabText: supportServices, tabWidget: SupportServices(), onTap: () {}),
 ];
-List<AppTabBarModel> wellbeingFinanceTabs = [
-  AppTabBarModel(
-      tabText: dashboard, tabWidget: FinancesDashBoard(), onTap: () {}),
-  AppTabBarModel(
-      tabText: insuranceQuotes,
-      tabWidget: FinancesInsuranceQuotes(),
-      onTap: () {}),
-  AppTabBarModel(
-      tabText: discountCard,
-      tabWidget: const FinancesDiscountCard(),
-      onTap: () {}),
+List<AppTabBarModel> wellBeingFinanceTabs = [
+  AppTabBarModel(tabText: dashboard, tabWidget: FinancesDashBoard(), onTap: () {}),
+  AppTabBarModel(tabText: insuranceQuotes, tabWidget: FinancesInsuranceQuotes(), onTap: () {}),
+  AppTabBarModel(tabText: discountCard, tabWidget: const FinancesDiscountCard(), onTap: () {}),
   AppTabBarModel(tabText: support, tabWidget: SupportServices(isFinance: true,), onTap: () {}),
   AppTabBarModel(tabText: articles, tabWidget: FinancesArticle(), onTap: () {}),
 ];
@@ -124,12 +106,8 @@ List<AppTabBarModel> planetTabs = [
   AppTabBarModel(tabText: articles, tabWidget: const ArticlesScreen(), onTap: () {})
 ];
 List<AppTabBarModel> communityTabs = [
-  AppTabBarModel(
-      tabText: dashboard, tabWidget: CommunityDashboard(), onTap: () {}),
-  AppTabBarModel(
-      tabText: awarenessDays,
-      tabWidget: AwarenessDaysScreen(),
-      onTap: () {}),
+  AppTabBarModel(tabText: dashboard, tabWidget: CommunityDashboard(), onTap: () {}),
+  AppTabBarModel(tabText: awarenessDays, tabWidget: AwarenessDaysScreen(), onTap: () {}),
   AppTabBarModel(tabText: volunteering, tabWidget:  VolunteeringScreen(), onTap: () {}),
   AppTabBarModel(tabText: fundraising, tabWidget: FundraisingScreen(), onTap: () {}),
   AppTabBarModel(tabText: discountCard, tabWidget: const DiscountCard(), onTap: () {}),

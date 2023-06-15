@@ -80,9 +80,7 @@ class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
-                wellbeingPhysicalHealthTabs[controller?.index ?? 0]
-                    .onTap
-                    .call();
+                wellbeingPhysicalHealthTabs[controller?.index ?? 0].onTap.call();
               }
             },
             indicator: indicatorWidth(white),
@@ -91,8 +89,7 @@ class _PhysicalHealthMainScreenState extends State<PhysicalHealthMainScreen>
             automaticIndicatorColorAdjustment: true,
             labelColor: white,
             unselectedLabelColor: white,
-            labelStyle: GoogleFonts.inter(
-                color: white, fontWeight: FontWeight.w700, fontSize: 13),
+            labelStyle: GoogleFonts.inter(color: white, fontWeight: FontWeight.w700, fontSize: 13),
             unselectedLabelStyle: GoogleFonts.inter(
                 color: white, fontWeight: FontWeight.w700, fontSize: 13),
             tabs: wellbeingPhysicalHealthTabs

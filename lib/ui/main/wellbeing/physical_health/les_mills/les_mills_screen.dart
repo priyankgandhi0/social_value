@@ -24,8 +24,7 @@ class PhysicalHealthLesMills extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 25),
             child: GetBuilder<LessMillsController>(initState: (state) {
-              Future.delayed(Duration.zero)
-                  .then((value) => controller.getVideoCategories());
+              Future.delayed(Duration.zero).then((value) => controller.getVideoCategories());
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,11 +48,7 @@ class PhysicalHealthLesMills extends StatelessWidget {
                             color: Colors.black,
                           ),
                           20.0.addHSpace(),
-                          lessmillsDesc.interTextStyle(
-                              maxLines: 12,
-                              textOverflow: TextOverflow.ellipsis,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w400)
+                          lessmillsDesc.interTextStyle(maxLines: 12, textOverflow: TextOverflow.ellipsis, fontSize: 13, fontWeight: FontWeight.w400)
                         ],
                       ),
                     ),
@@ -80,10 +75,7 @@ class PhysicalHealthLesMills extends StatelessWidget {
                               onTap: () {
                                 Get.toNamed(Routes.workOutVideoScreen,
                                     arguments: [
-                                      {
-                                        "title":
-                                            ctrl.videoCategoryItem[index].title
-                                      },
+                                      {"title": ctrl.videoCategoryItem[index].title},
                                       {"id": ctrl.videoCategoryItem[index].id}
                                     ]);
                                 // Navigator.push(context,

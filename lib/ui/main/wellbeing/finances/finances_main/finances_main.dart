@@ -84,7 +84,7 @@ class _FinanceMainState extends State<FinanceMain>
             indicatorWeight: 1,
             onTap: (index) {
               if (index != 0) {
-                wellbeingFinanceTabs[controller?.index ?? 0].onTap.call();
+                wellBeingFinanceTabs[controller?.index ?? 0].onTap.call();
               }
             },
             indicator: indicatorWidth(white),
@@ -97,7 +97,7 @@ class _FinanceMainState extends State<FinanceMain>
                 color: white, fontWeight: FontWeight.w700, fontSize: 13),
             unselectedLabelStyle: GoogleFonts.inter(
                 color: white, fontWeight: FontWeight.w700, fontSize: 13),
-            tabs: wellbeingFinanceTabs
+            tabs: wellBeingFinanceTabs
                 .map(
                   (e) => Tab(text: e.tabText),
                 )
@@ -106,7 +106,7 @@ class _FinanceMainState extends State<FinanceMain>
         ),
         child: TabBarView(
           controller: controller,
-          children: wellbeingFinanceTabs.map((e) => e.tabWidget).toList(),
+          children: wellBeingFinanceTabs.map((e) => e.tabWidget).toList(),
         ),
       ),
     );

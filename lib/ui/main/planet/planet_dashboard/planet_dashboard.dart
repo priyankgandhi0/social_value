@@ -52,8 +52,7 @@ class PlanetDashboard extends StatelessWidget {
                                   100,
                               bgColor: darkGreen,
                               percentageColor: darkGreen,
-                              score: wellbeingController
-                                      .companyData?.sustainabilityScore ??
+                              score: wellbeingController.companyData?.sustainabilityScore ??
                                   "",
                             ),
                           ),
@@ -85,31 +84,28 @@ class PlanetDashboard extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        AppRactangleCard(
+                        AppSvgCard(
                           height: 320,
                           width: 230,
                           desc: '',
                           btnText: null,
-                          image: ImageAssets.planetImage,
+                          image1: ImageAssets.xoBackImage,
+                          image2: IconsAssets.xo2,
                           descColor: Colors.white,
                           onTap: () {
-                            Get.offAndToNamed(Routes.planetMain,
-                                arguments: {"selectedPage": 1});
+                            Get.offAndToNamed(Routes.planetMain, arguments: {"selectedPage": 1});
                           },
                         ).paddingOnly(
                           left: 10,
                         ),
-                        AppRactangleCard(
+
+
+                        PlanetSvgCard(
                           height: 320,
                           width: 230,
-                          desc: '',
-                          btnText: null,
-                          image: ImageAssets.journey,
-                          descColor: Colors.white,
+                          image1: IconsAssets.planetCardBackIcon,
                           onTap: () {},
-                        ).paddingOnly(
-                          right: 10,
-                        ),
+                        ).paddingOnly(right: 10),
                       ],
                     ),
                   ),
@@ -147,7 +143,7 @@ class PlanetDashboard extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               7.0.addHSpace(),
-                              "124".appEpilogueTextStyle(
+                              "1252".appEpilogueTextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 30,
                                   fontColor: Colors.white),
@@ -203,7 +199,7 @@ class PlanetDashboard extends StatelessWidget {
                   40.0.addHSpace(),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: latestArticlesText.interTextStyle(
+                    child: 'Latest Sustainability Articles'.interTextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
                         fontColor: textColor),
@@ -237,7 +233,7 @@ class PlanetDashboard extends StatelessWidget {
                           ),
                         ).paddingOnly(left: 10, right: 10),
                 ],
-              );
+              ).paddingOnly(bottom: 20);
             }),
           ),
         ),

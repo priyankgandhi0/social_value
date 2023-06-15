@@ -90,7 +90,7 @@ class PhysicalHealthDailyWorkOut extends StatelessWidget {
               );
             }),
           ),
-        ),
+        ).paddingOnly(bottom: 15),
         // Obx(() => controller.isLoading.value || controller.isLoading.value
         //     ? const AppProgress(
         //         color: darkDeepPurple,

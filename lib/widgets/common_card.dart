@@ -2,6 +2,7 @@
 
 import 'dart:io';
 import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -135,16 +136,22 @@ class AppArticlesCard extends StatelessWidget {
             width: 165,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: FadeInImage.assetNetwork(
-                placeholder: "assets/images/placeholder.png",
-                image: image,
-                height: 116,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                placeholderFit: BoxFit.fitWidth,
-                placeholderCacheHeight: 116,
-                // placeholderCacheWidth,
+              child : CachedNetworkImage(
+                imageUrl: image,
+                fit: BoxFit.fill,
+                placeholder : (context, url) => Image.asset('assets/images/placeholder.png'),
+                errorWidget: (context , url,error) => Image.asset('assets/images/placeholder.png'),
               ),
+              // child: FadeInImage.assetNetwork(
+              //   placeholder: "assets/images/placeholder.png",
+              //   image: image,
+              //   height: 116,
+              //   width: double.infinity,
+              //   fit: BoxFit.cover,
+              //   placeholderFit: BoxFit.fitWidth,
+              //   placeholderCacheHeight: 116,
+              //   // placeholderCacheWidth,
+              // ),
             ),
           ),
           Container(
@@ -459,16 +466,30 @@ class AppBodyPumptCard extends StatelessWidget {
                     topRight: Radius.circular(10)),
                 child: SizedBox(
                   height: 116,
-                  child: FadeInImage.assetNetwork(
-                    placeholder: "assets/images/placeholder.png",
-                    image: image,
-                    height: 116,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    placeholderFit: BoxFit.fitWidth,
-                    placeholderCacheHeight: 116,
-                    // placeholderCacheWidth,
+
+
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                    fit: BoxFit.fill,
+                    placeholder : (context, url) => Image.asset('assets/images/placeholder.png'),
+                    errorWidget: (context , url,error) => Image.asset('assets/images/placeholder.png'),
                   ),
+
+
+                  // child: FadeInImage.assetNetwork(
+                  //   placeholder: "assets/images/placeholder.png",
+                  //   image: image,
+                  //   height: 116,
+                  //   width: double.infinity,
+                  //   fit: BoxFit.cover,
+                  //   placeholderFit: BoxFit.fitWidth,
+                  //   placeholderCacheHeight: 116,
+                  //   // placeholderCacheWidth,
+                  // ),
+
+
+
+
                   // width: 170,
                   // child: image.isEmpty
                   //     ? Image.asset(ImageAssets.placeHolder)
@@ -1034,46 +1055,45 @@ class _AppVideoCardState extends State<AppVideoCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: 200,
-        // width: 110,
-        decoration:
-            BoxDecoration(borderRadius: BorderRadius.circular(10), boxShadow: [
-          BoxShadow(
-              color: Colors.grey.shade300,
-              blurRadius: 3,
-              offset: const Offset(2, 2))
-        ]),
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-              child: SizedBox(
-                height: 100,
-                // width: double.infinity,
-                child: Stack(
-                  children: [
-                    Image.file(
-                      File(widget.image),
-                      errorBuilder: (context, error, trace) {
-                        return Center(
-                            child: Image.asset(
-                          ImageAssets.placeHolder,
-                          fit: BoxFit.cover,
-                          height: double.infinity,
-                          width: double.infinity,
-                        ));
-                      },
-                      height: double.infinity,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned(
-                      left: 10,
-                      bottom: 10,
-                      child: GestureDetector(
-                        onTap: widget.onTap,
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
+          height: 200,
+          // width: 110,
+          decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(10), boxShadow: [
+            BoxShadow(
+                color: Colors.grey.shade300,
+                blurRadius: 3,
+                offset: const Offset(2, 2))
+          ]),
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                child: SizedBox(
+                  height: 100,
+                  // width: double.infinity,
+                  child: Stack(
+                    children: [
+                      Image.file(File(widget.image),
+                        errorBuilder: (context, error, trace) {
+                          return Center(
+                              child: Image.asset(
+                            ImageAssets.placeHolder,
+                            fit: BoxFit.cover,
+                            height: double.infinity,
+                            width: double.infinity,
+                          ));
+                        },
+                        height: double.infinity,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                      Positioned(
+                        left: 10,
+                        bottom: 10,
                         child: Image.asset(
                           color: Colors.grey.shade300.withOpacity(0.9),
                           Assets.imagesPlayButton,
@@ -1082,37 +1102,37 @@ class _AppVideoCardState extends State<AppVideoCard> {
                           width: 50,
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  // decoration: BoxDecoration(
+                  //     image: DecorationImage(
+                  //         image: AssetImage(image), fit: BoxFit.cover)),
                 ),
-                // decoration: BoxDecoration(
-                //     image: DecorationImage(
-                //         image: AssetImage(image), fit: BoxFit.cover)),
               ),
-            ),
-            Expanded(
-              child: Container(
-                  alignment: Alignment.center,
-                  height: 100,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10)),
-                      color: Colors.white),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: widget.title.interTextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 12,
-                        maxLines: 3,
-                        textOverflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        fontColor: textColor),
-                  )),
-            ),
-          ],
-        )).paddingOnly(left: 10);
+              Expanded(
+                child: Container(
+                    alignment: Alignment.center,
+                    height: 100,
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10)),
+                        color: Colors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      child: widget.title.interTextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                          maxLines: 3,
+                          textOverflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          fontColor: textColor),
+                    )),
+              ),
+            ],
+          )).paddingOnly(left: 10),
+    );
   }
 }
 

@@ -70,9 +70,7 @@ class WellbeingRepo {
           )
           .replaceAll(']', ''),
     };
-    String queryString =
-        Uri(path: MethodNames.getArticles, queryParameters: queryParameters)
-            .toString();
+    String queryString = Uri(path: MethodNames.getArticles, queryParameters: queryParameters).toString();
 
     String requestUrl = AppUrls.BASE_URL + queryString;
     result = await BaseApiHelper.getRequest(requestUrl);

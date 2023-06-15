@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_value/ui/main/help_support/help_support_controller.dart';
 import 'package:social_value/utils/extension.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../../constant/app_string.dart';
+import '../../../constant/app_url.dart';
 import '../../../theme/app_color.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_progress.dart';
@@ -59,136 +61,158 @@ class HelpSupport extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
                         ),
+
+                        /// NEW CODE
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             'Contact Us'.interTextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 20,
-                            ),
-                            10.0.addHSpace(),
-                            Row(
-                              children: [
-                                const Flexible(
-                                  child: StartUpTextFiled(
-                                    headingText: 'Name',
-                                    headingTextColor: Colors.black,
-                                    hintText: '',
-                                    fillColor: Colors.transparent,
-                                    borderColor: Colors.grey,
-                                    fontColor: Colors.black,
-                                  ),
-                                ),
-                                20.0.addWSpace(),
-                                const Flexible(
-                                  child: StartUpTextFiled(
-                                    headingText: 'name',
-                                    headingTextColor: white,
-                                    hintText: '',
-                                    fillColor: Colors.transparent,
-                                    borderColor: Colors.grey,
-                                    fontColor: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            20.0.addHSpace(),
-                            const StartUpTextFiled(
-                              headingText: 'Email',
-                              headingTextColor: Colors.black,
-                              hintText: '',
-                              fillColor: Colors.transparent,
-                              borderColor: Colors.grey,
-                              fontColor: Colors.black,
-                            ),
-                            30.0.addHSpace(),
-                            'Replace Profile Image'.interTextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12,
-                            ),
-                            10.0.addHSpace(),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                        color: Colors.grey.shade300,
-                                        borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(5),
-                                            bottomLeft: Radius.circular(5))),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 10, right: 10, top: 5, bottom: 5),
-                                      child: Center(
-                                        child: 'Choose file'.interTextStyle(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    )),
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                      height: 30,
-                                      width: Get.width,
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: Colors.grey.shade300,
-                                          ),
-                                          borderRadius: const BorderRadius.only(
-                                              topRight: Radius.circular(5),
-                                              bottomRight: Radius.circular(5))),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 5, right: 5, top: 4, bottom: 4),
-                                        child: ''.interTextStyle(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 12,
-                                        ),
-                                      )),
-                                )
-                              ],
-                            ),
-                            30.0.addHSpace(),
-                            SizedBox(
-                              height: 37,
-                              width: 100,
-                              child: AppBorderButton(
-                                onTap: () {},
-                                textSize: 14,
-                                text: 'Update',
-                                borderColor: darkSky,
-                              ),
-                            )
+                            ).marginOnly(left: 20,top: 15),
+                             const SizedBox(
+                                height: 850,
+                                child: WebView(
+                                  initialUrl: helpCenterUrl,
+                                  javascriptMode: JavascriptMode.unrestricted,
+
+                                )),
                           ],
-                        ).paddingSymmetric(horizontal: 15, vertical: 15),
-                      ),
-                      20.0.addHSpace(),
-                      'Latest Articles'.interTextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                      ),
-                      10.0.addHSpace(),
-                      SizedBox(
-                        height: 165,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 4,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return AppArticlesCard(
-                                onTap: () {},
-                                descColor: Colors.black,
-                                desc:
-                                'Diabetes - What you need to knowabout this condition',
-                                image:
-                                "https://www.app.socialvaluecompany.com/assets/img/wellnesshub.jpg");
-                          },
                         ),
+
+                        /// OLD CODE
+                        // child: Column(
+                        //   mainAxisAlignment: MainAxisAlignment.start,
+                        //   crossAxisAlignment: CrossAxisAlignment.start,
+                        //   children: [
+                        //     'Contact Us'.interTextStyle(
+                        //       fontWeight: FontWeight.w700,
+                        //       fontSize: 20,
+                        //     ),
+                        //     10.0.addHSpace(),
+                        //     Row(
+                        //       children: [
+                        //         const Flexible(
+                        //           child: StartUpTextFiled(
+                        //             headingText: 'Name',
+                        //             headingTextColor: Colors.black,
+                        //             hintText: '',
+                        //             fillColor: Colors.transparent,
+                        //             borderColor: Colors.grey,
+                        //             fontColor: Colors.black,
+                        //           ),
+                        //         ),
+                        //         20.0.addWSpace(),
+                        //         const Flexible(
+                        //           child: StartUpTextFiled(
+                        //             headingText: 'name',
+                        //             headingTextColor: white,
+                        //             hintText: '',
+                        //             fillColor: Colors.transparent,
+                        //             borderColor: Colors.grey,
+                        //             fontColor: Colors.black,
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //     20.0.addHSpace(),
+                        //     const StartUpTextFiled(
+                        //       headingText: 'Email',
+                        //       headingTextColor: Colors.black,
+                        //       hintText: '',
+                        //       fillColor: Colors.transparent,
+                        //       borderColor: Colors.grey,
+                        //       fontColor: Colors.black,
+                        //     ),
+                        //     30.0.addHSpace(),
+                        //     'Replace Profile Image'.interTextStyle(
+                        //       fontWeight: FontWeight.w400,
+                        //       fontSize: 12,
+                        //     ),
+                        //     10.0.addHSpace(),
+                        //     Row(
+                        //       mainAxisAlignment: MainAxisAlignment.start,
+                        //       crossAxisAlignment: CrossAxisAlignment.start,
+                        //       children: [
+                        //         Container(
+                        //             height: 30,
+                        //             decoration: BoxDecoration(
+                        //                 color: Colors.grey.shade300,
+                        //                 borderRadius: const BorderRadius.only(
+                        //                     topLeft: Radius.circular(5),
+                        //                     bottomLeft: Radius.circular(5))),
+                        //             child: Padding(
+                        //               padding: const EdgeInsets.only(
+                        //                   left: 10, right: 10, top: 5, bottom: 5),
+                        //               child: Center(
+                        //                 child: 'Choose file'.interTextStyle(
+                        //                   fontWeight: FontWeight.w400,
+                        //                   fontSize: 12,
+                        //                 ),
+                        //               ),
+                        //             )),
+                        //         Expanded(
+                        //           flex: 1,
+                        //           child: Container(
+                        //               height: 30,
+                        //               width: Get.width,
+                        //               decoration: BoxDecoration(
+                        //                   border: Border.all(
+                        //                     color: Colors.grey.shade300,
+                        //                   ),
+                        //                   borderRadius: const BorderRadius.only(
+                        //                       topRight: Radius.circular(5),
+                        //                       bottomRight: Radius.circular(5))),
+                        //               child: Padding(
+                        //                 padding: const EdgeInsets.only(
+                        //                     left: 5, right: 5, top: 4, bottom: 4),
+                        //                 child: ''.interTextStyle(
+                        //                   fontWeight: FontWeight.w400,
+                        //                   fontSize: 12,
+                        //                 ),
+                        //               )),
+                        //         )
+                        //       ],
+                        //     ),
+                        //     30.0.addHSpace(),
+                        //     SizedBox(
+                        //       height: 37,
+                        //       width: 100,
+                        //       child: AppBorderButton(
+                        //         onTap: () {},
+                        //         textSize: 14,
+                        //         text: 'Update',
+                        //         borderColor: darkSky,
+                        //       ),
+                        //     )
+                        //   ],
+                        // ).paddingSymmetric(horizontal: 15, vertical: 15),
                       ),
+
+
+                      /// LATEST ARTICLES CONTAINER
+                      // 'Latest Articles'.interTextStyle(
+                      //   fontWeight: FontWeight.w700,
+                      //   fontSize: 16,
+                      // ),
+                      // 10.0.addHSpace(),
+                      // SizedBox(
+                      //   height: 165,
+                      //   child: ListView.builder(
+                      //     scrollDirection: Axis.horizontal,
+                      //     itemCount: 4,
+                      //     shrinkWrap: true,
+                      //     itemBuilder: (context, index) {
+                      //       return AppArticlesCard(
+                      //           onTap: () {},
+                      //           descColor: Colors.black,
+                      //           desc: 'Diabetes - What you need to knowabout this condition',
+                      //           image: "https://www.app.socialvaluecompany.com/assets/img/wellnesshub.jpg");
+                      //     },
+                      //   ),
+                      // ),20.0.addHSpace(),
+
+
                       20.0.addHSpace(),
                       'FAQs'.interTextStyle(
                         fontWeight: FontWeight.w700,

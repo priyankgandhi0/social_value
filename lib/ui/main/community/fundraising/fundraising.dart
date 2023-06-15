@@ -62,27 +62,17 @@ class FundraisingScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ...ctrl.getFundraising
-                                  .map(
+                              ...ctrl.getFundraising.map(
                                     (e) => e.title.isNotEmpty
                                         ? Visibility(
-                                            visible: listAlphabet[index]
-                                                    .trim()
-                                                    .toLowerCase() ==
-                                                (e.title.trim()[0])
-                                                    .toLowerCase(),
+                                            visible: listAlphabet[index].trim().toLowerCase() == (e.title.trim()[0]).toLowerCase(),
                                             child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
-                                                e.title.interTextStyle(
-                                                    fontWeight: FontWeight.w700,
-                                                    fontSize: 16),
+                                                e.title.interTextStyle(fontWeight: FontWeight.w700, fontSize: 16),
                                                 10.0.addHSpace(),
-                                                e.description.interTextStyle(
-                                                    maxLines: 8,
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 14)
+
+                                                e.description.interTextStyle(maxLines: 8,fontWeight: FontWeight.w400,fontSize: 14)
                                               ],
                                             ).paddingOnly(bottom: 10),
                                           )

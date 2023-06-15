@@ -35,7 +35,7 @@ class ImageAssets {
   static const round = 'assets/images/round.png';
   static const journey = 'assets/images/joureny.png';
   static const hand = 'assets/images/hand.png';
-  static const fundraising = 'assets/images/fundraising.png';
+  static const fundraising = 'assets/images/fundrising.png';
   static const aImage = 'assets/images/aImage.png';
   static const support = 'assets/images/support.png';
   static const bmiImage = 'assets/images/Bmi.png';
@@ -51,6 +51,11 @@ class ImageAssets {
   static const lessmills = 'assets/images/lessmills.svg';
   static const lessmillsblack = 'assets/images/lessmillablack.png';
   static const String placeHolder = 'assets/images/placeholder.png';
+  static const String xoBackImage = 'assets/images/xoBackImage.png';
+  static const String xoBack = 'assets/images/xoBack.png';
+  static const String cardImage = 'assets/images/cardImage.png';
+  static const String retailsImage = 'assets/images/retailsImage.png';
+  static const String spashImage = 'assets/images/spash.png';
 }
 
 class IconsAssets {
@@ -68,6 +73,13 @@ class IconsAssets {
   // static const dashBoardIcon = 'assets/icons/dashBoardIcon.svg';
   // static const planetIcon = 'assets/icons/planet.svg';
   static const communityIcon = 'assets/icons/community.svg';
+  static const xoBackImage = 'assets/icons/xoBackImage.svg'; // assets/icons/xoBackImage.svg  assets/icons/xo2.svg
+  static const xo2 = 'assets/icons/xo2.svg';
+  static const planetCarbonStack = 'assets/icons/planetCarbonStack.svg';
+  static const planetCardBackIcon = 'assets/icons/planetCarbanBack.svg';
+  static const aTozFundIcon = 'assets/icons/aTozFundIcon.svg';
+  static const cardIcon = 'assets/icons/cardIcon.svg';
+  static const bookMarkIcon = 'assets/icons/book_mark_icon.svg';
 // static const moreIcon = 'assets/icons/more.svg';
 // static const supportIcon = 'assets/icons/support.svg';
 }

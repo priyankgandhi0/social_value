@@ -32,7 +32,7 @@ class MethodNames {
 }
 
 class MethodIDs {
-  static const SupportVideosId = "86";
+  static const  SupportVideosId = "86";
   static const wellbeingDashboardYoga = "65";
   static const wellbeingDashboardArticle = "5,9,10,14,15,17,22,23,24,26,29,31,32,33,34,35,36,37,38,39,40,41,442,49";
   static const physicalDashboardArticle = "31";
@@ -49,7 +49,7 @@ class MethodIDs {
   static const financesArticle = "42,29,5,26";
   static const sustainabilityWebinars = "89,90";
   static const EdiWebinars = "64";
-  static const sustainabilityArticles = "11";
+  static const  sustainabilityArticles = "11";
   static const EdiArticles = "13";
   static const communityDashboardArticle = "12,60";
 }

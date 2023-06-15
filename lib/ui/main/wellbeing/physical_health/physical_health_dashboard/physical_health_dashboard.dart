@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../../../constant/app_string.dart';
@@ -54,13 +55,17 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey),
+                        color: Colors.grey,
+                        image: DecorationImage(
+                            image: AssetImage(Assets.lesMillsBackImage),
+                            fit: BoxFit.fill)),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        Assets.imagesLesMills,
-                        fit: BoxFit.cover,
-                      ),
+                      borderRadius:
+                          BorderRadius.circular(10), // child: Image.asset(
+                      //   Assets.imagesLesMills,
+                      //   fit: BoxFit.cover,
+                      // ),
+                      // child:  SvgPicture.asset(Assets.imagesLesMillsSvg),
                     ),
                   ),
                 ),
@@ -219,9 +224,9 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                       ),
                 10.0.addHSpace(),
               ],
-            ).paddingSymmetric(horizontal: 15);
+            ).paddingSymmetric(horizontal: 15).paddingOnly(bottom: 20);
           }),
-        ).paddingOnly(bottom: 18),
+        ),
         Obx(() => controller.isLoading.value
             ? const AppProgress(
                 color: darkDeepPurple,
