@@ -73,6 +73,7 @@ class HelpSupport extends StatelessWidget {
                              const SizedBox(
                                 height: 850,
                                 child: WebView(
+                                  backgroundColor: Colors.white,
                                   initialUrl: helpCenterUrl,
                                   javascriptMode: JavascriptMode.unrestricted,
 

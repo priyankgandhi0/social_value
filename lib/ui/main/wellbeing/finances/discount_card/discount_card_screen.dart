@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/utils/extension.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../../../../constant/app_string.dart';
+import '../../../../../constant/app_url.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../widgets/app_button.dart';
 
@@ -38,13 +41,33 @@ class FinancesDiscountCard extends StatelessWidget {
                   AppBorderButton(
                     text: startSavingNow,
                     borderColor: darkDeepPurple,
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(const DisCountCardWebView());
+                    },
                   ).paddingOnly(left: 60, right: 60)
                 ],
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+class DisCountCardWebView extends StatelessWidget {
+  const DisCountCardWebView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: darkDeepPurple,
+      ),
+      body: WebView(
+        initialUrl: discountCardUrl,
+        javascriptMode: JavascriptMode.unrestricted,
       ),
     );
   }

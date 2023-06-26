@@ -27,16 +27,7 @@ class FundraisingScreen extends StatelessWidget {
             }, builder: (ctrl) {
               return Column(
                 children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        ImageAssets.fundraising,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                  FundRisingCard(),
                   30.0.addHSpace(),
                   Container(
                       // height: 60,

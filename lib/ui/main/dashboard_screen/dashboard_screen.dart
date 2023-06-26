@@ -1,7 +1,8 @@
-import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:social_value/constant/home_card_const.dart';
 import 'package:social_value/utils/extension.dart';
 import '../../../constant/app_string.dart';
@@ -13,11 +14,13 @@ import '../../../theme/app_color.dart';
 import '../../../utils/routes_manager.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_progress.dart';
+import '../../../widgets/common_card.dart';
 import '../../../widgets/home_screen_card.dart';
 import '../bottom_nav_bar/bottom_navigation_screen.dart';
 import '../wellbeing/my_mental_health/support_services/support_services_controller.dart';
 import '../wellbeing/physical_health/les_mills/less_mills_controller.dart';
 import 'dashboard_contorller.dart';
+
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -254,19 +257,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           Get.toNamed(Routes.physicalHealthMainScreen,
                               arguments: {"selectedPage": 1});
                         },
-                        child: Container(
-                          height: 300,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.grey),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(
-                              Assets.imagesLesMills,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                        child: const LesMillsCard(
+                          insidePadding: 12,
+                          cardHeight: 313,
+                          textButtonBetWeen: 15,
                         ),
                       ).paddingOnly(left: 16, right: 16),
                       12.0.addHSpace(),
@@ -325,7 +319,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     return Container(
                                         margin: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
                                         height: 111,
-                                        width: 188,
+                                        width: 178,
                                         decoration: BoxDecoration(
                                             boxShadow: [BoxShadow(color: Colors.grey.shade400, blurRadius: 3, offset: const Offset(3, 3))],
                                             color: white,
@@ -336,17 +330,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                 BorderRadius.circular(10),
                                             child: Stack(
                                               children: [
-                                                Image.file(
-                                                  File(ctrl.getVideo[index].thumbnail ?? ""),
-                                                  errorBuilder:
-                                                      (context, error, trace) {
-                                                    return const Center(
-                                                        child: CircularProgressIndicator());
-                                                  },
-                                                  height: 111,
-                                                  width: double.infinity,
-                                                  fit: BoxFit.contain,
-                                                ),
+
+                                                // Image.file(
+                                                //   File(ctrl.getVideo[index].thumbnail ?? ""),
+                                                //   errorBuilder:
+                                                //       (context, error, trace) {
+                                                //     return const Center(
+                                                //         child: CircularProgressIndicator());
+                                                //   },
+                                                //   height: 111,
+                                                //   width: double.infinity,
+                                                //   fit: BoxFit.contain,
+                                                // ),
+                                                ///
+                                                VideoThumbnailCard(image: ctrl.getVideo[index].thumbnail.toString(),height: 115,),
 
                                                 // Image.network(
                                                 //   ctrl.getVideo[index].thumbnail ??
@@ -375,9 +372,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                           });
                                                     },
                                                     child: Image.asset(
-                                                      color: Colors
-                                                          .grey.shade300
-                                                          .withOpacity(0.9),
+                                                      color: darkGreen.withOpacity(0.8),
                                                       Assets.imagesPlayButton,
                                                       fit: BoxFit.cover,
                                                       height: 50,
@@ -391,7 +386,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         ));
                                   },
                                 ),
-                              ).paddingOnly(left: 10, right: 10),
+                              ).paddingOnly(left: 5, right: 5),
                       ),
                       // 10.0.addHSpace(),
                       // Row(
@@ -404,52 +399,69 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       //           ).paddingOnly(right: 3)),
                       // ),
                       15.0.addHSpace(),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: 210,
-                              width: 170,
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 246,
+
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   image: const DecorationImage(
                                       image: AssetImage(
-                                        ImageAssets.startSurvey,
+                                        'assets/images/img_start_survey.png',
                                       ),
                                       fit: BoxFit.cover)),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                              child: Column(
+
                                 children: [
+                                  40.0.addHSpace(),
+
+                                  Text('''Find Out What Your Carbon Footprint Score Is''',style: GoogleFonts.epilogue(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w500),textAlign: TextAlign.center,),
+
+                                  10.0.addHSpace(),
+                                  '''Take a quick survey to see how you can improve'''.interTextStyle(fontSize: 12,fontColor: Colors.white,textAlign: TextAlign.center),
+                                  const Spacer(),
                                   AppButton(
                                     onTap: () {
                                       Get.toNamed(Routes.planetMain, arguments: {"selectedPage": 1});
                                     },
                                     text: "Start Survey",
                                     color: white,
-                                  ).paddingOnly(
-                                    left: 10,
-                                    right: 10,
-                                    bottom: 10,
-                                  ),
+                                  ).paddingOnly(bottom: 10,left: 5,right: 5),
                                 ],
-                              ),
+                              ).paddingSymmetric(horizontal: 12),
+                            ).paddingOnly(right: 5),
+                          ),
+
+
+
+                          10.0.addWSpace(),
+                          Expanded(
+                            child: Stack(
+                              alignment: Alignment.topCenter,
+                              children: [
+                                AppSquareCard(
+                                  width: 200,
+                                  height: 246,
+                                  onTap: () {
+                                    Get.toNamed(Routes.mentalHealthMain, arguments: {"selectedPage": 6});
+                                  },
+                                  iconVisible: false,
+                                  desc: '',
+                                  btnText: null,
+                                  image: ImageAssets.friendImage,
+                                  descColor: Colors.white,
+                                ).paddingOnly(right: 10),
+                                SvgPicture.asset('assets/icons/atozIcon.svg',height: 40,width: 40,).paddingOnly(top: 90),
+                                SvgPicture.asset('assets/icons/supportServiceIcon.svg',height: 40,width: 40,).paddingOnly(top: 115),
+                                SvgPicture.asset('assets/icons/inUkIcon.svg',height: 40,width: 40,).paddingOnly(top: 140),
+                              ],
                             ),
-                            10.0.addWSpace(),
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed(Routes.mentalHealthMain, arguments: {"selectedPage": 6});
-                              },
-                              child: Container(
-                                height: 210,
-                                width: 170,
-                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: const DecorationImage(image: AssetImage(ImageAssets.support), fit: BoxFit.cover)),
-                              ),
-                            ),
-                          ],
-                        ).paddingOnly(left: 16, right: 16),
-                      ),
+                          ),
+
+                        ],
+                      ).paddingOnly(left: 16),
 
                       15.0.addHSpace(),
                       Container(
@@ -485,7 +497,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   onTap: () {
                                     Get.toNamed(Routes.communityMain,
                                         arguments: {"selectedPage": 5});
-                                  }),
+                                  }).paddingSymmetric(horizontal: 110),
                             ],
                           )).paddingOnly(bottom: 20),
                     ],
@@ -502,3 +514,4 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 }
+

@@ -115,11 +115,11 @@ class AppButton extends StatelessWidget {
   final Color? color;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Container(
         height: 35,
-        width: 150,
+        width: double.infinity,
         decoration: BoxDecoration(
             border: Border.all(color: color ?? darkPurple),
             borderRadius: BorderRadius.circular(8)),

@@ -71,6 +71,7 @@ class MentalHealthMainFulNess extends StatelessWidget {
                                     ),
                             itemBuilder: (BuildContext context, int index) {
                               return AppVideoCard(
+                                color: darkDeepPurple.withOpacity(0.8),
                                 url: ctrl.getVideo[index].videoUrl,
                                 onTap: () {
                                   Get.toNamed(Routes.videoPlayerScreen,

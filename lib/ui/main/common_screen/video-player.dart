@@ -1,10 +1,13 @@
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:social_value/utils/extension.dart';
 import 'package:video_player/video_player.dart';
 
 import '../dashboard_screen/dashboard_contorller.dart';
+
+
 
 class VideoPlayerScreen extends StatefulWidget {
   VideoPlayerScreen({
@@ -47,18 +50,28 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   // }
   late FlickManager flickManager;
 
+  getVideo()   {
+    try{
+      flickManager = FlickManager(
+        videoPlayerController: VideoPlayerController.network(
+            widget.data["url"],
+
+          // "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        )
+          ..initialize().then((value) {
+            setState(() {});
+          }),
+      );
+    }catch(e){
+      print("Video Get Error is -----> $e");
+    }
+  }
+
   @override
   void initState() {
+    getVideo();
     super.initState();
-    flickManager = FlickManager(
-      videoPlayerController: VideoPlayerController.network(
-          widget.data["url"]
-          // "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          )
-        ..initialize().then((value) {
-          setState(() {});
-        }),
-    );
+    print("Video URl ----> ${widget.data["url"]}");
   }
 
   @override
@@ -87,13 +100,15 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                         Icons.arrow_back,
                         color: Colors.white,
                       )),
+
+
                   250.0.addHSpace(),
                   Container(
                     margin: const EdgeInsets.only(right: 10, left: 10),
                     height: 200,
                     width: double.infinity,
                     color: Colors.transparent,
-                    child: FlickVideoPlayer(
+                    child:  FlickVideoPlayer(
                       flickManager: flickManager,
                       flickVideoWithControls: FlickVideoWithControls(
                         videoFit: BoxFit.fitHeight,
@@ -166,6 +181,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                     //   ],
                     // )
                   ),
+
                 ],
               ),
             );
@@ -173,3 +189,5 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     );
   }
 }
+
+

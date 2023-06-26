@@ -80,13 +80,13 @@ class PlanetDashboard extends StatelessWidget {
                     ),
                   ),
                   20.0.addHSpace(),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        AppSvgCard(
-                          height: 320,
-                          width: 230,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: AppSvgCard(
+                          height: 246,
+                          width: 175,
                           desc: '',
                           btnText: null,
                           image1: ImageAssets.xoBackImage,
@@ -95,19 +95,19 @@ class PlanetDashboard extends StatelessWidget {
                           onTap: () {
                             Get.offAndToNamed(Routes.planetMain, arguments: {"selectedPage": 1});
                           },
-                        ).paddingOnly(
-                          left: 10,
-                        ),
+                        ).paddingOnly(left: 10),
+                      ),
 
 
-                        PlanetSvgCard(
-                          height: 320,
-                          width: 230,
+                      Expanded(
+                        child: PlanetSvgCard(
+                          height: 246,
+                          width: 175,
                           image1: IconsAssets.planetCardBackIcon,
                           onTap: () {},
-                        ).paddingOnly(right: 10),
-                      ],
-                    ),
+                        ).paddingOnly(right: 20),
+                      ),
+                    ],
                   ),
                   20.0.addHSpace(),
                   Container(
@@ -178,6 +178,7 @@ class PlanetDashboard extends StatelessWidget {
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
                               return AppArticlesCard(
+                                width: 185,
                                   onTap: () {
                                     Get.toNamed(Routes.articleDetailScreen,
                                         arguments: [
@@ -195,7 +196,7 @@ class PlanetDashboard extends StatelessWidget {
                                       ctrl.articlesList[index].featuredImage);
                             },
                           ),
-                        ).paddingOnly(left: 10, right: 10),
+                        ).paddingOnly(left: 20, right: 10),
                   40.0.addHSpace(),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -215,6 +216,7 @@ class PlanetDashboard extends StatelessWidget {
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
                               return AppArticlesCard(
+                                  width: 185,
                                   onTap: () {
                                     Get.toNamed(Routes.articleDetailScreen,
                                         arguments: [
@@ -231,7 +233,7 @@ class PlanetDashboard extends StatelessWidget {
                                       .planetArticleList[index].featuredImage);
                             },
                           ),
-                        ).paddingOnly(left: 10, right: 10),
+                        ).paddingOnly(left: 20, right: 10),
                 ],
               ).paddingOnly(bottom: 20);
             }),

@@ -32,7 +32,7 @@ class VolunteeringScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)), child: Image.asset(Assets.imagesGiveBackVolun)),
+                  const CommunityVolunteerCard(),
                   15.0.addHSpace(),
                   Container(
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: lightPurple),

@@ -97,7 +97,7 @@ class MenuScreen extends StatelessWidget {
                   }),
               40.0.addHSpace(),
               Container(
-                height: 229,
+                height: 235,
                 width: 398,
                 decoration: BoxDecoration(
                     boxShadow: [
@@ -112,12 +112,10 @@ class MenuScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     36.0.addHSpace(),
-                    memberSinceText.interTextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    memberSinceText.interTextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                     27.0.addHSpace(),
-                    Image.asset(Assets.imagesMemberLogo)
+                    Image.asset(Assets.imagesMemberLogo),
+                    5.0.addHSpace(),
                   ],
                 ),
               ).paddingOnly(left: 16, right: 16, bottom: 40)

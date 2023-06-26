@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:social_value/ui/main/dashboard_screen/dashboard_screen.dart';
 import 'package:social_value/utils/routes_manager.dart';
 
 import 'constant/shred_preference.dart';
@@ -24,5 +25,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 

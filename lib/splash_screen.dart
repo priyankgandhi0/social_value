@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:social_value/theme/app_color.dart';
@@ -25,14 +25,7 @@ class SplashScreen extends StatelessWidget {
         padding: EdgeInsets.zero,
         alignment: Alignment.center,
         width: Get.size.width,
-        // child: Image.asset(ImageAssets.spashImage, height: Get.height / 1.4, width: Get.width / 1.4).paddingOnly(left: 30, right: 30),
-        child: LimitedBox(
-          maxHeight: 100,
-          maxWidth: 100,
-          child: SvgPicture.asset(
-              'assets/icons/splashIcon.svg',
-              height: Get.height / 1.4, width: Get.width / 1.4).paddingOnly(left: 30, right: 30),
-        ),
+        child: Image.asset('assets/images/spash.png', height: Get.height / 1.4, width: Get.width / 1.4).paddingOnly(left: 30, right: 30),
       ),
     );
   }
@@ -47,9 +40,4 @@ class SplashScreen extends StatelessWidget {
       }
     });
   }
-  // _onInit() {
-  //   Future.delayed(const Duration(seconds: 3)).then((value) async {
-  //     Get.offAllNamed(Routes.login);
-  //   });
-  // }
 }

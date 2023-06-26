@@ -2,12 +2,12 @@ class ImageAssets {
   // static const splashLogo = 'assets/images/spash.png';
   // static const profileImage = 'assets/images/profile.png';
   //
-  // static const memberLogo = 'assets/images/memberLogo.png';
+  // static const memberLogo = 'assets/images/.png';
   // static const roundIcon = 'assets/icons/75Rounder.svg';
   // static const ladyImage = 'assets/images/ladyImage.png';
   // static const ladyImage1 = 'assets/images/lesMills.png';
   // static const lessmills = 'assets/images/lessmills.png';
-  // static const creditCard = 'assets/images/creditCard.png';
+  // static const creditCard = 'assets/images/.png';
   // static const memberShip = 'assets/images/memberShip.png';
   // static const tree = 'assets/images/tree.png';
   // static const charityImage = 'assets/images/Charity.png';
@@ -24,12 +24,17 @@ class ImageAssets {
   static const trusselImage = 'assets/images/trussel.png';
   static const lessMillsDashBoard = 'assets/images/lessMillsDashBoard.png';
   static const foodImage = 'assets/images/food.png';
-  static const friendImage = 'assets/images/friend.png';
-  static const relaxImage = 'assets/images/relex.png';
+  static const friendImage = 'assets/images/escapeImg.png';
+  static const relaxImage = 'assets/images/yogaImg.png';
+
+
   static const treeImage = 'assets/images/bigtree.png';
+
+
+
   static const cupImage = 'assets/images/cup.png';
   // static const cupImage = 'assets/images/cup.svg';
-  static const financesCard = 'assets/images/financesCard.png';
+  static const financesCard = 'assets/images/financeCard.png';
   static const car = 'assets/images/car.png';
   static const discountCard = 'assets/images/discountCard.png';
   static const round = 'assets/images/round.png';
@@ -45,7 +50,7 @@ class ImageAssets {
   static const planetImage = 'assets/images/planetImage.png';
   static const articleLadyImage = 'assets/images/detaillady.png';
   static const recLessMillsImage = 'assets/images/reclesmills.png';
-  static const appforSleepImage = 'assets/images/appforSleep.png';
+  static const appforSleepImage = 'assets/images/appforSleFrame 28-2.pngep.png';
   static const atozFundrising = 'assets/images/atozfundrising.png';
   static const volunteering = 'assets/images/volunteering.png';
   static const lessmills = 'assets/images/lessmills.svg';
@@ -53,15 +58,27 @@ class ImageAssets {
   static const String placeHolder = 'assets/images/placeholder.png';
   static const String xoBackImage = 'assets/images/xoBackImage.png';
   static const String xoBack = 'assets/images/xoBack.png';
-  static const String cardImage = 'assets/images/cardImage.png';
-  static const String retailsImage = 'assets/images/retailsImage.png';
+  static const String cardImage = 'assets/images/card_img.png';
+  static const String retailsImage = 'assets/images/retailImg.png';
   static const String spashImage = 'assets/images/spash.png';
+  static const String lessMillsImageCard = 'assets/images/lessMillsImageCard.png';
+  static const String lessMillsImg = 'assets/images/lessMillsImg.png';
+  static const String atozimg = 'assets/images/atozimg.png';
+  static const String fundRisingImg = 'assets/images/fundrising_idea_img.png';
+  static const String helthImg = 'assets/images/helth_img.png';
+  static const String supportServiceImg = 'assets/images/support_service_img.png';
+  static const String atozWellbeingImg = 'assets/images/atozWellbeingImg.png';
+  static const String supportServiceI = 'assets/images/supportServiceImg.png';
+  static const String inUkImg = 'assets/images/inUkImg.png';
 }
 
 class IconsAssets {
   static const wellbeingIcon = 'assets/icons/heart.svg';
   static const celenderIcon = 'assets/images/calendar.png';
   static const eyeIcon = "asset/icons/eye.png";
+
+
+  static const lessMillsIcon = "asset/icons/lessMillsIcon.svg";
 
   // static const heart = 'assets/icons/heart.png';
   // static const myProfile = 'assets/icons/myProfile.svg';

@@ -80,6 +80,8 @@ class PhysicalHealthDailyWorkOut extends StatelessWidget {
                                 },
                                 title: ctrl.getVideo[index].title,
                                 image: ctrl.getVideo[index].thumbnail ?? "",
+                                color: darkDeepPurple.withOpacity(0.8),
+
                               ).paddingOnly(
                                 bottom: 20,
                               );

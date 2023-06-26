@@ -28,8 +28,8 @@ class LessMillsController extends GetxController {
           videoCategoryItem.add(element);
           update();
         }
-        // print("video---${videoCategoryItem[0].title}");
       }
+
     } catch (e) {
       showAppSnackBar(errorText);
     }

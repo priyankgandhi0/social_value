@@ -28,6 +28,7 @@ class AppSquareCard extends StatelessWidget {
     this.btnText,
     this.height,
     this.width,
+    this.stackWidget,
     this.iconVisible,
     this.onTap,
   }) : super(key: key);
@@ -38,6 +39,7 @@ class AppSquareCard extends StatelessWidget {
   final Color? descColor;
   final String? btnText;
   final VoidCallback? onTap;
+  final Widget? stackWidget;
   bool? iconVisible = false;
 
   @override
@@ -49,7 +51,7 @@ class AppSquareCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           child: Image.asset(
             image,
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
             height: height ?? 165,
             width: width ?? 165,
           ),
@@ -94,10 +96,123 @@ class AppSquareCard extends StatelessWidget {
                 : Container()
           ],
         ).paddingSymmetric(horizontal: 5),
-      )
-    ]).paddingSymmetric(horizontal: 10);
+      ),
+      stackWidget ?? Container()
+    ]).paddingOnly(left: 0,right: 0);
   }
 }
+
+class VideoThumbnailCard extends StatelessWidget {
+  String image;
+  double? height;
+  VideoThumbnailCard({super.key,required this.image,this.height});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.grey.shade300,
+      child: image.isEmpty ?
+      Image.asset('assets/images/placeholder.png',
+        height: height,
+        width: double.infinity,
+        fit: BoxFit.fitWidth) :
+      CachedNetworkImage(
+        imageUrl: image,
+        fit: BoxFit.fitWidth,
+        height: height,
+        width: double.infinity,
+        placeholder : (context, url) => Image.asset('assets/images/placeholder.png',fit: BoxFit.fitWidth,width: double.infinity,height: height,),
+        errorWidget: (context , url,error) => Image.asset('assets/images/placeholder.png',fit: BoxFit.fitWidth,width: double.infinity,height: height,),
+      ),
+    );
+  }
+}
+
+
+class FundRisingCard extends StatelessWidget {
+  final double? width;
+  final BoxFit? fit;
+  final double? height;
+  const FundRisingCard({super.key,this.width,this.height,this.fit});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height ?? 214,
+      width: width ?? double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: const  [
+          BoxShadow(
+              color: Colors.grey,
+              blurRadius: 2,
+              spreadRadius: 1.5
+          )
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset(
+              ImageAssets.fundraising,
+              fit: fit ?? BoxFit.fitWidth,
+              width: width ?? double.infinity,
+              height: height,
+            ),
+
+            Image.asset(ImageAssets.atozimg),
+            Image.asset(ImageAssets.fundRisingImg).paddingOnly(top: 50,left: 50 )
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+class CommunityVolunteerCard extends StatelessWidget {
+  final double? height;
+  final double? width;
+  final String? backGroundImg;
+  const CommunityVolunteerCard({super.key,this.height,this.width,this.backGroundImg});
+
+  @override
+  Widget build(BuildContext context) {
+    return   Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+        boxShadow: const  [
+          BoxShadow(
+              color: Colors.grey,
+              blurRadius: 2,
+              spreadRadius: 1.5
+          )
+        ],
+        borderRadius: BorderRadius.circular(10)),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(backGroundImg ?? Assets.imagesGiveBackVolun,fit: BoxFit.fitWidth,height: height,width: width,)),
+
+            Image.asset(Assets.givingBackImage),
+
+            Image.asset(Assets.volunteeringImg).paddingOnly(top: 80),
+          ],
+        ));
+  }
+}
+
+
+
+
 
 class AppArticlesCard extends StatelessWidget {
   const AppArticlesCard({
@@ -106,7 +221,9 @@ class AppArticlesCard extends StatelessWidget {
     required this.image,
     required this.descColor,
     this.btnText,
+    this.paddingRight,
     required this.onTap,
+      this.width,
   }) : super(key: key);
 
   final String desc;
@@ -114,6 +231,8 @@ class AppArticlesCard extends StatelessWidget {
   final Color? descColor;
   final String? btnText;
   final VoidCallback onTap;
+  final double? width;
+  final double? paddingRight;
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +252,7 @@ class AppArticlesCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(11),
             ),
             height: 165,
-            width: 165,
+            width: width ?? 188,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child : CachedNetworkImage(
@@ -155,19 +274,16 @@ class AppArticlesCard extends StatelessWidget {
             ),
           ),
           Container(
-            width: 165,
+            width: width ?? 188,
             alignment: Alignment.bottomCenter,
             child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10)),
+              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
                 child: Container(
                   alignment: Alignment.center,
                   height: 50,
-                  decoration:
-                      BoxDecoration(color: Colors.white.withOpacity(0.7)),
+                  decoration: BoxDecoration(color: Colors.white.withOpacity(0.7)),
                   child: desc.interTextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 11,
@@ -180,7 +296,7 @@ class AppArticlesCard extends StatelessWidget {
             ),
           ),
         ],
-      ).paddingSymmetric(horizontal: 10),
+      ).paddingOnly(left: 0,right: paddingRight ?? 20),
     );
   }
 }
@@ -427,6 +543,72 @@ class InsuranceCard extends StatelessWidget {
         ));
   }
 }*/
+
+
+class LesMillsCard extends StatelessWidget {
+  final double? width;
+  final double? cardHeight;
+  final double? topSideHeight;
+  final double? textButtonBetWeen;
+  final double? insidePadding;
+  final double? imageWidth;
+  final double? textPadding;
+  final String? image;
+  const LesMillsCard({super.key,this.width,this.cardHeight,this.insidePadding,this.imageWidth,this.topSideHeight,this.image,this.textButtonBetWeen,this.textPadding});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: cardHeight ?? 300,
+      width: width ?? double.infinity,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.grey,
+          image:   DecorationImage(image: AssetImage(image ?? ImageAssets.lessMillsImageCard),fit: BoxFit.fitHeight)
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10), // child: Image.asset(
+
+        child:  Column(
+          children: [
+            topSideHeight?.addHSpace() ?? 107.0.addHSpace(),
+            Image.asset(ImageAssets.lessMillsImg),
+            18.0.addHSpace(),
+            lesmillsText.interTextStyle(
+                textAlign: TextAlign.center,
+                fontColor: const Color(0xffFFFFFF),
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+            ).paddingSymmetric(horizontal: textPadding ?? 0),
+            textButtonBetWeen?.addHSpace() ??  19.0.addHSpace(),
+
+            Container(
+              width: 155,
+              height: 31,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), border: Border.all(color: Colors.white)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  "Access Now".appEpilogueTextStyle(
+                      fontColor: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12
+                  ),
+                  8.0.addWSpace(),
+                  const Icon(Icons.arrow_forward_ios_rounded,color: Colors.white,size: 15,)
+                ],
+              ),
+            )
+
+          ],
+        ).paddingAll(insidePadding ?? 1),
+      ),
+    );
+  }
+}
+
+
+
 
 class AppBodyPumptCard extends StatelessWidget {
   const AppBodyPumptCard({
@@ -1033,18 +1215,22 @@ class ScorePageCard extends StatelessWidget {
 }
 
 class AppVideoCard extends StatefulWidget {
-  const AppVideoCard({
+  AppVideoCard({
     Key? key,
     required this.title,
     required this.image,
     required this.onTap,
     required this.url,
+    this.height,
+    this.color,
   }) : super(key: key);
 
   final String title;
   final String image;
   final VoidCallback onTap;
   final String url;
+  double? height;
+  Color? color;
 
   @override
   State<AppVideoCard> createState() => _AppVideoCardState();
@@ -1076,31 +1262,40 @@ class _AppVideoCardState extends State<AppVideoCard> {
                   height: 100,
                   // width: double.infinity,
                   child: Stack(
+                    alignment: Alignment.center,
                     children: [
-                      Image.file(File(widget.image),
-                        errorBuilder: (context, error, trace) {
-                          return Center(
-                              child: Image.asset(
-                            ImageAssets.placeHolder,
-                            fit: BoxFit.cover,
-                            height: double.infinity,
-                            width: double.infinity,
-                          ));
-                        },
-                        height: double.infinity,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
+                      // Image.file(File(widget.image),
+                      //   errorBuilder: (context, error, trace) {
+                      //     return Center(
+                      //         child: Image.asset(
+                      //       ImageAssets.placeHolder,
+                      //       fit: BoxFit.cover,
+                      //       height: double.infinity,
+                      //       width: double.infinity,
+                      //     ));
+                      //   },
+                      //   height: double.infinity,
+                      //   width: double.infinity,
+                      //   fit: BoxFit.cover,
+                      // ),
+                      widget.image.isEmpty ?
+                      Image.asset('assets/images/placeholder.png',
+                          height: widget.height,
+                          width: double.infinity,
+                          fit: BoxFit.fitWidth) : CachedNetworkImage(
+                        imageUrl: widget.image,
+                        fit: BoxFit.fitHeight,
+                        height: widget.height,
+                        placeholder : (context, url) => Image.asset('assets/images/placeholder.png',fit: BoxFit.fill,),
+                        errorWidget: (context , url,error) => Image.asset('assets/images/placeholder.png',fit: BoxFit.fill,),
                       ),
-                      Positioned(
-                        left: 10,
-                        bottom: 10,
-                        child: Image.asset(
-                          color: Colors.grey.shade300.withOpacity(0.9),
-                          Assets.imagesPlayButton,
-                          fit: BoxFit.cover,
-                          height: 50,
-                          width: 50,
-                        ),
+
+                      Image.asset(
+                        color: widget.color ?? Colors.grey.shade300.withOpacity(0.9),
+                        Assets.imagesPlayButton,
+                        fit: BoxFit.cover,
+                        height: 50,
+                        width: 50,
                       ),
                     ],
                   ),

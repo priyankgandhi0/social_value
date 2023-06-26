@@ -19,8 +19,7 @@ class PhysicalHealthMealPlans extends StatelessWidget {
       children: [
         SingleChildScrollView(
           child: Padding(
-            padding:
-                const EdgeInsets.only(left: 10, right: 20, top: 25, bottom: 25),
+            padding: const EdgeInsets.only(left: 10, right: 20, top: 25, bottom: 25),
             child: GetBuilder<ArticleController>(initState: (state) {
               controller.articlesList.clear();
               Future.delayed(Duration.zero).then((value) => controller.getArticles(MethodIDs.mealPlanArticle));
@@ -60,7 +59,7 @@ class PhysicalHealthMealPlans extends StatelessWidget {
             }),
           ),
         ),
-        Obx(() => controller.isLoading.value || controller.isLoading.value
+        Obx(() => controller.isLoading.value
             ? const AppProgress(
                 color: darkDeepPurple,
               )

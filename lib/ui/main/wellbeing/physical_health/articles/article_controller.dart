@@ -60,6 +60,9 @@ class ArticleController extends GetxController {
         update();
       } else {
         articlesList = data;
+        articlesList.forEach((element) {
+          print("Image ----> ${element.featuredImage}");
+        });
         print("Data Meal Plan  ----> ${result}");
         update();
       }

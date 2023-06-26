@@ -265,6 +265,7 @@ class AppRactangleCard extends StatelessWidget {
     required this.image,
     this.descColor,
     this.btnText,
+    required this.isTextShow,
     this.height,
     this.width,
     this.iconVisible,
@@ -279,6 +280,7 @@ class AppRactangleCard extends StatelessWidget {
   final double? bottom;
   final double? top;
   final String image;
+  final bool isTextShow;
   final Color? descColor;
   final String? btnText;
   final VoidCallback onTap;
@@ -286,42 +288,54 @@ class AppRactangleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: Alignment.center, children: [
-      GestureDetector(
-        onTap: onTap,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.asset(
-            image,
-            fit: BoxFit.cover,
-            height: height ?? 165,
-            width: width ?? 165,
-          ),
+    return GestureDetector(
+      onTap: onTap,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+                height: height ?? 165,
+                width: width ?? 165,
+              ),
+            ),
+
+            isTextShow ? SizedBox(
+              height: height ?? 165,
+              width: width ?? 165,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  19.0.addHSpace(),
+                  Center(
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 23,
+                      width: 125,
+                      decoration: BoxDecoration(color: const Color(0xffFFFFFF),borderRadius: BorderRadius.circular(8)),
+                      child: const Center(child: Text('Daily Affirmation',style: TextStyle(fontSize: 11,color: Color(0xff333333),fontWeight: FontWeight.w400),)),
+                    ),
+                  ),
+
+                  75.0.addHSpace(),
+
+
+                  Text('''$desc''' ?? "",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 20),textAlign: TextAlign.center,).paddingSymmetric(horizontal: 40)
+
+
+                ],
+              ),
+            ) : Container()
+
+          ],
         ),
       ),
-      // 10.0.addHSpace(),
-      // btnText != null
-      //     ? Positioned(
-      //         left: left,
-      //         right: right,
-      //         top: top,
-      //         bottom: bottom,
-      //         child: SizedBox(
-      //           height: 30,
-      //           width: 150,
-      //           child: BorderButton(
-      //             appBorderFillColor: Colors.white,
-      //             appFillColor: Colors.transparent,
-      //             onTap: () {},
-      //             text: btnText!,
-      //             fontSize: 12,
-      //             value: 7,
-      //             rightIcon: iconVisible ?? true,
-      //           ).paddingSymmetric(horizontal: 5),
-      //         ),
-      //       )
-      //     : Container()
-    ]).paddingSymmetric(horizontal: 10);
+    ).paddingSymmetric(horizontal: 0);
   }
 }
 
@@ -372,7 +386,7 @@ class AppSvgCard extends StatelessWidget {
              image1,
              fit: BoxFit.cover,
              height: height ?? 165,
-             width: width ?? 165,
+             width: width ?? 188,
            ),
          ),
 
@@ -381,10 +395,10 @@ class AppSvgCard extends StatelessWidget {
           child: SvgPicture.asset(
             image2,
             fit: BoxFit.cover,
-            height:   250,
-            width:  250,
-          ),
-        ).paddingOnly(left: 10),
+            height: 190,
+            width: 190,
+          ).paddingOnly(left: 8),
+        ).paddingOnly(left: 0),
 
 
 
@@ -444,16 +458,25 @@ class PlanetSvgCard extends StatelessWidget {
         child: Container(
           height: height ?? 165,
           width: width ??  165,
-          color: const Color(0xff19978F),
+          decoration: BoxDecoration(
+            color: Color(0xff19978F),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.shade300,
+                  blurRadius: 2,
+                  spreadRadius: 2,
+              )
+            ],
+          ),
           child: Column(
             children: [
-              const Text(planetSeeHowText,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w700),).paddingSymmetric(horizontal: 20),
+              const Text(planetSeeHowText,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: 19,fontWeight: FontWeight.w700),).paddingSymmetric(horizontal: 20),
               const Spacer(),
-              Image.asset(ImageAssets.xoBack)
+              Image.asset(ImageAssets.xoBack,height: 52)
             ],
           ).paddingSymmetric(horizontal: 10).paddingOnly(top: 10),
         ),
-      ).paddingSymmetric(horizontal: 10),
+      ).paddingSymmetric(horizontal: 5),
     );
   }
 }

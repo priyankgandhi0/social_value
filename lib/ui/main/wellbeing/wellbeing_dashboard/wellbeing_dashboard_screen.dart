@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:social_value/generated/asset.dart';
 import 'package:social_value/ui/main/wellbeing/wellbeing_dashboard/wellbeing_dashboard_controller.dart';
@@ -48,44 +49,79 @@ class WellBeingDashBoardScreen extends StatelessWidget {
             WellBeingScore(
               scoreTitle: scoreTitle,
               scoreDesc: scoreDesc,
-              percentage: double.parse(
-                      wellbeingController.companyData?.wellbeingScore ?? "0") /
+              percentage: double.parse(wellbeingController.companyData?.wellbeingScore ?? "0") /
                   100,
               bgColor: deepPurple,
               percentageColor: darkDeepPurple,
               score: wellbeingController.companyData?.wellbeingScore ?? "0",
             ),
             10.0.addHSpace(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  AppRactangleCard(
-                    // top: 260,
-                    height: 320,
-                    width: 211,
-                    // btnText: accessNow,
-                    image: ImageAssets.recLessMillsImage,
-                    onTap: () {
-                      Get.toNamed(Routes.physicalHealthMainScreen,
-                          arguments: {"selectedPage": 1});
-                    },
-                  ).paddingOnly(
-                    left: 10,
-                  ),
-                  AppRactangleCard(
-                    // top: 260,
-                    height: 320,
-                    width: 211,
-                    // btnText: accessNow,
-                    image: ImageAssets.appforSleepImage,
-                    onTap: () {
-                      Get.toNamed(Routes.mentalHealthMain,
-                          arguments: {"selectedPage": 1});
-                    },
-                  ).paddingOnly(right: 10),
-                ],
-              ),
+            Row(
+              children: [
+
+                Expanded(
+                  child: const LesMillsCard(
+                    image: 'assets/images/lessMillsbackImg.png',
+                    insidePadding: 10,
+                    topSideHeight: 60,
+                    textButtonBetWeen: 30,
+                    cardHeight: 340,
+                  ).paddingOnly(left: 10),
+                ),
+
+                15.0.addWSpace(),
+
+                Expanded(
+                  child: Container(
+                    height: 340,
+                    decoration: BoxDecoration(
+                      color: darkDeepPurple,
+                      borderRadius: BorderRadius.circular(12)
+                    ),
+                    child: Column(
+                      children: [
+
+                        34.0.addHSpace(),
+
+                        '''Access the #1 app for sleep. anxiety, stress and mental health'''.appEpilogueTextStyle(
+                            textAlign: TextAlign.center,
+                            fontColor: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18
+                        ).paddingSymmetric(horizontal: 10),
+
+                        19.0.addHSpace(),
+
+                        Image.asset(ImageAssets.helthImg,height: 90,fit: BoxFit.fitHeight,).paddingSymmetric(horizontal: 10),
+
+
+                        const Spacer(),
+
+                        Container(
+                          width: 155,
+                          height: 31,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: Colors.white)
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              "Access Now".appEpilogueTextStyle(
+                                  fontColor: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12
+                              )
+                            ],
+                          ),
+                        ).paddingOnly(bottom: 14,left: 10,right: 10)
+
+                      ],
+                    ),
+                  ).paddingOnly(right: 10,left: 0),
+                ),
+
+              ],
             ),
             30.0.addHSpace(),
             Row(
@@ -95,7 +131,7 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     fontColor: textColor),
               ],
-            ).paddingOnly(left: 20),
+            ).paddingOnly(left: 10),
             10.0.addHSpace(),
             Obx(
               () => controller.isLoading.value
@@ -106,10 +142,12 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: 7,
                         itemBuilder: (BuildContext context, int index) {
-                          return const ShimmerEffect();
+                          return const ShimmerEffect(
+                            width: 180,
+                          );
                         },
                       ),
-                    ).paddingOnly(left: 10, right: 10)
+                    ).paddingOnly(left: 0, right: 10)
                   : SizedBox(
                       height: 123,
                       child: ListView.builder(
@@ -117,14 +155,12 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                         itemCount: ctrl.getVideo.length,
                         cacheExtent: 1000,
                         shrinkWrap: true,
-                        // key: const PageStorageKey(),
                         addAutomaticKeepAlives: false,
                         itemBuilder: (context, index) {
                           return Container(
-                              margin: const EdgeInsets.only(
-                                  right: 10, left: 10, bottom: 10),
+                              margin: const EdgeInsets.only(right: 20, left: 0, bottom: 10),
                               height: 111,
-                              width: 188,
+                              width: 180,
                               decoration: BoxDecoration(
                                   boxShadow: [
                                     BoxShadow(
@@ -139,18 +175,23 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   child: Stack(
                                     children: [
-                                      Image.file(
-                                        File(ctrl.getVideo[index].thumbnail ??
-                                            ""),
-                                        errorBuilder: (context, error, trace) {
-                                          return const Center(
-                                              child:
-                                                  CircularProgressIndicator());
-                                        },
-                                        height: 111,
-                                        width: 188,
-                                        fit: BoxFit.cover,
-                                      ),
+
+
+                                      // Image.file(
+                                      //   File(ctrl.getVideo[index].thumbnail ??
+                                      //       ""),
+                                      //   errorBuilder: (context, error, trace) {
+                                      //     return const Center(
+                                      //         child:
+                                      //             CircularProgressIndicator());
+                                      //   },
+                                      //   height: 111,
+                                      //   width: 188,
+                                      //   fit: BoxFit.cover,
+                                      // ),
+                                      ///
+                                      VideoThumbnailCard(image: ctrl.getVideo[index].thumbnail.toString(),),
+
                                       Center(
                                         child: GestureDetector(
                                           onTap: () {
@@ -162,8 +203,8 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                                                 });
                                           },
                                           child: Image.asset(
-                                            color: Colors.grey.shade300
-                                                .withOpacity(0.9),
+                                            // color: deepPurple.withOpacity(0.8),
+                                            color: darkDeepPurple.withOpacity(0.8),
                                             Assets.imagesPlayButton,
                                             fit: BoxFit.cover,
                                             height: 50,
@@ -179,36 +220,43 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                       ),
                     ).paddingOnly(left: 10, right: 10),
             ),
-            // SizedBox(
-            //   height: 111,
-            //   child: ListView.builder(
-            //     scrollDirection: Axis.horizontal,
-            //     itemCount: 4,
-            //     shrinkWrap: true,
-            //     itemBuilder: (context, index) {
-            //       return const AppVideoCommonCard(
-            //         image: Assets.imagesWorkoutImg,
-            //       );
-            //     },
-            //   ),
-            // ).paddingOnly(left: 10, right: 10),
             30.0.addHSpace(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  AppSquareCard(
-                    onTap: () {
-                      Get.toNamed(Routes.mentalHealthMain,
-                          arguments: {"selectedPage": 6});
-                    },
-                    iconVisible: false,
-                    desc: '',
-                    btnText: null,
-                    image: ImageAssets.support,
-                    descColor: Colors.white,
-                  ),
-                  AppSquareCard(
+
+
+
+            Row(
+              children: [
+                Expanded(
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      AppSquareCard(
+                        width: 185,
+                        height: 188,
+                        onTap: () {
+                          Get.toNamed(Routes.mentalHealthMain,
+                              arguments: {"selectedPage": 6});
+                        },
+                        iconVisible: false,
+                        desc: '',
+                        btnText: null,
+                        image: ImageAssets.supportServiceImg,
+                        descColor: Colors.white,
+                      ),
+                      SvgPicture.asset('assets/icons/atozIcon.svg',height: 40,width: 40,).paddingOnly(top: 50),
+                      SvgPicture.asset('assets/icons/supportServiceIcon.svg',height: 40,width: 40,).paddingOnly(top: 75),
+                      SvgPicture.asset('assets/icons/inUkIcon.svg',height: 40,width: 40,).paddingOnly(top: 100),
+                    ],
+                  ).paddingOnly(left: 0,right: 0),
+                ),
+
+
+                5.0.addWSpace(),
+
+                Expanded(
+                  child: AppSquareCard(
+                    height: 188,
+                    width: 175,
                     onTap: () {
                       Get.toNamed(Routes.physicalHealthMainScreen,
                           arguments: {"selectedPage": 3});
@@ -217,11 +265,11 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                     btnText: 'Download Now',
                     image: ImageAssets.foodImage1,
                     descColor: Colors.white,
-                  ),
-                ],
-              ),
-            ).paddingOnly(left: 10, right: 10),
-            30.0.addHSpace(),
+                  ).paddingOnly(left: 0),
+                ),
+              ],
+            ).paddingOnly(left: 10, right: 0),
+            20.0.addHSpace(),
             Row(
               children: [
                 latestArticlesText.interTextStyle(
@@ -230,7 +278,7 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                     fontColor: textColor),
               ],
             ).paddingOnly(
-              left: 20,
+              left: 10,
             ),
             10.0.addHSpace(),
             Obx(
@@ -253,15 +301,10 @@ class WellBeingDashBoardScreen extends StatelessWidget {
                                   onTap: () {
                                     Get.toNamed(Routes.articleDetailScreen,
                                         arguments: [
-                                          {
-                                            "text": "Wellbeing",
-                                          },
+                                          {"text": "Wellbeing",},
                                           {"color": darkDeepPurple},
                                           {"color1": darkDeepPurple},
-                                          {
-                                            "id": articleController
-                                                .articlesList[index].id
-                                          }
+                                          {"id": articleController.articlesList[index].id}
                                         ]);
                                   },
                                   descColor: Colors.black,

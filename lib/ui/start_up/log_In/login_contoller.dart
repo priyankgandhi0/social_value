@@ -34,7 +34,7 @@ class LogInScreenController extends GetxController {
       preferences.saveUserItem(user);
       preferences.putString(SharedPreference.USER_EMAIL, user.email);
       preferences.putString(SharedPreference.FIRST_NAME, user.firstname);
-      preferences.putBool(SharedPreference.IS_LOGGED_IN, true);
+      // preferences.putBool(SharedPreference.IS_LOGGED_IN, true);
       if (user.status == "Success") {
         isLoading.value = false;
         preferences.putBool(SharedPreference.IS_LOGGED_IN, true);

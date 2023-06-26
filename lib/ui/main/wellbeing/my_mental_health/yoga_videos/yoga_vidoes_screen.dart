@@ -24,8 +24,7 @@ class MentalHealthYogaVideo extends StatelessWidget {
                 const EdgeInsets.only(left: 10, right: 20, top: 25, bottom: 25),
             child: GetBuilder<DashboardController>(initState: (state) {
               controller.getVideo.clear();
-              Future.delayed(Duration.zero).then(
-                  (value) => controller.getVideos(MethodIDs.mentalYogaVideo));
+              Future.delayed(Duration.zero).then((value) => controller.getVideos(MethodIDs.mentalYogaVideo));
             }, builder: (ctrl) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,6 +71,7 @@ class MentalHealthYogaVideo extends StatelessWidget {
                             itemBuilder: (BuildContext context, int index) {
                               return AppVideoCard(
                                 url: ctrl.getVideo[index].videoUrl,
+                                color: darkDeepPurple.withOpacity(0.8),
                                 onTap: () {
                                   Get.toNamed(Routes.videoPlayerScreen,
                                       arguments: {

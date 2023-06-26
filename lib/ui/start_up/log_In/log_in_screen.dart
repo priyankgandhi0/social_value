@@ -13,6 +13,7 @@ import 'login_contoller.dart';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({Key? key}) : super(key: key);
+
   final LogInScreenController controller = Get.put(LogInScreenController());
 
   @override
@@ -44,8 +45,7 @@ class LogInScreen extends StatelessWidget {
                         validator: (_) {
                           if (controller.emailCtr.text.isEmpty) {
                             return pleaseEnterEmailAddress;
-                          } else if (!RegExp(
-                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          } else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                               .hasMatch(_!)) {
                             return enterValidEmail;
                           }
@@ -87,9 +87,9 @@ class LogInScreen extends StatelessWidget {
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
                         fontColor: const Color(0xff000000),
-                        onTap: () {
+                        onTap: () async {
                           if (controller.signInKey.currentState!.validate()) {
-                            controller.userLogin();
+                            await controller.userLogin();
                             // controller.getArticleCategories();
                           }else{
                             controller.signInKey.currentState!.save();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../constant/app_string.dart';
 import '../../../../constant/requst_const.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../utils/extension.dart';
@@ -61,14 +62,14 @@ class _WebinarsScreenState extends State<WebinarsScreen>
               SizedBox(
                 width: (Get.width / 2),
                 child: Tab(
-                  child: "Sustainability Webinars".interTextStyle(
+                  child: sustainabilityWebinars.interTextStyle(
                       fontSize: 16, fontWeight: FontWeight.w700),
                 ),
               ),
               SizedBox(
                   width: (Get.width / 3),
                   child: Tab(
-                      child: "EDI Webinars".interTextStyle(
+                        child: ediWebinarsText.interTextStyle(
                           fontSize: 16, fontWeight: FontWeight.w700))),
             ],
           ),
@@ -137,6 +138,7 @@ class SustainabilityWebinars extends StatelessWidget {
                                     ),
                             itemBuilder: (BuildContext context, int index) {
                               return AppVideoCard(
+                                color: darkGreen.withOpacity(0.8),
                                 url: ctrl.getVideo[index].videoUrl,
                                 onTap: () {
                                   Get.toNamed(Routes.videoPlayerScreen, arguments: {"url": ctrl.getVideo[index].videoUrl});
@@ -219,11 +221,12 @@ class EdiWebinars extends StatelessWidget {
                                     ),
                             itemBuilder: (BuildContext context, int index) {
                               return AppVideoCard(
+                                color: darkGreen.withOpacity(0.8),
                                 url: ctrl.getVideo[index].videoUrl,
                                 onTap: () {
                                   Get.toNamed(Routes.videoPlayerScreen,
                                       arguments: {
-                                        "url": ctrl.getVideo[index].videoUrl
+                                    "url": ctrl.getVideo[index].videoUrl
                                       });
                                 },
                                 title: ctrl.getVideo[index].title,

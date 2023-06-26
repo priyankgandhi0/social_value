@@ -49,7 +49,7 @@ class DiscountCard extends StatelessWidget {
                     children: [
                       SvgPicture.asset(IconsAssets.bookMarkIcon),
                       12.0.addWSpace(),
-                      const Text("Get discount at your favourite retails",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w800),)
+                      Expanded(child: const Text("Get discount at your favourite retails",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w800),))
                     ],
                   ),
                   5.0.addHSpace(),

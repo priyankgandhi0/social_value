@@ -90,9 +90,7 @@ class WellbeingRepo {
   Future<dynamic> getVideoCategories() async {
     dynamic result;
     String queryString = MethodNames.getVideoCategories;
-    // String queryString = Uri(queryParameters: queryParameters).query;
     String requestUrl = AppUrls.BASE_URL + queryString;
-
     result = await BaseApiHelper.getRequest(requestUrl);
 
     return result;
@@ -111,8 +109,7 @@ class WellbeingRepo {
 
     var queryParameters = {RequestParam.id: id};
     String queryString =
-        Uri(path: MethodNames.getCompany, queryParameters: queryParameters)
-            .toString();
+        Uri(path: MethodNames.getCompany, queryParameters: queryParameters).toString();
 
     String requestUrl = AppUrls.BASE_URL + queryString;
     result = await BaseApiHelper.getRequest(requestUrl);

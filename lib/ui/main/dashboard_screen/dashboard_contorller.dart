@@ -45,7 +45,7 @@ class DashboardController extends GetxController {
   Future<List<VideoData>> setVideoUrls(List<VideoData> videos) async {
     for (int i = 0; i < videos.length; i++) {
       videos[i].videoUrl = await getVideoUrl(videos[i].museVideoId);
-      videos[i].thumbnail = await getThumbnail(Uri.encodeFull(videos[i].videoUrl), videos[i].id);
+      // videos[i].thumbnail = await getThumbnail(Uri.encodeFull(videos[i].videoUrl), videos[i].id);
     }
     return videos;
   }

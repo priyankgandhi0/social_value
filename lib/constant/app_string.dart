@@ -66,6 +66,7 @@ const internationalMicrovolunteering =
 const nextAwarenessDay = 'Next Awareness Day';
 const communityHome = 'Community Home';
 const sustainabilityWebinars = 'Sustainability Webinars';
+const ediWebinarsText = 'EDI Webinars';
 const sustainabilityArticles = 'Sustainability Articles';
 const finances = 'Finances';
 const completeTheFormToGetStarted = 'Complete the form to get started';
@@ -143,7 +144,7 @@ const mentalHealthSupportArticles = 'Mental Health Support Articles';
 const scoreTitle = 'Test Company\'s Employee Wellbeing Score';
 const scoreDesc = 'This score is based on the staff wellbeing score of your organisation. As the organisation evolves with the support of our platform the score will continually improve.';
 const chooseYourWorkout = 'Choose Your Workout';
-const articleCategoryTitle = 'Article Category Title';
+const articleCategoryTitle = 'Physical Health Articles';
 const discountCard = 'Discount Card';
 const charityPage = 'Charity Pledge';
 const lessmillsDesc =
@@ -190,4 +191,4 @@ const lesmillsText =
     'Discover Les Mills Workouts with 200+ training videos. Workout at home or on the go!';
 
 const planetSeeHowText =
-    '''See How You Can Help Your Organisation on its Jopurney to Net Zero''';
+    '''See How You Can Help Your Organisation on its Journey to Net Zero''';

@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_color.dart';
 
 extension AppText on String {
-  appEpilogueTextStyle({
+  Text appEpilogueTextStyle({
     Color? fontColor,
     double? fontSize,
     TextDecoration? textDecoration,
@@ -18,7 +18,7 @@ extension AppText on String {
       this,
       overflow: textOverflow,
       maxLines: maxLines,
-      style: GoogleFonts.epilogue(color: fontColor ?? black, fontSize: fontSize ?? 16, fontWeight: fontWeight, fontStyle: FontStyle.normal, decoration: textDecoration ?? TextDecoration.none,),
+      style: GoogleFonts.epilogue(color: fontColor ?? black, fontSize: fontSize ?? 16, fontWeight: fontWeight, fontStyle: FontStyle.normal, decoration: textDecoration ?? TextDecoration.none),
       textAlign: textAlign,
     );
   }

@@ -52,37 +52,19 @@ class CommunityDashboard extends StatelessWidget {
                             Get.offAndToNamed(Routes.communityMain,
                                 arguments: {"selectedPage": 3});
                           },
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 20),
-                            height: 175,
-                            width: 165,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                image: const DecorationImage(
-                                    image: AssetImage(
-                                      ImageAssets.atozFundrising,
-                                    ),
-                                    fit: BoxFit.cover)
-                            ),
-                          ),
+                          child: FundRisingCard(width: 165,height: 175,fit: BoxFit.fitHeight,).paddingOnly(left: 20),
                         ),
+
+
                         GestureDetector(
                           onTap: () {
                             Get.offAndToNamed(Routes.communityMain, arguments: {"selectedPage": 2});
                           },
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 20),
+                          child: CommunityVolunteerCard(
                             height: 175,
                             width: 165,
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(8),
-                                image: const DecorationImage(
-                                    image: AssetImage(
-                                      ImageAssets.volunteering,
-                                    ),
-                                    fit: BoxFit.cover)),
-                          ),
+                            backGroundImg: Assets.communityVoluImg,
+                          ).paddingOnly(left: 20),
                         ),
                       ],
                     ),
@@ -177,7 +159,7 @@ class CommunityDashboard extends StatelessWidget {
                               onTap: () {
                                 Get.offAndToNamed(Routes.communityMain,
                                     arguments: {"selectedPage": 5});
-                              }),
+                              }).paddingSymmetric(horizontal: 110),
                         ],
                       )),
                   20.0.addHSpace(),
@@ -204,9 +186,7 @@ class CommunityDashboard extends StatelessWidget {
                                   onTap: () {
                                     Get.toNamed(Routes.articleDetailScreen,
                                         arguments: [
-                                          {
-                                            "text": "Community",
-                                          },
+                                          {"text": "Community"},
                                           {"color": darkPurple},
                                           {"color1": darkPurple},
                                           {"id": ctrl.articlesList[index].id}

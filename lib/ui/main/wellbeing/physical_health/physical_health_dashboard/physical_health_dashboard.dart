@@ -50,31 +50,18 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                     Get.offAndToNamed(Routes.physicalHealthMainScreen,
                         arguments: {"selectedPage": 1});
                   },
-                  child: Container(
-                    height: 300,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey,
-                        image: DecorationImage(
-                            image: AssetImage(Assets.lesMillsBackImage),
-                            fit: BoxFit.fill)),
-                    child: ClipRRect(
-                      borderRadius:
-                          BorderRadius.circular(10), // child: Image.asset(
-                      //   Assets.imagesLesMills,
-                      //   fit: BoxFit.cover,
-                      // ),
-                      // child:  SvgPicture.asset(Assets.imagesLesMillsSvg),
-                    ),
+                  child: const LesMillsCard(
+                    insidePadding: 12,
+                    cardHeight: 313,
+                    textButtonBetWeen: 15,
                   ),
                 ),
                 30.0.addHSpace(),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      AppSquareCard(
+                Row(
+                  children: [
+                    Expanded(
+                      child: AppSquareCard(
+                        width: 188,
                         onTap: () {
                           Get.offAndToNamed(Routes.physicalHealthMainScreen,
                               arguments: {"selectedPage": 2});
@@ -83,8 +70,12 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                         btnText: 'Get Your BMI',
                         image: ImageAssets.bmiImage,
                         descColor: Colors.white,
-                      ),
-                      AppSquareCard(
+                      ).paddingOnly(right: 0),
+                    ),
+                    15.0.addWSpace(),
+                    Expanded(
+                      child: AppSquareCard(
+                        width: 188,
                         onTap: () {
                           Get.offAndToNamed(Routes.physicalHealthMainScreen,
                               arguments: {"selectedPage": 3});
@@ -94,8 +85,8 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                         image: ImageAssets.foodImage1,
                         descColor: Colors.white,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 30.0.addHSpace(),
                 yourDailyWorkoutVideos.interTextStyle(
@@ -115,7 +106,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                               return const ShimmerEffect();
                             },
                           ),
-                        ).paddingOnly(left: 10, right: 10)
+                        ).paddingOnly(left: 0, right: 10)
                       : SizedBox(
                           height: 123,
                           child: ListView.builder(
@@ -125,10 +116,9 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                             addAutomaticKeepAlives: false,
                             itemBuilder: (context, index) {
                               return Container(
-                                  margin: const EdgeInsets.only(
-                                      right: 10, left: 10, bottom: 10),
+                                  margin: const EdgeInsets.only(right: 0, left: 0, bottom: 10),
                                   height: 111,
-                                  width: 188,
+                                  width: 175,
                                   decoration: BoxDecoration(
                                       boxShadow: [
                                         BoxShadow(
@@ -170,8 +160,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                                                     });
                                               },
                                               child: Image.asset(
-                                                color: Colors.grey.shade300
-                                                    .withOpacity(0.9),
+                                                color: darkDeepPurple.withOpacity(0.8),
                                                 Assets.imagesPlayButton,
                                                 fit: BoxFit.cover,
                                                 height: 50,
@@ -182,7 +171,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                  ));
+                                  )).paddingOnly(right: 15);
                             },
                           ),
                         ),
@@ -205,6 +194,7 @@ class PhysicalHealthDashBoard extends StatelessWidget {
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return AppArticlesCard(
+                              width: 175,
                                 onTap: () {
                                   Get.toNamed(Routes.articleDetailScreen,
                                       arguments: [

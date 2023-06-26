@@ -170,7 +170,7 @@ class MemberShipCard extends StatelessWidget {
                       textAlign: TextAlign.center,
                       fontColor: textColor),
                   10.0.addHSpace(),
-                  AppButton(text: accessNow, onTap: onTap!),
+                  AppButton(text: accessNow, onTap: onTap!).paddingSymmetric(horizontal: 100),
                 ],
               ),
             ),

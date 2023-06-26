@@ -29,6 +29,7 @@ class MethodNames {
   static const getCompany = "get-company";
   static const getFaqs = "get-faqs";
   static const awarenessDays = "awareness-days";
+  static const getAffirmation = "get-affirmation";
 }
 
 class MethodIDs {
